@@ -8,6 +8,7 @@ var publicKey = '-----BEGIN PUBLIC KEY-----\n' +
 	'yRxCui6Z+LiGOSh93QIDAQAB\n' +
 	'-----END PUBLIC KEY-----';  //从服务端接收到的公钥，缓存到本地
 clientKey.importKey(publicKey);
+clientKey.setOptions({ encryptionScheme: 'pkcs1' });
 
 export default function (password) {
 	let encrypted = clientKey.encrypt(password, 'base64');

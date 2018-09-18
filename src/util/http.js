@@ -9,13 +9,14 @@ import 'whatwg-fetch';
 function post(url, data, responseDataType) {
 	return fetch(url, {
 		headers: {
-			Accept: 'application/json',
-			'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+			Accept: 'application/json'
+			// 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
 		},
-		credentials: 'include',
+		// credentials: 'include',
 		mode: 'cors',
 		method: 'POST',
-		body: _urlEncode(data)
+		// body: _urlEncode(data)
+		body: JSON.stringify(data)
 	}).then(function (response) {
 		return _formatData(response, responseDataType);
 	});
@@ -29,8 +30,8 @@ function post(url, data, responseDataType) {
 function get(url, responseDataType) {
 	return fetch(url, {
 		method: 'GET',
-		mode: 'cors',
-		credentials: 'include'
+		mode: 'cors'
+		// credentials: 'include'
 	}).then(function (response) {
 		return _formatData(response, responseDataType);
 	});
