@@ -1,6 +1,6 @@
 <template>
 	<div class="login-page">
-		<login-menu></login-menu>
+		<login-menu :page="'login'"></login-menu>
 		<div class="main">
 			<h1 class="tit">欢迎登陆</h1>
 			<div class="entry-form">
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie';
 import loginMenu from '../../components/loginMenu';
 import { getVeriCode, chkUserLogPass } from '../../apis/index'; //apis
 import encryptPassword from '../../../../util/rsaEncrypt'; //密码rsa加密
@@ -112,13 +113,22 @@ export default {
 						// 	message: '登录成功，即将跳转。',
 						// 	type: 'success'
 						// });
-						this.$route.phsh('/login/cn');
+						// this.$route.phsh('/login/cn');
+						Cookie.set('token', data.data.token);
+						Cookie.set('lastLogIp', data.data.lastLogIp || '');
+						Cookie.set('lastLogTime', data.data.lastLogTime || '');
+						this.$toast('登录成功，即将跳转。');
+						window.location.href =
+							window.location.protocol +
+							'//' +
+							window.location.host +
+							'/coins';
 					} else {
 						this.$message.error(data.msg);
 					}
 				})
 				.catch(err => {
-					this.$message.error('网络异常，稍后重试。');
+					this.$toast('网络异常，稍后重试。');
 				});
 		},
 		// 空表单校验

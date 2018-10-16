@@ -1,5 +1,7 @@
 // const HOST = 'http://apimanage.58corp.com/';// mock
-const HOST = 'http://10.252.55.195/';// 线上
+// const HOST = 'http://10.252.55.195/';// 线上
+import Util from '@/util';
+const HOST = Util.DOMAIN;
 
 const getVeriCodePath = HOST + 'getVeriCode' + '?mock_apiId=5b7e5cac7ad806420cbf2bd2'; //获取短信验证码接口
 const registeUserPath = HOST + 'registeUser' + '?mock_apiId=5b7fa31ab2a0fd193649ee6a'; //注册用户接口

@@ -4,6 +4,8 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import VeeValidate from 'vee-validate';
+import { Toast } from 'mint-ui';
+import 'mint-ui/lib/style.css'
 
 Vue.config.productionTip = false;
 
@@ -11,6 +13,9 @@ const veeConfig = {
 	events: 'input'//blur失焦校验；input输入时校验
 };
 Vue.use(VeeValidate, veeConfig);
+
+Vue.prototype.$toast = Toast;
+Vue.component(Toast.name, Toast);
 
 /* eslint-disable no-new */
 new Vue({
