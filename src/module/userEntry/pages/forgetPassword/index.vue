@@ -1,8 +1,8 @@
 <template>
-	<div class="login-page">
-		<log-menu :page="'login'"></log-menu>
+	<div class="logup-page">
+		<log-menu :page="'forget'"></log-menu>
 		<div class="main">
-			<h1 class="tit">欢迎登陆</h1>
+			<h1 class="tit">忘记密码</h1>
 			<div class="entry-form">
 				<p class="form-item">
 					<span class="name">手机： </span>
@@ -17,15 +17,16 @@
 				</p>
 				<p class="form-item">
 					<span class="name">密码： </span>
-					<input v-validate="validateRule.password.validation" v-model="password" @blur="()=>this.emptyError=''" name="password" type="password" class="input" placeholder="请输入登录密码">
+					<input v-validate="validateRule.password.validation" v-model="password" @blur="()=>this.emptyError=''" name="password" type="password" class="input" placeholder="8-16位，不能全部是字符或数字">
 					<span v-show="errors.has('password')" class="error-tip">{{ validateRule.password.text}}</span>
+				</p>
+				<p class="form-item">
+					<span class="name">确认密码： </span>
+					<input v-model="pwdAgain" @blur="confirmPassword" name="pwdAgain" type="password" class="input" placeholder="请再次输入密码">
+					<span v-show="confirmPwdError" class="error-tip">两次输入的密码不一致</span>
 					<span v-show="emptyError" class="error-tip">{{emptyError}}不能为空</span>
 				</p>
-				<p class="links">
-					<!-- <a href="javascript:void(0)" @click="goSignUp" class="signup-link">用户注册</a> -->
-					<a href="javascript:void(0)" @click="goForgetPwd" class="forget-link">忘记密码</a>
-				</p>
-				<p class="form-btn" @click="signIn">登录</p>
+				<p class="form-btn" @click="resetPassword">重置密码</p>
 			</div>
 		</div>
 	</div>
@@ -34,7 +35,7 @@
 <script>
 import Cookie from 'js-cookie';
 import logMenu from '../../components/logMenu';
-import { getVeriCode, chkUserLogPass } from '../../apis/index'; //apis
+import { getVeriCode, resetUserLogPass } from '../../apis/index'; //apis
 import encryptPassword from '../../../../util/rsaEncrypt'; //密码rsa加密
 export default {
 	components: {
@@ -45,6 +46,8 @@ export default {
 			phone: '',
 			authCode: '',
 			password: '',
+			pwdAgain: '',
+			confirmPwdError: false, // 两次输入的密码不一致
 			emptyError: '',
 			validateRule: {
 				phone: {
@@ -67,7 +70,7 @@ export default {
 						required: true,
 						regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 					},
-					text: '密码验证错误'
+					text: '8-16位，由数字和字母组成，不能全是数字或全是字母。'
 				}
 			},
 			authBtnState: 0, //获取验证码按钮状态：0-不可点击，1-可点击
@@ -92,7 +95,8 @@ export default {
 		}
 	},
 	methods: {
-		signIn() {
+		resetPassword() {
+			this.$message.error('网络异常，稍后重试。');
 			const validateErrorNum = this.errors.items.length; // 表单验证错误数
 			// 表单格式校验失败
 			if (validateErrorNum) {
@@ -102,34 +106,40 @@ export default {
 			if (!this.checkEmptyError()) {
 				return false;
 			}
-			chkUserLogPass(
+			// 两次密码不一致
+			if (!this.confirmPassword()) {
+				return false;
+			}
+			resetUserLogPass(
 				this.phone,
 				this.authCode,
 				encryptPassword(this.password)
 			)
 				.then(data => {
 					if (data.code === 200) {
-						// this.$message({
-						// 	message: '登录成功，即将跳转。',
-						// 	type: 'success'
-						// });
-						// this.$route.phsh('/login/cn');
-						Cookie.set('token', data.data.token);
-						Cookie.set('lastLogIp', data.data.lastLogIp || '');
-						Cookie.set('lastLogTime', data.data.lastLogTime || '');
-						this.$toast('登录成功，即将跳转。');
-						window.location.href =
-							window.location.protocol +
-							'//' +
-							window.location.host +
-							'/coins';
+						this.$message({
+							message: '密码已重置，即将跳转登录页。',
+							type: 'success'
+						});
+						this.$router.push('/login/cn');
 					} else {
 						this.$message.error(data.msg);
 					}
 				})
 				.catch(err => {
-					this.$toast('网络异常，稍后重试。');
+					this.$message.error('网络异常，稍后重试。');
 				});
+		},
+		// 判断两次密码是否一致
+		confirmPassword() {
+			this.emptyError = '';
+			if (this.password !== this.pwdAgain) {
+				this.confirmPwdError = true;
+				return false;
+			} else {
+				this.confirmPwdError = false;
+				return true;
+			}
 		},
 		// 空表单校验
 		checkEmptyError() {
@@ -143,6 +153,10 @@ export default {
 			}
 			if (!this.password) {
 				this.emptyError = '密码';
+				return false;
+			}
+			if (!this.pwdAgain) {
+				this.emptyError = '确认密码';
 				return false;
 			}
 			return true;
@@ -173,14 +187,6 @@ export default {
 				this.authBtnText = count + '秒后重试';
 				count--;
 			}, 1000);
-		},
-		// 跳转注册页
-		goSignUp() {
-			this.$router.push('/logup');
-		},
-		// 跳转忘记密码页
-		goForgetPwd() {
-			this.$router.push('/forget');
 		}
 	}
 };
@@ -188,4 +194,12 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/css/public.scss';
+.main {
+	margin-top: 90px;
+}
+.entry-form {
+	.form-btn {
+		margin-top: 28px;
+	}
+}
 </style>
