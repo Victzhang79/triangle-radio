@@ -1,6 +1,6 @@
 <template>
 	<div class="top-menu">
-		<div class="logo">1</div>
+		<div class="logo"></div>
 		<div class="menu-list">
 			<slot></slot>
 		</div>
