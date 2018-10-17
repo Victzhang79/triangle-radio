@@ -1,0 +1,52 @@
+.buy-process {
+  margin: 0 auto;
+  padding: 25px 63px;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular;
+  * {
+    box-sizing: border-box;
+  }
+  .header-title {
+    font-size: 24px;
+    color: #1d1d1d;
+    margin-bottom: 22px;
+  }
+  .header-title::before {
+    content: '';
+    width: 5px;
+    height: 33px;
+    background: #2ab3ce;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -8px;
+    margin-right: 20px;
+  }
+  .process-img {
+    width: 867px;
+    height: 77px;
+    margin-left: 26px;
+  }
+  .process-desc {
+    font-size: 16px;
+    color: #1d1d1d;
+    line-height: 33px;
+    .date {
+      color: #2ab3ce;
+      display: block;
+    }
+    .desc {
+      text-align: center;
+      display: inline-block;
+      width: 170px;
+    }
+    .desc:first-child {
+      margin-left: -20px;
+    }
+    .desc:nth-child(2) {
+      margin-left: 223px;
+    }
+    .desc:nth-child(3) {
+      margin-left: 220px;
+    }
+  }
+}
