@@ -6,12 +6,20 @@
 	.logo {
 		display: inline-block;
 		width: px2rem(187px);
-		height: px2rem(39px);
-		overflow: hidden;
-		background: url(../../assets/imgs/logo2x.png) 0 0  no-repeat;
-		background-size: 100%;
-		margin-top: px2rem(20px);
+		// height: px2rem(39px);
+		// overflow: hidden;
+		// background: url(../../assets/imgs/logo2x.png) 0 0  no-repeat;
+		// background-size: 100%;
+		// margin-top: px2rem(20px);
 		margin-left: px2rem(30px);
+		// 
+		color: #fff;
+		letter-spacing: px2rem(3px);
+		img {
+			width: px2rem(40px);
+			transform: translateY(px2rem(10px));
+			margin-right: px2rem(6px);
+		}
 	}
 	.menu-list {
 		float: right;

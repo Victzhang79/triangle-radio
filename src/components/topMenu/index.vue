@@ -1,6 +1,6 @@
 <template>
 	<div class="top-menu">
-		<div class="logo"></div>
+		<div class="logo"><img src="../../../static/logo_2x.png" alt="">KOOBANK</div>
 		<div class="menu-list">
 			<slot></slot>
 		</div>
