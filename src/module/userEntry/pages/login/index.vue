@@ -109,7 +109,7 @@ export default {
 			)
 				.then(data => {
 					if (data.code === 200) {
-						// this.$message({
+						// this.$toast({
 						// 	message: '登录成功，即将跳转。',
 						// 	type: 'success'
 						// });
@@ -124,11 +124,11 @@ export default {
 							window.location.host +
 							'/coins';
 					} else {
-						this.$message.error(data.msg);
+						this.$toast.fail(data.msg);
 					}
 				})
 				.catch(err => {
-					this.$toast('网络异常，稍后重试。');
+					this.$toast.fail('网络异常，稍后重试。');
 				});
 		},
 		// 空表单校验

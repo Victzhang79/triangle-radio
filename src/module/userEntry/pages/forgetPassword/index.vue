@@ -96,7 +96,7 @@ export default {
 	},
 	methods: {
 		resetPassword() {
-			this.$message.error('网络异常，稍后重试。');
+			this.$toast.fail('网络异常，稍后重试。');
 			const validateErrorNum = this.errors.items.length; // 表单验证错误数
 			// 表单格式校验失败
 			if (validateErrorNum) {
@@ -117,17 +117,14 @@ export default {
 			)
 				.then(data => {
 					if (data.code === 200) {
-						this.$message({
-							message: '密码已重置，即将跳转登录页。',
-							type: 'success'
-						});
+						this.$toast('密码已重置，即将跳转登录页。');
 						this.$router.push('/login/cn');
 					} else {
-						this.$message.error(data.msg);
+						this.$toast.fail(data.msg);
 					}
 				})
 				.catch(err => {
-					this.$message.error('网络异常，稍后重试。');
+					this.$toast.fail('网络异常，稍后重试。');
 				});
 		},
 		// 判断两次密码是否一致

@@ -4,8 +4,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import VeeValidate from 'vee-validate';
-import { Toast } from 'mint-ui';
-import 'mint-ui/lib/style.css'
+import { Toast } from 'vant';
 
 Vue.config.productionTip = false;
 
@@ -14,8 +13,7 @@ const veeConfig = {
 };
 Vue.use(VeeValidate, veeConfig);
 
-Vue.prototype.$toast = Toast;
-Vue.component(Toast.name, Toast);
+Vue.use(Toast);
 
 /* eslint-disable no-new */
 new Vue({

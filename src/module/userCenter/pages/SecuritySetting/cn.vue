@@ -1,14 +1,7 @@
 <template>
 	<div class="app">
-		<el-container>
-			<el-aside>
-				<left-nav :currentIndex="1">
-				</left-nav>
-			</el-aside>
-			<el-main>
-				<security-list></security-list>
-			</el-main>
-		</el-container>
+		<left-nav :currentIndex="1"></left-nav>
+		<security-list></security-list>
 	</div>
 </template>
 <script>

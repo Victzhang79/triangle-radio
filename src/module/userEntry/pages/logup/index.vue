@@ -130,11 +130,11 @@ export default {
 						this.$toast('注册成功，即将跳转登录页');
 						this.$router.push('/login/cn');
 					} else {
-						this.$toast(data.msg);
+						this.$toast.fail(data.msg);
 					}
 				})
 				.catch(err => {
-					this.$toast('网络异常，稍后重试。');
+					this.$toast.fail('网络异常，稍后重试。');
 					console.log(err);
 				});
 		},
