@@ -1,10 +1,13 @@
 <template>
 	<div class="security-list">
-		<div class="userInfo clear">
-			<p class="hello fl">{{helloTime + '，'+ securityInfo.userMobile}}</p>
-			<p class="lastLogTime fl">上次登录时间：{{lastLogTime}}</p>
-			<p class="lastLogIp fl">上次登录IP：{{lastLogIp}}</p>
+		<div class="userInfo-wrap">
+			<div class="userInfo clear">
+				<p class="hello fl">{{helloTime + '，'+ securityInfo.userMobile}}</p>
+				<p class="lastLogTime fl">上次登录时间：{{lastLogTime}}</p>
+				<p class="lastLogIp fl">上次登录IP：{{lastLogIp}}</p>
+			</div>
 		</div>
+
 		<ul class="list">
 			<li class="item">
 				<img class="icon" src="../../assets/imgs/icon-user.png">
@@ -19,7 +22,7 @@
 				</span>
 				<el-button @click="setSafeEmail" class="btn fr" disabled plain>认证</el-button>
 			</li>
-			<li class="item">
+			<li class="item password">
 				<img class="icon" src="../../assets/imgs/icon-key.png">
 				<span class="txt">登录密码：
 					<em>{{securityInfo.logPassStatus=='1'?'已设置':'未设置'}}</em>
@@ -27,10 +30,10 @@
 				<el-button @click="setLogPassword" class="btn fr" plain>{{securityInfo.logPassStatus!='1'?'设置':'修改'}}</el-button>
 				<p class="progess-group">
 					<span>安全级别：</span>
-					<el-progress class="progess" :percentage="securityInfo.logPassLevel==1?33:securityInfo.logPassLevel==2?66:securityInfo.logPassLevel==3?100:0" :show-text="false" :stroke-width="7" color="#FC8282"></el-progress>
+					<van-progress class="progess" :percentage="securityInfo.logPassLevel==1?33:securityInfo.logPassLevel==2?66:securityInfo.logPassLevel==3?100:0" :show-pivot="false" color="#FC8282" />
 				</p>
 			</li>
-			<li class="item">
+			<li class="item password">
 				<img class="icon" src="../../assets/imgs/icon-key.png">
 				<span class="txt">资金密码：
 					<em>{{securityInfo.transPassStatus=='1'?'已设置':'未设置'}}</em>
@@ -38,7 +41,7 @@
 				<el-button @click="setTransPassword" class="btn fr" plain>{{securityInfo.transPassStatus!='1'?'设置':'修改'}}</el-button>
 				<p class="progess-group">
 					<span>安全级别：</span>
-					<el-progress class="progess" :percentage="securityInfo.transPassLevel=='1'?33:securityInfo.transPassLevel=='2'?66:securityInfo.logPassLevel=='3'?100:0" :show-text="false" :stroke-width="7" color="#FC8282"></el-progress>
+					<van-progress class="progess" :percentage="securityInfo.transPassLevel=='1'?33:securityInfo.transPassLevel=='2'?66:securityInfo.logPassLevel=='3'?100:0" :show-pivot="false" color="#FC8282" />
 				</p>
 			</li>
 			<li class="item">
@@ -49,9 +52,9 @@
 				<el-button class="btn fr" :disabled="securityInfo.googleValidStatus!='1'" plain>验证</el-button>
 			</li>
 		</ul>
-		<safe-email-dialog></safe-email-dialog>
+		<!-- <safe-email-dialog></safe-email-dialog>
 		<log-password-dialog></log-password-dialog>
-		<trans-password-dialog></trans-password-dialog>
+		<trans-password-dialog></trans-password-dialog> -->
 	</div>
 </template>
 

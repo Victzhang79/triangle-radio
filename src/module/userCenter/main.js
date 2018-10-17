@@ -4,18 +4,19 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import store from './store';
-// import ElementUI from 'element-ui';
 import VeeValidate from 'vee-validate';
 import VueClipboard from 'vue-clipboard2';
-// import 'element-ui/lib/theme-chalk/index.css';
+import { Progress } from 'vant';
+
 
 Vue.config.productionTip = false;
 
-// Vue.use(ElementUI);
 Vue.use(VeeValidate, {
 	fieldsBagName: 'veefields'
 });
 Vue.use(VueClipboard);
+
+Vue.use(Progress);
 
 /* eslint-disable no-new */
 new Vue({
