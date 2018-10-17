@@ -1,0 +1,36 @@
+.fund-detail {
+  margin: 0 auto;
+  padding: 25px 63px 30px;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular;
+  * {
+    box-sizing: border-box;
+  }
+  .header-title {
+    font-size: 24px;
+    color: #1d1d1d;
+    margin-bottom: 22px;
+  }
+  .header-title::before {
+    content: '';
+    width: 5px;
+    height: 33px;
+    background: #2ab3ce;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -8px;
+    margin-right: 20px;
+  }
+  .detail {
+    font-size: 16px;
+    color: #878585;
+    line-height: 66px;
+    p {
+      padding-left: 30px;
+    }
+
+    p:nth-child(odd) {
+      background: #fbfbfb;
+    }
+  }
+}

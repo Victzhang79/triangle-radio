@@ -1,0 +1,52 @@
+@import '../../assets/style/public.scss';
+.footer {
+  text-align: center;
+  height: px2rem(370px);
+  background: #000;
+  position: relative;
+  .footer-content {
+    position: absolute;
+    width: px2rem(456px);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-links {
+    margin-top: px2rem(50px);
+    margin-bottom: px2rem(36px);
+  }
+  .footer-links li {
+    float: left;
+    padding: 0 px2rem(14px);
+  }
+  .link {
+    display: block;
+    width: px2rem(55px);
+    height: px2rem(54px);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .link.twitter {
+    background-image: url(http://www.aoabank.com/m/twitter.png);
+  }
+  .link.github {
+    background-image: url(http://www.aoabank.com/m/github.png);
+  }
+  .link.gitter {
+    background-image: url(http://www.aoabank.com/m/gitter.png);
+  }
+  .link.weibo {
+    background-image: url(http://www.aoabank.com/m/weibo.png);
+  }
+  .link.mail {
+    background-image: url(http://www.aoabank.com/m/mail.png);
+  }
+  .link.telegram {
+    background-image: url(http://www.aoabank.com/m/telegram.png);
+  }
+  .company,
+  .copyright {
+    font-size: 12px;
+    color: #747474;
+  }
+}

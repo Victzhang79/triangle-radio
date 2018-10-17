@@ -1,0 +1,157 @@
+.recommend-div {
+  margin: 0 auto;
+  padding: 20px 20px 0;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular;
+  .header-title {
+    font-size: 24px;
+    color: #878787;
+    line-height: 60px;
+    margin-bottom: 45px;
+  }
+  .split-line {
+    width: 35px;
+    border-top: 1px solid #979797;
+    border-bottom: 1px solid #979797;
+    margin: 0 30px;
+    vertical-align: middle;
+    display: inline-block;
+  }
+  .recommend-item {
+    display: inline-block;
+    width: 254px;
+    height: 425px;
+    border-radius: 8px 8px 0 0;
+    margin: 0 18px;
+    background: #f7f7f7;
+    position: relative;
+    overflow: hidden;
+    .title {
+      font-size: 28px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 40px;
+      height: 133px;
+      border-radius: 8px 8px 0 0;
+      padding: 35px 10px 0;
+      box-sizing: border-box;
+    }
+    .state-icon {
+      font-size: 12px;
+      line-height: 26px;
+      width: 80px;
+      padding-top: 12px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 2;
+      -webkit-transform-origin: left bottom;
+      -moz-transform-origin: left bottom;
+      transform-origin: left bottom;
+      -webkit-transform: translate(29.29%, -100%) rotate(45deg);
+      -moz-transform: translate(29.29%, -100%) rotate(45deg);
+      transform: translate(29.29%, -100%) rotate(45deg);
+      text-indent: 0;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .no-start {
+      background: #aaa;
+    }
+    .running {
+      background: #ff8e00;
+    }
+    .profitting {
+      background: #fe6868;
+    }
+    .btn {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 40px;
+      span {
+        display: inline-block;
+        width: 108px;
+        height: 44px;
+        line-height: 44px;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+    }
+  }
+  .content {
+    padding: 20px;
+    text-align: center;
+    color: #000;
+    text-align: center;
+    line-height: 30px;
+  }
+  .rate {
+    font-size: 42px;
+    color: #ff5c1b;
+    text-align: center;
+    line-height: 50px;
+    margin-bottom: 20px;
+  }
+  .fund-days {
+    font-size: 20px;
+    color: #fe6868;
+    text-align: center;
+    line-height: 30px;
+  }
+  .font-blue {
+    color: #57b1cb;
+  }
+  .recommend-item:first-child {
+    .title {
+      background: #56cd61;
+    }
+    .buy {
+      color: #ffffff;
+      background: #56cd61;
+    }
+    .watch {
+      border: 1px solid #56cd61;
+      color: #56cd61;
+    }
+  }
+  .recommend-item:nth-child(2) {
+    .title {
+      background: #7567ef;
+    }
+    .buy {
+      color: #ffffff;
+      background: #7567ef;
+    }
+    .watch {
+      border: 1px solid #7567ef;
+      color: #7567ef;
+    }
+  }
+  .recommend-item:nth-child(3) {
+    .title {
+      background: #5ad9b3;
+    }
+    .buy {
+      color: #ffffff;
+      background: #5ad9b3;
+    }
+    .watch {
+      border: 1px solid #5ad9b3;
+      color: #5ad9b3;
+    }
+  }
+  .recommend-item:nth-child(4) {
+    .title {
+      background: #895fa5;
+    }
+    .buy {
+      color: #ffffff;
+      background: #895fa5;
+    }
+    .watch {
+      border: 1px solid #895fa5;
+      color: #895fa5;
+    }
+  }
+}
