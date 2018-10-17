@@ -1,0 +1,19 @@
+@import '../../assets/css/public.scss';
+.el-tabs__content {
+  display: none;
+}
+.el-tabs__item {
+  padding: 0 30px;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.el-tabs__active-bar {
+  background: $activeColor;
+}
+.el-tabs__item.is-active {
+  color: $activeColor;
+}
+.el-tabs__item:hover {
+  color: $activeColor;
+}

@@ -11,8 +11,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../assets/css/reset.scss';
-@import '../../assets/css/base.scss';
+// @import '../../assets/css/reset.scss';
+// @import '../../assets/css/base.scss';
+@import '../../assets/style/public.scss';
 html,
 body {
 	height: 100%;

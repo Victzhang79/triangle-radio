@@ -1,0 +1,170 @@
+@import '../../assets/css/public.scss';
+$mainColor: #2ab3ce;
+div input {
+  box-sizing: border-box;
+}
+.box-content {
+  background: #ffffff;
+  border: 1px solid #ededed;
+  box-shadow: 0 8px 10px 0 rgba(187, 187, 187, 0.5);
+  border-radius: 10px;
+}
+
+.closeBtn {
+  background-image: linear-gradient(0deg, #d9d9d9 0%, #ffffff 100%);
+  border: 1px solid #dadada;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  box-sizing: border-box;
+  line-height: 30px;
+  text-align: center;
+  font-size: 16px;
+  color: #b8b8b8;
+  cursor: pointer;
+}
+.dialog-title {
+  font-size: 24px;
+  color: #1d1d1d;
+}
+
+.el-dialog--center .el-dialog__body {
+  padding: 10px 30px 20px !important;
+}
+.subtitle {
+  font-size: 20px;
+  color: #4a4a4a;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.balance-tip {
+  background: #eef5fe;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #4a4a4a;
+  height: 46px;
+  line-height: 46px;
+  text-align: left;
+  padding: 0 24px;
+  margin: 20px 10px 0 5px;
+  span {
+    font-size: 24px;
+    color: $mainColor;
+  }
+}
+
+.page-form {
+  padding: 14px 14px 14px 9px;
+  font-family: PingFangSC-Regular;
+  .el-form-item {
+    box-sizing: border-box;
+    padding: 17px 0;
+    margin: 0;
+    position: relative;
+    .item-title {
+      font-size: 14px;
+      color: #1d1d1d;
+      width: 70px;
+      text-align: right;
+    }
+
+    input {
+      width: 375px;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 15px;
+      background: #ffffff;
+      border: 1px solid #e7e7e7;
+      box-shadow: 0 2px 4px 0 rgba(189, 189, 189, 0.5);
+      border-radius: 4px;
+      position: relative;
+    }
+    input:focus {
+      border-color: #409eff;
+    }
+    .input-error {
+      border: 1px solid #ff552e;
+    }
+    .input-tip {
+      color: #4a4a4a;
+      line-height: 20px;
+      margin-left: 70px;
+      margin-bottom: 8px;
+      padding: 7px 0px 0;
+      position: absolute;
+      width: 100%;
+      right: 0;
+      text-align: right;
+    }
+    .suffix-btn {
+      display: inline-block;
+      position: absolute;
+      font-size: 14px;
+      color: $mainColor;
+      top: 10px;
+      right: 10px;
+      padding: 0 6px;
+      height: 25px;
+      line-height: 25px;
+      border-left: 1px solid #e7e7e7;
+      cursor: pointer;
+    }
+    .disabled {
+      color: #bdbdbd;
+      cursor: default;
+    }
+  }
+  .item-tip {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 7px 12px 0;
+    color: #4a4a44;
+    margin-left: 90px;
+    margin-top: -18px;
+  }
+  .is-error + .item-tip {
+    margin-top: -6px;
+  }
+  .link-span {
+    font-size: 14px;
+    color: $mainColor;
+    right: 0;
+    position: absolute;
+    cursor: pointer;
+  }
+  .profit {
+    text-decoration: line-through;
+    font-size: 14px;
+    color: #979797;
+    line-height: 20px;
+  }
+}
+
+.submit-btn {
+  width: 123px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  background: $mainColor;
+  border-radius: 100px;
+  margin: 10px auto;
+  padding: 0;
+  cursor: pointer;
+}
+
+.isDisabled {
+  background: #aaaaaa;
+  cursor: default;
+}
+
+.erc20-tip {
+  font-size: 12px;
+  color: #7a7a7a;
+  padding: 0 8px 0 20px;
+}

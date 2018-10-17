@@ -1,0 +1,67 @@
+.security-list {
+	
+}
+.userInfo {
+	width: 900px;
+	height: 60px;
+	line-height: 60px;
+	background: #E5F7FF;
+	white-space: nowrap;
+	overflow: hidden;
+	.hello {
+		margin-left: 36px;
+	}
+	.lastLogTime {
+		margin-left: 90px;
+	}
+	.lastLogIp {
+		margin-left: 88px;
+	}
+}
+.list {
+	padding-top: 33px;
+	text-align: left;
+	.item {
+		color: #4a4a4a;
+		width: 866px;
+		height: 98px;
+		background-color: #f7f7f7;
+		border: 1px solid #e9e9e9;
+		margin-bottom: 18px;
+		padding-left: 32px;
+		line-height: 100px;
+		.icon {
+			position: relative;
+			width: 40px;
+			top: 14px;
+		}
+		.txt {
+			padding-left: 26px;
+			font-size: 18px;
+			em {
+				font-weight: normal;
+				color: #000;
+				&.warn {
+					color: #ea1d1d;
+				}
+			}
+		}
+		.btn {
+			margin-top: 28px;
+			margin-right: 42px;
+		}
+		.progess-group {
+			float: right;
+			font-size: 14px;
+			color: #4a4a4a;
+			margin-right: 166px;
+			.progess {
+				display: inline-block;
+				width: 170px;
+				position: relative;
+				top: -2px;
+			}
+		}
+		
+	}
+}
