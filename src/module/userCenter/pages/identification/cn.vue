@@ -1,14 +1,7 @@
 <template>
 	<div class="app">
-		<el-container>
-			<el-aside>
-				<left-nav :currentIndex="2">
-				</left-nav>
-			</el-aside>
-			<el-main>
-				<identifi-form></identifi-form>
-			</el-main>
-		</el-container>
+		<left-nav :currentIndex="2"></left-nav>
+		<identifi-form></identifi-form>
 	</div>
 </template>
 <script>

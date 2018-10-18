@@ -1,63 +1,72 @@
 <template>
 	<div class="identifi-form">
-		<h2 class="title">实名认证</h2>
-		<!-- <el-alert v-if="identiStatus=='1'" title="已通过认证，不可重复认证。" type="success" show-icon>
-		</el-alert>
-		<el-alert v-else-if="identiStatus=='3'" title="您的认证信息已提交，请耐心等待。" type="warning" show-icon>
-		</el-alert>
-		<el-alert v-else-if="identiStatus=='2'" :title="refuseReason" type="error" show-icon>
-		</el-alert>
-		<div class="main-form">
-			<el-form :model="IdentiForm" :rules="IdentiRules" ref="IdentificationForm" label-position="right" label-width="100px" :disabled="identiStatus=='1'||identiStatus=='3'">
-				<el-form-item class="form-item" label="国籍：" prop="nationCode">
-					<el-select class="input-item" v-model="IdentiForm.nationCode" placeholder="请选择">
-						<el-option v-for="item in nationList" :key="item.nationCode" :label="item.nationName" :value="item.nationCode">
-						</el-option>
-					</el-select>
-				</el-form-item>
-				<el-form-item class="form-item" label="姓：" prop="familyName">
-					<el-input class="input-item" v-model="IdentiForm.familyName" placeholder="请填写你的姓氏"></el-input>
-				</el-form-item>
-				<el-form-item class="form-item" label="名：" prop="givenName">
-					<el-input class="input-item" v-model="IdentiForm.givenName" placeholder="请填写你的名字"></el-input>
-				</el-form-item>
-				<el-form-item class="form-item" label="证件类型：" prop="credentType">
-					<el-select class="input-item" v-model="IdentiForm.credentType" placeholder="请选择">
-						<el-option v-for="item in credentTypes" :key="item.value" :label="item.label" :value="item.value">
-						</el-option>
-					</el-select>
-				</el-form-item>
-				<el-form-item class="form-item" label="证件号：" prop="credentNo">
-					<el-input class="input-item" v-model="IdentiForm.credentNo" placeholder="请填写你的证件号码"></el-input>
-				</el-form-item>
-			</el-form>
-		</div> -->
-		<div class="pic-upload">
-			<h3 class="tit">证件图片</h3>
-			<div class="uploader">
-				<el-upload class="avatar-uploader" :action="uploadPicPath" :show-file-list="false" :before-upload="beforeAvatarUpload" :on-success="handleAvatarSuccess" :disabled="identiStatus=='1'||identiStatus=='3'">
-					<img v-if="imageUrl" :src="imageUrl" class="avatar">
-					<p v-else>
-						<i class="el-icon-plus avatar-uploader-icon"></i>
-						<span class="upload-txt">请上传</span>
-					</p>
-				</el-upload>
-				<p class="under-txt">上传新图片</p>
+		<p class="notice-bar" style="text-align:center;" v-if="identiStatus=='1'">已通过认证，不可重复认证。
+		</p>
+		<p class="notice-bar" v-else-if="identiStatus=='3'">您的认证信息已提交，请耐心等待。
+		</p>
+		<p class="notice-bar" v-else-if="identiStatus=='2'">{{refuseReason}}
+		</p>
+		<div class="wrap">
+			<h2 class="title">实名认证</h2>
+			<div class="main-form">
+				<form :model="IdentiForm" :rules="IdentiRules" ref="IdentificationForm" label-position="right" label-width="100px" :disabled="identiStatus=='1'||identiStatus=='3'">
+					<label class="label" label="" prop="nationCode">
+						<span class="labelName">国籍：</span>
+						<select class="input-item" v-model="IdentiForm.nationCode" placeholder="请选择">
+							<option v-for="item in nationList" :key="item.nationCode" :label="item.nationName" :value="item.nationCode">
+							</option>
+						</select>
+					</label>
+					<label class="label" label="" prop="familyName">
+						<span class="labelName">姓：</span>
+						<input class="input-item" v-model="IdentiForm.familyName" placeholder="请填写你的姓氏">
+					</label>
+					<label class="label" label="" prop="givenName">
+						<span class="labelName">名：</span>
+						<input class="input-item" v-model="IdentiForm.givenName" placeholder="请填写你的名字">
+					</label>
+					<label class="label" label="" prop="credentType">
+						<p class="labelNameblock fixPos">证件类型：</p>
+						<select class="input-item long" v-model="IdentiForm.credentType" placeholder="请选择">
+							<option v-for="item in credentTypes" :key="item.value" :label="item.label" :value="item.value">
+							</option>
+						</select>
+					</label>
+					<label class="label" label="" prop="credentNo">
+						<p class="labelNameblock">证件号：</p>
+						<input class="input-item long" v-model="IdentiForm.credentNo" placeholder="请填写你的证件号码">
+					</label>
+				</form>
 			</div>
-			<div class="example">
-				<div class="img">
-					<img src="../../assets/imgs/identiExp.png" alt="示例">
+			<div class="pic-upload">
+				<h3 class="tit">证件图片</h3>
+				<div class="uploader">
+					<van-uploader class="avatar-uploader" :action="uploadPicPath" :show-file-list="false" :before-upload="beforeAvatarUpload" :on-success="handleAvatarSuccess" :disabled="identiStatus=='1'||identiStatus=='3'">
+						<img v-if="imageUrl" :src="imageUrl" class="avatar">
+						<p v-else>
+							<i class="add-icon"></i>
+							<span class="upload-txt">请上传</span>
+						</p>
+					</van-uploader>
+					<p class="under-txt">上传新图片</p>
 				</div>
-				<p class="under-txt">示例</p>
 			</div>
-			<dl class="notice">
-				<dt>提示</dt>
-				<dd>1.请手持相关证件，照片需要免冠，需本人手持证件；</dd>
-				<dd>2.必须看清晰证件号且证件号不能被遮挡；</dd>
-				<dd>3.照片大小限制在2M以内；</dd>
-			</dl>
+			<div class="example-wrap">
+				<div class="example">
+					<p class="ex-txt">示例</p>
+					<div class="img">
+						<img src="../../assets/imgs/identiExp.png" alt="示例">
+					</div>
+				</div>
+				<dl class="notice">
+					<dt>提示</dt>
+					<dd>1.请手持相关证件，照片需要免冠，需本人手持证件；</dd>
+					<dd>2.必须看清晰证件号且证件号不能被遮挡；</dd>
+					<dd>3.照片大小限制在2M以内；</dd>
+				</dl>
+			</div>
+			<a class="admit-btn" href="javascript:void(0);" @click="credentCommit('IdentificationForm')" :class="{disabled: identiStatus=='1'||identiStatus=='3'}">提交</a>
 		</div>
-		<a class="admit-btn" href="javascript:void(0);" @click="credentCommit('IdentificationForm')" :class="{disabled: identiStatus=='1'||identiStatus=='3'}">提交</a>
 	</div>
 </template>
 
