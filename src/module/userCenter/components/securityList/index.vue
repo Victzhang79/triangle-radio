@@ -20,14 +20,14 @@
 				<span class="txt">安全邮箱：
 					<em>{{securityInfo.emailStatus=='1'?'已认证':'未认证'}}</em>
 				</span>
-				<el-button @click="setSafeEmail" class="btn fr" disabled plain>认证</el-button>
+				<button @click="setSafeEmail" class="btn fr disabled" disabled plain>认证</button>
 			</li>
 			<li class="item password">
 				<img class="icon" src="../../assets/imgs/icon-key.png">
 				<span class="txt">登录密码：
 					<em>{{securityInfo.logPassStatus=='1'?'已设置':'未设置'}}</em>
 				</span>
-				<el-button @click="setLogPassword" class="btn fr" plain>{{securityInfo.logPassStatus!='1'?'设置':'修改'}}</el-button>
+				<button @click="setLogPassword" class="btn fr" plain>{{securityInfo.logPassStatus!='1'?'设置':'修改'}}</button>
 				<p class="progess-group">
 					<span>安全级别：</span>
 					<van-progress class="progess" :percentage="securityInfo.logPassLevel==1?33:securityInfo.logPassLevel==2?66:securityInfo.logPassLevel==3?100:0" :show-pivot="false" color="#FC8282" />
@@ -38,7 +38,7 @@
 				<span class="txt">资金密码：
 					<em>{{securityInfo.transPassStatus=='1'?'已设置':'未设置'}}</em>
 				</span>
-				<el-button @click="setTransPassword" class="btn fr" plain>{{securityInfo.transPassStatus!='1'?'设置':'修改'}}</el-button>
+				<button @click="setTransPassword" class="btn fr" plain>{{securityInfo.transPassStatus!='1'?'设置':'修改'}}</button>
 				<p class="progess-group">
 					<span>安全级别：</span>
 					<van-progress class="progess" :percentage="securityInfo.transPassLevel=='1'?33:securityInfo.transPassLevel=='2'?66:securityInfo.logPassLevel=='3'?100:0" :show-pivot="false" color="#FC8282" />
@@ -49,16 +49,18 @@
 				<span class="txt">支付Google验证：
 					<em class="warn">{{securityInfo.googleValidStatus=='1'?'已开启':'已关闭'}}</em>
 				</span>
-				<el-button class="btn fr" :disabled="securityInfo.googleValidStatus!='1'" plain>验证</el-button>
+				<button class="btn fr disabled" :disabled="securityInfo.googleValidStatus!='1'" plain>验证</button>
 			</li>
 		</ul>
-		<!-- <safe-email-dialog></safe-email-dialog>
+		<!-- <safe-email-dialog></safe-email-dialog> -->
 		<log-password-dialog></log-password-dialog>
-		<trans-password-dialog></trans-password-dialog> -->
+		<!-- <trans-password-dialog></trans-password-dialog> -->
+		<!-- <Dialog></Dialog> -->
 	</div>
 </template>
 
 <script>
+import Dialog from '../../../../components/dialog';
 import { mapGetters } from 'vuex';
 import safeEmailDialog from '../../dialogs/safeEmail';
 import logPasswordDialog from '../../dialogs/logPassword';
@@ -96,6 +98,7 @@ export default {
 		}
 	},
 	components: {
+		Dialog,
 		safeEmailDialog,
 		logPasswordDialog,
 		transPasswordDialog
