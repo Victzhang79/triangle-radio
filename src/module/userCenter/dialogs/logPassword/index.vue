@@ -2,7 +2,7 @@
 	<van-popup class="dialog" v-model="visible">
 		<div @click="visible=false" class="close"></div>
 		<h3 class="dlg-title">修改登录密码</h3>
-		<form :model="ruleForm" :rules="rules" :inline="false" ref="resetPasswordForm" labposition="top" class="demo-ruleForm wrap">
+		<form class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">手机</p>
 				<input v-model="securityInfo.userMobile" placeholder="请输入手机号" disabled>

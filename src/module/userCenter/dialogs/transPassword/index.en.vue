@@ -1,5 +1,6 @@
 <template>
-	<el-dialog class="dialog" width="520px" title="" :visible.sync="visible">
+	<van-popup class="dialog" v-model="visible">
+		<div @click="visible=false" class="close"></div>
 		<h3 class="dlg-title">Set capital password</h3>
 		<p class="warnInfo">Notice: The fund password should not be consistent with the login password or other passwords.</p>
 		<el-form :model="ruleForm" :rules="rules" :inline="false" ref="setTranPasswordForm" label-position="top" class="demo-ruleForm wrap">
@@ -25,7 +26,7 @@
 				<el-button @click="setPassword('setTranPasswordForm')" class="btn" type="primary" round>submit</el-button>
 			</el-form-item>
 		</el-form>
-	</el-dialog>
+	</van-popup>
 </template>
 
 <script>

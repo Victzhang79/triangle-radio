@@ -6,7 +6,7 @@ import router from './router';
 import store from './store';
 import VeeValidate from 'vee-validate';
 import VueClipboard from 'vue-clipboard2';
-import { Progress } from 'vant';
+import { Progress, Popup } from 'vant';
 
 
 Vue.config.productionTip = false;
@@ -17,6 +17,7 @@ Vue.use(VeeValidate, {
 Vue.use(VueClipboard);
 
 Vue.use(Progress);
+Vue.use(Popup);
 
 /* eslint-disable no-new */
 new Vue({

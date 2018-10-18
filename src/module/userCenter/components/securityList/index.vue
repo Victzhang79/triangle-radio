@@ -54,13 +54,13 @@
 		</ul>
 		<!-- <safe-email-dialog></safe-email-dialog> -->
 		<log-password-dialog></log-password-dialog>
-		<!-- <trans-password-dialog></trans-password-dialog> -->
+		<trans-password-dialog></trans-password-dialog>
 	</div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-import safeEmailDialog from '../../dialogs/safeEmail';
+// import safeEmailDialog from '../../dialogs/safeEmail';
 import logPasswordDialog from '../../dialogs/logPassword';
 import transPasswordDialog from '../../dialogs/transPassword';
 import Cookie from 'js-cookie';
@@ -96,7 +96,7 @@ export default {
 		}
 	},
 	components: {
-		safeEmailDialog,
+		// safeEmailDialog,
 		logPasswordDialog,
 		transPasswordDialog
 	}

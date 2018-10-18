@@ -1,31 +1,31 @@
 <template>
-	<el-dialog class="dialog" width="520px" title="" :visible.sync="visible">
+	<van-popup class="dialog" v-model="visible">
+		<div @click="visible=false" class="close"></div>
 		<h3 class="dlg-title">设置资金密码</h3>
 		<p class="warnInfo">警告：资金密码不要与登录密码或者其他密码一致，由此产生的号码被盗，本站概不负责。</p>
-		<el-form :model="ruleForm" :rules="rules" :inline="false" ref="setTranPasswordForm" label-position="top" class="demo-ruleForm wrap">
-			<el-form-item label="手机">
-				<el-input v-model="securityInfo.userMobile" placeholder="请输入手机号" disabled></el-input>
-			</el-form-item>
-			<el-form-item label="验证码" prop="authCode">
-				<el-input class="authCode" v-model="ruleForm.authCode" placeholder="请输入验证码">
-					<el-button style="width:118px" @click="getAuthCode" slot="append" class="authBtn" :disabled="!authBtnState">{{authBtnText}}</el-button>
-				</el-input>
-			</el-form-item>
-			<el-form-item label="资金密码" prop="transPassword">
-				<el-input type="password" v-model="ruleForm.transPassword" placeholder="请输入新密码">
-					<template slot="prepend"><img src="../../assets/imgs/lock.png" style="padding-top:4px;"></template>
-				</el-input>
-			</el-form-item>
-			<el-form-item label="确认密码" prop="repeatPassword">
-				<el-input type="password" v-model="ruleForm.repeatPassword" placeholder="请再次确认密码">
-					<template slot="prepend"><img src="../../assets/imgs/lock.png" style="padding-top:4px;"></template>
-				</el-input>
-			</el-form-item>
-			<el-form-item class="btn-line">
-				<el-button @click="setPassword('setTranPasswordForm')" class="btn" type="primary" round>提交</el-button>
-			</el-form-item>
-		</el-form>
-	</el-dialog>
+		<form class="demo-ruleForm wrap">
+			<label>
+				<p class="labelTit">手机</p>
+				<input v-model="securityInfo.userMobile" placeholder="请输入手机号" disabled>
+			</label>
+			<label>
+				<p class="labelTit">验证码</p>
+				<input class="authCode" v-model="ruleForm.authCode" placeholder="请输入验证码">
+				<button style="width:118px" @click="getAuthCode" slot="append" class="authBtn" :disabled="!authBtnState">{{authBtnText}}</button>
+			</label>
+			<label>
+				<p class="labelTit">资金密码</p>
+				<input type="password" v-model="ruleForm.transPassword" placeholder="请输入新密码">
+			</label>
+			<label>
+				<p class="labelTit">确认密码</p>
+				<input type="password" v-model="ruleForm.repeatPassword" placeholder="请再次确认密码">
+			</label>
+			<p class="btn-line">
+				<button @click="setPassword('setTranPasswordForm')" class="btn" type="primary" round>提交</button>
+			</p>
+		</form>
+	</van-popup>
 </template>
 
 <script>

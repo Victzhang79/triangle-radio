@@ -39,6 +39,9 @@
 			border-radius: px2rem(8px); 
 			box-shadow: 0 2px 4px 0 rgba(189,189,189,0.50);
 			padding-left: px2rem(20px);
+			&:disabled {
+				background-color: #f3f3f3;
+			}
 		}
 		.authBtn {
 			display: block;
@@ -62,19 +65,6 @@
 			}
 		}
 	}
-
-// 	.wrap {
-// 		padding: 0 46px 15px;
-// 		.authBtn {
-// 			&:hover {
-// 				background-color: #e5ecf3;
-// 			}
-// 		}
-// 	}
-// 	.txt {
-// 		margin-top: 16px;
-// 		margin-bottom: 8px;
-// 	}
 	.btn-line {
 		text-align: center;
 		margin-top: px2rem(60px);
@@ -96,16 +86,15 @@
 			color: #32c2de;
 		}
 	}
-// 	.warnInfo {
-// 		width: 390px;
-// 		height: 38px;
-// 		padding: 16px 18px;
-// 		background: #FCF8E3;
-// 		border: 1px solid #F5DFA8;
-// 		margin: 0 auto;
-// 		font-family: PingFangSC-Regular;
-// 		font-size: 14px;
-// 		color: #B37953;
-// 		margin-top: 5px;
-// 	}
+	.warnInfo {
+		width: px2rem(497px);
+		padding: px2rem(20px);
+		background: #FCF8E3;
+		border: 1px solid #F5DFA8;
+		margin: 0 auto;
+		font-family: PingFangSC-Regular;
+		font-size: px2rem(22px);
+		color: #B37953;
+		margin-top: px2rem(14px);
+	}
 }
