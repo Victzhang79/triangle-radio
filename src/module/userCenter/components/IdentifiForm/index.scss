@@ -13,6 +13,7 @@
 		font-size: px2rem(28px);
 		line-height: px2rem(80px);
 		width: 10rem;
+		text-align: center;
 	}
 // 	text-align: left;
 // 	min-width: 900px;
@@ -100,6 +101,7 @@
 			box-shadow: 0 2px 4px 0 rgba(189,189,189,0.50);
 			color: #b8b8b8;
 			font-size: px2rem(24px);
+			overflow: hidden;
 		}
 		.add-icon {
 			display: block;
@@ -111,11 +113,6 @@
 			margin-top: px2rem(87px);
 			margin-bottom: px2rem(28px);
 		}
-// 		.upload-txt {
-// 			display: block;
-// 			font-size: 14px;
-// 			color: #b8b8b8;
-// 		}
 		.avatar {
 			width: px2rem(400px);
 			height: px2rem(300px);
@@ -145,8 +142,6 @@
 		}
 		.example {
 			float: left;
-// 			margin-top: 36px;
-// 			border-left: 1px dotted #e9e9e9;
 			padding-left: px2rem(50px);
 			.ex-txt {
 				text-align: left;
@@ -166,11 +161,8 @@
 			text-align: left;
 			padding-top: px2rem(36px);
 			margin-left: px2rem(20px);
-// 			margin-top: 80px;
-// 			margin-left:22px;
 			dt {
 				font-size: px2rem(24px);
-				// font-weight: bold;
 				color: #1d1d1d;
 			}
 			dd {

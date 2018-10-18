@@ -41,7 +41,7 @@
 			<div class="pic-upload">
 				<h3 class="tit">证件图片</h3>
 				<div class="uploader">
-					<van-uploader class="avatar-uploader" :action="uploadPicPath" :show-file-list="false" :before-upload="beforeAvatarUpload" :on-success="handleAvatarSuccess" :disabled="identiStatus=='1'||identiStatus=='3'">
+					<van-uploader class="avatar-uploader" :before-read="beforeAvatarUpload" :after-read="handleAvatarSuccess" :disabled="identiStatus=='1'||identiStatus=='3'">
 						<img v-if="imageUrl" :src="imageUrl" class="avatar">
 						<p v-else>
 							<i class="add-icon"></i>
@@ -180,13 +180,9 @@ export default {
 		...mapGetters(['identiStatus', 'refuseReason', 'nationList'])
 	},
 	methods: {
-		handleAvatarSuccess(res, file) {
-			if (res.code == 200) {
-				this.IdentiForm.credentPic = res.data;
-				this.imageUrl = URL.createObjectURL(file.raw);
-			} else {
-				this.$message.error('上传图片失败，请重试');
-			}
+		handleAvatarSuccess(file) {
+			this.IdentiForm.credentPic = file;
+			this.imageUrl = file.content;
 		},
 		beforeAvatarUpload(file) {
 			const isJPG = file.type === 'image/jpeg';
@@ -194,10 +190,12 @@ export default {
 			const isLt2M = file.size / 1024 / 1024 < 2;
 
 			if (!(isJPG || isPng)) {
-				this.$message.error('上传图片只能是 JPG或PNG 格式!');
+				this.$toast.fail('上传图片只能是 JPG或PNG 格式!');
+				return false;
 			}
 			if (!isLt2M) {
-				this.$message.error('上传图片大小不能超过 2MB!');
+				this.$toast.fail('上传图片大小不能超过 2MB!');
+				return false;
 			}
 			return isLt2M && (isJPG || isPng);
 		},
