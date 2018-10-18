@@ -55,12 +55,10 @@
 		<!-- <safe-email-dialog></safe-email-dialog> -->
 		<log-password-dialog></log-password-dialog>
 		<!-- <trans-password-dialog></trans-password-dialog> -->
-		<!-- <Dialog></Dialog> -->
 	</div>
 </template>
 
 <script>
-import Dialog from '../../../../components/dialog';
 import { mapGetters } from 'vuex';
 import safeEmailDialog from '../../dialogs/safeEmail';
 import logPasswordDialog from '../../dialogs/logPassword';
@@ -98,7 +96,6 @@ export default {
 		}
 	},
 	components: {
-		Dialog,
 		safeEmailDialog,
 		logPasswordDialog,
 		transPasswordDialog
