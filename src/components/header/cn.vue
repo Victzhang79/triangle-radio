@@ -1,35 +1,34 @@
 <template>
-	<div class="topbar">
-		<a href=":;" class="title">AOABANK</a>
+	<top-menu>
 		<ul class="nav-menu">
-			<li>
-				<a href="/m/cn" class="active">主页</a>
-			</li>
-			<li>
-				<a href="/m/cn/pawn">典当</a>
-			</li>
-			<!-- <li>
-				<a href="/m/cn/qa">问答</a>
-			</li>
-			<li>
-				<a href="/m/cn/team">团队</a>
-			</li> -->
-			<li class="language" id='language'>
-				<a href="javascript:;">中文</a>
-				<ul class="language-list clear" id="languageList">
-					<li class="language-item">
-						<a href="/m/cn">中文</a>
+			<li @click="()=>{this.hideMenuVisible=!this.hideMenuVisible;}">
+				<img class="list-btn" src="../../assets/imgs/hiden_list.png" alt="展开">
+				<ul v-show="hideMenuVisible" class="hide-list">
+					<li>
+						<a :href="HOST+'/m/about'">关于我们</a>
 					</li>
-					<li class="language-item">
-						<a href="/m">English</a>
+					<li>
+						<a :href="HOST+(isLog?'/m/userCenter':'/m/userEntry')">用户中心</a>
 					</li>
+					<li @click="logOut" v-if="isLog">退出登录</li>
 				</ul>
 			</li>
+			<li>
+				<a :href="HOST+'/m/pawn'">典当</a>
+			</li>
+			<li>
+				<a :href="HOST+'/m/coins'">币生币</a>
+			</li>
+			<li>
+				<a :href="HOST+'/m'" class="active">主页</a>
+			</li>
 		</ul>
-	</div>
+	</top-menu>
 </template>
 
 <script>
+import topMenu from '../topMenu/index';
+import Cookie from 'js-cookie';
 export default {
 	name: 'topBar',
 	props: {
@@ -37,58 +36,23 @@ export default {
 	},
 	data() {
 		return {
-			show: false,
-			HOST: window.location.host
+			hideMenuVisible: false,
+			isLog: !!Cookie.get('token'),
+			HOST: '//' + window.location.host
 		};
 	},
 	methods: {
-		showLanguageList() {
-			this.show = true;
-		},
-		hideLanguageList() {
-			this.show = false;
-		},
-		switchCn() {
-			let path = this.$route.path;
-			if (!this.endWith(path, '/cn')) {
-				this.changeLanguage('cn');
-			}
-		},
-		switchEn() {
-			let path = this.$route.path;
-			if (this.endWith(path, '/cn')) {
-				// let switchPath = path.substring(0, path.length - 2);
-				// this.$router.push(switchPath);
-				this.changeLanguage('en');
-			}
-		},
-		endWith(str, endWithStr) {
-			if (
-				endWithStr == null ||
-				endWithStr == '' ||
-				str.length == 0 ||
-				endWithStr.length > str.length
-			) {
-				return false;
-			}
-			if (str.substring(str.length - endWithStr.length) == endWithStr) {
-				return true;
-			} else {
-				return false;
-			}
-		},
-		changeLanguage(lang) {
-			if (lang === 'cn') {
-				let path = this.$route.path;
-				path += path.slice(-1) === '/' ? '' : '/';
-				path += 'cn';
-				this.$router.push(path);
-			} else if (lang === 'en') {
-				this.$router.push(this.$route.path.slice(0, -2));
-			} else {
-				return false;
-			}
+		logout() {
+			Cookie.remove('token');
+			window.location.href =
+				window.location.protocol +
+				'//' +
+				window.location.host +
+				'/m/userEntry';
 		}
+	},
+	components: {
+		topMenu
 	}
 };
 </script>
