@@ -47,22 +47,34 @@
 			display: block;
 			position: absolute;
 			line-height: px2rem(70px);
+			width: px2rem(170px);
 			overflow: visible;
 			right: 0;
 			bottom: 0;
 			background: none;
 			border: none;
 			color: #2AB3CE;
-			padding-right: px2rem(24px);
+			// padding-right: px2rem(24px);
 			&:before {
 				display: inline-block;
 				width: 0;
 				height: px2rem(25px);
 				content: '';
 				border-left: 1px solid #e7e7e7;
-				padding-left: px2rem(18px);
-				transform: translateY(2px);
+				// padding-left: px2rem(18px);
+				// transform: translateY(2px);
+				position: absolute;
+				left: 0;
+				top: px2rem(22px);
 			}
+			&.disabled {
+				color: #ccc;
+			}
+		}
+		.error-tip {
+			position: absolute;
+			color: #e22828;
+			font-size: px2rem(20px);
 		}
 	}
 	.btn-line {

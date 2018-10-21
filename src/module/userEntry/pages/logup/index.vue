@@ -17,7 +17,7 @@
 				</p>
 				<p class="form-item">
 					<span class="name">密码： </span>
-					<input v-validate="validateRule.password.validation" v-model="password" @blur="()=>this.emptyError=''" name="password" type="password" class="input" placeholder="8-16位，不能全部是字符或数字">
+					<input v-validate="validateRule.password.validation" v-model="password" @blur="()=>this.emptyError=''" name="password" type="password" class="input" placeholder="8-16位，由数字和字母组成">
 					<span v-show="errors.has('password')" class="error-tip">{{ validateRule.password.text}}</span>
 				</p>
 				<p class="form-item">
@@ -79,7 +79,7 @@ export default {
 						required: true,
 						regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 					},
-					text: '8-16位，由数字和字母组成，不能全是数字或全是字母。'
+					text: '8-16位，必须包含数字和字母。'
 				}
 			},
 			authBtnState: 0, //获取验证码按钮状态：0-不可点击，1-可点击
