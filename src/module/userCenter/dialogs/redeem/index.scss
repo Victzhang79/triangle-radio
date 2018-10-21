@@ -1,0 +1,26 @@
+@import '../../assets/css/public.scss';
+$mainColor: #2ab3ce;
+div input {
+  box-sizing: border-box;
+}
+.dialog {
+  .dlg-title {
+    font-size: px2rem(32px);
+    color: #1d1d1d;
+    text-align: center;
+    width: 100%;
+    margin: px2rem(10px) 0 px2rem(25px);
+  }
+  label .labelTit {
+    font-size: px2rem(24px);
+    color: #1d1d1d;
+  }
+  label input {
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 2px 4px 0 rgba(189, 189, 189, 0.5);
+    border-radius: px2rem(50px);
+    width: px2rem(300px);
+    height: px2rem(60px);
+  }
+}

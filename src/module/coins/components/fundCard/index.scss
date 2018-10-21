@@ -1,6 +1,8 @@
+@import '../../../../assets/style/public.scss';
+
 .fund-card {
   margin: 0 auto;
-  padding: 30px 45px;
+  padding: px2rem(40px) px2rem(30px);
   box-sizing: border-box;
   position: relative;
   font-family: PingFangSC-Regular;
@@ -8,71 +10,88 @@
     box-sizing: border-box;
   }
   .header-title {
-    font-size: 26px;
+    margin-bottom: px2rem(14px);
+    font-size: px2rem(40px);
     color: #1d1d1d;
-    margin-bottom: 14px;
+    text-align: left;
   }
   .card {
     position: relative;
     overflow: hidden;
-    background: #f7f7f7;
-    border-radius: 8px;
-    width: 980px;
-    height: 140px;
+    border-radius: px2rem(8px);
+    width: px2rem(690px);
+    height: px2rem(450px);
+    background: #ffffff;
+    box-shadow: 0 px2rem(2px) px2rem(10px) 0 rgba(173, 173, 173, 0.5);
     div {
       display: inline-block;
     }
   }
 
-  .card-item {
-    width: 240px;
-    text-align: center;
-    height: 140px;
-    box-sizing: border-box;
-    padding: 30px 0 10px;
-    position: relative;
-  }
-  .title {
-    font-size: 26px;
-    color: #ff5c1b;
-    text-align: center;
-    line-height: 50px;
-  }
-  .tip {
-    margin-top: 6px;
-    font-size: 18px;
-    color: #000000;
-  }
   .rate-card {
-    background: #7567ef;
-    border-radius: 8px 0 0 0;
-    color: #ffffff;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: px2rem(70px) 0 px2rem(90px);
     .title {
-      color: #fff;
-      font-size: 26px;
-      line-height: 50px;
+      font-size: px2rem(80px);
+      line-height: px2rem(80px);
+      color: #ff5700;
     }
     .tip {
-      color: #ffffff;
+      font-size: px2rem(24px);
+      color: #000000;
+    }
+  }
+  div.detail-card {
+    display: flex;
+    -moz-display: flex;
+    -webkit-display: flex;
+
+    .card-item {
+      position: relative;
+    }
+    .least-number {
+      flex: 30%;
+      -moz-flex: 30%;
+      -webkit-flex: 30%;
+    }
+    .amount {
+      flex: 40%;
+      -moz-flex: 40%;
+      -webkit-flex: 40%;
+    }
+    .progress {
+      flex: 30%;
+      -moz-flex: 30%;
+      -webkit-flex: 30%;
+    }
+    .title {
+      font-size: px2rem(40px);
+      color: #ff5c1b;
+      text-align: center;
+      line-height: px2rem(50px);
+    }
+    .tip {
+      margin-top: px2rem(6px);
+      font-size: px2rem(24px);
+      color: #000000;
+    }
+    .split {
+      width: 0;
+      height: px2rem(67px);
+      position: absolute;
+      right: 0;
+      top: px2rem(18px);
+      border-left: 1px solid #d4d4d4;
     }
   }
 
-  .split {
-    width: 0;
-    height: 67px;
-    position: absolute;
-    right: 0;
-    top: 38px;
-    border-left: 1px solid #d4d4d4;
-  }
   .state-icon {
-    font-size: 12px;
-    line-height: 26px;
-    width: 80px;
+    font-size: px2rem(24px);
+    line-height: px2rem(32px);
+    width: px2rem(130px);
     color: #fff;
-    padding-top: 12px;
+    padding-top: px2rem(35px);
     position: absolute;
     right: 0;
     top: 0;

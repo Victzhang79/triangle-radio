@@ -19,7 +19,7 @@
 // import topBar from '../../../../components/header/cn';
 import footerBar from '../../../../components/footer';
 import leftNav from '../../components/leftNav/index.cn';
-import asset from '../../components/asset/index.cn';
+import asset from '../../components/asset';
 export default {
 	components: {
 		// topBar,

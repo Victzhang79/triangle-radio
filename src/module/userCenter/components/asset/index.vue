@@ -1,13 +1,10 @@
 <template>
-  <div class="asset">
-    <div class="title">
-      <span>Asset Status</span>
-    </div>
-    <asset-nav @change-tab="changeTab"></asset-nav>
-    <table-wallet v-if="currentTab == 0"></table-wallet>
-    <table-coins v-if="currentTab == 1"></table-coins>
-    <table-pawn v-if="currentTab == 2"></table-pawn>
-  </div>
+	<div class="asset">
+		<asset-nav @change-tab="changeTab"></asset-nav>
+		<table-wallet v-if="currentTab == 0"></table-wallet>
+		<table-coins v-if="currentTab == 1"></table-coins>
+		<table-pawn v-if="currentTab == 2"></table-pawn>
+	</div>
 </template>
 <script>
 import assetNav from '../assetNav';

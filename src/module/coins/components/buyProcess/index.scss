@@ -1,35 +1,41 @@
+@import '../../../../assets/style/public.scss';
 .buy-process {
   margin: 0 auto;
-  padding: 25px 63px;
+  padding: px2rem(25px) px2rem(30px) px2rem(25px) px2rem(40px);
+  width: 100%;
   box-sizing: border-box;
   font-family: PingFangSC-Regular;
   * {
     box-sizing: border-box;
   }
   .header-title {
-    font-size: 24px;
+    font-size: px2rem(36px);
     color: #1d1d1d;
-    margin-bottom: 22px;
+    text-align: left;
+    margin-bottom: px2rem(46px);
   }
   .header-title::before {
     content: '';
-    width: 5px;
-    height: 33px;
+    width: px2rem(5px);
+    height: px2rem(33px);
     background: #2ab3ce;
     display: inline-block;
     vertical-align: middle;
-    margin-top: -8px;
-    margin-right: 20px;
+    margin-top: px2rem(-8px);
+    margin-right: px2rem(20px);
   }
   .process-img {
-    width: 867px;
-    height: 77px;
-    margin-left: 26px;
+    width: px2rem(594px);
+    height: px2rem(88px);
+    margin-left: px2rem(32px);
+    background: url(../../../../assets/imgs/process.png) no-repeat;
+    background-size: contain;
   }
   .process-desc {
-    font-size: 16px;
+    font-size: px2rem(24px);
     color: #1d1d1d;
-    line-height: 33px;
+    line-height: px2rem(33px);
+    text-align: left;
     .date {
       color: #2ab3ce;
       display: block;
@@ -37,16 +43,16 @@
     .desc {
       text-align: center;
       display: inline-block;
-      width: 170px;
+      width: px2rem(170px);
     }
     .desc:first-child {
-      margin-left: -20px;
+      margin-left: px2rem(-10px);
     }
     .desc:nth-child(2) {
-      margin-left: 223px;
+      margin-left: px2rem(75px);
     }
     .desc:nth-child(3) {
-      margin-left: 220px;
+      margin-left: px2rem(80px);
     }
   }
 }

@@ -19,9 +19,6 @@ div input {
     font-size: px2rem(24px);
     text-align: center;
   }
-  .labelTit {
-    text-align: left;
-  }
   .item-title {
     color: #1d1d1d;
   }
@@ -30,19 +27,5 @@ div input {
   }
   .link-btn {
     color: #2ab3ce;
-  }
-  .disabled {
-    color: #bdbdbd;
-    cursor: default;
-  }
-
-  .input-tip {
-    color: #2ab3ce;
-    line-height: px2rem(24px);
-    margin-bottom: px2rem(-10px);
-    padding: px2rem(16px) px2rem(26px) 0;
-    width: 100%;
-    text-align: right;
-    right: 0;
   }
 }

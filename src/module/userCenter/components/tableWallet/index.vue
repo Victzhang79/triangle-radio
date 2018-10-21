@@ -1,80 +1,95 @@
 <template>
 	<div>
-		<table>
-			<tr class="table-header">
-				<th>币种</th>
-				<th>可提现</th>
-				<th>锁定中</th>
-				<th>提现中</th>
-				<th>操作</th>
-			</tr>
-			<tr class="table-body" v-for="item in coinsList">
-				<td>{{item.name}}</td>
-				<td>{{item.free}}</td>
-				<td>{{item.lock}}</td>
-				<td>{{item.putting}}</td>
-				<td class="oprate">
-					<span @click="withdrawCash">提现</span>
-					<span @click="charge"> 充值</span>
-					<span @click="redeem(item.free)">赎回</span>
-				</td>
-			</tr>
-		</table>
-		<withdraw-cash v-model="showWithdrawBox" @closeBox="closeWithdrawBox" @closed="closeWithdrawBox"></withdraw-cash>
-		<box-redeem v-model="showRedeemBox" :unit="unit" :totel="totel" @closeBox="closeRedeemBox"></box-redeem>
+		<asset-item v-for="item of walletArray" :coinInfo="item" pageType="wallet" @withdraw="putForward(item)" @recharge="recharge(item)"></asset-item>
+		<recharge v-model="showChargeBox" :item="checkItem"></recharge>
+		<withdraw-cash v-model="showWithdrawBox" :item="checkItem">
+		</withdraw-cash>
+		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定" @submit="submitWithdraw" @closeBox="closePwdBox"></pwd-dialog>
 	</div>
 </template>
 <script>
 // 币钱包
+// import withdrawCash from '../withdrawCash/index.cn';
+import assetItem from '../assetItem';
+import recharge from '../../../../components/recharge';
+import withdrawCash from '../../dialogs/withdrawCash';
+import pwdDialog from '../../../../components/pwdDialog';
+import Util from '../../../../util';
 import { mapGetters } from 'vuex';
-import withdrawCash from '../withdrawCash';
-import boxRedeem from '../boxRedeem';
 export default {
 	data() {
 		return {
-			coinsList: [
-				{ name: 'USDT', free: 100, lock: 50, putting: 1000 },
-				{ name: 'BTC', free: 100, lock: 50, putting: 1000 },
-				{ name: 'ETC', free: 100, lock: 50, putting: 1000 }
-			],
-			address: '5678sjsjpfapjpjpwijfpajfpaijfpwij',
+			coinNameList: Util.coinNameList,
 			showWithdrawBox: false,
 			showChargeBox: false,
-			showRedeemBox: false,
+			showPwdDialog: false,
+			checkRedeemItem: {
+				pawnCoinCode: '',
+				pawnNum: 0,
+				pawnId: ''
+			},
+			coinCode: 1,
 			unit: 'XML',
-			totel: 0
+			totel: 0,
+			checkItem: {
+				coinCode: '',
+				withDrawableNum: '',
+				userMobile: '',
+				walletAddr: ''
+			}
 		};
 	},
 	components: {
 		withdrawCash,
-		boxRedeem
+		assetItem,
+		recharge,
+		pwdDialog
 	},
 	computed: {
-		...mapGetters(['walletList'])
+		...mapGetters(['walletList']),
+		walletArray() {
+			let arr = [];
+			for (let item of this.walletList) {
+				arr.push({
+					title: '币种：' + Util.coinNameList[item.coinCode],
+					list: [
+						{ name: '可提现', value: item.withDrawableNum },
+						{ name: '锁定中', value: item.lockedNum },
+						{ name: '提现中', value: item.withDrawingNum }
+					]
+				});
+			}
+			return arr;
+		}
 	},
 	created() {
 		this.$store.dispatch('getWalletList');
 	},
 	methods: {
-		withdrawCash() {
-			console.log('this.showWithdrawBox', this.showWithdrawBox);
-			this.showWithdrawBox = true;
+		// 提现
+		putForward(item) {
+			this.checkItem = item;
+			this.showPwdDialog = true;
 		},
-		charge() {
+		recharge(item) {
+			this.checkItem = item;
 			this.showChargeBox = true;
 		},
-		redeem(totel) {
-			this.totel = totel;
-			this.showRedeemBox = true;
+		submitWithdraw() {
+			this.closePwdBox();
+			this.showWithdrawBox = true;
 		},
-		closeWithdrawBox() {
+		closeWithdrawBox(result) {
+			if (result) {
+				this.$store.dispatch('getWalletList');
+			}
 			this.showWithdrawBox = false;
 		},
 		closeChargeBox() {
 			this.showChargeBox = false;
 		},
-		closeRedeemBox() {
-			this.showRedeemBox = false;
+		closePwdBox() {
+			this.showPwdDialog = false;
 		}
 	}
 };
