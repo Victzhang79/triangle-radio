@@ -116,6 +116,7 @@ export default {
 						})
 						.catch(err => {
 							this.$message.error('设置失败，稍后重试。');
+							this.authBtnState = true;
 						});
 				}
 			});

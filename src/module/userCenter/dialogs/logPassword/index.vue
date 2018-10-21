@@ -160,6 +160,7 @@ export default {
 				})
 				.catch(() => {
 					this.$toast.fail('获取验证码失败');
+					this.authBtnState = true;
 				});
 		},
 		// 发送短信验证码按钮倒计时

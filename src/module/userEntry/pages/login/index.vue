@@ -152,16 +152,23 @@ export default {
 			if (this.authBtnState === 0) {
 				return false;
 			}
-			getVeriCode(this.phone).then(data => {
-				console.log(data);
-				if (data.code === 200) {
-					this.countDown();
-				}
-			});
+			this.authBtnState = 0;
+			getVeriCode(this.phone)
+				.then(data => {
+					if (data.code === 200) {
+						this.countDown();
+					} else {
+						this.$toast.fail('获取验证码失败：', data.msg);
+						this.authBtnState = 1;
+					}
+				})
+				.catch(() => {
+					this.$toast.fail('获取验证码失败');
+					this.authBtnState = 1;
+				});
 		},
 		// 发送短信验证码按钮倒计时
 		countDown() {
-			this.authBtnState = 0;
 			let count = 60;
 			this.countDownTimmer = setInterval(() => {
 				if (count === 0) {
