@@ -54,6 +54,8 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  font-family: PingFangSC-Regular, Microsoft YaHei, tahoma, arial, 'Avenir',
+    Helvetica, \5b8b\4f53, sans-serif;
 }
 article,
 aside,
@@ -287,5 +289,35 @@ a:hover {
   .copyright {
     font-size: 12px;
     color: #747474;
+  }
+}
+
+.pagers {
+  width: px2rem(636px);
+  text-align: center;
+  margin: px2rem(50px) auto;
+  background: #f9f9f9;
+  font-size: px2rem(24px);
+  color: #888585;
+  .van-pagination__item {
+    min-width: px2rem(36px);
+    height: px2rem(36px);
+    line-height: px2rem(36px);
+    text-align: center;
+    font-size: px2rem(24px);
+    color: #878585;
+    background: #f9f9f9;
+    margin: 0 px2rem(10px);
+  }
+  .van-pagination li.van-pagination__item--active {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: px2rem(2px);
+    font-size: px2rem(18px);
+    color: #2ab3ce;
+  }
+  .van-pagination__item--disabled,
+  .van-pagination__item--disabled:active {
+    color: #b8b8b8;
   }
 }

@@ -49,28 +49,6 @@ table {
   }
 }
 
-.pagers {
-  width: 900px;
-  text-align: right;
-  font-size: 14px;
-  color: #888585;
-  margin: 20px 0;
-  .el-pager li.active {
-    background: #ffffff;
-    border: 1px solid #e8e8e8;
-    border-radius: 2px;
-    font-size: 18px;
-    color: #2ab3ce;
-  }
-  .el-pagination button:disabled {
-    color: #b8b8b8;
-  }
-  .el-pagination.is-background .btn-next,
-  .el-pagination.is-background .btn-prev,
-  .el-pagination.is-background .el-pager li {
-    background: #ffffff;
-    border: 0;
-    font-size: 14px;
-    color: #878585;
-  }
+.list-tip {
+  color: #ff552e;
 }

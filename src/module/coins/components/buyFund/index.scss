@@ -1,46 +1,56 @@
+@import '../../../../assets/style/public.scss';
 .buy-box {
-  width: 942px;
-  height: 314px;
+  width: px2rem(690px);
+  height: px2rem(420px);
   margin: 0 auto;
-  margin-left: 60px;
-  padding: 60px 80px;
-  background: #f1f1f1;
+  margin-left: px2rem(30px);
+  padding: px2rem(30px) px2rem(40px);
+  background: #ffffff;
+  box-shadow: 0 px2rem(2px) px2rem(10px) 0 rgba(173, 173, 173, 0.5);
+  border-radius: px2rem(8px);
   box-sizing: border-box;
+  text-align: left;
   font-family: PingFangSC-Regular;
   * {
     box-sizing: border-box;
   }
   .header-title {
-    font-size: 24px;
+    font-size: px2rem(36px);
     color: #000000;
-    margin-bottom: 26px;
+    margin-bottom: px2rem(26px);
+    text-align: left;
   }
   .purchase {
     color: #1d1d1d;
-    line-height: 40px;
-    font-size: 16px;
+    line-height: px2rem(60px);
+    font-size: px2rem(36px);
 
     .input {
-      width: 383px;
-      height: 52px;
-      padding: 0 25px;
-      font-size: 20px;
+      width: px2rem(383px);
+      height: px2rem(52px);
+      padding: 0 px2rem(25px);
+      font-size: px2rem(28px);
       background: #ffffff;
       border: 1px solid #e7e7e7;
-      box-shadow: 0 2px 4px 0 rgba(189, 189, 189, 0.5);
-      border-radius: 50px;
+      box-shadow: 0 px2rem(2px) px2rem(4px) 0 rgba(189, 189, 189, 0.5);
+      border-radius: px2rem(100px);
     }
     .unit {
-      margin: 0 35px 0 10px;
+      margin-left: px2rem(10px);
+      font-size: px2rem(28px);
+    }
+    .purchase-btn {
+      margin: px2rem(70px) auto 0;
+      text-align: center;
     }
     .btn {
       background: #2ab3ce;
-      border-radius: 60px;
-      width: 180px;
-      height: 40px;
-      line-height: 40px;
+      border-radius: px2rem(60px);
+      width: px2rem(260px);
+      height: px2rem(60px);
+      line-height: px2rem(60px);
       display: inline-block;
-      font-size: 18px;
+      font-size: px2rem(28px);
       color: #ffffff;
       text-align: center;
       cursor: pointer;
@@ -52,11 +62,11 @@
     }
   }
   .recharge-tip {
-    font-size: 16px;
+    font-size: px2rem(24px);
     color: #8e8e8e;
-    margin-left: 78px;
-    margin-top: 8px;
-    line-height: 32px;
+    margin-left: px2rem(120px);
+    margin-top: px2rem(12px);
+    line-height: px2rem(32px);
   }
   .a-link {
     color: #2ab3ce;

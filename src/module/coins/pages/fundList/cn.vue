@@ -1,15 +1,15 @@
 <template>
-  <div class="app">
-    <top-bar activePage="coins">
-    </top-bar>
-    <head-banner></head-banner>
-    <div class="main">
-      <recommend></recommend>
-      <list :fundList="fundList" :totalNum='total_fundNum' :pageNo="pageNo" @gotoPage="gotoPage"></list>
-    </div>
-    <footer-bar>
-    </footer-bar>
-  </div>
+	<div class="app">
+		<top-bar activePage="coins">
+		</top-bar>
+		<head-banner></head-banner>
+		<div class="main">
+			<recommend></recommend>
+			<list :fundList="fundList" :totalNum='total_fundNum' :pageNo="pageNo" @gotoPage="gotoPage"></list>
+		</div>
+		<footer-bar>
+		</footer-bar>
+	</div>
 </template>
 <script>
 import topBar from '../../../../components/header/cn';

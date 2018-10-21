@@ -7,20 +7,23 @@
 			<span class="name">数量：</span>
 			<input type="number" v-model="amount" class="input" :min="least" :max="remain" placeholder="0" />
 			<span class="unit">{{coinName}}</span>
-			<span class="btn" :class="{disabled: disabled}" @click="purchaseClick">立即购买</span>
+			<div class="recharge-tip">
+				<span>钱包里面共有{{walletRemain}}个{{coinName}}，</span>
+				<span class="a-link" @click="recharge">立即充值</span>
+			</div>
+			<div class="purchase-btn">
+				<span class="btn" :class="{disabled: disabled}" @click="purchaseClick">立即购买</span>
+			</div>
 		</div>
-		<div class="recharge-tip">
-			<span>钱包里面共有{{walletRemain}}个{{coinName}}，</span>
-			<span class="a-link" @click="recharge">立即充值</span>
-		</div>
+
 		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定购买" @submit="purchase" @closeBox="closePwdBox"></pwd-dialog>
-		<box-charge v-model="showRecharge" :item="currItem" @closeBox="closeRecharge"></box-charge>
+		<box-charge v-model="showRecharge" :item="currItem"></box-charge>
 	</div>
 </template>
 <script>
 import { mapGetters } from 'vuex';
-import pwdDialog from '../../../../components/pwdDialog/cn';
-import boxCharge from '../../../../components/boxCharge/cn';
+import pwdDialog from '../../../../components/pwdDialog';
+import boxCharge from '../../../../components/recharge';
 import Api from '../../api';
 import Util from '../../../../util';
 
@@ -120,12 +123,6 @@ export default {
 				walletAddr: this.walletAddr
 			};
 			this.showRecharge = true;
-		},
-		closeRecharge() {
-			this.showRecharge = false;
-		},
-		closePwdBox() {
-			this.showPwdDialog = false;
 		}
 	}
 };

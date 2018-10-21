@@ -7,19 +7,19 @@ import 'whatwg-fetch';
  * @return {[Promise]}                  [description]
  */
 function post(url, data, responseDataType) {
-	return fetch(url, {
-		headers: {
-			Accept: 'application/json'
-			// 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-		},
-		// credentials: 'include',
-		mode: 'cors',
-		method: 'POST',
-		// body: _urlEncode(data)
-		body: JSON.stringify(data)
-	}).then(function (response) {
-		return _formatData(response, responseDataType);
-	});
+  return fetch(url, {
+    headers: {
+      Accept: 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+    },
+    // credentials: 'include',
+    mode: 'cors',
+    method: 'POST',
+    // body: _urlEncode(data)
+    body: JSON.stringify(data)
+  }).then(function(response) {
+    return _formatData(response, responseDataType);
+  });
 }
 /**
  * [get]
@@ -28,13 +28,13 @@ function post(url, data, responseDataType) {
  * @return {[Promise]}                  [description]
  */
 function get(url, responseDataType) {
-	return fetch(url, {
-		method: 'GET',
-		mode: 'cors'
-		// credentials: 'include'
-	}).then(function (response) {
-		return _formatData(response, responseDataType);
-	});
+  return fetch(url, {
+    method: 'GET',
+    mode: 'cors'
+    // credentials: 'include'
+  }).then(function(response) {
+    return _formatData(response, responseDataType);
+  });
 }
 /**
  * [_formatData 格式化response]
@@ -43,18 +43,18 @@ function get(url, responseDataType) {
  * @return {[type]}          [description]
  */
 function _formatData(response, type) {
-	switch (type) {
-		case 'arrayBuffer':
-			return response.arrayBuffer();
-		case 'blob':
-			return response.blob();
-		case 'formData':
-			return response.formData();
-		case 'text':
-			return response.text();
-		default:
-			return response.json();
-	}
+  switch (type) {
+    case 'arrayBuffer':
+      return response.arrayBuffer();
+    case 'blob':
+      return response.blob();
+    case 'formData':
+      return response.formData();
+    case 'text':
+      return response.text();
+    default:
+      return response.json();
+  }
 }
 /**
  * [_urlEncode 格式化json为url参数]
@@ -62,22 +62,18 @@ function _formatData(response, type) {
  * @return {[type]} string         [description]
  */
 function _urlEncode(params) {
-	if (typeof params === 'object') {
-		return Object.keys(params)
-			.map(key => {
-				return (
-					encodeURIComponent(key) +
-					'=' +
-					encodeURIComponent(params[key])
-				);
-			})
-			.join('&');
-	} else {
-		return params;
-	}
+  if (typeof params === 'object') {
+    return Object.keys(params)
+      .map(key => {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+      })
+      .join('&');
+  } else {
+    return params;
+  }
 }
 
 export default {
-	post,
-	get
+  post,
+  get
 };

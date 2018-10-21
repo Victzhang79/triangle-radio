@@ -4,7 +4,7 @@
 			<span>认购流程</span>
 		</div>
 		<div class="process">
-			<img src="//www.aoabank.com/process.png" class="process-img" />
+			<div class="process-img"></div>
 			<div class="process-desc">
 				<div class="desc">
 					<span>申购日</span>

@@ -1,9 +1,11 @@
 <template>
-  <el-tabs v-model="activeTab" @tab-click="handleClick">
-    <el-tab-pane label="Coin Purse" name="0">Coin Purse</el-tab-pane>
-    <el-tab-pane label="Coins" name="1">Coins</el-tab-pane>
-    <el-tab-pane label="Coin Pawns" name="2">Coin Pawns</el-tab-pane>
-  </el-tabs>
+	<div class="second-tab">
+		<van-tabs v-model="activeTab" @change="handleClick">
+			<van-tab title="币钱包"></van-tab>
+			<van-tab title="币生币"></van-tab>
+			<van-tab title="币典当"></van-tab>
+		</van-tabs>
+	</div>
 </template>
 <script>
 export default {
@@ -13,8 +15,8 @@ export default {
 		};
 	},
 	methods: {
-		handleClick(tab, event) {
-			this.$emit('change-tab', tab.index);
+		handleClick(index, title) {
+			this.$emit('change-tab', index);
 		}
 	}
 };

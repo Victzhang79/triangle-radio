@@ -1,0 +1,72 @@
+@import '../../../../assets/style/public.scss';
+.asset-item {
+  width: px2rem(636px);
+  background: #ffffff;
+  margin: 0 auto px2rem(35px);
+  border-radius: px2rem(10px) px2rem(10px) 0 0;
+  .title {
+    text-align: left;
+    background: #1eafcc;
+    font-size: px2rem(28px);
+    color: #ffffff;
+    line-height: px2rem(50px);
+    height: px2rem(50px);
+    width: 100%;
+    padding: 0 px2rem(40px);
+    border-radius: px2rem(10px) px2rem(10px) 0 0;
+  }
+  .content {
+    padding: px2rem(30px) px2rem(40px);
+    line-height: px2rem(54px);
+    text-align: left;
+  }
+  .item-line {
+    font-size: px2rem(26px);
+    line-height: px2rem(54px);
+  }
+  .item-name {
+    color: #7c7c7c;
+  }
+  .item-value {
+    color: #000000;
+  }
+  .wallet-footer {
+    border-top: px2rem(4px) solid #f4f4f4;
+    display: flex;
+    width: 100%;
+    height: px2rem(72px);
+    line-height: px2rem(42px);
+    padding: px2rem(15px) 0;
+    .btn {
+      display: inline-block;
+      font-size: px2rem(28px);
+      color: #2ab3ce;
+      flex: 1;
+      text-align: center;
+      border-right: 1px solid #cfcfcf;
+      cursor: pointer;
+    }
+    .btn:last-child {
+      border-right: 0;
+    }
+  }
+  .item-footer {
+    padding: px2rem(10px) 0 px2rem(50px);
+    text-align: center;
+    width: 100%;
+    .btn {
+      display: inline-block;
+      background: #1eafcc;
+      border-radius: px2rem(50px);
+      font-size: px2rem(26px);
+      color: #ffffff;
+      text-align: center;
+      width: px2rem(240px);
+      height: px2rem(60px);
+      line-height: px2rem(60px);
+    }
+  }
+  .blue {
+    color: #1eafcc;
+  }
+}

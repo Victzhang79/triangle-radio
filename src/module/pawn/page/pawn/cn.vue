@@ -82,10 +82,10 @@
 <script>
 import Api from '../../api';
 import coinListConfig from '../../util/config.coinList';
-import pwdDialog from '../../../../components/pwdDialog/cn';
+import pwdDialog from '../../../../components/pwdDialog';
 import agreeDialog from '../agreeDialog/cn';
 import identityAuth from '../identityAuth/cn';
-import boxCharge from '../../../../components/boxCharge/cn';
+import boxCharge from '../../../../components/recharge';
 export default {
 	data() {
 		return {

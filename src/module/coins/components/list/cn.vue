@@ -1,61 +1,42 @@
 <template>
 	<div class="fund-list">
-		<table>
-			<tr class="table-header">
-				<th>名称</th>
-				<th>编号</th>
-				<th>收益率</th>
-				<th>基金周期（天）</th>
-				<th>认购进度</th>
-				<th>基金类型</th>
-				<th></th>
-			</tr>
-			<tr class="table-body" v-for="item in fundList">
-				<td>{{item.fundName}}</td>
-				<td>{{item.fundNo}}</td>
-				<td class="font-blue">年化{{(item.returnRate * 365 * 100).toFixed(2)}}%</td>
-				<td>{{item.fundDays}}</td>
-				<td>{{item.purchaseProgress.toFixed(2)}}%</td>
-				<td>{{fundTypeList[item.fundType]}}</td>
-				<td class="oprate">
-					<span @click="gotoBuy(item.fundId)" class="buy-btn btn" v-if="item.purchaseProgress < 100">认购</span>
-					<span @click="gotoWatch(item.fundId)" class="watch-btn btn" v-else>查看</span>
-				</td>
-			</tr>
-		</table>
+		<div class="header-title">
+			<span class="split-line"></span>
+			<span>所有产品</span>
+			<span class="split-line"></span>
+		</div>
+		<coin-item v-for="item of fundList" :coinInfo="item" pageType="coins" @gotoDetail="gotoDetail"></coin-item>
 		<div class="pagers">
-			<el-pagination layout="prev, pager, next" page-size.sync="10" :pager-count="pageCount" :total="totalNum" prev-text='上一页' next-text='下一页' @current-change="gotoPage" @prev-click='prevPage' @next-click='nextPage' :current-page.sync="currPage">
-			</el-pagination>
+			<van-pagination v-model="pageNo" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />
 		</div>
 	</div>
 </template>
 <script>
+import coinItem from '../coinItem';
 export default {
 	props: {
 		fundList: Array,
 		totalNum: Number,
 		pageNo: Number
 	},
+	components: {
+		coinItem
+	},
 	data() {
 		return {
 			fundTypeList: ['', '固收保本'],
-			pageCount: 5,
+			pageSize: 5,
 			currPage: this.pageNo
 		};
 	},
 	methods: {
-		gotoBuy(fundId) {
+		gotoDetail(fundId) {
 			this.$router.push({
 				name: 'FundDetailCn',
 				params: { fundId: fundId }
 			});
 		},
-		gotoWatch(fundId) {
-			this.$router.push({
-				name: 'FundDetailCn',
-				params: { fundId: fundId }
-			});
-		},
+
 		gotoPage(val) {
 			this.$emit('gotoPage', val);
 		},
@@ -72,4 +53,34 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import './index.scss';
+
+.pagers {
+	width: px2rem(636px);
+	text-align: center;
+	margin: px2rem(50px) auto;
+	background: #f7f7f7;
+	font-size: px2rem(24px);
+	color: #888585;
+	.van-pagination__item {
+		min-width: px2rem(36px);
+		height: px2rem(36px);
+		line-height: px2rem(36px);
+		text-align: center;
+		font-size: px2rem(24px);
+		color: #878585;
+		background: #f7f7f7;
+		margin: 0 px2rem(10px);
+	}
+	.van-pagination li.van-pagination__item--active {
+		background: #ffffff;
+		border: 1px solid #e9e9e9;
+		border-radius: px2rem(2px);
+		font-size: px2rem(18px);
+		color: #2ab3ce;
+	}
+	.van-pagination__item--disabled,
+	.van-pagination__item--disabled:active {
+		color: #b8b8b8;
+	}
+}
 </style>

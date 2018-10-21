@@ -1,72 +1,20 @@
-.fund-list {
-  padding: 88px 20px 20px;
-  font-family: PingFangSC-Regular;
-}
-table {
-  border: 1px solid #e1e1e1;
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
-  .table-header {
-    height: 60px;
-    line-height: 60px;
-    background: #e4eefe;
-    font-size: 16px;
-    color: #2e81bc;
-  }
-  .table-body {
-    line-height: 80px;
-    font-size: 16px;
-    color: #000000;
-    border-bottom: 1px solid #e9e9e9;
-  }
-  .table-body:hover {
-    background: #fafafa;
-  }
-  .font-blue {
-    color: #57b1cb;
-  }
-  .btn {
-    width: 80px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  .buy-btn {
-    display: inline-block;
-    background: #2ab3ce;
-    border-radius: 100px;
-    color: #ffffff;
-  }
-  .watch-btn {
-    background-image: linear-gradient(0deg, #d9d9d9 0%, #ffffff 100%);
-    border: 1px solid #dadada;
-    border-radius: 100px;
-    color: #2ab3ce;
-  }
-}
+@import '../../../../assets/style/public.scss';
 
-.pagers {
-  text-align: right;
-  font-size: 14px;
-  color: #888585;
-  .el-pager li.active {
-    background: #ffffff;
-    border: 1px solid #e8e8e8;
-    border-radius: 2px;
-    font-size: 18px;
-    color: #2ab3ce;
-  }
-  .el-pagination button:disabled {
-    color: #b8b8b8;
-  }
-  .el-pagination.is-background .btn-next,
-  .el-pagination.is-background .btn-prev,
-  .el-pagination.is-background .el-pager li {
-    background: #ffffff;
-    border: 0;
-    font-size: 14px;
-    color: #878585;
-  }
+.fund-list {
+  padding: px2rem(30px) px2rem(20px) px2rem(20px);
+  font-family: PingFangSC-Regular;
+  background: #f7f7f7;
+}
+.header-title {
+  font-size: px2rem(28px);
+  color: #878787;
+  line-height: px2rem(60px);
+  margin-bottom: px2rem(30px);
+}
+.split-line {
+  width: px2rem(35px);
+  border-bottom: 1px solid #979797;
+  margin: 0 px2rem(30px);
+  vertical-align: middle;
+  display: inline-block;
 }
