@@ -19,7 +19,7 @@
 				<a :href="HOST+'/m/pawn'">典当</a>
 			</li>
 			<li :class="{active: activePage === 'coins'}">
-				<a :href="HOST+'/m/coins'">币生币</a>
+				<a :href="HOST+'/m/coins'">基金理财</a>
 			</li>
 			<li :class="{active: activePage === 'home'}">
 				<a :href="HOST+'/m'">主页</a>
