@@ -6,17 +6,18 @@ import router from './router';
 import store from './store';
 import VeeValidate from 'vee-validate';
 import VueClipboard from 'vue-clipboard2';
-import { Toast, Pagination, Popup } from 'vant';
+import { Toast, Pagination, Popup, Dialog } from 'vant';
 
 Vue.config.productionTip = false;
 
 Vue.use(VeeValidate, {
-  fieldsBagName: 'fieldBags'
+  events: 'blur' //blur失焦校验
 });
 Vue.use(VueClipboard);
 Vue.use(Toast)
   .use(Pagination)
-  .use(Popup);
+  .use(Popup)
+  .use(Dialog);
 
 /* eslint-disable no-new */
 new Vue({

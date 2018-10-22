@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="value">
+	<van-popup class="dialog" v-model="value" click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="dialog-title">身份认证</h2>
 		<div class="dialog-body">
@@ -17,7 +17,9 @@ export default {
 		value: Boolean
 	},
 	data() {
-		return {};
+		return {
+			ISFALSE: false
+		};
 	},
 	methods: {
 		closeBox() {

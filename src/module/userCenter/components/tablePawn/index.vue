@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<asset-item v-for="item of pawnList" :coinInfo="item" pageType="pawn" @redeem="redeem"></asset-item>
+		<asset-item v-for="(item, index) in pawnList" :coinInfo="item" pageType="pawn" @redeem="redeem(index)"></asset-item>
 		<div v-if="showNull" class="list-tip"><span>{{showTip}}</span></div>
 		<div class="pagers">
 			<van-pagination v-model="pageNo" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />
@@ -9,8 +9,8 @@
 			<el-pagination layout="prev, pager, next" :page-size.sync="pageSize" :pager-count="pageCount" :total="totalNum" prev-text='上一页' next-text='下一页' @current-change="gotoPage" @prev-click='prevPage' @next-click='nextPage' :current-page.sync="pageNo">
 			</el-pagination>
 		</div> -->
-		<box-redeem v-model="showRedeemBox" :checkedItem="checkedItem" @closeBox="closeRedeemBox"></box-redeem>
-		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定赎回" @submit="submitRedeem" @closeBox="closePwdBox"></pwd-dialog>
+		<box-redeem v-model="showRedeemBox" :checkedItem="checkedItem" @redeemSuccess="redeemSuccess"></box-redeem>
+		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定赎回" @submit="submitRedeem"></pwd-dialog>
 	</div>
 </template>
 <script>
@@ -31,8 +31,9 @@ export default {
 			pageCount: 7,
 			totalNum: 0,
 			pawnList: [],
+			pawnData: [],
 			showNull: false,
-			showTip: '您目前没有购买任何币生币基金',
+			showTip: '您目前没有任何典当记录',
 			coinList: Util.coinNameList,
 			statusList: [
 				'',
@@ -63,8 +64,9 @@ export default {
 				if (res.code == 200) {
 					if (res.data.length == 0) {
 						this.showNull = true;
-						this.showTip = '您目前没有购买任何币生币基金';
+						this.showTip = '您目前没有任何典当记录';
 					} else {
+						this.pawnData = res.data;
 						this.totalNum = res.totalNum;
 						let arr = [];
 						for (let item of res.data) {
@@ -94,15 +96,15 @@ export default {
 										value: item.loanDate
 									},
 									{
-										name: '日利率',
+										name: '日 利 率',
 										value: (item.dayRate % 100) + '%'
 									},
 									{
-										name: '利息',
+										name: '利　　息',
 										value: item.interest.toFixed(2)
 									},
 									{
-										name: '状态',
+										name: '状　　态',
 										value: this.statusList[item.status]
 									}
 								]
@@ -127,23 +129,17 @@ export default {
 			let page = this.pageNo + 1;
 			this.getPawnedList(page);
 		},
-		redeem(item) {
+		redeem(index) {
 			this.showPwdDialog = true;
-			this.checkedItem = item;
+			this.checkedItem = this.pawnData[index];
 		},
 		submitRedeem() {
 			this.showPwdDialog = false;
 			this.showRedeemBox = true;
 		},
-		closePwdBox() {
-			this.showPwdDialog = false;
-		},
-		closeRedeemBox(result) {
-			this.showRedeemBox = false;
-			if (result) {
-				// 交易成功
-				this.getPawnedList(this.pageNo, this.pageSize);
-			}
+		redeemSuccess() {
+			// 赎回成功回调
+			this.getPawnedList(this.pageNo, this.pageSize);
 		}
 	}
 };

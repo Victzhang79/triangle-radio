@@ -85,7 +85,7 @@ export default {
 				return false;
 			}
 			this.$dialog
-				.comfirm('确定进行购买吗？')
+				.confirm({ message: '确定进行购买吗？' })
 				.then(_ => {
 					this.$store
 						.dispatch('savePurchaseFund', {

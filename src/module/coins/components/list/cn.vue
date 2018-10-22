@@ -5,9 +5,9 @@
 			<span>所有产品</span>
 			<span class="split-line"></span>
 		</div>
-		<coin-item v-for="item in fundList" :coinInfo="item" pageType="coins" @gotoDetail="gotoDetail" :key="item"></coin-item>
+		<coin-item v-for="(item, index) in fundList" :coinInfo="item" pageType="coins" @gotoDetail="gotoDetail" :key="index"></coin-item>
 		<div class="pagers">
-			<van-pagination v-model="pageNo" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />
+			<van-pagination v-model="currPage" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />
 		</div>
 	</div>
 </template>
@@ -28,6 +28,11 @@ export default {
 			pageSize: 5,
 			currPage: this.pageNo
 		};
+	},
+	watch: {
+		pageNo(val) {
+			this.currPage = val;
+		}
 	},
 	methods: {
 		gotoDetail(fundId) {
