@@ -5,8 +5,12 @@ import App from './App';
 import router from './router';
 import { Toast, Dialog, Popup } from 'vant';
 import VueClipboard from 'vue-clipboard2';
+import VeeValidate from 'vee-validate';
 
 Vue.config.productionTip = false;
+Vue.use(VeeValidate, {
+  events: 'blur' //blur失焦校验
+});
 Vue.use(VueClipboard);
 Vue.use(Toast)
   .use(Dialog)

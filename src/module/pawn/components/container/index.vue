@@ -95,8 +95,8 @@
 		</div>
 		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定借款" @submit="submitPawn" @closeBox="closePwdBox"></pwd-dialog>
 		<agree-dialog v-model="showAgreeDialog" @submit="agreeCheck"></agree-dialog>
-		<identity-auth v-model="showIdentityAuth" @submit="gotoAuth" @closeBox="closeIdentityBox"></identity-auth>
-		<box-charge v-model="showRecharge" :item="currItem" @closeBox="closeRecharge"></box-charge>
+		<identity-auth v-model="showIdentityAuth" @submit="gotoAuth"></identity-auth>
+		<box-charge v-model="showRecharge" :item="currItem"></box-charge>
 	</div>
 </template>
 <script>
@@ -195,9 +195,6 @@ export default {
 
 			this.showRecharge = true;
 		},
-		closeRecharge() {
-			this.showRecharge = false;
-		},
 		showPawnList() {
 			this.showPawnSelect = !this.showPawnSelect;
 		},
@@ -261,12 +258,10 @@ export default {
 		closeAgreeBox() {
 			this.showAgreeDialog = false;
 		},
-		closeIdentityBox() {
-			this.showIdentityAuth = false;
-		},
+
 		gotoAuth() {
 			location.href =
-				'//' + location.host + '/userCenter#/identification/cn';
+				'//' + location.host + '/m/userCenter#/identification/cn';
 		},
 		async submit() {
 			// 获取认证状态
@@ -294,8 +289,8 @@ export default {
 			}
 		},
 		submitPawn() {
-			this.dialog
-				.confirm('确定进行典当吗？')
+			this.$dialog
+				.confirm({ message: '确定进行典当吗？' })
 				.then(_ => {
 					console.log(this.coinList[this.activePawn].coinCode);
 					let params = {
