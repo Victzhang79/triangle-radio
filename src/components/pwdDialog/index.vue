@@ -1,24 +1,26 @@
 <template>
-	<van-popup class="dialog" v-model="value">
+	<van-popup class="dialog" v-model="show">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="title">交易密码</h2>
-		<form class="demo-ruleForm wrap">
+		<div class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">交易密码：</p>
-				<input type="password" v-model="pageForm.transPass" placeholder="请输入交易密码">
+				<input type="password" v-validate="rules.transPass.validation" v-model="pageForm.transPass" placeholder="请输入交易密码">
+				<span v-show="errors.has('transPass')" class="error-tip">{{ rules.transPass.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">验证码：</p>
-				<input class="authCode" maxlength="6" v-model="pageForm.veriCode" placeholder="请输入验证码">
+				<input class="authCode" maxlength="6" v-validate="rules.veriCode.validation" v-model="pageForm.veriCode" placeholder="请输入验证码">
 				<button class="authBtn" @click="sendCheckcode" :class="{disabled:hasSend}">{{sendCodeText}}</button>
+				<span v-show="errors.has('veriCode')" class="error-tip">{{ rules.veriCode.text}}</span>
 			</label>
 			<p class="input-tip">
 				<span class="link-span" @click="gotoSetPwd">设置密码</span>
 			</p>
 			<p class="btn-line">
-				<button @click="submit('pageForm')" class="btn">{{submitBtnText}}</button>
+				<button @click="submit()" class="btn">{{submitBtnText}}</button>
 			</p>
-		</form>
+		</div>
 	</van-popup>
 </template>
 
@@ -41,22 +43,20 @@ export default {
 				veriCode: ''
 			},
 			rules: {
-				transPass: [
-					{
+				transPass: {
+					validation: {
 						required: true,
-						pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-						message: '请输入正确的资金密码',
-						trigger: 'blur'
-					}
-				],
-				veriCode: [
-					{
+						regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+					},
+					text: '8-16位，必须包含数字和字母。'
+				},
+				veriCode: {
+					validation: {
 						required: true,
-						pattern: /^\d{6}$/,
-						message: '请输入正确的短信验证码',
-						trigger: 'blur'
-					}
-				]
+						regex: /^\d{6}$/
+					},
+					text: '验证码格式错误'
+				}
 			},
 			hasSend: false,
 			duration: 1500
@@ -64,6 +64,7 @@ export default {
 	},
 	watch: {
 		value(val) {
+			this.show = val;
 			if (val) {
 				Api.getVeriStatus().then(res => {
 					if (res.code == 200) {
@@ -74,7 +75,6 @@ export default {
 							return false;
 						}
 					}
-					this.show = val;
 					this.pageForm = {
 						transPass: '',
 						veriCode: ''
@@ -85,7 +85,6 @@ export default {
 	},
 	methods: {
 		closeBox() {
-			this.show = false;
 			this.$emit('input', false);
 		},
 		gotoSetPwd() {
@@ -95,14 +94,14 @@ export default {
 			if (!this.hasSend) {
 				let getCheckCodeRes = await Api.getCheckcode();
 				if ((getCheckCodeRes.code = 200)) {
-					this.$message({
+					this.$toast({
 						message: '验证码发送成功',
 						type: 'success',
 						duration: this.duration
 					});
 					this.countDown();
 				} else {
-					this.$message.error({
+					this.$toast.fail({
 						message: '验证码发送失败',
 						duration: this.duration
 					});
@@ -123,8 +122,10 @@ export default {
 				}, 1000);
 			}
 		},
-		submit(formName) {
-			this.$refs[formName].validate(valid => {
+		submit() {
+			// this.$refs[formName].validate(valid => {
+			this.$validator.validateAll().then(valid => {
+				console.log(this.errors);
 				if (valid) {
 					Api.veriPass({
 						transPass: rsaEncrypt(this.pageForm.transPass),
@@ -135,17 +136,17 @@ export default {
 							this.$emit('submit');
 						} else {
 							let errInfo = res.message || '密码或验证码有误';
-							this.$message.error({
+							this.$toast.fail({
 								message: errInfo,
 								duration: this.duration
 							});
 						}
 					});
 				} else {
-					this.$message.error({
-						message: '请正确填写所有必填项',
-						duration: this.duration
-					});
+					// this.$toast.fail({
+					// 	message: '请正确填写所有必填项',
+					// 	duration: this.duration
+					// });
 				}
 			});
 		}

@@ -33,7 +33,8 @@ export default {
 			this.$emit('input', false);
 		},
 		onCopy() {
-			this.$message({
+			console.log('aa');
+			this.$toast({
 				message: '复制成功',
 				type: 'success',
 				duration: 1000

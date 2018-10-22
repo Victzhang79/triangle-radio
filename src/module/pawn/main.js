@@ -3,12 +3,14 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import { Toast } from 'mint-ui';
+import { Toast, Dialog, Popup } from 'vant';
+import VueClipboard from 'vue-clipboard2';
 
 Vue.config.productionTip = false;
-Vue.prototype.$toast = Toast;
-Vue.component(Toast.name, Toast);
-
+Vue.use(VueClipboard);
+Vue.use(Toast)
+  .use(Dialog)
+  .use(Popup);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

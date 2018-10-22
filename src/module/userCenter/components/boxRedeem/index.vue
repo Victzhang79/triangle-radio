@@ -55,7 +55,7 @@ export default {
 			console.log('gotopwd');
 		},
 		onCopy() {
-			this.$message({
+			this.$toast({
 				message: '复制成功',
 				type: 'success',
 				duration: 1000

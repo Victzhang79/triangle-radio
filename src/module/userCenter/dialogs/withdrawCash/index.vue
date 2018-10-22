@@ -140,7 +140,7 @@ export default {
 							[4, 8].indexOf(this.item.coinCode) > -1 &&
 							this.item.ethAmount == 0
 						) {
-							this.$message.error({
+							this.$toast.fail({
 								message:
 									'基于以太坊ERC20的币，提现需要消耗以太坊作为手续费，您的ETH余额为0',
 								duration: this.duration
@@ -151,7 +151,7 @@ export default {
 							this.item.coinCode == 1 &&
 							this.item.btcAmount == 0
 						) {
-							this.$message.error({
+							this.$toast.fail({
 								message:
 									'usdt提现需要消耗比特币作为手续费，您的BTC余额为0',
 								duration: this.duration
@@ -163,7 +163,7 @@ export default {
 							this.submitInfo();
 						}, 10000);
 					} else {
-						this.$message.error({
+						this.$toast.fail({
 							message: '请正确填写所有必填项',
 							duration: this.duration
 						});
@@ -184,7 +184,7 @@ export default {
 				this.address = '';
 				// this.checkCode = '';
 			} else {
-				this.$message.error({
+				this.$toast.fail({
 					message: '提现失败请重试',
 					duration: this.duration
 				});

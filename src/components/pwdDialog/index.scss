@@ -31,9 +31,11 @@ div input {
   .link-btn {
     color: #2ab3ce;
   }
-  .disabled {
-    color: #bdbdbd;
-    cursor: default;
+  label {
+    .disabled {
+      color: #bdbdbd;
+      cursor: default;
+    }
   }
 
   .input-tip {

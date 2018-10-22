@@ -50,7 +50,7 @@ export default {
 			})
 				.then(res => {
 					if (res.code == 200) {
-						this.$message({
+						this.$toast({
 							message: '赎回成功',
 							type: 'success',
 							duration: this.duration
@@ -58,14 +58,14 @@ export default {
 						this.closeBox(true);
 					} else {
 						let errInfo = res.msg || '赎回失败，请稍后重试';
-						this.$message.error({
+						this.$toast.fail({
 							message: errInfo,
 							duration: this.duration
 						});
 					}
 				})
 				.catch(e => {
-					this.$message.error({
+					this.$toast.fail({
 						message: e.message,
 						duration: this.duration
 					});
