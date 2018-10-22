@@ -3,7 +3,6 @@
 		<div @click="closeBox" class="close"></div>
 		<h3 class="dlg-title">{{title}}</h3>
 		<form class="demo-ruleForm wrap">
-
 			<label>
 				<span class="labelTit">赎回金额：</span>
 				<input type="number" class="redeem-num" v-model="checkedItem.pawnNum" readonly="true" />
@@ -46,7 +45,7 @@ export default {
 		}
 	},
 	methods: {
-		closeBox(result) {
+		closeBox() {
 			this.$emit('input', false);
 		},
 		onSubmit() {
@@ -60,7 +59,8 @@ export default {
 							type: 'success',
 							duration: this.duration
 						});
-						this.closeBox(true);
+						this.closeBox();
+						this.$emit('redeemSuccess');
 					} else {
 						let errInfo = res.msg || '赎回失败，请稍后重试';
 						this.$toast.fail({

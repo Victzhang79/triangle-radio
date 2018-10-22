@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<asset-item v-for="item of walletArray" :coinInfo="item" pageType="wallet" @withdraw="putForward(item)" @recharge="recharge(item)"></asset-item>
+		<asset-item v-for="(item, index) in walletArray" :coinInfo="item" pageType="wallet" @withdraw="putForward(index)" @recharge="recharge(index)"></asset-item>
 		<recharge v-model="showChargeBox" :item="checkItem"></recharge>
 		<withdraw-cash v-model="showWithdrawBox" :item="checkItem">
 		</withdraw-cash>
@@ -9,7 +9,6 @@
 </template>
 <script>
 // 币钱包
-// import withdrawCash from '../withdrawCash/index.cn';
 import assetItem from '../assetItem';
 import recharge from '../../../../components/recharge';
 import withdrawCash from '../../dialogs/withdrawCash';
@@ -67,12 +66,12 @@ export default {
 	},
 	methods: {
 		// 提现
-		putForward(item) {
-			this.checkItem = item;
+		putForward(index) {
+			this.checkItem = this.walletList[index];
 			this.showPwdDialog = true;
 		},
-		recharge(item) {
-			this.checkItem = item;
+		recharge(index) {
+			this.checkItem = this.walletList[index];
 			this.showChargeBox = true;
 		},
 		submitWithdraw() {

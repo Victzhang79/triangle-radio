@@ -1,16 +1,16 @@
 <template>
-	<van-popup class="dialog" v-model="show">
+	<van-popup class="dialog" v-model="show" click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="title">交易密码</h2>
 		<div class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">交易密码：</p>
-				<input type="password" v-validate="rules.transPass.validation" v-model="pageForm.transPass" placeholder="请输入交易密码">
+				<input type="password" v-validate="rules.transPass.validation" v-model="pageForm.transPass" placeholder="请输入交易密码" name="transPass">
 				<span v-show="errors.has('transPass')" class="error-tip">{{ rules.transPass.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">验证码：</p>
-				<input class="authCode" maxlength="6" v-validate="rules.veriCode.validation" v-model="pageForm.veriCode" placeholder="请输入验证码">
+				<input class="authCode" maxlength="6" v-validate="rules.veriCode.validation" v-model="pageForm.veriCode" placeholder="请输入验证码" name="veriCode">
 				<button class="authBtn" @click="sendCheckcode" :class="{disabled:hasSend}">{{sendCodeText}}</button>
 				<span v-show="errors.has('veriCode')" class="error-tip">{{ rules.veriCode.text}}</span>
 			</label>
@@ -34,9 +34,9 @@ export default {
 	},
 	data() {
 		return {
-			showCloseBtn: false,
 			title: '交易密码',
 			show: this.value,
+			ISFALSE: false,
 			sendCodeText: '获取验证码',
 			pageForm: {
 				transPass: '',
@@ -88,21 +88,22 @@ export default {
 			this.$emit('input', false);
 		},
 		gotoSetPwd() {
-			window.open('//' + location.host + '/userCenter#/security/cn');
+			window.location.href =
+				'//' + location.host + '/m/userCenter#/security/cn';
 		},
 		async sendCheckcode() {
 			if (!this.hasSend) {
 				let getCheckCodeRes = await Api.getCheckcode();
 				if ((getCheckCodeRes.code = 200)) {
 					this.$toast({
-						message: '验证码发送成功',
+						message: '发送成功',
 						type: 'success',
 						duration: this.duration
 					});
 					this.countDown();
 				} else {
 					this.$toast.fail({
-						message: '验证码发送失败',
+						message: '发送失败',
 						duration: this.duration
 					});
 				}
@@ -123,9 +124,7 @@ export default {
 			}
 		},
 		submit() {
-			// this.$refs[formName].validate(valid => {
 			this.$validator.validateAll().then(valid => {
-				console.log(this.errors);
 				if (valid) {
 					Api.veriPass({
 						transPass: rsaEncrypt(this.pageForm.transPass),

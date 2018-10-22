@@ -7,16 +7,11 @@ import store from './store';
 import VeeValidate from 'vee-validate';
 import VueClipboard from 'vue-clipboard2';
 import { Progress, Tab, Tabs, Popup, Uploader, Pagination, Toast } from 'vant';
-// // 引入基础样式
-// import 'vant/packages/vant-css/src/base.css';
-// // 引入组件对应的样式
-// import 'vant/packages/vant-css/src/button.css';
-// import 'vant/packages/vant-css/src/checkbox.css';
 
 Vue.config.productionTip = false;
 
 Vue.use(VeeValidate, {
-  fieldsBagName: 'veefields'
+  events: 'blur' //blur失焦校验
 });
 Vue.use(VueClipboard);
 

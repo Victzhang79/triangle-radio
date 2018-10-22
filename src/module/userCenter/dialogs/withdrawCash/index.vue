@@ -1,8 +1,8 @@
 <template>
-	<van-popup class="dialog" v-model="value">
+	<van-popup class="dialog" v-model="show" click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="title">提现操作</h2>
-		<h3 class="dlg-title">您正在进行{{coinName}}充值操作</h3>
+		<h3 class="dlg-title">您正在进行{{coinName}}提现操作</h3>
 		<div class="balance-tip">最多可提现
 			<span>
 				<span>{{item.withDrawableNum}}</span>
@@ -12,17 +12,19 @@
 		<form class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">提现金额：</p>
-				<input v-model="pageForm.withDrawNum" :placeholder="moneyPlaceholder">
-				<span class="input-unit">USDTTT</span>
+				<input v-validate='rules.withDrawNum.validation' v-model="pageForm.withDrawNum" :placeholder="moneyPlaceholder" name="withDrawNum">
+				<span class="input-unit">{{coinName}}</span>
 				<span class="suffix-btn" @click="allWithdraw">全部提现</span>
+				<span v-show="errors.has('withDrawNum')" class="error-tip">{{ rules.withDrawNum.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">钱包地址：</p>
-				<input class="authCode" v-model="pageForm.toWalletAddr" placeholder="请输入钱包地址">
+				<input class="authCode" v-validate='rules.toWalletAddr.validation' v-model="pageForm.toWalletAddr" placeholder="请输入钱包地址" name="toWalletAddr">
+				<span v-show="errors.has('toWalletAddr')" class="error-tip">{{ rules.toWalletAddr.text}}</span>
 			</label>
 			<p class="erc20-tip" v-if="showErcTip">{{tipContent}}</p>
 			<p class="btn-line">
-				<button @click="onSubmit('pageForm')" class="btn" type="primary" round>确认提现</button>
+				<button @click="onSubmit()" class="btn" type="primary" round>确认提现</button>
 			</p>
 		</form>
 	</van-popup>
@@ -38,22 +40,10 @@ export default {
 		item: Object
 	},
 	data() {
-		var checkWithDrawNum = (rule, value, callback) => {
-			if (!value) {
-				return callback(new Error('请输入提现金额'));
-			}
-
-			if (value <= 0) {
-				callback(new Error('提现金额必须大于0'));
-			} else if (value > this.item.withDrawableNum) {
-				callback(new Error('不能大于最多可提现金额'));
-			} else {
-				callback();
-			}
-		};
 		return {
-			showCloseBtn: false,
+			show: this.value,
 			showErcTip: false,
+			ISFALSE: false,
 			tipContent: '',
 			title: '提现操作',
 			isDisabled: false,
@@ -66,39 +56,35 @@ export default {
 			cash: 0, // 提现后得到现金数
 			profit: 0, // 提现费
 			profitRate: 0.05, // 提现手续费率
-			formObj: {},
 			address: '', // 钱包地址
-			moneyPlaceholder: '最多提现：',
+			moneyPlaceholder: '最多提现：' + this.item.withDrawableNum,
 			duration: 1500,
 			rules: {
-				withDrawNum: [
-					{
+				withDrawNum: {
+					validation: {
 						required: true,
-						validator: checkWithDrawNum,
-						trigger: 'change'
+						min_value: 0,
+						max_value: this.item.withDrawableNum
 					},
-					{ validator: checkWithDrawNum, trigger: 'blur' }
-				],
-				toWalletAddr: [
-					{
-						required: true,
-						message: '请输入要转入的钱包地址',
-						trigger: 'blur'
-					}
-				]
+					text:
+						'请输入0-' +
+						this.item.withDrawableNum +
+						'之间的提现金额'
+				},
+				toWalletAddr: {
+					validation: {
+						required: true
+					},
+					text: '请输入要转入的钱包地址'
+				}
 			}
 		};
 	},
+
 	watch: {
-		// 'pageForm.withDrawNum': function(val, oldVal) {
-		// 	if (val > 0) {
-		// 		this.profit = val * this.profitRate;
-		// 		this.cash = val - this.profit;
-		// 	} else {
-		// 		this.profit = 0;
-		// 		this.cash = 0;
-		// 	}
-		// },
+		value(val) {
+			this.show = val;
+		},
 		item(val) {
 			this.pageForm = {
 				coinCode: val.coinCode,
@@ -117,6 +103,23 @@ export default {
 				this.showErcTip = false;
 			}
 
+			this.rules = {
+				withDrawNum: {
+					validation: {
+						required: true,
+						min_value: 0,
+						max_value: val.withDrawableNum
+					},
+					text: '请输入0-' + val.withDrawableNum + '之间的提现金额'
+				},
+				toWalletAddr: {
+					validation: {
+						required: true
+					},
+					text: '请输入要转入的钱包地址'
+				}
+			};
+
 			this.coinName = Util.coinNameList[val.coinCode];
 			this.moneyPlaceholder = '最多提现：' + val.withDrawableNum;
 		}
@@ -133,7 +136,7 @@ export default {
 		},
 		onSubmit(formName) {
 			if (!this.isDisabled) {
-				this.$refs[formName].validate(valid => {
+				this.$validator.validateAll().then(valid => {
 					if (valid) {
 						console.log('this.item:', this.item);
 						if (
@@ -180,9 +183,6 @@ export default {
 			this.isDisabled = false;
 			if (withdrawCash) {
 				this.closeBox(true); // 操作成功
-				this.money = '';
-				this.address = '';
-				// this.checkCode = '';
 			} else {
 				this.$toast.fail({
 					message: '提现失败请重试',

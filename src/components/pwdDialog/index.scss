@@ -5,10 +5,10 @@ div input {
   box-sizing: border-box;
 }
 .dialog {
-  text-align: center;
   .title {
     font-size: px2rem(40px);
     color: #1d1d1d;
+    text-align: center;
   }
   .dlg-title {
     font-size: px2rem(32px);
@@ -17,10 +17,6 @@ div input {
   }
   .demo-ruleForm {
     font-size: px2rem(24px);
-    text-align: center;
-  }
-  .labelTit {
-    text-align: left;
   }
   .item-title {
     color: #1d1d1d;

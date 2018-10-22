@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="value">
+	<van-popup class="dialog" v-model="value" click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="title">充值操作</h2>
 		<h3 class="dlg-title">您正在进行{{coinNameList[item.coinCode]}}充值操作</h3>
@@ -25,6 +25,7 @@ export default {
 		return {
 			showCloseBtn: false,
 			title: '充值操作',
+			ISFALSE: false,
 			coinNameList: Util.coinNameList
 		};
 	},
@@ -33,7 +34,6 @@ export default {
 			this.$emit('input', false);
 		},
 		onCopy() {
-			console.log('aa');
 			this.$toast({
 				message: '复制成功',
 				type: 'success',
