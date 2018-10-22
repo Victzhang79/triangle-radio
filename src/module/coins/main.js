@@ -6,7 +6,7 @@ import router from './router';
 import store from './store';
 import VeeValidate from 'vee-validate';
 import VueClipboard from 'vue-clipboard2';
-import { Toast, Pagination } from 'vant';
+import { Toast, Pagination, Popup } from 'vant';
 
 Vue.config.productionTip = false;
 
@@ -14,8 +14,9 @@ Vue.use(VeeValidate, {
   fieldsBagName: 'fieldBags'
 });
 Vue.use(VueClipboard);
-Vue.use(Toast);
-Vue.use(Pagination);
+Vue.use(Toast)
+  .use(Pagination)
+  .use(Popup);
 
 /* eslint-disable no-new */
 new Vue({

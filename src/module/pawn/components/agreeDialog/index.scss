@@ -1,0 +1,23 @@
+@import '../../../../assets/style/dialog.scss';
+@import '../../../../assets/style/public.scss';
+.dialog-title {
+  font-size: px2rem(48px);
+  color: #1d1d1d;
+  text-align: center;
+}
+.dialog {
+  width: 9rem;
+  margin-top: 20px;
+}
+.dialog-footer {
+  background: #2ab3ce;
+  border-radius: 0.66667rem;
+  font-size: 0.37333rem;
+  color: #ffffff;
+  width: 3.26667rem;
+  height: 0.8rem;
+  text-align: center;
+  line-height: 0.8rem;
+  margin: 1.06667rem auto 0;
+  cursor: pointer;
+}

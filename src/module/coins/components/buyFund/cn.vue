@@ -16,7 +16,7 @@
 			</div>
 		</div>
 
-		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定购买" @submit="purchase" @closeBox="closePwdBox"></pwd-dialog>
+		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定购买" @submit="purchase"></pwd-dialog>
 		<box-charge v-model="showRecharge" :item="currItem"></box-charge>
 	</div>
 </template>
@@ -67,24 +67,25 @@ export default {
 	methods: {
 		purchaseClick() {
 			if (this.disabled) {
-				this.$message.error('基金认购还未开始哦');
+				this.$toast.fail('基金认购还未开始哦');
 			} else if (this.amount < this.least) {
-				this.$message.error('购买数量不能小于起购数量哦');
+				this.$toast.fail('购买数量不能小于起购数量哦');
 			} else if (this.amount > this.remain) {
-				this.$message.error('购买数量不能大于产品余额哦');
+				this.$toast.fail('购买数量不能大于产品余额哦');
 			} else {
 				this.showPwdDialog = true;
 			}
 		},
 		purchase() {
 			if (this.walletRemain < this.amount) {
-				this.$message.error({
+				this.$toast.fail({
 					message: '余额不足，请充值后购买',
 					duration: this.duration
 				});
 				return false;
 			}
-			this.$confirm('确定进行购买吗？')
+			this.$dialog
+				.comfirm('确定进行购买吗？')
 				.then(_ => {
 					this.$store
 						.dispatch('savePurchaseFund', {
@@ -93,7 +94,7 @@ export default {
 						})
 						.then(res => {
 							if (res.code == 200) {
-								this.$message({
+								this.$toast({
 									message: '恭喜你，购买成功',
 									type: 'success',
 									duration: this.duration
@@ -102,7 +103,7 @@ export default {
 									location.reload();
 								}, 1000);
 							} else if (res.code == 403) {
-								this.$message.error('请先进行身份认证');
+								this.$toast.fail('请先进行身份认证');
 								setTimeout(() => {
 									window.location.href =
 										'//' +
@@ -111,7 +112,7 @@ export default {
 								}, 1000);
 							} else {
 								let message = res.msg || '购买失败，请重试';
-								this.$message.error(message);
+								this.$toast.fail(message);
 							}
 						});
 				})

@@ -5,7 +5,7 @@
 			<span>所有产品</span>
 			<span class="split-line"></span>
 		</div>
-		<coin-item v-for="item of fundList" :coinInfo="item" pageType="coins" @gotoDetail="gotoDetail"></coin-item>
+		<coin-item v-for="item in fundList" :coinInfo="item" pageType="coins" @gotoDetail="gotoDetail" :key="item"></coin-item>
 		<div class="pagers">
 			<van-pagination v-model="pageNo" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />
 		</div>

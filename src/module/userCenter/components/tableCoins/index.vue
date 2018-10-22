@@ -62,7 +62,7 @@ export default {
 				}
 			})
 			.catch(e => {
-				this.$message.error({
+				this.$toast.fail({
 					message: '获取币生币基金列表失败，请稍后重试',
 					duration: this.duration
 				});

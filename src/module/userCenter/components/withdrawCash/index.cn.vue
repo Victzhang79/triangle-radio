@@ -147,7 +147,7 @@ export default {
 							this.submitInfo();
 						}, 10000);
 					} else {
-						this.$message.error({
+						this.$toast.fail({
 							message: '请正确填写所有必填项',
 							duration: this.duration
 						});
@@ -168,7 +168,7 @@ export default {
 				this.address = '';
 				// this.checkCode = '';
 			} else {
-				this.$message.error({
+				this.$toast.fail({
 					message: '提现失败请重试',
 					duration: this.duration
 				});

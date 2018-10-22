@@ -210,12 +210,12 @@ export default {
 				}
 				// 未上传照片
 				if (!this.IdentiForm.credentPic) {
-					this.$message.error('请上传证件照片');
+					this.$toast.fail('请上传证件照片');
 					return false;
 				}
 				credent(this.IdentiForm)
 					.then(data => {
-						this.$message({
+						this.$toast({
 							message: '身份信息已提交，请耐心等待认证结果。',
 							type: 'success'
 						});
@@ -223,7 +223,7 @@ export default {
 						this.$store.commit('changeIdentiStatus', 3);
 					})
 					.catch(err => {
-						this.$message.error('提交失败，请稍后重试。');
+						this.$toast.fail('提交失败，请稍后重试。');
 					});
 			});
 		}

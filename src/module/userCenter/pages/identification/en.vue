@@ -31,11 +31,11 @@ export default {
 					)
 						this.$store.dispatch('initNationList', '1');
 				} else {
-					this.$message.error('获取认证状态失败，请稍后重试。');
+					this.$toast.fail('获取认证状态失败，请稍后重试。');
 				}
 			})
 			.catch(err => {
-				// this.$message.error('网络异常，稍后重试');
+				// this.$toast.fail('网络异常，稍后重试');
 			});
 	},
 	methods: {}
