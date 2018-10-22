@@ -2,32 +2,36 @@
 	<van-popup class="dialog" v-model="visible">
 		<div @click="visible=false" class="close"></div>
 		<h3 class="dlg-title">修改登录密码</h3>
-		<form class="demo-ruleForm wrap">
+		<div class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">手机</p>
 				<input v-model="securityInfo.userMobile" placeholder="请输入手机号" disabled>
 			</label>
 			<label>
 				<p class="labelTit">验证码</p>
-				<input class="authCode" v-model="ruleForm.authCode" placeholder="请输入验证码">
+				<input v-validate="rules.authCode.validation" class="authCode" v-model="ruleForm.authCode" placeholder="请输入验证码" name="authCode">
 				<button class="authBtn" @click="getAuthCode" :class="{disabled:!authBtnState}">{{authBtnText}}</button>
+				<span v-show="errors.has('authCode')" class="error-tip">{{ rules.authCode.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">旧密码</p>
-				<input type="password" v-model="ruleForm.oldPassword" placeholder="输入当前密码">
+				<input v-validate="rules.oldPassword.validation" type="password" v-model="ruleForm.oldPassword" placeholder="输入当前密码" name="oldPassword">
+				<span v-show="errors.has('oldPassword')" class="error-tip">{{ rules.oldPassword.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">新密码</p>
-				<input type="password" v-model="ruleForm.newPassword" placeholder="请输入新密码">
+				<input v-validate="rules.newPassword.validation" type="password" v-model="ruleForm.newPassword" placeholder="请输入新密码" name="newPassword" ref="newPassword">
+				<span v-show="errors.has('newPassword')" class="error-tip">{{rules.newPassword.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">确认密码</p>
-				<input type="password" v-model="ruleForm.repeatPassword" placeholder="请再次确认密码">
+				<input v-validate="rules.repeatPassword.validation" type="password" v-model="ruleForm.repeatPassword" placeholder="请再次确认密码" name="repeatPassword" data-vv-as="newPassword">
+				<span v-show="ruleForm.repeatPassword&&errors.has('repeatPassword')" class="error-tip">{{rules.repeatPassword.text}}</span>
 			</label>
 			<p class="btn-line">
-				<button @click="setPassword('resetPasswordForm')" class="btn">提交</button>
+				<button @click="setPassword" class="btn">提交</button>
 			</p>
-		</form>
+		</div>
 	</van-popup>
 </template>
 
@@ -60,73 +64,38 @@ export default {
 				repeatPassword: ''
 			},
 			rules: {
-				// phone: [
-				// 	{
-				// 		required: true,
-				// 		message: '请输入号码',
-				// 		trigger: 'blur'
-				// 	},
-				// 	{
-				// 		pattern: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/,
-				// 		message: '号码格式不正确',
-				// 		trigger: 'blur'
-				// 	}
-				// ],
-				authCode: [
-					{
+				authCode: {
+					validation: {
 						required: true,
-						message: '请输入验证码',
-						trigger: 'blur'
+						regex: /^\d{6}$/
 					},
-					{
-						pattern: /^\d{6}$/,
-						message: '验证码格式不正确',
-						trigger: 'blur'
-					}
-				],
-				oldPassword: [
-					{
+					text: '验证码格式错误'
+				},
+				oldPassword: {
+					validation: {
 						required: true,
-						message: '旧密码不能为空',
-						trigger: 'blur'
+						regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 					},
-					{
-						pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-						message: '密码格式错误',
-						trigger: 'blur'
-					}
-				],
-				newPassword: [
-					{
+					text: '密码格式不正确。'
+				},
+				newPassword: {
+					validation: {
 						required: true,
-						message: '请输入新密码',
-						trigger: 'blur'
+						regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 					},
-					{
-						pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-						message:
-							'8-16位，由数字和字母组成，不能全是数字或全是字母。',
-						trigger: 'blur'
-					},
-					{
-						validator: newPassValidator,
-						trigger: 'blur'
-					}
-				],
-				repeatPassword: [
-					{
+					text: '8-16位，必须包含数字和字母。'
+				},
+				repeatPassword: {
+					validation: {
 						required: true,
-						message: '请再次输入密码',
-						trigger: 'blur'
+						confirmed: 'newPassword'
 					},
-					{
-						validator: repeatPassValidator,
-						trigger: 'blur'
-					}
-				]
+					text: '两次密码不一致。'
+				}
 			},
 			authBtnState: true, //获取验证码按钮状态：false-不可点击，true-可点击
 			authBtnText: '获取验证码',
+			confirmPwdError: false, // 两次输入的密码不一致
 			countDownTimmer: null //倒计时循环timmer
 		};
 	},
@@ -142,31 +111,36 @@ export default {
 		}
 	},
 	methods: {
-		setPassword(formName) {
-			this.$refs[formName].validate(valid => {
-				if (!valid) {
-					return false;
+		setPassword() {
+			this.$validator.validateAll().then(result => {
+				if (result) {
+					if (
+						this.ruleForm.oldPassword === this.ruleForm.newPassword
+					) {
+						this.$toast.fail('新密码与旧密码相同。');
+						return false;
+					}
+					modifyUserLogPass(
+						// this.ruleForm.phone,
+						this.ruleForm.authCode,
+						encryptPassword(this.ruleForm.oldPassword),
+						encryptPassword(this.ruleForm.newPassword)
+					)
+						.then(data => {
+							if (data.code === 200) {
+								this.$toast({
+									message: '密码设置成功！',
+									type: 'success'
+								});
+								this.visible = false;
+							} else {
+								this.$toast.fail(data.msg);
+							}
+						})
+						.catch(err => {
+							this.$toast.fail('设置失败，稍后重试。');
+						});
 				}
-				modifyUserLogPass(
-					// this.ruleForm.phone,
-					this.ruleForm.authCode,
-					encryptPassword(this.ruleForm.oldPassword),
-					encryptPassword(this.ruleForm.newPassword)
-				)
-					.then(data => {
-						if (data.code === 200) {
-							this.$message({
-								message: '密码设置成功！',
-								type: 'success'
-							});
-							this.visible = false;
-						} else {
-							this.$message.error(data.msg);
-						}
-					})
-					.catch(err => {
-						this.$message.error('设置失败，稍后重试。');
-					});
 			});
 		},
 		// 发送短信验证码
@@ -174,19 +148,20 @@ export default {
 			if (!this.authBtnState) {
 				return false;
 			}
-			// if (
-			// 	!/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/.test(
-			// 		this.ruleForm.phone
-			// 	)
-			// ) {
-			// 	return false;
-			// }
-			getVeriCode4Tx().then(data => {
-				console.log(data);
-				if (data.code === 200) {
-					this.countDown();
-				}
-			});
+			this.authBtnState = false;
+			getVeriCode4Tx()
+				.then(data => {
+					if (data.code === 200) {
+						this.countDown();
+					} else {
+						this.$toast.fail('获取验证码失败：', data.msg);
+						this.authBtnState = true;
+					}
+				})
+				.catch(() => {
+					this.$toast.fail('获取验证码失败');
+					this.authBtnState = true;
+				});
 		},
 		// 发送短信验证码按钮倒计时
 		countDown() {

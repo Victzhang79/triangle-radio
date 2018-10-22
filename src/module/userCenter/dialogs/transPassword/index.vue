@@ -3,28 +3,31 @@
 		<div @click="visible=false" class="close"></div>
 		<h3 class="dlg-title">设置资金密码</h3>
 		<p class="warnInfo">警告：资金密码不要与登录密码或者其他密码一致，由此产生的号码被盗，本站概不负责。</p>
-		<form class="demo-ruleForm wrap">
+		<div class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">手机</p>
 				<input v-model="securityInfo.userMobile" placeholder="请输入手机号" disabled>
 			</label>
 			<label>
 				<p class="labelTit">验证码</p>
-				<input class="authCode" v-model="ruleForm.authCode" placeholder="请输入验证码">
-				<button style="width:118px" @click="getAuthCode" slot="append" class="authBtn" :disabled="!authBtnState">{{authBtnText}}</button>
+				<input v-validate="rules.authCode.validation" class="authCode" v-model="ruleForm.authCode" placeholder="请输入验证码" name="authCode">
+				<button @click="getAuthCode" slot="append" class="authBtn" :class="{disabled:!authBtnState}">{{authBtnText}}</button>
+				<span v-show="errors.has('authCode')" class="error-tip">{{ rules.authCode.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">资金密码</p>
-				<input type="password" v-model="ruleForm.transPassword" placeholder="请输入新密码">
+				<input v-validate="rules.transPassword.validation" type="password" v-model="ruleForm.transPassword" placeholder="请设置资金密码" name="transPassword" ref="transPassword">
+				<span v-show="errors.has('transPassword')" class="error-tip">{{ rules.transPassword.text}}</span>
 			</label>
 			<label>
 				<p class="labelTit">确认密码</p>
-				<input type="password" v-model="ruleForm.repeatPassword" placeholder="请再次确认密码">
+				<input v-validate="rules.repeatPassword.validation" type="password" v-model="ruleForm.repeatPassword" placeholder="请再次确认密码" name="repeatPassword" data-vv-as="transPassword">
+				<span v-show="ruleForm.repeatPassword&&errors.has('repeatPassword')" class="error-tip">{{rules.repeatPassword.text}}</span>
 			</label>
 			<p class="btn-line">
 				<button @click="setPassword('setTranPasswordForm')" class="btn" type="primary" round>提交</button>
 			</p>
-		</form>
+		</div>
 	</van-popup>
 </template>
 
@@ -49,54 +52,27 @@ export default {
 				repeatPassword: ''
 			},
 			rules: {
-				// phone: [
-				// 	{
-				// 		required: true,
-				// 		message: '请输入号码',
-				// 		trigger: 'blur'
-				// 	},
-				// 	{
-				// 		pattern: /^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/,
-				// 		message: '号码格式不正确',
-				// 		trigger: 'blur'
-				// 	}
-				// ],
-				authCode: [
-					{
+				authCode: {
+					validation: {
 						required: true,
-						message: '请输入验证码',
-						trigger: 'blur'
+						regex: /^\d{6}$/
 					},
-					{
-						pattern: /^\d{6}$/,
-						message: '验证码格式不正确',
-						trigger: 'blur'
-					}
-				],
-				transPassword: [
-					{
+					text: '验证码格式错误'
+				},
+				transPassword: {
+					validation: {
 						required: true,
-						message: '请输入新密码',
-						trigger: 'blur'
+						regex: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 					},
-					{
-						pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-						message:
-							'8-16位，由数字和字母组成，不能全是数字或全是字母。',
-						trigger: 'blur'
-					}
-				],
-				repeatPassword: [
-					{
+					text: '8-16位，必须包含数字和字母。'
+				},
+				repeatPassword: {
+					validation: {
 						required: true,
-						message: '请再次输入密码',
-						trigger: 'blur'
+						confirmed: 'transPassword'
 					},
-					{
-						validator: repeatPassValidator,
-						trigger: 'blur'
-					}
-				]
+					text: '两次密码不一致。'
+				}
 			},
 			authBtnState: true, //获取验证码按钮状态：false-不可点击，true-可点击
 			authBtnText: '获取验证码',
@@ -116,29 +92,33 @@ export default {
 	},
 	methods: {
 		setPassword(formName) {
-			this.$refs[formName].validate(valid => {
-				if (!valid) {
-					return false;
+			// this.$refs[formName].validate(valid => {
+			// 	if (!valid) {
+			// 		return false;
+			// 	}
+			this.$validator.validateAll().then(result => {
+				if (result) {
+					setTransPass(
+						// this.ruleForm.phone,
+						this.ruleForm.authCode,
+						encryptPassword(this.ruleForm.transPassword)
+					)
+						.then(data => {
+							if (data.code === 200) {
+								this.$message({
+									message: '密码设置成功！',
+									type: 'success'
+								});
+								this.visible = false;
+							} else {
+								this.$message.error(data.msg);
+							}
+						})
+						.catch(err => {
+							this.$message.error('设置失败，稍后重试。');
+							this.authBtnState = true;
+						});
 				}
-				setTransPass(
-					// this.ruleForm.phone,
-					this.ruleForm.authCode,
-					encryptPassword(this.ruleForm.transPassword)
-				)
-					.then(data => {
-						if (data.code === 200) {
-							this.$message({
-								message: '密码设置成功！',
-								type: 'success'
-							});
-							this.visible = false;
-						} else {
-							this.$message.error(data.msg);
-						}
-					})
-					.catch(err => {
-						this.$message.error('设置失败，稍后重试。');
-					});
 			});
 		},
 		// 发送短信验证码
@@ -146,17 +126,25 @@ export default {
 			if (!this.authBtnState) {
 				return false;
 			}
-			getVeriCode4Tx().then(data => {
-				console.log(data);
-				if (data.code === 200) {
-					this.countDown();
-				}
-			});
+			this.authBtnState = false;
+			getVeriCode4Tx()
+				.then(data => {
+					if (data.code === 200) {
+						this.countDown();
+					} else {
+						this.$toast.fail('获取验证码失败：', data.msg);
+						this.authBtnState = true;
+					}
+				})
+				.catch(() => {
+					this.$toast.fail('获取验证码失败');
+				});
 		},
 		// 发送短信验证码按钮倒计时
 		countDown() {
-			this.authBtnState = false;
+			// this.authBtnState = false;
 			let count = 60;
+			this.authBtnText = count + '秒后重试';
 			this.countDownTimmer = setInterval(() => {
 				if (count === 0) {
 					clearInterval(this.countDownTimmer);

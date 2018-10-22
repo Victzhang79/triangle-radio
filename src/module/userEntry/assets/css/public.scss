@@ -5,7 +5,7 @@
 	background-size: 100%;
 	.main {
 		.tit {
-			font-size: 48px;
+			font-size: px2rem(48px);
 			color: #fff;
 			margin-top: px2rem(100px);
 			text-align: center;
@@ -23,11 +23,16 @@
 				border-bottom: px2rem(2px) solid #e5e5e5;
 				margin-top: px2rem(55px);
 				white-space: nowrap;
+				.name {
+					font-size: px2rem(28px);
+				}
 				.input {
-					// display: block;
+					border: none;
+					outline: none;
+					font-size: px2rem(28px);
 					&::placeholder {
 						font-family: PingFangSC-Regular;
-						font-size: 19px;
+						font-size: px2rem(22px);
 						color: #c3c2c2;
 					}
 				}
@@ -35,9 +40,9 @@
 					display: block;
 					position: absolute;
 					bottom: 0px;
-					font-size: 22px;
+					font-size: px2rem(22px);
 					color: #e22828;
-					bottom: -34px;
+					bottom: px2rem(-38px);
 				}
 				.authcode {
 					position: absolute;
@@ -56,6 +61,7 @@
 			.links {
 				color: #3f3fe4;
 				position: relative;
+				font-size: px2rem(26px);
 				.forget-link {
 					position: absolute;
 					right: 0;
@@ -67,7 +73,7 @@
 				line-height: px2rem(60px);
 				background-color: #1EAFCC;
 				color: #fff;
-				font-size: 26px;
+				font-size: px2rem(26px);
 				border-radius: px2rem(50px);
 				text-align: center;
 				margin: 0 auto;

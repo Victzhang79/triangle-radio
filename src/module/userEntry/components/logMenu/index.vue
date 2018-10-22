@@ -22,7 +22,7 @@ export default {
 			if (this.page === 'login') {
 				return false;
 			}
-			this.$router.push('/login');
+			this.$router.push('/');
 		},
 		goLogup() {
 			if (this.page === 'logup') {
