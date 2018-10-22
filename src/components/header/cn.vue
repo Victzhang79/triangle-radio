@@ -3,15 +3,17 @@
 		<ul class="nav-menu">
 			<li @click="()=>{this.hideMenuVisible=!this.hideMenuVisible;}">
 				<img class="list-btn" src="../../assets/imgs/hiden_list.png" alt="展开">
-				<ul v-show="hideMenuVisible" class="hide-list">
-					<li>
-						<a :href="HOST+'/m/about'">关于我们</a>
-					</li>
-					<li>
-						<a :href="HOST+(isLog?'/m/userCenter':'/m/userEntry')">用户中心</a>
-					</li>
-					<li @click="logOut" v-if="isLog">退出登录</li>
-				</ul>
+				<transition name="slide">
+					<ul v-show="hideMenuVisible" class="hide-list">
+						<li>
+							<a :href="HOST+'/m/about'">关于我们</a>
+						</li>
+						<li>
+							<a :href="HOST+(isLog?'/m/userCenter':'/m/userEntry')">用户中心</a>
+						</li>
+						<li @click="logOut" v-if="isLog">退出登录</li>
+					</ul>
+				</transition>
 			</li>
 			<li>
 				<a :href="HOST+'/m/pawn'">典当</a>
