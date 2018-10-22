@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<top-bar></top-bar>
+		<top-bar activePage="pawn"></top-bar>
 		<head-banner></head-banner>
 		<container></container>
 		<footer-bar></footer-bar>
