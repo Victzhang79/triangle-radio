@@ -11,7 +11,7 @@
 						<li :class="{active: activePage === 'usercenter'}">
 							<a :href="HOST+(isLog?'/m/userCenter':'/m/userEntry')">用户中心</a>
 						</li>
-						<li @click="logOut" v-if="isLog">退出登录</li>
+						<li @click="logout" v-if="isLog">退出登录</li>
 					</ul>
 				</transition>
 			</li>
