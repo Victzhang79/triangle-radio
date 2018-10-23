@@ -20,7 +20,7 @@
 					<div class="split"></div>
 				</div>
 				<div class="progress card-item">
-					<p class="title">{{fundDetail.purchaseProgress.toFixed(2)}}%</p>
+					<p class="title">{{Number(fundDetail.purchaseProgress * 100).toFixed(2)}}%</p>
 					<p class="tip">认购进度</p>
 				</div>
 			</div>

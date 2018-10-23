@@ -22,10 +22,10 @@
 				<div class="content">
 					<p class="rate">{{(item.returnRate * 365 * 100).toFixed(2)}}%</p>
 					<p class="fund-days">30天年化</p>
-					<p class="buy-progress">认购进度<span class="font-blue">{{item.purchaseProgress.toFixed(2)}}</span>%</p>
+					<p class="buy-progress">认购进度<span class="font-blue">{{Number(item.purchaseProgress * 100).toFixed(2)}}</span>%</p>
 					<p class="fund-type">{{fundTypeList[item.fundType]}}</p>
 					<div class="btn">
-						<span v-if="item.purchaseProgress < 100" class="buy" @click="gotoBuy(item.fundId)">认购</span>
+						<span v-if="item.purchaseProgress < 1" class="buy" @click="gotoBuy(item.fundId)">认购</span>
 						<span v-else class="watch" @click="gotoWatch(item.fundId)">查看</span>
 					</div>
 				</div>

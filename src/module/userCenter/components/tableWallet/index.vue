@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<asset-item v-for="(item, index) in walletArray" :coinInfo="item" pageType="wallet" @withdraw="putForward(index)" @recharge="recharge(index)"></asset-item>
+		<asset-item v-for="(item, index) in walletArray" :coinInfo="item" pageType="wallet" @withdraw="putForward(index)" @recharge="recharge(index)" :key="index"></asset-item>
 		<recharge v-model="showChargeBox" :item="checkItem"></recharge>
 		<withdraw-cash v-model="showWithdrawBox" :item="checkItem" @closeBox="closeWithdrawBox">
 		</withdraw-cash>

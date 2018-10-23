@@ -16,7 +16,7 @@
 			</div>
 			<div class="item-line">
 				<span class="item-name">认购进度：</span>
-				<span class="item-value">{{coinInfo.purchaseProgress.toFixed(2)}}%</span>
+				<span class="item-value">{{Number(coinInfo.purchaseProgress * 100).toFixed(2)}}%</span>
 			</div>
 			<div class="item-line">
 				<span class="item-name">基金类型：</span>
@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="item-footer">
-			<span class="btn" v-if="coinInfo.purchaseProgress < 100" @click="gotoDetail(coinInfo.fundId)">认购</span>
+			<span class="btn" v-if="coinInfo.purchaseProgress < 1" @click="gotoDetail(coinInfo.fundId)">认购</span>
 			<span class="btn" v-else @click="gotoDetail(coinInfo.fundId)">查看</span>
 		</div>
 	</div>
