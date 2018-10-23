@@ -96,7 +96,6 @@ export default {
 	},
 	methods: {
 		resetPassword() {
-			this.$toast.fail('网络异常，稍后重试。');
 			const validateErrorNum = this.errors.items.length; // 表单验证错误数
 			// 表单格式校验失败
 			if (validateErrorNum) {
