@@ -1,10 +1,7 @@
 <template>
-	<van-popup class="dialog" v-model="value">
-		<div @click="closeBox" class="close"></div>
+	<van-popup class="dialog" v-model="value" position="right" :overlay="false">
+		<!-- <div @click="closeBox" class="close"></div> -->
 		<span class="dialog-title">KOOBANK克班克典当借款协议</span>
-		<div class="closeBtn" @click="closeBox">
-			<i class="el-icon-close"></i>
-		</div>
 		<div>
 			<p>
 				协议编号：
