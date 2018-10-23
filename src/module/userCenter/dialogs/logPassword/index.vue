@@ -128,10 +128,7 @@ export default {
 					)
 						.then(data => {
 							if (data.code === 200) {
-								this.$toast({
-									message: '密码设置成功！',
-									type: 'success'
-								});
+								this.$toast('密码设置成功！');
 								this.visible = false;
 							} else {
 								this.$toast.fail(data.msg);

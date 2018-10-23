@@ -215,8 +215,7 @@ export default {
 				}
 				credent(this.IdentiForm)
 					.then(data => {
-						this.$toast({
-							message: '身份信息已提交，请耐心等待认证结果。',
+						this.$toast('身份信息已提交，请耐心等待认证结果。',
 							type: 'success'
 						});
 						// 改变认证状态

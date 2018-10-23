@@ -54,11 +54,7 @@ export default {
 			})
 				.then(res => {
 					if (res.code == 200) {
-						this.$toast({
-							message: '赎回成功',
-							type: 'success',
-							duration: this.duration
-						});
+						this.$toast('赎回成功');
 						this.closeBox();
 						this.$emit('redeemSuccess');
 					} else {
