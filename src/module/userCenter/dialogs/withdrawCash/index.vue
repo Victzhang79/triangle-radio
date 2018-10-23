@@ -34,6 +34,7 @@
 import Api from '../../api';
 import { mapGetters } from 'vuex';
 import Util from '../../../../util';
+import { setTimeout } from 'timers';
 export default {
 	props: {
 		value: Boolean,
@@ -134,7 +135,7 @@ export default {
 			this.$emit('input', false);
 			this.$emit('closeBox', result);
 		},
-		onSubmit(formName) {
+		onSubmit() {
 			if (!this.isDisabled) {
 				this.$validator.validateAll().then(valid => {
 					if (valid) {
@@ -161,10 +162,9 @@ export default {
 							});
 							return false;
 						}
+
 						this.isDisabled = true;
-						setTimeout(() => {
-							this.submitInfo();
-						}, 10000);
+						this.submitInfo();
 					} else {
 						this.$toast.fail({
 							message: '请正确填写所有必填项',
@@ -182,6 +182,10 @@ export default {
 			);
 			this.isDisabled = false;
 			if (withdrawCash) {
+				this.$toast.success({
+					message: '提现成功',
+					duration: this.duration
+				});
 				this.closeBox(true); // 操作成功
 			} else {
 				this.$toast.fail({

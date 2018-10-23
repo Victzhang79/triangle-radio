@@ -1,29 +1,26 @@
 <template>
 	<div class="footer">
 		<div class="footer-content">
-			<h5 class="footer-title">
-				Join the conversation
-			</h5>
-			<ul class="footer-links clear">
-				<li>
-					<a href="https://twitter.com/" class="link twitter" target="_blank"></a>
-				</li>
-				<!-- <li>
-						<a href="http://" class="link github" target="_blank"></a>
-					</li> -->
-				<li>
-					<a href="https://gitter.im/" class="link gitter" target="_blank"></a>
-				</li>
-				<li>
-					<a href="http://weibo.com/" class="link weibo" target="_blank"></a>
-				</li>
-				<li>
-					<a href="mailto:team@aoabank.com" class="link mail" target="_blank"></a>
-				</li>
-				<li>
-					<a href="https://t.me/" class="link telegram" target="_blank"></a>
-				</li>
-			</ul>
+			<div class="contact">
+				<div class="wechat-qrcode">
+					<div class="wechat-img"></div>
+					<span class="wechat-text">-微信咨询-</span>
+				</div>
+				<div class="contact-list">
+					<p class="qq">
+						<span class="icon"></span>
+						客服QQ：725653518
+					</p>
+					<p class="wechat">
+						<span class="icon"></span>
+						客服微信：xll127
+					</p>
+					<p class="email">
+						<span class="icon"></span>
+						联系邮箱：team@aoabank.com
+					</p>
+				</div>
+			</div>
 			<p class="company">
 				克班克集团
 			</p>

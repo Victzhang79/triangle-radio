@@ -93,7 +93,7 @@
 				<div class="submit-btn" @click="submit">借款</div>
 			</div>
 		</div>
-		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定借款" @submit="submitPawn" @closeBox="closePwdBox"></pwd-dialog>
+		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定借款" @submit="submitPawn"></pwd-dialog>
 		<agree-dialog v-model="showAgreeDialog" @submit="agreeCheck"></agree-dialog>
 		<identity-auth v-model="showIdentityAuth" @submit="gotoAuth" @closeBox="closeIdentityBox"></identity-auth>
 		<box-charge v-model="showRecharge" :item="currItem" @closeBox="closeRecharge"></box-charge>
@@ -294,10 +294,9 @@ export default {
 			}
 		},
 		submitPawn() {
-			this.dialog
-				.confirm('确定进行典当吗？')
+			this.$dialog
+				.confirm({ message: '确定进行典当吗？' })
 				.then(_ => {
-					console.log(this.coinList[this.activePawn].coinCode);
 					let params = {
 						pawnCoinCode: this.coinList[this.activePawn].coinCode,
 						pawnNum: this.pawnAmount,

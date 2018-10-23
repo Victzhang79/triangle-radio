@@ -2,9 +2,9 @@
 	<div>
 		<asset-item v-for="(item, index) in walletArray" :coinInfo="item" pageType="wallet" @withdraw="putForward(index)" @recharge="recharge(index)"></asset-item>
 		<recharge v-model="showChargeBox" :item="checkItem"></recharge>
-		<withdraw-cash v-model="showWithdrawBox" :item="checkItem">
+		<withdraw-cash v-model="showWithdrawBox" :item="checkItem" @closeBox="closeWithdrawBox">
 		</withdraw-cash>
-		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定" @submit="submitWithdraw" @closeBox="closePwdBox"></pwd-dialog>
+		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定" @submit="submitWithdraw"></pwd-dialog>
 	</div>
 </template>
 <script>

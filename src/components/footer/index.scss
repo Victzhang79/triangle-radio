@@ -1,52 +1,105 @@
 @import '../../assets/style/public.scss';
 .footer {
   text-align: center;
-  height: px2rem(370px);
+  height: px2rem(350px);
   background: #000;
   position: relative;
   .footer-content {
-    position: absolute;
-    width: px2rem(456px);
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
   }
-  .footer-links {
-    margin-top: px2rem(50px);
-    margin-bottom: px2rem(36px);
+  .contact {
+    width: 100%;
+    height: px2rem(220px);
+    padding: px2rem(40px);
+    box-sizing: border-box;
+    color: #646486;
   }
-  .footer-links li {
+  .wechat-qrcode {
+    display: inline-block;
     float: left;
-    padding: 0 px2rem(14px);
   }
-  .link {
-    display: block;
-    width: px2rem(55px);
-    height: px2rem(54px);
-    background-size: 100%;
-    background-repeat: no-repeat;
+  .wechat-img {
+    width: px2rem(140px);
+    height: px2rem(140px);
+    background: url(~@/assets/imgs/wechat-qrcode.png);
+    background-size: contain;
   }
-  .link.twitter {
-    background-image: url(http://www.aoabank.com/m/twitter.png);
+  .wechat-text {
+    margin-top: px2rem(5px);
+    font-size: px2rem(24px);
   }
-  .link.github {
-    background-image: url(http://www.aoabank.com/m/github.png);
+  .contact-list {
+    display: inline-block;
+    line-height: px2rem(40px);
+    font-size: px2rem(24px);
+    margin-left: px2rem(20px);
+    margin-top: px2rem(20px);
+    text-align: left;
+    .icon {
+      display: inline-block;
+      width: px2rem(30px);
+      height: px2rem(30px);
+    }
+    .qq {
+      .icon {
+        background: url(~@/assets/imgs/qq.png);
+        background-size: contain;
+      }
+    }
+    .wechat {
+      .icon {
+        background: url(~@/assets/imgs/wechat.png);
+        background-size: contain;
+      }
+    }
+    .email {
+      .icon {
+        background: url(http://www.aoabank.com/m/mail.png);
+        background-size: contain;
+      }
+    }
   }
-  .link.gitter {
-    background-image: url(http://www.aoabank.com/m/gitter.png);
-  }
-  .link.weibo {
-    background-image: url(http://www.aoabank.com/m/weibo.png);
-  }
-  .link.mail {
-    background-image: url(http://www.aoabank.com/m/mail.png);
-  }
-  .link.telegram {
-    background-image: url(http://www.aoabank.com/m/telegram.png);
+  //   .footer-links {
+  //     margin-top: px2rem(50px);
+  //     margin-bottom: px2rem(36px);
+  //   }
+  //   .footer-links li {
+  //     float: left;
+  //     padding: 0 px2rem(14px);
+  //   }
+  //   .link {
+  //     display: block;
+  //     width: px2rem(55px);
+  //     height: px2rem(54px);
+  //     background-size: 100%;
+  //     background-repeat: no-repeat;
+  //   }
+  //   .link.twitter {
+  //     background-image: url(http://www.aoabank.com/m/twitter.png);
+  //   }
+  //   .link.github {
+  //     background-image: url(http://www.aoabank.com/m/github.png);
+  //   }
+  //   .link.gitter {
+  //     background-image: url(http://www.aoabank.com/m/gitter.png);
+  //   }
+  //   .link.weibo {
+  //     background-image: url(http://www.aoabank.com/m/weibo.png);
+  //   }
+  //   .link.mail {
+  //     background-image: url(http://www.aoabank.com/m/mail.png);
+  //   }
+  //   .link.telegram {
+  //     background-image: url(http://www.aoabank.com/m/telegram.png);
+  //   }
+  .company {
+    margin-top: px2rem(20px);
   }
   .company,
   .copyright {
     font-size: 12px;
     color: #747474;
+    width: 100%;
+    text-align: center;
   }
 }
