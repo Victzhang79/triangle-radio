@@ -4,7 +4,7 @@
   background-color: #fff;
   border-radius: px2rem(10px);
   min-height: px2rem(300px);
-  overflow: visible;
+  overflow: scroll;
   padding: px2rem(30px) px2rem(50px) px2rem(48px);
   .close {
     position: absolute;
@@ -12,8 +12,8 @@
     height: px2rem(40px);
     background: url(~@/assets/imgs/close2x.png) 0 0 no-repeat;
     background-size: 100%;
-    top: px2rem(-20px);
-    right: px2rem(-20px);
+    top: px2rem(10px);
+    right: px2rem(10px);
   }
   .dlg-title {
     font-family: PingFangSC-Regular;

@@ -126,7 +126,7 @@ export default {
 							window.location.protocol +
 							'//' +
 							window.location.host +
-							'/coins';
+							'/m/coins';
 					} else {
 						this.$toast.fail(data.msg);
 					}
