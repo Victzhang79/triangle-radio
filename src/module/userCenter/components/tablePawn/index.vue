@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<asset-item v-for="(item, index) in pawnList" :coinInfo="item" pageType="pawn" @redeem="redeem(index)"></asset-item>
+		<asset-item v-for="(item, index) in pawnList" :coinInfo="item" pageType="pawn" @redeem="redeem(index)" :key="index"></asset-item>
 		<div v-if="showNull" class="list-tip"><span>{{showTip}}</span></div>
 		<div class="pagers" v-show="totalNum > pageSize">
 			<van-pagination v-model="pageNo" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />

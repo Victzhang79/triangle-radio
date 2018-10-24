@@ -9,7 +9,7 @@
 				<span class="unit"> {{coinName}}</span>
 			</span>
 		</div>
-		<form class="demo-ruleForm wrap">
+		<div class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">提现金额：</p>
 				<input v-validate='rules.withDrawNum.validation' v-model="pageForm.withDrawNum" :placeholder="moneyPlaceholder" name="withDrawNum">
@@ -24,9 +24,9 @@
 			</label>
 			<p class="erc20-tip" v-if="showErcTip">{{tipContent}}</p>
 			<p class="btn-line">
-				<button @click="onSubmit()" class="btn" type="primary" round>确认提现</button>
+				<button @click="confirm" class="btn" type="primary">确认提现</button>
 			</p>
-		</form>
+		</div>
 	</van-popup>
 </template>
 
@@ -135,7 +135,7 @@ export default {
 			this.$emit('input', false);
 			this.$emit('closeBox', result);
 		},
-		onSubmit() {
+		confirm() {
 			if (!this.isDisabled) {
 				this.$validator.validateAll().then(valid => {
 					if (valid) {
