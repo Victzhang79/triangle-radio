@@ -3,7 +3,7 @@ export default {
 
 	DOMAIN: (() => {
 		const DEV_DOMAIN = '//apimanage.58corp.com/';
-		const ONLINE_DOMAIN = 'http://10.252.55.195/';
+		const ONLINE_DOMAIN = '/';
 		console.log(process.env.NODE_ENV);
 		const Domain =
 			process.env.NODE_ENV == 'production' ? ONLINE_DOMAIN : DEV_DOMAIN;
