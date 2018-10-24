@@ -42,19 +42,19 @@
     }
     .qq {
       .icon {
-        background: url(~@/assets/imgs/qq.png);
+        background: url(~@/assets/imgs/qq.png) no-repeat;
         background-size: contain;
       }
     }
     .wechat {
       .icon {
-        background: url(~@/assets/imgs/wechat.png);
+        background: url(~@/assets/imgs/wechat.png) no-repeat;
         background-size: contain;
       }
     }
     .email {
       .icon {
-        background: url(http://www.aoabank.com/m/mail.png);
+        background: url(http://www.aoabank.com/m/mail.png) no-repeat;
         background-size: contain;
       }
     }
