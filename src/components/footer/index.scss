@@ -21,7 +21,7 @@
   .wechat-img {
     width: px2rem(140px);
     height: px2rem(140px);
-    background: url(~@/assets/imgs/wechat-qrcode.png);
+    background: url(//www.koobank.com/m/home/img/wechat-qrcode.png);
     background-size: contain;
   }
   .wechat-text {
@@ -39,6 +39,7 @@
       display: inline-block;
       width: px2rem(30px);
       height: px2rem(30px);
+      vertical-align: text-top;
     }
     .qq {
       .icon {
@@ -54,7 +55,7 @@
     }
     .email {
       .icon {
-        background: url(http://www.aoabank.com/m/mail.png) no-repeat;
+        background: url(//www.koobank.com/m/home/img/mail.png) no-repeat;
         background-size: contain;
       }
     }

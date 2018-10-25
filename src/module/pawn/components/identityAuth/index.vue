@@ -4,7 +4,7 @@
 		<h2 class="dialog-title">身份认证</h2>
 		<div class="dialog-body">
 			<div class="sub-title">借贷前请先进行身份认证</div>
-			<img src="//www.aoabank.com/user_head.png" class="user-head" />
+			<img src="//www.koobank.com/m/home/img/user_head.png" class="user-head" />
 		</div>
 		<div class="dialog-footer">
 			<div class="submit-btn" @click="submit">立即身份认证</div>

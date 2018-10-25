@@ -61,7 +61,7 @@ export default {
 				{ name: '投资期限：', value: val.fundDays + '天' },
 				{
 					name: '产品介绍：',
-					value: val.fundDesc
+					value: val.fundDesc.replace(/&n/g, '<br>')
 				}
 			];
 		}
