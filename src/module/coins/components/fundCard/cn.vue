@@ -5,7 +5,7 @@
 		</div>
 		<div class="card">
 			<div class="rate-card">
-				<p class=" title">{{(fundDetail.returnRate * 365 * 100).toFixed(2)}}%</p>
+				<p class=" title">{{Math.floor(fundDetail.returnRate * 365 * 100)}}%</p>
 				<p class="tip">30天年化预计收益</p>
 			</div>
 			<div class="detail-card">
