@@ -37,7 +37,7 @@
 							<div class="clearfix">
 								<div class="loanInput">
 									<button type="button" class=" ant-dropdown-trigger">
-										<img class="currency-icon" alt="" src="//www.koobank.com/m/home/img/usdt.png"><span class="coinName">{{loanCoinCodeName}}</span></button>
+										<img class="currency-icon" alt="" src="//www.koobank.com/m/img/usdt.png"><span class="coinName">{{loanCoinCodeName}}</span></button>
 								</div>
 								<div class="collateral-input-wrapper fr">
 									<input id="loanValue" type="number" class="fr" placeholder="0" v-model="loanValue" v-on:input="changeLoan()">

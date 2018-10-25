@@ -6,7 +6,8 @@
 		<div class="detail">
 			<p v-for="item in list">
 				<span>{{item.name}}</span>
-				<span>{{item.value}}</span>
+				<span v-html="item.value" v-if="item.name=='产品介绍：'"></span>
+				<span v-else>{{item.value}}</span>
 			</p>
 		</div>
 	</div>
