@@ -27,7 +27,7 @@
 							</div>
 						</div>
 					</div>
-					<p class="collateral-tip"><span @click="recharge">充值 </span>*最多只能借贷当前币价的{{coinList[activePawn].pawnRate * 100}}%</p>
+					<p class="collateral-tip"><span @click="recharge">充值 </span>*借贷比例为当前币价的{{coinList[activePawn].pawnRate * 100}}%</p>
 				</div>
 				<div class="tranfer"><img src="../../assets/imgs/tranfer.png"></div>
 				<div class="loan fr">
@@ -58,6 +58,36 @@
 					</div>
 				</div>
 				<div class="describe-item">
+					<span class="describe-title"> 质 押 率 ：</span>
+					<div class="describe-value">{{coinList[activePawn].pawnRate * 100}}%</div>
+				</div>
+				<div class="describe-item">
+					<span class="describe-title"> 日 利 率 ：</span>
+					<div class="describe-value">{{coinList[activePawn].dayRate * 100}}%</div>
+				</div>
+				<div class="describe-item">
+					<span class="describe-title"> {{coinList[activePawn].name}}现价：</span>
+					<div class="describe-value">{{coinList[activePawn].price}} USDT</div>
+				</div>
+				<div class="describe-item">
+					<span class="describe-title">借　　贷：</span>
+					<div class="describe-value">{{Number(loanValue).toFixed(2)}} USDT</div>
+				</div>
+				<div class="describe-item">
+					<span class="describe-title">到期应还：</span>
+					<div class="describe-value">
+						<span>{{Number(loanValue).toFixed(2)}} + {{Number(loanValue).toFixed(2)}} * {{coinList[activePawn].dayRate * 100}}% * {{coinList[activePawn].pawnCycle}} = {{Number(payable).toFixed(2)}} USDT</span>
+					</div>
+				</div>
+				<div class="describe-item">
+					<span class="describe-title">平仓价格：</span>
+					<div class="describe-value">
+						<span>{{coinList[activePawn].closeRate}} * {{Number(coinList[activePawn].price).toFixed(2)}} = {{Number(coinList[activePawn].closingPrice).toFixed(2)}} USDT</span>
+					</div>
+				</div>
+				<p class="describe-tip"> *若币价低于市价的<strong>{{coinList[activePawn].closeRate * 100}}%</strong>，则您的币将会被平仓以止损</p>
+
+				<!-- <div class="describe-item">
 					<span class="describe-title"> 日 利 率 ：</span>
 					<div class="describe-value">{{coinList[activePawn].dayRate * 100}}%</div>
 				</div>
@@ -73,7 +103,7 @@
 						<span>{{coinList[activePawn].closingPrice.toFixed(2)}} USDT</span>
 					</div>
 				</div>
-				<p class="describe-tip"> *若币价低于市价的<strong>{{coinList[activePawn].closeRate * 100}}%</strong>，则您的币将会被平仓以止损</p>
+				<p class="describe-tip"> *若币价低于市价的<strong>{{coinList[activePawn].closeRate * 100}}%</strong>，则您的币将会被平仓以止损</p> -->
 				<div class="title">
 					<span>典当信息</span>
 				</div>
@@ -90,10 +120,10 @@
 					<span @click="agreeClick">我已阅读并同意 </span>
 					<span class="terms-link" @click="showAgreement">《KOOBANK借款协议》</span>
 				</div>
-				<div class="submit-btn" @click="submit">借款</div>
+				<div class="submit-btn" @click="submit">典当</div>
 			</div>
 		</div>
-		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定借款" @submit="submitPawn"></pwd-dialog>
+		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定典当" @submit="submitPawn"></pwd-dialog>
 		<agree-dialog v-model="showAgreeDialog" @submit="agreeCheck"></agree-dialog>
 		<identity-auth v-model="showIdentityAuth" @submit="gotoAuth" @closeBox="closeIdentityBox"></identity-auth>
 		<box-charge v-model="showRecharge" :item="currItem" @closeBox="closeRecharge"></box-charge>
@@ -228,14 +258,14 @@ export default {
 		coinToUSDT(index, number) {
 			let money =
 				(number * this.coinList[index].pawnPrice) / this.USDTPrice;
-			return money.toFixed(8);
+			return money == 0 ? 0 : money.toFixed(8);
 		},
 
 		// USDT兑换当前币(index: coinIndex)
 		USDTToCoin(index, number) {
 			let money =
 				(number * this.USDTPrice) / this.coinList[index].pawnPrice;
-			return money.toFixed(8);
+			return money == 0 ? 0 : money.toFixed(8);
 		},
 
 		// 到期应还金额
@@ -243,7 +273,7 @@ export default {
 			let currCoin = this.coinList[this.activePawn];
 			let dayRate = currCoin.dayRate; // 日利率
 			let payable = money * (1 + dayRate * currCoin.pawnCycle);
-			return payable.toFixed(2);
+			return money == 0 ? 0 : payable.toFixed(2);
 		},
 		closePwdBox() {
 			this.showPwdDialog = false;
