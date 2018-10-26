@@ -20,8 +20,8 @@
 					</div>
 				</div>
 				<div class="content">
-					<p class="rate">{{Math.floor(item.returnRate * 365 * 100)}}%</p>
-					<p class="fund-days">30天年化</p>
+					<p class="rate">年化{{Math.floor(item.returnRate * 365 * 100)}}%</p>
+					<p class="fund-days">{{item.fundDays}}天周期</p>
 					<p class="buy-progress">认购进度<span class="font-blue">{{Number(item.purchaseProgress * 100).toFixed(2)}}</span>%</p>
 					<p class="fund-type">{{fundTypeList[item.fundType]}}</p>
 					<div class="btn">

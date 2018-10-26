@@ -6,7 +6,7 @@
 		<div class="card">
 			<div class="rate-card">
 				<p class=" title">{{Math.floor(fundDetail.returnRate * 365 * 100)}}%</p>
-				<p class="tip">30天年化预计收益</p>
+				<p class="tip">{{fundDetail.fundDays}}天，年化预计收益</p>
 			</div>
 			<div class="detail-card">
 				<div class="least-number card-item">
