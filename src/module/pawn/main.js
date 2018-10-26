@@ -12,6 +12,9 @@ Vue.use(VeeValidate, {
   events: 'blur' //blur失焦校验
 });
 Vue.use(VueClipboard);
+Vue.use(VeeValidate, {
+  events: 'blur' //blur失焦校验
+});
 Vue.use(Toast)
   .use(Dialog)
   .use(Popup);

@@ -1,35 +1,35 @@
 const coinList = [
   {
     name: 'USDT',
-    logo: '//www.aoabank.com/usdt.png'
+    logo: '//www.koobank.com/m/img/usdt.png'
   },
   {
     name: 'BTC',
-    logo: '//www.aoabank.com/btc.png'
+    logo: '//www.koobank.com/m/img/btc.png'
   },
   {
     name: 'ETH',
-    logo: '//www.aoabank.com/eth.png'
+    logo: '//www.koobank.com/m/img/eth.png'
   },
   {
     name: 'TTF',
-    logo: '//www.aoabank.com/ttf.png'
+    logo: '//www.koobank.com/m/img/ttf.png'
   },
   {
     name: 'SEXC',
-    logo: '//www.aoabank.com/sexc.png'
+    logo: '//www.koobank.com/m/img/sexc.png'
   },
   {
     name: 'XMX',
-    logo: '//www.aoabank.com/xmx.png'
+    logo: '//www.koobank.com/m/img/xmx.png'
   },
   {
     name: 'PARK',
-    logo: '//www.aoabank.com/park.png'
+    logo: '//www.koobank.com/m/img/park.png'
   },
   {
     name: 'AOK',
-    logo: '//www.aoabank.com/logo_aoa.png'
+    logo: '//www.koobank.com/m/img/logo_aoa.png'
   }
 ];
 

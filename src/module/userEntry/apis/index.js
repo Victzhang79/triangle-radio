@@ -41,7 +41,12 @@ function registeUser(userMobile, veriCode, logPass, inviteCode) {
  * @param {string} logPass 登录密码
  */
 function chkUserLogPass(userMobile, veriCode, logPass) {
-	return http.get(chkUserLogPassPath + '&userMobile=' + userMobile + '&veriCode=' + veriCode + '&logPass=' + logPass);
+	// return http.get(chkUserLogPassPath + '&userMobile=' + userMobile + '&veriCode=' + veriCode + '&logPass=' + logPass);
+	return http.post(chkUserLogPassPath, {
+		userMobile,
+		veriCode,
+		logPass
+	})
 }
 
 /**

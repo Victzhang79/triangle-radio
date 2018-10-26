@@ -2,7 +2,7 @@
 	<div class="second-tab">
 		<van-tabs v-model="activeTab" @change="handleClick">
 			<van-tab title="币钱包"></van-tab>
-			<van-tab title="币生币"></van-tab>
+			<van-tab title="基金理财"></van-tab>
 			<van-tab title="币典当"></van-tab>
 		</van-tabs>
 	</div>

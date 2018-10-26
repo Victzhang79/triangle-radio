@@ -1,79 +1,69 @@
 import 'whatwg-fetch';
+import Cookie from 'js-cookie';
 /**
  * [post]
  * @param  {[String]} url              [资源路径]
  * @param  {[String]} data             [发送数据]
- * @param  {[String]} responseDataType [响应数据格式]
  * @return {[Promise]}                  [description]
  */
-function post(url, data, responseDataType) {
-  return fetch(url, {
-    headers: {
-      Accept: 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-    },
-    // credentials: 'include',
-    mode: 'cors',
-    method: 'POST',
-    // body: _urlEncode(data)
-    body: JSON.stringify(data)
-  }).then(function(response) {
-    return _formatData(response, responseDataType);
-  });
+// 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+function post(url, data) {
+	const token = Cookie.get('token');
+	let headers = {
+		Accept: 'application/json',
+		'Content-Type': 'application/json;charset=UTF-8'
+	};
+	if (token) {
+		headers['token'] = token
+	}
+	return fetch(url, {
+		headers,
+		// credentials: 'include',
+		mode: 'cors',
+		method: 'POST',
+		// body: _urlEncode(data)
+		body: JSON.stringify(data)
+	}).then(function (response) {
+		return _formatData(response);
+	});
 }
 /**
  * [get]
  * @param  {[String]} url              [资源路径]
- * @param  {[String]} responseDataType [响应数据格式]
  * @return {[Promise]}                  [description]
  */
-function get(url, responseDataType) {
-  return fetch(url, {
-    method: 'GET',
-    mode: 'cors'
-    // credentials: 'include'
-  }).then(function(response) {
-    return _formatData(response, responseDataType);
-  });
+function get(url) {
+	const token = Cookie.get('token');
+	let options = {
+		method: 'GET',
+		mode: 'cors'
+		// credentials: 'include'
+	};
+	if (token) {
+		options.headers = {
+			'token': token
+		}
+	}
+	return fetch(url, options).then(function (response) {
+		return _formatData(response);
+	});
 }
 /**
- * [_formatData 格式化response]
- * @param  {[type]} response [响应]
- * @param  {[String]} type     [数据格式]
- * @return {[type]}          [description]
+ * [_formatData 格式化response]&[检测登录状态]
  */
-function _formatData(response, type) {
-  switch (type) {
-    case 'arrayBuffer':
-      return response.arrayBuffer();
-    case 'blob':
-      return response.blob();
-    case 'formData':
-      return response.formData();
-    case 'text':
-      return response.text();
-    default:
-      return response.json();
-  }
-}
-/**
- * [_urlEncode 格式化json为url参数]
- * @param  {[type]} params
- * @return {[type]} string         [description]
- */
-function _urlEncode(params) {
-  if (typeof params === 'object') {
-    return Object.keys(params)
-      .map(key => {
-        return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
-      })
-      .join('&');
-  } else {
-    return params;
-  }
+function _formatData(response) {
+	const responseData = response.json();
+	return responseData.then(data => {
+		if (data.code === 401) {
+			window.location.href = window.location.protocol + '//' + window.location.host + '/m/userEntry';
+		}
+		return data;
+	}).catch(err => {
+		console.log(err);
+	})
 }
 
 export default {
-  post,
-  get
+	post,
+	get
 };

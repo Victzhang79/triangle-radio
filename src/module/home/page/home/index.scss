@@ -16,17 +16,17 @@ body {
 .header {
   height: px2rem(540px);
   color: #fff;
-  background: #0b0a16 url(http://www.aoabank.com/m/bg.png) no-repeat;
+  background: #0b0a16 url(//www.koobank.com/m/img/bg.png) no-repeat;
   background-size: 100%;
   padding: 0 px2rem(50px);
   box-sizing: border-box;
   .header-title {
-    padding-top: px2rem(60px);
-    @include font-dpr(26px);
+    padding-top: px2rem(30px);
+    @include font-dpr(25px);
     font-weight: normal;
   }
   .header-content {
-    margin-top: px2rem(15px);
+    margin-top: px2rem(10px);
     color: #cfcfcf;
     line-height: 1.5;
     @include font-dpr(12px);

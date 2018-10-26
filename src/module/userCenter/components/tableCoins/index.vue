@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<asset-item v-for="item of fundList" :coinInfo="item"></asset-item>
+		<asset-item v-for="(item, index) of fundList" :coinInfo="item" :key="index"></asset-item>
 	</div>
 </template>
 <script>
@@ -72,6 +72,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import './index.scss';
 </style>
 

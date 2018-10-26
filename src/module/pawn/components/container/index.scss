@@ -110,7 +110,7 @@
     .anticon-caret-down:before {
       content: '';
       display: inline-block;
-      background: url(//www.aoabank.com/m/icon-arrow.png) no-repeat;
+      background: url(../../assets/imgs/icon-arrow.png) no-repeat;
       width: px2rem(16px);
       height: px2rem(16px);
       background-size: contain;
@@ -196,7 +196,7 @@
     }
     .describe-title {
       display: inline-block;
-      width: px2rem(120px);
+      //   width: px2rem(120px);
     }
     .describe-value {
       display: inline-block;

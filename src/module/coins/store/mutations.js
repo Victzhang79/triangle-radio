@@ -12,7 +12,7 @@ export default {
     state.fundList = payload.data;
     state.total_fundNum = payload.totalNum;
     if (payload.pageNo == 1 && payload.data.length > 0) {
-      state.recommendFundList = payload.data.slice(0, 4);
+      state.recommendFundList = payload.data.slice(0, 2);
     }
   },
 

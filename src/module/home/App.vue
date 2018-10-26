@@ -9,6 +9,6 @@ export default {
 	name: 'app'
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../assets/style/public.scss';
 </style>

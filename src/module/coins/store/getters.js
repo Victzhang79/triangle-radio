@@ -17,7 +17,6 @@ export const recommendFundList = state => {
       }
     }
   }
-  console.log(fundList);
   return fundList;
 };
 export const total_fundNum = state => state.total_fundNum; // 币生币基金总数

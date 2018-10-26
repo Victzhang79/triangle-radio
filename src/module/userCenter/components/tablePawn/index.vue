@@ -1,14 +1,10 @@
 <template>
 	<div>
-		<asset-item v-for="(item, index) in pawnList" :coinInfo="item" pageType="pawn" @redeem="redeem(index)"></asset-item>
+		<asset-item v-for="(item, index) in pawnList" :coinInfo="item" pageType="pawn" @redeem="redeem(index)" :key="index"></asset-item>
 		<div v-if="showNull" class="list-tip"><span>{{showTip}}</span></div>
-		<div class="pagers">
+		<div class="pagers" v-show="totalNum > pageSize">
 			<van-pagination v-model="pageNo" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />
 		</div>
-		<!-- <div class="pagers">
-			<el-pagination layout="prev, pager, next" :page-size.sync="pageSize" :pager-count="pageCount" :total="totalNum" prev-text='上一页' next-text='下一页' @current-change="gotoPage" @prev-click='prevPage' @next-click='nextPage' :current-page.sync="pageNo">
-			</el-pagination>
-		</div> -->
 		<box-redeem v-model="showRedeemBox" :checkedItem="checkedItem" @redeemSuccess="redeemSuccess"></box-redeem>
 		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定赎回" @submit="submitRedeem"></pwd-dialog>
 	</div>

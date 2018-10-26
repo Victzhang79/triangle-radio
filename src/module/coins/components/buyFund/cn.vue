@@ -7,7 +7,7 @@
 			<span class="name">数量：</span>
 			<input type="number" v-model="amount" class="input" :min="least" :max="remain" placeholder="0" />
 			<span class="unit">{{coinName}}</span>
-			<div class="recharge-tip">
+			<div class="recharge-tip" v-show="showRechargeTip">
 				<span>钱包里面共有{{walletRemain}}个{{coinName}}，</span>
 				<span class="a-link" @click="recharge">立即充值</span>
 			</div>
@@ -26,6 +26,7 @@ import pwdDialog from '../../../../components/pwdDialog';
 import boxCharge from '../../../../components/recharge';
 import Api from '../../api';
 import Util from '../../../../util';
+import Cookie from 'js-cookie';
 
 export default {
 	props: {
@@ -42,13 +43,14 @@ export default {
 			amount: this.fundDetail.leastPurchaseNum,
 			remain:
 				this.fundDetail.fundAmount *
-				(1 - this.fundDetail.purchaseProgress / 100),
+				(1 - this.fundDetail.purchaseProgress),
 			least: this.fundDetail.leastPurchaseNum,
 			currItem: {},
 			coinName: Util.coinNameList[this.fundDetail.coinCode],
 			showCloseBtn: false,
 			showPwdDialog: false,
 			duration: 1500,
+			showRechargeTip: true,
 			showRecharge: false
 		};
 	},
@@ -62,6 +64,13 @@ export default {
 			this.least = val.leastPurchaseNum;
 			this.amount = val.leastPurchaseNum;
 			this.coinName = Util.coinNameList[val.coinCode];
+		}
+	},
+	created() {
+		let loginState = Cookie.get('token');
+		// 如果未登录，隐藏钱包信息
+		if (!loginState) {
+			this.showRechargeTip = false;
 		}
 	},
 	methods: {

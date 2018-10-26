@@ -1,6 +1,6 @@
 @import '../../../../assets/style/public.scss';
 .login-page, .logup-page {
-	height: 100%;
+	min-height: 100%;
 	background: url(../../assets/imgs/bg.png);
 	background-size: 100%;
 	.main {
@@ -30,6 +30,7 @@
 					border: none;
 					outline: none;
 					font-size: px2rem(28px);
+					width: px2rem(300px);
 					&::placeholder {
 						font-family: PingFangSC-Regular;
 						font-size: px2rem(22px);

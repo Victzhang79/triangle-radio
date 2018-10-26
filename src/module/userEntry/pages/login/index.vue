@@ -114,7 +114,11 @@ export default {
 						// 	type: 'success'
 						// });
 						// this.$route.phsh('/login/cn');
-						Cookie.set('token', data.data.token);
+						Cookie.set('token', data.data.token, {
+							expires: new Date(
+								new Date().getTime() + 2 * 60 * 60 * 1000
+							)
+						});
 						Cookie.set('lastLogIp', data.data.lastLogIp || '');
 						Cookie.set('lastLogTime', data.data.lastLogTime || '');
 						this.$toast('登录成功，即将跳转。');
@@ -122,7 +126,7 @@ export default {
 							window.location.protocol +
 							'//' +
 							window.location.host +
-							'/coins';
+							'/m/coins';
 					} else {
 						this.$toast.fail(data.msg);
 					}

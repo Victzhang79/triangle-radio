@@ -105,17 +105,14 @@ export default {
 					)
 						.then(data => {
 							if (data.code === 200) {
-								this.$message({
-									message: '密码设置成功！',
-									type: 'success'
-								});
+								this.$toast('密码设置成功！');
 								this.visible = false;
 							} else {
-								this.$message.error(data.msg);
+								this.$toast.fail(data.msg);
 							}
 						})
 						.catch(err => {
-							this.$message.error('设置失败，稍后重试。');
+							this.$toast.fail('设置失败，稍后重试。');
 							this.authBtnState = true;
 						});
 				}

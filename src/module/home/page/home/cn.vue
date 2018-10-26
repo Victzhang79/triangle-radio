@@ -3,17 +3,17 @@
 		<top-bar activePage="home">
 		</top-bar>
 		<div class="header">
-			<h1 class="header-title">KOOBANK：安全、方便、低息的数字资产理财平台</h1>
-			<p class="header-content">* 支持全球多种数字资产进行典当：BTC，ETH，EOS，OKB，BNB，HT等所有价值数字资产</p>
-			<p class="header-content">* 采用智能合约，多签名钱包等安全技术</p>
-			<p class="header-content">* 最高60%比例！最快10分钟！USDT立即领走</p>
-			<p class="header-content">* 成熟安全的风控模型！多方监管的资金账户！</p>
+			<h1 class="header-title">KOOBANK克班克——数字资产管理集团-投资银行</h1>
+			<p class="header-content">* 由前VISA、Standard Chartered Bank、JPMorgan、Microsoft、VCSIG等高管联合创建。</p>
+			<p class="header-content">* 团队具有超过十年以上金融证券投资、家族财富管理、私募股权投资经验。</p>
+			<p class="header-content">* 聚焦数字资产配置与管理，去中心化的数字资产管理未来解决方案。</p>
+			<p class="header-content">* 提供机构资产管理、基金投资、个人资管（存、贷、基金超市）、资管链、投行咨询业务。</p>
 			<!-- <a href="http://www.KOOBANK.com/ANK链白皮书.pdf" class="download" download="KOOBANK白皮书">白皮书下载</a> -->
 		</div>
 		<div class="main">
 			<div class="main-content">
-				<h3 class="main-content-title">KOOBANK来了！</h3>
-				<p class="main-content-msg">KOOBANK是专门提供数字资产理财的专业性平台。是业内首次提出“典当币”业务的平台，目前支持多个币种的典当，服务了数以万计的投资者。此外，平台依托于专业基金机构，即将推出虚拟货币基金产品，敬请期待。</p>
+				<h3 class="main-content-title">KOOBANK克班克 基金理财、数字资产典当 来了！</h3>
+				<p class="main-content-msg">继2017年推出数字资产投资基金、区块链应用研究院之后，KOOBANK推出数字资产“典当币”（目前支持20多个币种的典当），依托于海量高净值LP与VC资源，相继推出数字资产KBK FOF基金、AOK理财基金、量化固收基金等产品。期待与行业专业基金机构、优秀项目、社群开展广泛合作。</p>
 			</div>
 			<div class="main-item bg-grey">
 				<h3 class="main-content-title">用户资金安全性</h3>

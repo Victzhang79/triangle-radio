@@ -9,7 +9,7 @@
 				<span class="unit"> {{coinName}}</span>
 			</span>
 		</div>
-		<form class="demo-ruleForm wrap">
+		<div class="demo-ruleForm wrap">
 			<label>
 				<p class="labelTit">提现金额：</p>
 				<input v-validate='rules.withDrawNum.validation' v-model="pageForm.withDrawNum" :placeholder="moneyPlaceholder" name="withDrawNum">
@@ -24,9 +24,9 @@
 			</label>
 			<p class="erc20-tip" v-if="showErcTip">{{tipContent}}</p>
 			<p class="btn-line">
-				<button @click="onSubmit()" class="btn" type="primary" round>确认提现</button>
+				<button @click="confirm" class="btn" type="primary">确认提现</button>
 			</p>
-		</form>
+		</div>
 	</van-popup>
 </template>
 
@@ -34,6 +34,7 @@
 import Api from '../../api';
 import { mapGetters } from 'vuex';
 import Util from '../../../../util';
+import { setTimeout } from 'timers';
 export default {
 	props: {
 		value: Boolean,
@@ -134,7 +135,7 @@ export default {
 			this.$emit('input', false);
 			this.$emit('closeBox', result);
 		},
-		onSubmit(formName) {
+		confirm() {
 			if (!this.isDisabled) {
 				this.$validator.validateAll().then(valid => {
 					if (valid) {
@@ -161,10 +162,9 @@ export default {
 							});
 							return false;
 						}
+
 						this.isDisabled = true;
-						setTimeout(() => {
-							this.submitInfo();
-						}, 10000);
+						this.submitInfo();
 					} else {
 						this.$toast.fail({
 							message: '请正确填写所有必填项',
@@ -182,6 +182,10 @@ export default {
 			);
 			this.isDisabled = false;
 			if (withdrawCash) {
+				this.$toast.success({
+					message: '提现成功',
+					duration: this.duration
+				});
 				this.closeBox(true); // 操作成功
 			} else {
 				this.$toast.fail({

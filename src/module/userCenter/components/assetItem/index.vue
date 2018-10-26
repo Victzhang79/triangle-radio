@@ -2,7 +2,7 @@
 	<div class="asset-item">
 		<div class="title">{{coinInfo.title}}</div>
 		<div class="content">
-			<div v-for="item of coinInfo.list" class="item-line">
+			<div v-for="(item, index) of coinInfo.list" class="item-line" :key="index">
 				<span class="item-name">{{item.name}}：</span>
 				<span class="item-value">{{item.value}}</span>
 			</div>

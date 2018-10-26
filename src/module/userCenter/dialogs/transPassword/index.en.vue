@@ -130,18 +130,16 @@ export default {
 				)
 					.then(data => {
 						if (data.code === 200) {
-							this.$message({
-								message:
-									'Capital password establishes the success.',
-								type: 'success'
-							});
+							this.$toast(
+								'Capital password establishes the success.'
+							);
 							this.visible = false;
 						} else {
-							this.$message.error(data.msg);
+							this.$toast.fail(data.msg);
 						}
 					})
 					.catch(err => {
-						this.$message.error('Failed,please try again later.');
+						this.$toast.fail('Failed,please try again later.');
 					});
 			});
 		},

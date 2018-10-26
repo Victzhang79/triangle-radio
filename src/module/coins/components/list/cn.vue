@@ -25,7 +25,7 @@ export default {
 	data() {
 		return {
 			fundTypeList: ['', '固收保本'],
-			pageSize: 5,
+			pageSize: 10,
 			currPage: this.pageNo
 		};
 	},

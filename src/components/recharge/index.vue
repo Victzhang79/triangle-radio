@@ -1,16 +1,16 @@
 <template>
-	<van-popup class="dialog" v-model="value" click-overlay="closeBox">
+	<van-popup class="dialog" v-model="show" click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="title">充值操作</h2>
 		<h3 class="dlg-title">您正在进行{{coinNameList[item.coinCode]}}充值操作</h3>
-		<form class="demo-ruleForm wrap">
+		<div class="demo-ruleForm wrap">
 			<p class="item-title">{{coinNameList[item.coinCode]}}钱包地址：</p>
 			<p class="address">{{item.walletAddr}}</p>
 			<p><span class="link-btn" v-clipboard:copy="item.walletAddr" v-clipboard:success="onCopy">复制</span></p>
 			<p class="btn-line">
 				<button @click="closeBox" class="btn">确定</button>
 			</p>
-		</form>
+		</div>
 	</van-popup>
 </template>
 
@@ -23,11 +23,16 @@ export default {
 	},
 	data() {
 		return {
-			showCloseBtn: false,
+			show: this.value,
 			title: '充值操作',
 			ISFALSE: false,
 			coinNameList: Util.coinNameList
 		};
+	},
+	watch: {
+		value(val) {
+			this.show = val;
+		}
 	},
 	methods: {
 		closeBox() {

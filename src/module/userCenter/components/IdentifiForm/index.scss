@@ -37,7 +37,7 @@
 // 		}
 		.label {
 			display: block;
-			margin-top: px2rem(28px);
+			margin-top: px2rem(32px);
 			.labelName,.labelNameblock {
 				font-size: px2rem(26px);
 				color: #1d1d1d;
@@ -74,6 +74,13 @@
 				&:disabled {
 					background-color: #f3f3f3;
 				}
+			}
+			.error-tip {
+				color: #e22828;
+				display: block;
+				text-align: right;
+				position: absolute;
+				right: px2rem(80px);
 			}
 		}
 	}

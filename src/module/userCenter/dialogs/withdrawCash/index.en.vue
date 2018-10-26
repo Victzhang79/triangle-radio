@@ -157,11 +157,9 @@ export default {
 				)
 					.then(data => {
 						if (data.code === 200) {
-							this.$toast({
-								message:
-									'The new password establishes the success.',
-								type: 'success'
-							});
+							this.$toast(
+								'The new password establishes the success.'
+							);
 							this.visible = false;
 						} else {
 							this.$toast.fail(data.msg);
