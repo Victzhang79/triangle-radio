@@ -67,7 +67,7 @@
 				</div>
 				<div class="describe-item">
 					<span class="describe-title"> {{coinList[activePawn].name}}现价：</span>
-					<div class="describe-value">{{coinList[activePawn].price}} USDT</div>
+					<div class="describe-value">{{Number(coinList[activePawn].price).toFixed(2)}} USDT</div>
 				</div>
 				<div class="describe-item">
 					<span class="describe-title">借　　贷：</span>
@@ -82,7 +82,7 @@
 				<div class="describe-item">
 					<span class="describe-title">平仓价格：</span>
 					<div class="describe-value">
-						<span>{{coinList[activePawn].closeRate}} * {{Number(coinList[activePawn].price).toFixed(2)}} = {{Number(coinList[activePawn].closingPrice).toFixed(2)}} USDT</span>
+						<span>{{Number(coinList[activePawn].price).toFixed(2)}} * {{coinList[activePawn].closeRate * 100}}% = {{Number(coinList[activePawn].closingPrice).toFixed(2)}} USDT</span>
 					</div>
 				</div>
 				<p class="describe-tip"> *若币价低于市价的<strong>{{coinList[activePawn].closeRate * 100}}%</strong>，则您的币将会被平仓以止损</p>
