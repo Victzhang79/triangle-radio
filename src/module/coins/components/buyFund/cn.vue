@@ -12,7 +12,7 @@
 				<span class="a-link" @click="recharge">立即充值</span>
 			</div>
 			<div class="purchase-btn">
-				<span class="btn" :class="{disabled: disabled}" @click="purchaseClick">立即购买</span>
+				<span class="btn" :class="{disabled: disabled}" @click="purchaseClick">{{btnText}}</span>
 			</div>
 		</div>
 
@@ -56,7 +56,25 @@ export default {
 	},
 	computed: {
 		disabled() {
-			return this.fundDetail.status == 0 ? true : false;
+			if (
+				this.fundDetail.status != 1 ||
+				this.fundDetail.purchaseProgress >= 1
+			) {
+				return true;
+			}
+			return false;
+		},
+		btnText() {
+			if (this.fundDetail.status == 0) {
+				return '未开始';
+			} else if (
+				this.fundDetail.status == 2 ||
+				this.fundDetail.purchaseProgress >= 1
+			) {
+				return '计息中';
+			} else {
+				return '立即购买';
+			}
 		}
 	},
 	watch: {
@@ -75,8 +93,11 @@ export default {
 	},
 	methods: {
 		purchaseClick() {
-			if (this.disabled) {
-				this.$toast.fail('基金认购还未开始哦');
+			if (
+				this.fundDetail.status != 1 ||
+				this.fundDetail.purchaseProgress >= 1
+			) {
+				return false;
 			} else if (this.amount < this.least) {
 				this.$toast.fail('购买数量不能小于起购数量哦');
 			} else if (this.amount > this.remain) {
