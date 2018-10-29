@@ -7,7 +7,7 @@
 			<fund-card :fundDetail="fundDetailData"></fund-card>
 			<buy-process :fundDetail="fundDetailData"></buy-process>
 			<fund-detail :fundDetail="fundDetailData"></fund-detail>
-			<buy-fund v-if="fundDetailData.purchaseProgress < 1" :fundDetail="fundDetailData" :walletRemain='walletRemain' :walletAddr="walletAddr"></buy-fund>
+			<buy-fund v-if="fundDetailData.purchaseProgress < 1 && fundDetailData.status == 1" :fundDetail="fundDetailData" :walletRemain='walletRemain' :walletAddr="walletAddr"></buy-fund>
 		</div>
 		<footer-bar>
 		</footer-bar>

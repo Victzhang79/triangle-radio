@@ -8,6 +8,9 @@ import VueClipboard from 'vue-clipboard2';
 import VeeValidate from 'vee-validate';
 
 Vue.config.productionTip = false;
+Vue.use(VeeValidate, {
+  events: 'blur' //blur失焦校验
+});
 Vue.use(VueClipboard);
 Vue.use(VeeValidate, {
   events: 'blur' //blur失焦校验

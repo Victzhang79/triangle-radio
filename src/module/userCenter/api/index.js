@@ -109,5 +109,20 @@ export default {
         userMobile +
         '&mock_apiId=5b7e5cac7ad806420cbf2bd2'
     );
+  },
+  // 获取股东代持币种信息
+  getShareholderInfo() {
+    return http.get(
+      Util.DOMAIN + 'qryHoldInfo?mock_apiId=5bd523e40638a4020f5b691a'
+    );
+  },
+  // 股东出售
+  sellCoin(sellNum) {
+    return http.post(
+      Util.DOMAIN + 'sellHold?mock_apiId=5bd525c342073d0186f62c40',
+      {
+        sellNum: sellNum
+      }
+    );
   }
 };

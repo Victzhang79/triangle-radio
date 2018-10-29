@@ -14,6 +14,9 @@
 		<div v-if="pageType == 'pawn'" class="item-footer">
 			<span class="pawn-btn" @click="clickHandle('redeem')">赎回</span>
 		</div>
+		<div v-if="pageType == 'shareholder'" class="item-footer">
+			<span class="pawn-btn" @click="clickHandle('sale')">出售</span>
+		</div>
 	</div>
 </template>
 <script>
