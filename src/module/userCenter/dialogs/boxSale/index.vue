@@ -5,7 +5,7 @@
 		<div class="demo-ruleForm wrap">
 			<label>
 				<span class="labelTit">出售个数：</span>
-				<input type="number" v-model="sellCoin" :placeholder="placeholder" :max="canSaleNum" />
+				<input type="number" v-model="sellNum" :placeholder="placeholder" :max="cansellNum" />
 				<p class="tip">备注：代持出售后，我们的工作人员会按市场价出售，出售金额会按您指定的方式返还给您，感谢您的支持！</p>
 			</label>
 
@@ -22,12 +22,12 @@ import Util from '../../../../util';
 export default {
 	props: {
 		value: Boolean,
-		canSaleNum: Number
+		cansellNum: Number
 	},
 	data() {
 		return {
 			show: this.value,
-			sellCoin: '',
+			sellNum: '',
 			placeholder: '最多可出售' + this.maxSale + '个',
 			duration: 1500
 		};
@@ -36,7 +36,7 @@ export default {
 		value(val) {
 			this.show = val;
 		},
-		canSaleNum(val) {
+		cansellNum(val) {
 			this.placeholder = '最多可出售' + val + '个';
 		}
 	},
@@ -45,16 +45,14 @@ export default {
 			this.$emit('input', false);
 		},
 		onSubmit() {
-			if (this.sellCoin > this.canSaleNum) {
+			if (this.sellNum > this.cansellNum) {
 				this.$toast.fail({
-					message: '最多可出售' + this.canSaleNum + '个',
+					message: '最多可出售' + this.cansellNum + '个',
 					duration: this.duration
 				});
 				return false;
 			}
-			Api.sellCoin({
-				sellCoin: this.sellCoin
-			})
+			Api.sellCoin(this.sellNum)
 				.then(res => {
 					if (res.code == 200) {
 						this.$toast({

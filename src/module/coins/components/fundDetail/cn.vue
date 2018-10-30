@@ -27,7 +27,7 @@ export default {
 				{ name: '产品额度：', value: 0 },
 				{
 					name: '额度限制：',
-					value: '0起购，无上限'
+					value: '0起购'
 				},
 				{
 					name: '起始时间：',
@@ -49,7 +49,7 @@ export default {
 				{ name: '产品额度：', value: val.fundAmount },
 				{
 					name: '额度限制：',
-					value: val.leastPurchaseNum + '起购，无上限'
+					value: val.leastPurchaseNum + '起购'
 				},
 				{
 					name: '起始时间：',

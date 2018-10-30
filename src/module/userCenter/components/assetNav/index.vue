@@ -9,6 +9,7 @@
 	</div>
 </template>
 <script>
+import Cookie from 'js-cookie';
 export default {
 	data() {
 		return {
@@ -16,9 +17,9 @@ export default {
 			isShareholder: false
 		};
 	},
-	create() {
+	created() {
 		let isHolder = Cookie.get('isHolder');
-		if (isHolder) {
+		if (isHolder == 1) {
 			this.isShareholder = true;
 		}
 	},

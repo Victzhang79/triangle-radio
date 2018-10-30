@@ -121,6 +121,7 @@ export default {
 						});
 						Cookie.set('lastLogIp', data.data.lastLogIp || '');
 						Cookie.set('lastLogTime', data.data.lastLogTime || '');
+						Cookie.set('isHolder', data.data.isHolder || '');
 						this.$toast('登录成功，即将跳转。');
 						window.location.href =
 							window.location.protocol +

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<asset-item v-for="(item, index) in coinList" :coinInfo="item" pageType="shareholder" @sale="saleClick(index)" :key="index"></asset-item>
-		<box-sale v-model="showSaleBox" :canSaleNum="canSaleNum" @saleSuccess="saleSuccess"></box-sale>
+		<box-sale v-model="showSaleBox" :cansellNum="cansellNum" @saleSuccess="saleSuccess"></box-sale>
 		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定出售" @submit="submitSale"></pwd-dialog>
 	</div>
 </template>
@@ -17,22 +17,22 @@ export default {
 		return {
 			showSaleBox: false,
 			showPwdDialog: false,
-			canSaleNum: 0,
+			cansellNum: 0,
 			coinList: [
 				{
-					title: '名称：AOK',
+					title: '币种：AOK',
 					list: [
 						{
-							name: '代持数量',
-							value: 10000
+							name: '锁币数量',
+							value: 0
 						},
 						{
-							name: '可售代持',
-							value: 1000
+							name: '可售数量',
+							value: 0
 						},
 						{
-							name: '已售代持',
-							value: 100
+							name: '已售数量',
+							value: 0
 						}
 					]
 				}
@@ -54,25 +54,25 @@ export default {
 				if (res.code == 200) {
 					this.coinList = [
 						{
-							title: '名称：AOK',
+							title: '币种：AOK',
 							list: [
 								{
-									name: '代持数量',
+									name: '锁币数量',
 									value: res.data.totalNum
 								},
 								{
-									name: '可售代持',
-									value: res.data.canSaleNum
+									name: '可售数量',
+									value: res.data.cansellNum
 								},
 								{
-									name: '已售代持',
+									name: '已售数量',
 									value:
 										res.data.soldNum + res.data.entrustNum
 								}
 							]
 						}
 					];
-					this.canSaleNum = res.data.canSaleNum;
+					this.cansellNum = res.data.cansellNum;
 				} else {
 					this.$toast.fail({
 						message: '获取代持币种失败，请刷新重试',
