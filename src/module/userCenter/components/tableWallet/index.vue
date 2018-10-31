@@ -35,7 +35,11 @@ export default {
 				withDrawableNum: '',
 				userMobile: '',
 				walletAddr: ''
-			}
+			},
+			ethAmount: 0,
+			btcAmount: 0,
+			hasSet: false,
+			duration: 1500
 		};
 	},
 	components: {
@@ -67,8 +71,35 @@ export default {
 	methods: {
 		// 提现
 		putForward(index) {
-			this.checkItem = this.walletList[index];
+			let checkedItem = this.walletList[index];
+			// 当提现AOK时，若提现数量不足1000限制提现
+			if (
+				checkedItem.coinCode == 8 &&
+				checkedItem.withDrawableNum < 1000
+			) {
+				this.$toast.fail({
+					message: '一次提现最低不能低于1000个AOK，请确认',
+					duration: this.duration
+				});
+				return false;
+			}
+			if (!this.hasSet) {
+				this.setAmount();
+			}
+			checkedItem.btcAmount = this.btcAmount;
+			checkedItem.ethAmount = this.ethAmount;
+			this.checkItem = checkedItem;
 			this.showPwdDialog = true;
+		},
+		setAmount() {
+			for (let item of this.walletList) {
+				if (item.coinCode == 2) {
+					this.btcAmount = item.withDrawableNum;
+				} else if (item.coinCode == 3) {
+					this.ethAmount = item.withDrawableNum;
+				}
+			}
+			this.hasSet = true;
 		},
 		recharge(index) {
 			this.checkItem = this.walletList[index];

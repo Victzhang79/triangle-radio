@@ -139,7 +139,19 @@ export default {
 			if (!this.isDisabled) {
 				this.$validator.validateAll().then(valid => {
 					if (valid) {
-						console.log('this.item:', this.item);
+						// 当提现AOK时，若提现数量不足1000限制提现
+						if (
+							this.item.coinCode == 8 &&
+							this.pageForm.withDrawNum < 1000
+						) {
+							this.$toast.fail({
+								message:
+									'一次提现最低不能低于1000个AOK，请确认',
+								duration: this.duration
+							});
+							return false;
+						}
+						// 基于以太坊ERC20的币，提现需要消耗以太坊作为手续费
 						if (
 							[4, 8].indexOf(this.item.coinCode) > -1 &&
 							this.item.ethAmount == 0
