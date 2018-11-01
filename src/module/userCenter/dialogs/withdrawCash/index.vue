@@ -22,7 +22,6 @@
 				<input class="authCode" v-validate='rules.toWalletAddr.validation' v-model="pageForm.toWalletAddr" placeholder="请输入钱包地址" name="toWalletAddr">
 				<span v-show="errors.has('toWalletAddr')" class="error-tip">{{ rules.toWalletAddr.text}}</span>
 			</label>
-			<p class="erc20-tip" v-if="showErcTip">{{tipContent}}</p>
 			<p class="btn-line">
 				<button @click="confirm" class="btn" type="primary">确认提现</button>
 			</p>
@@ -43,7 +42,6 @@ export default {
 	data() {
 		return {
 			show: this.value,
-			showErcTip: false,
 			ISFALSE: false,
 			tipContent: '',
 			title: '提现操作',
@@ -92,17 +90,6 @@ export default {
 				withDrawNum: '',
 				toWalletAddr: '' //提现目的钱包地址
 			};
-			if ([4, 8].indexOf(val.coinCode) > -1) {
-				this.showErcTip = true;
-				this.tipContent =
-					'基于以太坊ERC20的币，提现需要消耗以太坊作为手续费，请确保您的账户有足够的以太坊';
-			} else if (val.coinCode === 1) {
-				this.showErcTip = true;
-				this.tipContent =
-					'usdt提现需要消耗比特币作为手续费，请确保您的账户有足够的比特币';
-			} else {
-				this.showErcTip = false;
-			}
 
 			this.rules = {
 				withDrawNum: {
@@ -147,29 +134,6 @@ export default {
 							this.$toast.fail({
 								message:
 									'一次提现最低不能低于1000个AOK，请确认',
-								duration: this.duration
-							});
-							return false;
-						}
-						// 基于以太坊ERC20的币，提现需要消耗以太坊作为手续费
-						if (
-							[4, 8].indexOf(this.item.coinCode) > -1 &&
-							this.item.ethAmount == 0
-						) {
-							this.$toast.fail({
-								message:
-									'基于以太坊ERC20的币，提现需要消耗以太坊作为手续费，您的ETH余额为0',
-								duration: this.duration
-							});
-							return false;
-						}
-						if (
-							this.item.coinCode == 1 &&
-							this.item.btcAmount == 0
-						) {
-							this.$toast.fail({
-								message:
-									'usdt提现需要消耗比特币作为手续费，您的BTC余额为0',
 								duration: this.duration
 							});
 							return false;
