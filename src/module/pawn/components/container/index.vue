@@ -315,7 +315,7 @@ export default {
 					duration: this.duration
 				});
 			} else {
-				this.showPwdDialog = true;
+				this.submitPawn();
 			}
 		},
 		submitPawn() {

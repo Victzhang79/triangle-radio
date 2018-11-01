@@ -126,8 +126,9 @@ export default {
 			this.getPawnedList(page);
 		},
 		redeem(index) {
-			this.showPwdDialog = true;
+			// this.showPwdDialog = true;
 			this.checkedItem = this.pawnData[index];
+			this.submitRedeem();
 		},
 		submitRedeem() {
 			this.showPwdDialog = false;

@@ -105,7 +105,7 @@ export default {
 			} else if (this.amount > this.remain) {
 				this.$toast.fail('购买数量不能大于产品余额哦');
 			} else {
-				this.showPwdDialog = true;
+				this.purchase();
 			}
 		},
 		purchase() {
