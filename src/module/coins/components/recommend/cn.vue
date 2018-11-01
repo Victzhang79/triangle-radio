@@ -15,8 +15,11 @@
 					<div class="state-icon running" v-else-if="item.status == 1">
 						进行中
 					</div>
-					<div class="state-icon profitting" v-else>
+					<div class="state-icon profitting" v-else-if="item.status == 2">
 						收益中
+					</div>
+					<div class="state-icon no-start" v-else-if="item.status == 3">
+						已结束
 					</div>
 				</div>
 				<div class="content">
@@ -25,7 +28,7 @@
 					<p class="buy-progress">认购进度<span class="font-blue">{{Number(item.purchaseProgress * 100).toFixed(2)}}</span>%</p>
 					<p class="fund-type">{{fundTypeList[item.fundType]}}</p>
 					<div class="btn">
-						<span v-if="item.purchaseProgress < 1" class="buy" @click="gotoBuy(item.fundId)">认购</span>
+						<span v-if="item.purchaseProgress < 1 && item.status == 1" class="buy" @click="gotoBuy(item.fundId)">认购</span>
 						<span v-else class="watch" @click="gotoWatch(item.fundId)">查看</span>
 					</div>
 				</div>

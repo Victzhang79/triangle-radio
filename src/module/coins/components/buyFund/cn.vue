@@ -67,13 +67,15 @@ export default {
 		btnText() {
 			if (this.fundDetail.status == 0) {
 				return '未开始';
-			} else if (
-				this.fundDetail.status == 2 ||
-				this.fundDetail.purchaseProgress >= 1
-			) {
+			} else if (this.fundDetail.status == 2) {
 				return '计息中';
-			} else {
+			} else if (this.fundDetail.status == 1) {
+				if (this.fundDetail.purchaseProgress >= 1) {
+					return '认购结束';
+				}
 				return '立即购买';
+			} else {
+				return '已结束';
 			}
 		}
 	},

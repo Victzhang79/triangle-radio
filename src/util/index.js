@@ -1,34 +1,23 @@
 export default {
-	coinNameList: ['', 'USDT', 'BTC', 'ETH', 'TTF', 'SEXC', 'XMX', 'PARK', 'AOK'],
+  coinNameList: ['', 'USDT', 'BTC', 'ETH', 'TTF', 'SEXC', 'XMX', 'PARK', 'AOK'],
 
-	DOMAIN: (() => {
-		const DEV_DOMAIN = '//apimanage.58corp.com/';
-		const ONLINE_DOMAIN = '/';
-		console.log(process.env.NODE_ENV);
-		const Domain =
-			process.env.NODE_ENV == 'production' ? ONLINE_DOMAIN : DEV_DOMAIN;
-		return Domain;
-	})(),
+  DOMAIN: (() => {
+    const DEV_DOMAIN = '//apimanage.58corp.com/';
+    const ONLINE_DOMAIN = '/';
+    console.log(process.env.NODE_ENV);
+    const Domain =
+      process.env.NODE_ENV == 'production' ? ONLINE_DOMAIN : DEV_DOMAIN;
+    return Domain;
+  })(),
 
-	// 判断日期是否小于今天
-	compareDate: dateString => {
-		let now = new Date(),
-			year = now.getFullYear(),
-			month = now.getMonth() + 1,
-			day = now.getDate(),
-			dateArr = dateString.split('-');
-
-		if (dateArr[0] > year) {
-			return false;
-		} else {
-			if (dateArr[1] > month) {
-				return false;
-			} else {
-				if (dateArr[2] > day) {
-					return false;
-				}
-				return true;
-			}
-		}
-	}
+  // 判断是否未到指定日期
+  compareDate: dateString => {
+    let currTime = new Date().getTime(); // 当前时间戳
+    let dateTime = new Date(dateString.replace(/-/g, '/')).setHours(0, 0, 0, 0); // 指定日期0点时间戳
+    // 当前时间戳小于指定时间0点，说明未到指定日期
+    if (currTime < dateTime) {
+      return true;
+    }
+    return false;
+  }
 };

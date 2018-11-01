@@ -24,7 +24,7 @@
 			</div>
 		</div>
 		<div class="item-footer">
-			<span class="btn" v-if="coinInfo.purchaseProgress < 1" @click="gotoDetail(coinInfo.fundId)">认购</span>
+			<span class="btn" v-if="coinInfo.purchaseProgress < 1 && coinInfo.status == 1" @click="gotoDetail(coinInfo.fundId)">认购</span>
 			<span class="btn" v-else @click="gotoDetail(coinInfo.fundId)">查看</span>
 		</div>
 	</div>
@@ -40,9 +40,6 @@ export default {
 			fundTypeList: ['', '固收保本']
 		};
 	},
-	components: {},
-
-	created() {},
 	methods: {
 		gotoDetail(fundId) {
 			this.$emit('gotoDetail', fundId);

@@ -34,6 +34,9 @@
 			<div class="state-icon no-start" v-else-if="fundDetailData.status == 0">
 				未开始
 			</div>
+			<div class="state-icon no-start" v-else-if="fundDetailData.status == 3">
+				已结束
+			</div>
 		</div>
 	</div>
 </template>
