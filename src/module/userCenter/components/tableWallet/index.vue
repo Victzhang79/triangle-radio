@@ -36,9 +36,6 @@ export default {
 				userMobile: '',
 				walletAddr: ''
 			},
-			ethAmount: 0,
-			btcAmount: 0,
-			hasSet: false,
 			duration: 1500
 		};
 	},
@@ -83,24 +80,10 @@ export default {
 				});
 				return false;
 			}
-			if (!this.hasSet) {
-				this.setAmount();
-			}
-			checkedItem.btcAmount = this.btcAmount;
-			checkedItem.ethAmount = this.ethAmount;
 			this.checkItem = checkedItem;
 			this.showPwdDialog = true;
 		},
-		setAmount() {
-			for (let item of this.walletList) {
-				if (item.coinCode == 2) {
-					this.btcAmount = item.withDrawableNum;
-				} else if (item.coinCode == 3) {
-					this.ethAmount = item.withDrawableNum;
-				}
-			}
-			this.hasSet = true;
-		},
+
 		recharge(index) {
 			this.checkItem = this.walletList[index];
 			this.showChargeBox = true;
