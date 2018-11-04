@@ -21,6 +21,9 @@
 			<li :class="{active: activePage === 'coins'}">
 				<a :href="HOST+'/m/coins'">基金理财</a>
 			</li>
+			<li :class="{active: activePage === 'transaction'}">
+				<a :href="HOST+'/m/transaction'">交易</a>
+			</li>
 			<li :class="{active: activePage === 'home'}">
 				<a :href="HOST+'/m/home'">主页</a>
 			</li>

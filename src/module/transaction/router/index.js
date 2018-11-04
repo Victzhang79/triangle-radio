@@ -13,7 +13,7 @@ export default new Router({
       component: Transaction
     },
     {
-      path: '/history/:fundId',
+      path: '/history/:coinCode',
       name: 'History',
       component: History
     }
