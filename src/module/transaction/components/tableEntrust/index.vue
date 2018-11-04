@@ -1,7 +1,10 @@
 
 <template>
 	<div class='history-list'>
-		<history-item v-for="item in historyList" :item="item" type="entrust"></history-item>
+		<history-item v-for="(item,index) in historyList" :item="item" type="entrust" :key="index"></history-item>
+		<div class="pagers">
+			<van-pagination v-model="currPage" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" :force-ellipses="ISTRUE" />
+		</div>
 	</div>
 </template>
 <script>
@@ -19,10 +22,10 @@ export default {
 			tipText: '',
 			coinNameList: Util.coinNameList,
 			historyList: [],
-			pageNo: 1,
 			pageSize: 10,
-			pageCount: 7,
+			currPage: 1,
 			totalNum: 0,
+			ISTRUE: true,
 			duration: 1500
 		};
 	},
@@ -62,11 +65,11 @@ export default {
 			this.getOrderList(val);
 		},
 		prevPage() {
-			let page = this.pageNo - 1;
+			let page = this.currPage - 1;
 			this.getOrderList(page);
 		},
 		nextPage(pageNum) {
-			let page = this.pageNo + 1;
+			let page = this.currPage + 1;
 			this.getOrderList(page);
 		}
 	}

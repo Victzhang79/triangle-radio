@@ -1,12 +1,36 @@
-@import '../../../../assets/style/public.scss';
+@import '~@/assets/style/public.scss';
 .history-page {
   background: #f7f7f7;
+  min-height: 12rem;
 }
-.title {
+.nav-title {
   font-family: PingFangSC-Semibold;
   font-size: px2rem(36px);
   color: #333333;
   letter-spacing: 0;
   text-align: center;
   width: 100%;
+  padding: px2rem(59px) 0 px2rem(19px);
+  line-height: px2rem(50px);
+  background: #ffffff;
+}
+.nav-list {
+  height: px2rem(80px);
+  line-height: px2rem(80px);
+  width: 100%;
+  display: flex;
+  font-family: PingFangSC-Medium;
+  font-size: px2rem(30px);
+  color: #333333;
+  letter-spacing: 0;
+  .nav-item {
+    flex: 1;
+    text-align: center;
+  }
+  .active {
+    font-family: PingFangSC-Medium;
+    font-size: px2rem(30px);
+    color: #2ab3ce;
+    letter-spacing: 0;
+  }
 }

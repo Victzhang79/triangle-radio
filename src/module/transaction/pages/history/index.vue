@@ -1,15 +1,15 @@
 
 <template>
 	<div class="history-page">
-		<div class="title">
+		<div class="nav-title">
 			KOOBANK-COINS
 		</div>
 		<div class="nav-list">
-			<div class="nav-item">当前委托</div>
-			<div class="nav-item">历史记录</div>
+			<div class="nav-item" @click="showList(0)" :class="{active: activeNav === 0}">当前委托</div>
+			<div class="nav-item" @click="showList(1)" :class="{active: activeNav === 1}">历史记录</div>
 		</div>
-		<table-entrust v-if="activeNav === 0" :coinCode="coinCode"></table-entrust>
-		<table-history v-if="activeNav === 1" :coinCode="coinCode"></table-history>
+		<table-entrust v-if="activeNav === 0"></table-entrust>
+		<table-history v-if="activeNav === 1"></table-history>
 	</div>
 </template>
 

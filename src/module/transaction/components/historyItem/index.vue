@@ -2,17 +2,17 @@
 <template>
 	<div class='history-item'>
 		<div class="title">买入</div>
-		<div class="time">2018-12-20</div>
+		<div class="time">{{item.createTime}}</div>
 		<div class="content">
-			<div>
+			<div class="line">
 				<span class="item-title">委托价：</span>
-				<span class="price">200BTC</span>
+				<span class="price">{{item.buyPrice}}{{coinNameList[item.coinCode]}}</span>
 				<span class="item-title">委托量：</span>
-				<span class="item-value">10000</span>
+				<span class="item-value">{{item.buyNum}}</span>
 			</div>
-			<div>
+			<div class="line">
 				<span class="item-title">成交总额：</span>
-				<span class="item-value">1000000BTC</span>
+				<span class="item-value">{{item.orderAmount}}{{coinNameList[item.coinCode]}}</span>
 			</div>
 			<div class="status">
 				<span class="cancel-btn" v-if="type=='entrust'">取消</span>
@@ -22,10 +22,17 @@
 	</div>
 </template>
 <script>
+import Util from '../../../../util';
+
 export default {
 	props: {
 		item: Object,
 		type: String
+	},
+	data() {
+		return {
+			coinNameList: Util.coinNameList
+		};
 	}
 };
 </script>

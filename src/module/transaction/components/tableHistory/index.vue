@@ -1,7 +1,10 @@
 
 <template>
 	<div class='history-list'>
-		<history-item v-for="item in historyList" :item="item" type=""></history-item>
+		<history-item v-for="(item, index) in historyList" :item="item" type="history" :key="index"></history-item>
+		<div class="pagers">
+			<van-pagination v-model="currPage" :total-items="totalNum" :items-per-page="pageSize" @change="gotoPage" />
+		</div>
 	</div>
 </template>
 <script>
