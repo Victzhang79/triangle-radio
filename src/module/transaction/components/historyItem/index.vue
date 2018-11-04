@@ -15,7 +15,7 @@
 				<span class="item-value">{{item.orderAmount}}{{coinNameList[item.coinCode]}}</span>
 			</div>
 			<div class="status">
-				<span class="cancel-btn" v-if="type=='entrust'">取消</span>
+				<span class="cancel-btn" v-if="type=='entrust'" @click="cancelOrder(item.orderId)">取消</span>
 				<span v-else class="state" :class="{red: item.orderStatus == 1}">{{item.orderStatus == 1 ? '已成交' : '已取消'}}</span>
 			</div>
 		</div>
@@ -23,6 +23,7 @@
 </template>
 <script>
 import Util from '../../../../util';
+import Api from '../../api';
 
 export default {
 	props: {
@@ -33,6 +34,11 @@ export default {
 		return {
 			coinNameList: Util.coinNameList
 		};
+	},
+	methods: {
+		cancelOrder(orderId) {
+			this.$emit('cancelOrder');
+		}
 	}
 };
 </script>
