@@ -1,0 +1,66 @@
+@import '../../../../assets/style/public.scss';
+$mainColor: #2ab3ce;
+.history-item {
+  background: #ffffff;
+  width: 100%;
+  height: px2rem(203px);
+  padding: px2rem(30px) px2rem(40px);
+  box-sizing: border-box;
+  font-family: PingFangSC-Medium;
+  font-size: px2rem(24px);
+  margin: px2rem(8px) 0;
+  .title {
+    font-family: PingFangSC-Medium;
+    font-size: px2rem(32px);
+    color: #333333;
+    letter-spacing: 0;
+  }
+}
+
+.history-item::before {
+  content: '';
+  width: px2rem(6px);
+  height: px2rem(34px);
+  border-radius: px2rem(8px);
+  background: $mainColor;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: px2rem(-8px);
+  margin-right: px2rem(14px);
+}
+.time {
+  font-family: PingFangSC-Medium;
+  color: #bbbbbb;
+  letter-spacing: 0;
+  position: absolute;
+  right: 0;
+}
+
+.item-title {
+  color: #333333;
+  letter-spacing: 0;
+}
+.price {
+  color: #e33248;
+  letter-spacing: 0;
+}
+.item-value {
+  color: #999999;
+  letter-spacing: 0;
+}
+.status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  .cancel-btn {
+    background: $mainColor;
+    border-radius: px2rem(100px);
+    font-family: PingFangSC-Medium;
+    font-size: px2rem(28px);
+    color: #ffffff;
+    letter-spacing: 0;
+  }
+  .red {
+    color: #d0021b;
+  }
+}

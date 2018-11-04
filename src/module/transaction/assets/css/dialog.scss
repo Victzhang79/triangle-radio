@@ -1,0 +1,52 @@
+.dialog {
+	text-align: left;
+	.dlg-title {
+		font-family: PingFangSC-Regular;
+		font-size: 20px;
+		color: #4A4A4A;
+		margin-left: 46px;
+	}
+	.wrap {
+		padding: 0 46px 15px;
+		.authBtn {
+			&:hover {
+				background-color: #e5ecf3;
+			}
+		}
+	}
+	.btn-line {
+		text-align: center;
+		margin-top: 46px;
+		margin-bottom: 20px;
+	}
+	.txt {
+		margin-top: 16px;
+		margin-bottom: 8px;
+	}
+	.btn {
+		background-color: #2AB3CE;
+		height: 40px;
+		line-height: 40px;
+		border: 1px solid #2AB3CE;
+		color: #fff;
+		padding: 0;
+		width: 235px;
+		cursor: pointer;
+		user-select: none;
+		&:hover {
+			background-color: #32c2de;
+		}
+	}
+	.warnInfo {
+		width: 390px;
+		height: 38px;
+		padding: 16px 18px;
+		background: #FCF8E3;
+		border: 1px solid #F5DFA8;
+		margin: 0 auto;
+		font-family: PingFangSC-Regular;
+		font-size: 14px;
+		color: #B37953;
+		margin-top: 5px;
+	}
+}
