@@ -32,7 +32,7 @@ export default {
 		};
 	},
 	created() {
-		this.coinCode = this.$route.params.fundId;
+		this.coinCode = this.$route.params.coinCode;
 		this.getOrderList(this.pageNo);
 	},
 	methods: {
