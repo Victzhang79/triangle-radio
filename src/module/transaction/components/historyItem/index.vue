@@ -37,7 +37,7 @@ export default {
 	},
 	methods: {
 		cancelOrder(orderId) {
-			this.$emit('cancelOrder');
+			this.$emit('cancelOrder', orderId);
 		}
 	}
 };
