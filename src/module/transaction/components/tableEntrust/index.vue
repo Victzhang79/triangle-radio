@@ -51,9 +51,9 @@ export default {
 							this.showTip = true;
 						} else {
 							this.showTip = false;
-							this.historyList = res.data;
-							this.totalNum = res.totalNum;
 						}
+						this.historyList = res.data;
+						this.totalNum = res.totalNum;
 					} else {
 						this.tipText = '获取委托记录失败，请稍后重试';
 						this.showTip = true;
@@ -83,7 +83,11 @@ export default {
 							message: '委托单取消成功',
 							duration: this.duration
 						});
-						this.getOrderList(this.currPage);
+						if (this.totalNum % this.pageSize === 1) {
+							this.getOrderList(this.currPage - 1);
+						} else {
+							this.getOrderList(this.currPage);
+						}
 					} else {
 						this.$toast.fail({
 							message: '委托单取消失败，请重试',
