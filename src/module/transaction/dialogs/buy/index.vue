@@ -128,7 +128,11 @@ export default {
 		buy() {
 			this.$validator.validateAll().then(result => {
 				if (result) {
-					submitOrder(this.payCoin, this.buyPrice, this.buyNum)
+					submitOrder(
+						this.payCoin,
+						this.buyPrice.toString(),
+						this.buyNum.toString()
+					)
 						.then(data => {
 							if (data.code === 200) {
 								this.$toast.success(data.data);

@@ -17,7 +17,7 @@
 				<div v-for="(item, index) in transPriceList" :key="index" class="groupItem">
 					<div class="firstLine">
 						<p class="coin">AOK<span class="coinTxt">/{{coins[item.coinCode].name}}</span></p>
-						<p class="price">¥{{item.last}}</p>
+						<p class="price">{{item.last}}</p>
 						<p class="buy"><button @click="buy(item)">购买</button></p>
 					</div>
 					<div class="secondLine">
