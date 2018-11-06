@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Api from '../../module/coins/api';
+import Api from './api';
 import rsaEncrypt from '../../util/rsaEncrypt'; //密码rsa加密
 export default {
 	props: {
