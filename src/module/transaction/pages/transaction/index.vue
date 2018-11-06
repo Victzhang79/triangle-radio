@@ -1,11 +1,11 @@
 <template>
 	<div class="transaction-page">
 		<div class="banner">
-			<h1 class="tit">基金理财—跨越牛熊</h1>
+			<h1 class="tit">AOK快速够买平台</h1>
 			<ul class="list">
-				<li class="item">* 成熟团队确保高收益低风险。</li>
-				<li class="item">* 冷钱包隔离确保资金安全。</li>
-				<li class="item">* 冷钱包隔离确保资金安全。</li>
+				<li class="item">* 实时从交易所拉取最新交易数据。</li>
+				<li class="item">* 支持BTC,ETH,TTF等多个交易对。</li>
+				<li class="item">* 挂单委托，一键购买。</li>
 			</ul>
 		</div>
 		<div class="mainArea">
