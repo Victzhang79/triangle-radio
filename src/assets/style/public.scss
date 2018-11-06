@@ -1,0 +1,323 @@
+// base
+//px转rem
+@function px2rem($px, $base-font-size: 75px) {
+  @return ($px / $base-font-size) * 1rem;
+} //字体适应
+//eg: @include font-dpr(16px);
+@mixin font-dpr($font-size) {
+  font-size: $font-size;
+  [data-dpr='2'] & {
+    font-size: $font-size * 2;
+  }
+  [data-dpr='3'] & {
+    font-size: $font-size * 3;
+  }
+}
+
+.ks-clear:after,
+.clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.ks-clear,
+.clear {
+  *zoom: 1;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+// reset
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+html * {
+  outline: 0;
+  -webkit-text-size-adjust: none; // tap-highlight-color: rgba(0, 0, 0, .05);
+  // -webkit-tap-highlight-color: rgba(0, 0, 0, .05);
+}
+
+*,
+.header,
+body {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: PingFangSC-Regular, Microsoft YaHei, tahoma, arial, 'Avenir',
+    Helvetica, \5b8b\4f53, sans-serif;
+}
+article,
+aside,
+blockquote,
+body,
+button,
+code,
+dd,
+details,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+em,
+i {
+  font-style: normal;
+}
+
+li,
+ol,
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+// topbar
+.topbar {
+  height: px2rem(77px);
+  background: #0b0a16;
+  color: #fff;
+  font-size: font-dpr(24px);
+  .title {
+    position: relative;
+    height: px2rem(77px);
+    padding-left: px2rem(62px);
+    line-height: px2rem(77px);
+    display: block;
+    float: left;
+  }
+  .title:before {
+    content: '';
+    position: absolute;
+    left: px2rem(10px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: px2rem(40px);
+    height: px2rem(40px);
+    background: url(http://www.aoabank.com/m/logo.png?1) no-repeat;
+    background-size: 100%;
+  }
+  .nav-menu {
+    float: right;
+  }
+  .nav-menu > li {
+    float: left;
+    padding: 0 px2rem(23px);
+    height: px2rem(77px);
+    line-height: px2rem(77px);
+  }
+  .active {
+    color: #4d95a6;
+  }
+  .nav-menu .language {
+    position: relative;
+    padding-right: px2rem(0px);
+    z-index: 100;
+  }
+  .language > a {
+    display: block;
+    padding-right: px2rem(54px);
+  }
+  .language:after {
+    content: '';
+    position: absolute;
+    right: px2rem(20px);
+    top: 40%;
+    transform: translateY(-50%);
+    width: px2rem(11px);
+    height: px2rem(11px);
+    border-left: px2rem(3px) solid #999;
+    border-bottom: px2rem(3px) solid #999;
+    transform: rotate(-45deg);
+  }
+  .language-list {
+    position: absolute;
+    display: none;
+    right: 0;
+    bottom: px2rem(-150px);
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #848484;
+    z-index: 10;
+    .language-item {
+      float: left;
+      height: px2rem(80px);
+      a {
+        display: block;
+        padding: 0 px2rem(50px);
+      }
+    }
+  }
+}
+
+// footer
+.footer {
+  text-align: center;
+  height: px2rem(370px);
+  background: #000;
+  position: relative;
+  .footer-content {
+    position: absolute;
+    width: px2rem(456px);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .footer-links {
+    margin-top: px2rem(50px);
+    margin-bottom: px2rem(36px);
+  }
+  .footer-links li {
+    float: left;
+    padding: 0 px2rem(14px);
+  }
+  .link {
+    display: block;
+    width: px2rem(55px);
+    height: px2rem(54px);
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .link.twitter {
+    background-image: url(http://www.aoabank.com/m/twitter.png);
+  }
+  .link.github {
+    background-image: url(http://www.aoabank.com/m/github.png);
+  }
+  .link.gitter {
+    background-image: url(http://www.aoabank.com/m/gitter.png);
+  }
+  .link.weibo {
+    background-image: url(http://www.aoabank.com/m/weibo.png);
+  }
+  .link.mail {
+    background-image: url(http://www.aoabank.com/m/mail.png);
+  }
+  .link.telegram {
+    background-image: url(http://www.aoabank.com/m/telegram.png);
+  }
+  .company,
+  .copyright {
+    font-size: 12px;
+    color: #747474;
+  }
+}
+
+.pagers {
+  width: px2rem(636px);
+  text-align: center;
+  margin: px2rem(50px) auto;
+  background: #f9f9f9;
+  font-size: px2rem(24px);
+  color: #888585;
+  .van-pagination__item {
+    min-width: px2rem(36px);
+    height: px2rem(36px);
+    line-height: px2rem(36px);
+    text-align: center;
+    font-size: px2rem(24px);
+    color: #878585;
+    background: #f9f9f9;
+    margin: 0 px2rem(10px);
+  }
+  .van-pagination li.van-pagination__item--active {
+    background: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: px2rem(2px);
+    font-size: px2rem(18px);
+    color: #2ab3ce;
+  }
+  .van-pagination__item--disabled,
+  .van-pagination__item--disabled:active {
+    color: #b8b8b8;
+  }
+}

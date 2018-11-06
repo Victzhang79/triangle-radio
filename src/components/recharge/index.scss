@@ -1,0 +1,31 @@
+@import '../../assets/style/dialog.scss';
+@import '../../assets/style/public.scss';
+$mainColor: #2ab3ce;
+div input {
+  box-sizing: border-box;
+}
+.dialog {
+  text-align: center;
+  .title {
+    font-size: px2rem(40px);
+    color: #1d1d1d;
+  }
+  .dlg-title {
+    font-size: px2rem(32px);
+    color: #1d1d1d;
+    padding: px2rem(16px) px2rem(10px) px2rem(30px);
+  }
+  .demo-ruleForm {
+    font-size: px2rem(24px);
+    text-align: center;
+  }
+  .item-title {
+    color: #1d1d1d;
+  }
+  .address {
+    color: #a9a9a9;
+  }
+  .link-btn {
+    color: #2ab3ce;
+  }
+}

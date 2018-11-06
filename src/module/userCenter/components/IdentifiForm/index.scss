@@ -1,0 +1,199 @@
+@import '../../../../assets/style/public.scss';
+.identifi-form {
+	.wrap{
+		// padding: 0 px2rem(60px);
+		width: px2rem(700px);
+		text-align: center;
+		margin: 0 auto;
+	}
+	.notice-bar {
+		color: #ed6a0c;
+		background-color: #fffbe8;
+		height: px2rem(80px);
+		font-size: px2rem(28px);
+		line-height: px2rem(80px);
+		width: 10rem;
+		text-align: center;
+	}
+// 	text-align: left;
+// 	min-width: 900px;
+	.title {
+		text-align: left;
+		font-family: PingFangSC-Regular;
+		font-size: px2rem(32px);
+		color: #060909;
+		line-height: px2rem(60px);
+		margin-top: px2rem(14px);
+		border-bottom: 1px solid #e5e5e5;
+		padding-left: px2rem(50px);
+	}
+	.main-form {
+// 		margin-top: 20px;
+// 		border-top: 1px solid #e9e9e9;
+// 		padding-top: 24px;
+// 		.input-item {
+// 			width: 377px;
+// 			height: 39px;
+// 		}
+		.label {
+			display: block;
+			margin-top: px2rem(32px);
+			.labelName,.labelNameblock {
+				font-size: px2rem(26px);
+				color: #1d1d1d;
+				&:before {
+					content: '*';
+					color: #FF5B5B;
+					margin-right: px2rem(6px);
+				}
+			}
+			.labelName {
+				display: inline-block;
+				width: px2rem(100px);
+				text-align: right;
+			}
+			.labelNameblock {
+				margin-bottom: px2rem(16px);
+				text-align: left;
+				padding-left: px2rem(40px);
+				&.fixPos {
+					padding-top: px2rem(14px);
+				}
+			}
+			.input-item {
+				width: px2rem(520px);
+				height: px2rem(70px);
+				background-color: #fff;
+				border: 1px solid #e7e7e7;
+				border-radius: px2rem(8px); 
+				box-shadow: 0 2px 4px 0 rgba(189,189,189,0.50);
+				padding-left: px2rem(20px);
+				&.long {
+					width: px2rem(623px);
+				}
+				&:disabled {
+					background-color: #f3f3f3;
+				}
+			}
+			.error-tip {
+				color: #e22828;
+				display: block;
+				text-align: right;
+				position: absolute;
+				right: px2rem(80px);
+			}
+		}
+	}
+	.pic-upload {
+		margin-top: px2rem(89px);
+// 		&:after {
+// 			display: block;
+// 			width: 0;
+// 			height:0;
+// 			content: '';
+// 			clear: both;
+// 		}
+		.tit {
+			font-size: px2rem(24px);
+			color: #000000;
+		}
+		.avatar-uploader {
+			user-select: none;
+			width: px2rem(400px);
+			height: px2rem(300px);
+			margin: 0 auto;
+			margin-top: px2rem(28px);
+			border: 1px solid #e7e7e7;
+			border-radius: px2rem(4px);
+			box-shadow: 0 2px 4px 0 rgba(189,189,189,0.50);
+			color: #b8b8b8;
+			font-size: px2rem(24px);
+			overflow: hidden;
+		}
+		.add-icon {
+			display: block;
+			width: px2rem(80px);
+			height: px2rem(80px);
+			background: url(../../assets/imgs/add.png);
+			background-size: 100%;
+			margin: 0 auto;
+			margin-top: px2rem(87px);
+			margin-bottom: px2rem(28px);
+		}
+		.avatar {
+			width: px2rem(400px);
+			height: px2rem(300px);
+			display: block;
+		}
+		.under-txt {
+			text-align: center;
+			font-size: px2rem(24px);
+			color: #2AB3CE;
+			margin-top: px2rem(24px);
+		}
+
+	}
+	.example-wrap {
+		width: px2rem(683px);
+		background: #f9f9f9;
+		box-shadow: inset 1px 4px 8px 0 rgba(236,236,236,0.50);
+		padding-top: px2rem(32px);
+		padding-bottom: px2rem(50px);
+		margin-top: px2rem(80px);
+		&:after {
+			display: block;
+			width: 0;
+			height: 0;
+			content: '';
+			clear: both;
+		}
+		.example {
+			float: left;
+			padding-left: px2rem(50px);
+			.ex-txt {
+				text-align: left;
+				font-size: px2rem(24px);
+				color: #2AB3CE;
+			}
+			.img {
+				margin-top: px2rem(20px);
+				img {
+					width: px2rem(240px);
+				}
+			}
+		}
+		.notice {
+			float: left;
+			width: px2rem(334px);
+			text-align: left;
+			padding-top: px2rem(36px);
+			margin-left: px2rem(20px);
+			dt {
+				font-size: px2rem(24px);
+				color: #1d1d1d;
+			}
+			dd {
+				font-size: px2rem(22px);
+				line-height: px2rem(33px);
+				color: #999;
+			}
+		}			
+	}
+	.admit-btn {
+		display: block;
+		margin: 0 auto;
+		margin-top: px2rem(100px);
+		margin-bottom: px2rem(150px);
+		text-align: center;
+		width: px2rem(240px);
+		height: px2rem(60px);
+		line-height: px2rem(60px);
+		border-radius: px2rem(50px);
+		background-color: #2AB3CE;
+		font-size: px2rem(26px);
+		color: #FFFFFF;
+		&.disabled {
+			background-color: #d9d9d9;
+		}
+	}
+}

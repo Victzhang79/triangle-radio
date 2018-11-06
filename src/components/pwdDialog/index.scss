@@ -1,0 +1,46 @@
+@import '../../assets/style/dialog.scss';
+@import '../../assets/style/public.scss';
+$mainColor: #2ab3ce;
+div input {
+  box-sizing: border-box;
+}
+.dialog {
+  .title {
+    font-size: px2rem(40px);
+    color: #1d1d1d;
+    text-align: center;
+  }
+  .dlg-title {
+    font-size: px2rem(32px);
+    color: #1d1d1d;
+    padding: px2rem(10px);
+  }
+  .demo-ruleForm {
+    font-size: px2rem(24px);
+  }
+  .item-title {
+    color: #1d1d1d;
+  }
+  .address {
+    color: #a9a9a9;
+  }
+  .link-btn {
+    color: #2ab3ce;
+  }
+  label {
+    .disabled {
+      color: #bdbdbd;
+      cursor: default;
+    }
+  }
+
+  .input-tip {
+    color: #2ab3ce;
+    line-height: px2rem(24px);
+    margin-bottom: px2rem(-10px);
+    padding: px2rem(16px) px2rem(26px) 0;
+    width: 100%;
+    text-align: right;
+    right: 0;
+  }
+}

@@ -1,0 +1,109 @@
+@import './public.scss';
+.dialog {
+  width: px2rem(600px);
+  background-color: #fff;
+  border-radius: px2rem(10px);
+  min-height: px2rem(300px);
+  overflow: scroll;
+  padding: px2rem(30px) px2rem(50px) px2rem(48px);
+  .close {
+    position: absolute;
+    width: px2rem(40px);
+    height: px2rem(40px);
+    background: url(~@/assets/imgs/close2x.png) 0 0 no-repeat;
+    background-size: 100%;
+    top: px2rem(10px);
+    right: px2rem(10px);
+  }
+  .dlg-title {
+    font-family: PingFangSC-Regular;
+    font-size: px2rem(28px);
+    color: #000;
+    padding-top: px2rem(30px);
+  }
+  label {
+    display: block;
+    position: relative;
+    .labelTit {
+      font-size: px2rem(28px);
+      line-height: px2rem(28px);
+      color: #4a4a4a;
+      line-height: px2rem(50px);
+      margin-top: px2rem(30px);
+    }
+    input {
+      width: px2rem(500px);
+      height: px2rem(70px);
+      background-color: #fff;
+      border: 1px solid #e7e7e7;
+      border-radius: px2rem(8px);
+      box-shadow: 0 2px 4px 0 rgba(189, 189, 189, 0.5);
+      padding-left: px2rem(20px);
+      &:disabled {
+        background-color: #f3f3f3;
+	  }
+    }
+    .authBtn {
+      display: block;
+      position: absolute;
+      line-height: px2rem(70px);
+      width: px2rem(170px);
+      overflow: visible;
+      right: 0;
+      bottom: 0;
+      background: none;
+      border: none;
+      color: #2ab3ce;
+      // padding-right: px2rem(24px);
+      &:before {
+        display: inline-block;
+        width: 0;
+        height: px2rem(25px);
+        content: '';
+        border-left: 1px solid #e7e7e7;
+        // padding-left: px2rem(18px);
+        // transform: translateY(2px);
+        position: absolute;
+        left: 0;
+        top: px2rem(22px);
+      }
+      &.disabled {
+        color: #ccc;
+      }
+    }
+    .error-tip {
+      position: absolute;
+      color: #e22828;
+      font-size: px2rem(20px);
+      margin-top: px2rem(2px);
+    }
+  }
+  .btn-line {
+    text-align: center;
+    margin-top: px2rem(60px);
+    // margin-bottom: 20px;
+  }
+  .btn {
+    background-color: #2ab3ce;
+    height: px2rem(60px);
+    line-height: px2rem(60px);
+    border: 1px solid #2ab3ce;
+    border-radius: px2rem(50px);
+    padding: 0;
+    width: px2rem(240px);
+    user-select: none;
+    color: #fff;
+    font-size: px2rem(26px);
+  }
+  .warnInfo {
+    width: px2rem(497px);
+    padding: px2rem(20px);
+    background: #fcf8e3;
+    border: 1px solid #f5dfa8;
+    margin: 0 auto;
+    font-family: PingFangSC-Regular;
+    font-size: px2rem(22px);
+    color: #b37953;
+    margin-top: px2rem(14px);
+  }
+}

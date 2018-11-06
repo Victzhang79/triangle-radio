@@ -1,0 +1,36 @@
+@import '../../assets/style/public.scss';
+.nav-menu {
+	position: relative;
+	.list-btn {
+		width: px2rem(30px);
+		transform: translateY(px2rem(5px));
+	}
+	.hide-list {
+		position: absolute;
+		width: px2rem(180px);
+		right: 0;
+		background-color: rgba(0,0,0,0.8);
+		text-align: center;
+		overflow: hidden;
+		li {
+			display: block;
+			width: 100%;
+			border-top: 1px solid #2c2c2c;
+			line-height: px2rem(75px);
+			margin-right: 0!important;
+		}
+	}
+	.active {
+		color: #58acbd;
+		background: none;
+	}
+}
+.slide-enter,.slide-leave-to {
+	max-height: 0;
+}
+.slide-enter-to,.slide-leave {
+	max-height: px2rem(230px);
+}
+.slide-enter-active,.slide-leave-active {
+	transition: all .8s;
+}

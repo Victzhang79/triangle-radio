@@ -1,0 +1,94 @@
+@import '../../../../assets/style/dialog.scss';
+@import '../../../../assets/style/public.scss';
+$mainColor: #2ab3ce;
+div input {
+  box-sizing: border-box;
+}
+.dialog {
+  width: 9rem;
+  .title {
+    font-size: px2rem(40px);
+    color: #1d1d1d;
+    text-align: center;
+  }
+  .dlg-title {
+    font-size: px2rem(32px);
+    color: #1d1d1d;
+    padding: px2rem(10px);
+    text-align: center;
+  }
+  .demo-ruleForm {
+    font-size: px2rem(24px);
+  }
+  label {
+    position: relative;
+    .labelTit {
+      font-size: px2rem(24px);
+      color: #1d1d1d;
+      line-height: px2rem(24px);
+      margin-bottom: px2rem(16px);
+    }
+    input {
+      width: 100%;
+    }
+  }
+
+  .link-btn {
+    color: #2ab3ce;
+  }
+  .balance-tip {
+    background: #eef5fe;
+    border-radius: px2rem(4px);
+    font-size: px2rem(26px);
+    color: #4a4a4a;
+    height: px2rem(46px);
+    line-height: px2rem(46px);
+    text-align: left;
+    padding: 0 px2rem(12px);
+    margin: px2rem(20px) px2rem(5px) 0 0;
+    span {
+      color: $mainColor;
+    }
+  }
+  .isDisabled {
+    background: #aaaaaa;
+    cursor: default;
+  }
+
+  .erc20-tip {
+    margin-top: px2rem(60px);
+    font-size: px2rem(24px);
+    color: #7a7a7a;
+    padding: 0 px2rem(8px) 0 px2rem(20px);
+  }
+  .input-unit {
+    font-size: px2rem(24px);
+    color: #1d1d1d;
+    position: absolute;
+    left: px2rem(350px);
+    top: px2rem(60px);
+  }
+  input:focus {
+    border-color: #409eff;
+  }
+  .input-error {
+    border: 1px solid #ff552e;
+  }
+  .suffix-btn {
+    display: inline-block;
+    position: absolute;
+    font-size: px2rem(24px);
+    color: $mainColor;
+    top: px2rem(64px);
+    right: px2rem(10px);
+    padding: 0 px2rem(6px);
+    height: px2rem(25px);
+    line-height: px2rem(25px);
+    border-left: 1px solid #e7e7e7;
+    cursor: pointer;
+  }
+  .disabled {
+    color: #bdbdbd;
+    cursor: default;
+  }
+}
