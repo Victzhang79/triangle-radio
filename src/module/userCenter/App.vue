@@ -1,7 +1,5 @@
 <template>
 	<div id="app">
-		<top-bar activePage="usercenter">
-		</top-bar>
 		<router-view></router-view>
 		<footer-bar>
 		</footer-bar>
