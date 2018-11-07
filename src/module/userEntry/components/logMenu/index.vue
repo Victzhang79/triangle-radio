@@ -26,7 +26,7 @@ export default {
 		},
 		goLogup() {
 			if (this.page === 'logup') {
-				return false;
+				return fasle;
 			}
 			this.$router.push('/logup');
 		}
