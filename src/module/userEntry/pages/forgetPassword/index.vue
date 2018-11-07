@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import Cookie from 'js-cookie';
 import logMenu from '../../components/logMenu';
 import { getVeriCode, resetUserLogPass } from '../../apis/index'; //apis
 import encryptPassword from '../../../../util/rsaEncrypt'; //密码rsa加密

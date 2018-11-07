@@ -46,7 +46,7 @@ function chkUserLogPass(userMobile, veriCode, logPass) {
 		userMobile,
 		veriCode,
 		logPass
-	})
+	});
 }
 
 /**

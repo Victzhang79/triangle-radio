@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import Cookie from 'js-cookie';
 import logMenu from '../../components/logMenu';
 // import { mapGetters } from 'vuex';
 import { getVeriCode, registeUser } from '../../apis/index'; //apis

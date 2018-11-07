@@ -14,7 +14,7 @@ function post(url, data) {
 		'Content-Type': 'application/json;charset=UTF-8'
 	};
 	if (token) {
-		headers['token'] = token
+		headers['token'] = token;
 	}
 	return fetch(url, {
 		headers,
@@ -42,7 +42,7 @@ function get(url) {
 	if (token) {
 		options.headers = {
 			'token': token
-		}
+		};
 	}
 	return fetch(url, options).then(function (response) {
 		return _formatData(response);
@@ -60,7 +60,7 @@ function _formatData(response) {
 		return data;
 	}).catch(err => {
 		console.log(err);
-	})
+	});
 }
 
 export default {
