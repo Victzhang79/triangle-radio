@@ -1,15 +1,15 @@
 <template>
 	<div class="app">
-		<left-nav :currentIndex="2"></left-nav>
+		<!-- <left-nav :currentIndex="2"></left-nav> -->
 		<identifi-form></identifi-form>
 	</div>
 </template>
 <script>
-import leftNav from '../../components/leftNav/index.cn';
+// import leftNav from '../../components/leftNav/index.cn';
 import identifiForm from '../../components/IdentifiForm/index';
 export default {
 	components: {
-		leftNav,
+		// leftNav,
 		identifiForm
 	},
 	created() {

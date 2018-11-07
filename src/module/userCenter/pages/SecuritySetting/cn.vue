@@ -1,15 +1,15 @@
 <template>
 	<div class="app">
-		<left-nav :currentIndex="1"></left-nav>
+		<!-- <left-nav :currentIndex="1"></left-nav> -->
 		<security-list></security-list>
 	</div>
 </template>
 <script>
-import leftNav from '../../components/leftNav/index.cn';
+// import leftNav from '../../components/leftNav/index.cn';
 import securityList from '../../components/securityList';
 export default {
 	components: {
-		leftNav,
+		// leftNav,
 		securityList
 	},
 	created() {

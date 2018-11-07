@@ -1,18 +1,16 @@
 <template>
 	<div id="app">
 		<router-view></router-view>
-		<!-- <footer-bar></footer-bar> -->
+		<footer-bar></footer-bar>
 	</div>
 </template>
 
 <script>
-import topBar from '../../components/header/cn';
-import footerBar from '../../components/footer';
+import footerBar from './components/footerBar';
 
 export default {
 	name: 'app',
 	components: {
-		topBar,
 		footerBar
 	}
 };

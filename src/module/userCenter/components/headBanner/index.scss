@@ -1,15 +1,36 @@
 @import '@/assets/style/public.scss';
 
 .head-banner {
-  padding: px2rem(30px);
+  padding: px2rem(30px) px2rem(16px) px2rem(6px);
   background: #fff;
   box-sizing: border-box;
   .logo {
     width: px2rem(137px);
     height: px2rem(44px);
+    margin-bottom: px2rem(14px);
+    margin-left: px2rem(14px);
     background: url(~@/assets/imgs/logo.png) no-repeat;
+    background-size: contain;
   }
   .banner {
+    width: px2rem(718px);
+    height: px2rem(376px);
+    padding: px2rem(106px) px2rem(56px);
+    box-sizing: border-box;
     background: url(~@/assets/imgs/banner.png) no-repeat;
+    background-size: contain;
+    .logo-word {
+      width: px2rem(290px);
+      height: px2rem(81px);
+      background: url(~@/assets/imgs/logo_word.png) no-repeat;
+      background-size: contain;
+    }
+    .banner-title {
+      font-family: PingFangSC-Medium;
+      font-size: px2rem(36px);
+      color: #ffffff;
+      letter-spacing: px2rem(4.5px);
+      margin-top: px2rem(8px);
+    }
   }
 }
