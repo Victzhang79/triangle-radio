@@ -1,6 +1,6 @@
 <template>
 	<div class="top-menu">
-		<div @click="clickLogo" class="logo"><img src="../../../static/logo_2x.png" alt="">KOOBANK</div>
+		<div @click="clickLogo" class="logo"><img src="../../assets/imgs/logo.png" alt=""></div>
 		<div class="menu-list">
 			<slot></slot>
 		</div>

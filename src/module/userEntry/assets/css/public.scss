@@ -1,7 +1,8 @@
 @import '../../../../assets/style/public.scss';
 .login-page, .logup-page {
 	min-height: 100%;
-	background: url(../../assets/imgs/bg.png);
+	// background: url(../../assets/imgs/bg.png);
+	background: #ccc;
 	background-size: 100%;
 	.main {
 		.tit {
@@ -52,11 +53,11 @@
 					width: px2rem(108px);
 					text-align: center;
 					line-height: px2rem(33px);
-					border: px2rem(1px) solid #1EAFCC;
+					border: px2rem(1px) solid #E60816;
 					background-color: #fff;
 					border-radius: px2rem(100px);
 					font-size: px2rem(14px);
-					color: #1eafcc;
+					color: #E60816;
 				}
 			}
 			.links {
@@ -72,7 +73,7 @@
 				width: px2rem(290px);
 				height: px2rem(60px);
 				line-height: px2rem(60px);
-				background-color: #1EAFCC;
+				background-color: #E60816;
 				color: #fff;
 				font-size: px2rem(26px);
 				border-radius: px2rem(50px);

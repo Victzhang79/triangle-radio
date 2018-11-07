@@ -1,0 +1,15 @@
+@import '@/assets/style/public.scss';
+
+.head-banner {
+  padding: px2rem(30px);
+  background: #fff;
+  box-sizing: border-box;
+  .logo {
+    width: px2rem(137px);
+    height: px2rem(44px);
+    background: url(~@/assets/imgs/logo.png) no-repeat;
+  }
+  .banner {
+    background: url(~@/assets/imgs/banner.png) no-repeat;
+  }
+}
