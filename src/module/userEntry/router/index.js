@@ -19,6 +19,11 @@ export default new Router({
 			component: logup
 		},
 		{
+			path: '/logup/:invateCode',
+			name: 'logup',
+			component: logup
+		},
+		{
 			path: '/forget',
 			name: 'forget',
 			component: forget

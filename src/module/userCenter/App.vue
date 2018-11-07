@@ -1,8 +1,7 @@
 <template>
 	<div id="app">
 		<router-view></router-view>
-		<footer-bar>
-		</footer-bar>
+		<!-- <footer-bar></footer-bar> -->
 	</div>
 </template>
 
@@ -20,5 +19,10 @@ export default {
 </script>
 
 <style lang="scss">
+html,
+body,
+#app {
+	height: 100%;
+}
 @import '../../assets/style/public.scss';
 </style>

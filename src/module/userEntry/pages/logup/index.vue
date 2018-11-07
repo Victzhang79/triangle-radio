@@ -102,6 +102,13 @@ export default {
 			}
 		}
 	},
+	created() {
+		console.log('created:', this.$route.params.invateCode);
+		let inviteCode = this.$route.params.invateCode;
+		if (inviteCode) {
+			this.invitationCode = inviteCode;
+		}
+	},
 	methods: {
 		signUp() {
 			const validateErrorNum = this.errors.items.length; // 表单验证错误数

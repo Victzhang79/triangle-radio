@@ -1,6 +1,6 @@
 @import '../../assets/style/dialog.scss';
 @import '../../assets/style/public.scss';
-$mainColor: #2ab3ce;
+$mainColor: #E60816;
 div input {
   box-sizing: border-box;
 }
@@ -25,7 +25,7 @@ div input {
     color: #a9a9a9;
   }
   .link-btn {
-    color: #2ab3ce;
+    color: #E60816;
   }
   label {
     .disabled {
@@ -35,7 +35,7 @@ div input {
   }
 
   .input-tip {
-    color: #2ab3ce;
+    color: #E60816;
     line-height: px2rem(24px);
     margin-bottom: px2rem(-10px);
     padding: px2rem(16px) px2rem(26px) 0;

@@ -1,15 +1,18 @@
 @import '../../../../assets/style/public.scss';
 .security-list {
 	background: #f7f7f7;
+	height: 100%;
 	.userInfo-wrap {
 		background: #fff;
-		padding-bottom: px2rem(32px);
-		border-bottom: 1px solid #e9e9e9;
+		padding: px2rem(22px) px2rem(32px);
+		.logo {
+			width: px2rem(137px);
+			height: px2rem(44px);
+		}
 	}
 }
 .userInfo {
 	width: px2rem(700px);
-	background: #E5F7FF;
 	line-height: px2rem(40px);
 	font-family: PingFangSC-Regular;
 	font-size: px2rem(24px);
@@ -19,51 +22,43 @@
 	margin-top: px2rem(40px);
 }
 .list {
-	margin-top: px2rem(10px);
-	border-top: 1px solid #e9e9e9;
-	background-color: #fff;
+	margin-top: px2rem(16px);
 	text-align: left;
 	padding-bottom: px2rem(120px);
 	.item {
-		color: #4a4a4a;
-		width: px2rem(700px);
+		color: #333;
+		background-color: #fff;
 		margin: 0 auto;
-		border-bottom: 1px solid #e5e5e5;
-		height: px2rem(144px);
-		&.password {
-			.txt {
-				line-height: px2rem(39px);
-			}
-			.icon {
-				transform: translate(px2rem(20px), px2rem(38px));
-			}
-		}
+		border-bottom: 1px solid #f3f3f3;
+		height: px2rem(112px);
+		padding: 0 px2rem(32px);
 		.icon {
 			width: px2rem(60px);
-			transform: translate(px2rem(20px), px2rem(22px));
+			transform: translateY(px2rem(22px));
 		}
 		.txt {
-			font-size: px2rem(26px);
-			padding-left: px2rem(50px);
-			line-height: px2rem(144px);
+			font-size: px2rem(28px);
+			line-height: px2rem(112px);
 			em {
 				font-weight: normal;
-				color: #000;
+				color: #999;
 				&.warn {
 					color: #ea1d1d;
 				}
 			}
 		}
 		.btn {
-			margin-top: px2rem(40px);
-			line-height: px2rem(60px);
-			width: px2rem(120px);
+			margin-top: px2rem(32px);
+			line-height: px2rem(48px);
+			height: px2rem(48px);
+			font-size: px2rem(28px);
+			width: px2rem(128px);
 			text-align: center;
-			border: 1px solid #ccc;
+			border: none;
+			outline: none;
 			border-radius: px2rem(50px);
-			background-color: #fff;
-			margin-right: px2rem(30px);
-			color: #4a4a4a;
+			background-color: #E60816;
+			color: #fff;
 			user-select: none;
 			&.disabled {
 				background-color: #f2f2f2;
@@ -73,17 +68,8 @@
 		.fr {
 			float: right;
 		}
-		.progess-group {
-			font-size: px2rem(24px);
-			color: #4a4a4a;
-			padding-left: px2rem(118px);
-			margin-top: px2rem(4px);
-			.progess {
-				display: inline-block;
-				width: px2rem(220px);
-				transform: translateY(px2rem(-4px));
-			}
+		&.inviteCode {
+			margin-top: px2rem(16px);
 		}
-		
 	}
 }

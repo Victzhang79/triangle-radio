@@ -1,60 +1,37 @@
 <template>
 	<div class="security-list">
 		<div class="userInfo-wrap">
-			<div class="userInfo clear">
-				<p class="hello fl">{{helloTime + '，'+ securityInfo.userMobile}}</p>
-				<p class="lastLogTime fl">上次登录时间：{{lastLogTime}}</p>
-				<p class="lastLogIp fl">上次登录IP：{{lastLogIp}}</p>
-			</div>
+			<img class="logo" src="~@/assets/imgs/logo.png" alt="波点钱包">
 		</div>
 
 		<ul class="list">
 			<li class="item">
-				<img class="icon" src="../../assets/imgs/icon-user.png">
 				<span class="txt">用户名：
 					<em>{{securityInfo.userMobile}}</em>
 				</span>
 			</li>
 			<li class="item">
-				<img class="icon" src="../../assets/imgs/icon-email.png">
-				<span class="txt">安全邮箱：
-					<em>{{securityInfo.emailStatus=='1'?'已认证':'未认证'}}</em>
-				</span>
-				<button @click="setSafeEmail" class="btn fr disabled" disabled plain>认证</button>
-			</li>
-			<li class="item password">
-				<img class="icon" src="../../assets/imgs/icon-key.png">
 				<span class="txt">登录密码：
 					<em>{{securityInfo.logPassStatus=='1'?'已设置':'未设置'}}</em>
 				</span>
 				<button @click="setLogPassword" class="btn fr" plain>{{securityInfo.logPassStatus!='1'?'设置':'修改'}}</button>
-				<p class="progess-group">
-					<span>安全级别：</span>
-					<van-progress class="progess" :percentage="securityInfo.logPassLevel==1?33:securityInfo.logPassLevel==2?66:securityInfo.logPassLevel==3?100:0" :show-pivot="false" color="#FC8282" />
-				</p>
 			</li>
-			<li class="item password">
-				<img class="icon" src="../../assets/imgs/icon-key.png">
+			<li class="item">
 				<span class="txt">资金密码：
 					<em>{{securityInfo.transPassStatus=='1'?'已设置':'未设置'}}</em>
 				</span>
 				<button @click="setTransPassword" class="btn fr" plain>{{securityInfo.transPassStatus!='1'?'设置':'修改'}}</button>
-				<p class="progess-group">
-					<span>安全级别：</span>
-					<van-progress class="progess" :percentage="securityInfo.transPassLevel=='1'?33:securityInfo.transPassLevel=='2'?66:securityInfo.logPassLevel=='3'?100:0" :show-pivot="false" color="#FC8282" />
-				</p>
 			</li>
-			<li class="item">
-				<img class="icon" src="../../assets/imgs/icon-phone.png">
-				<span class="txt">支付Google验证：
-					<em class="warn">{{securityInfo.googleValidStatus=='1'?'已开启':'已关闭'}}</em>
+			<li class="item inviteCode">
+				<span class="txt">邀请返佣：
+					<em>邀请码{{securityInfo.inviteCode}}</em>
 				</span>
-				<button class="btn fr disabled" :disabled="securityInfo.googleValidStatus!='1'" plain>验证</button>
+				<button @click="invite()" class="btn fr" plain>邀请</button>
 			</li>
 		</ul>
-		<!-- <safe-email-dialog></safe-email-dialog> -->
 		<log-password-dialog></log-password-dialog>
 		<trans-password-dialog></trans-password-dialog>
+		<invite-code-dialog></invite-code-dialog>
 	</div>
 </template>
 
@@ -63,6 +40,7 @@ import { mapGetters } from 'vuex';
 // import safeEmailDialog from '../../dialogs/safeEmail';
 import logPasswordDialog from '../../dialogs/logPassword';
 import transPasswordDialog from '../../dialogs/transPassword';
+import inviteCodeDialog from '../../dialogs/inviteCode';
 import Cookie from 'js-cookie';
 export default {
 	computed: {
@@ -80,25 +58,30 @@ export default {
 			lastLogTime: ''
 		};
 	},
-	created() {
-		this.lastLogIp = Cookie.get('lastLogIp');
-		this.lastLogTime = Cookie.get('lastLogTime');
-	},
+	// created() {
+	// this.lastLogIp = Cookie.get('lastLogIp');
+	// this.lastLogTime = Cookie.get('lastLogTime');
+	// },
 	methods: {
-		setSafeEmail() {
-			this.$store.commit('changeSafeEmailDlgVisi', true);
-		},
+		// setSafeEmail() {
+		// 	this.$store.commit('changeSafeEmailDlgVisi', true);
+		// },
 		setLogPassword() {
 			this.$store.commit('changeModifyLogPwdDlgVisi', true);
 		},
 		setTransPassword() {
 			this.$store.commit('changeSetTransPwdDlgVisi', true);
+		},
+		invite() {
+			console.log('邀请码：', this.securityInfo.inviteCode);
+			this.$store.commit('changeInviteDlgVisi', true);
 		}
 	},
 	components: {
 		// safeEmailDialog,
 		logPasswordDialog,
-		transPasswordDialog
+		transPasswordDialog,
+		inviteCodeDialog
 	}
 };
 </script>

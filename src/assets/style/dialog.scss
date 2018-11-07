@@ -8,12 +8,12 @@
   padding: px2rem(30px) px2rem(50px) px2rem(48px);
   .close {
     position: absolute;
-    width: px2rem(40px);
-    height: px2rem(40px);
-    background: url(~@/assets/imgs/close2x.png) 0 0 no-repeat;
+    width: px2rem(32px);
+    height: px2rem(32px);
+    background: url(~@/assets/imgs/close.png) 0 0 no-repeat;
     background-size: 100%;
-    top: px2rem(10px);
-    right: px2rem(10px);
+    top: px2rem(24px);
+    right: px2rem(24px);
   }
   .dlg-title {
     font-family: PingFangSC-Regular;
@@ -53,7 +53,7 @@
       bottom: 0;
       background: none;
       border: none;
-      color: #2ab3ce;
+      color: #E60816;
       // padding-right: px2rem(24px);
       &:before {
         display: inline-block;
@@ -84,11 +84,11 @@
     // margin-bottom: 20px;
   }
   .btn {
-    background-color: #2ab3ce;
+    background-color: #E60816;
     height: px2rem(60px);
     line-height: px2rem(60px);
-    border: 1px solid #2ab3ce;
-    border-radius: px2rem(50px);
+	border-radius: px2rem(50px);
+	border: none;
     padding: 0;
     width: px2rem(240px);
     user-select: none;
@@ -105,5 +105,12 @@
     font-size: px2rem(22px);
     color: #b37953;
     margin-top: px2rem(14px);
+  }
+  .grayText {
+	  color:#999;
+	  font-size: px2rem(28px);
+	  width: 100%;
+	  word-break: break-all;
+	//   margin-top: px2rem(24px);
   }
 }
