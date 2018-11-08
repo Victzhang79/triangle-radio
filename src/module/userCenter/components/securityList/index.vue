@@ -22,6 +22,12 @@
 				</span>
 				<button @click="setTransPassword" class="btn fr" plain>{{securityInfo.transPassStatus!='1'?'设置':'修改'}}</button>
 			</li>
+			<li class="item">
+				<span class="txt">身份认证：
+					<em>{{identiStateInfo[identiStatus]}}</em>
+				</span>
+				<button @click="identify" class="btn fr" :class="{disabled: identiStatus==='1'||identiStatus==='3'||identiStatus==='4'}" plain>认证</button>
+			</li>
 			<li class="item inviteCode">
 				<span class="txt">邀请返佣：
 					<em>邀请码{{securityInfo.inviteCode}}</em>
@@ -44,7 +50,7 @@ import inviteCodeDialog from '../../dialogs/inviteCode';
 import Cookie from 'js-cookie';
 export default {
 	computed: {
-		...mapGetters(['securityInfo'])
+		...mapGetters(['securityInfo', 'identiStatus'])
 	},
 	data() {
 		return {
@@ -55,7 +61,14 @@ export default {
 						? '下午好'
 						: '晚上好',
 			lastLogIp: '',
-			lastLogTime: ''
+			lastLogTime: '',
+			identiStateInfo: [
+				'未认证',
+				'认证通过',
+				'认证失败',
+				'审核中',
+				'网络异常'
+			]
 		};
 	},
 	// created() {
@@ -75,6 +88,16 @@ export default {
 		invite() {
 			console.log('邀请码：', this.securityInfo.inviteCode);
 			this.$store.commit('changeInviteDlgVisi', true);
+		},
+		identify() {
+			if (
+				this.identiStatus === '1' ||
+				this.identiStatus === '3' ||
+				this.identiStatus === '4'
+			) {
+				return false;
+			}
+			this.$router.push('/identification');
 		}
 	},
 	components: {

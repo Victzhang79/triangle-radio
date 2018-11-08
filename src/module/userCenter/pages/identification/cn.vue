@@ -1,35 +1,35 @@
 <template>
 	<div class="app">
-		<!-- <left-nav :currentIndex="2"></left-nav> -->
+		<navigation-bar></navigation-bar>
 		<identifi-form></identifi-form>
 	</div>
 </template>
 <script>
-// import leftNav from '../../components/leftNav/index.cn';
+import navigationBar from '@/components/navigationBar';
 import identifiForm from '../../components/IdentifiForm/index';
 export default {
 	components: {
-		// leftNav,
-		identifiForm
+		identifiForm,
+		navigationBar
 	},
 	created() {
 		// 获取页面数据
-		this.$store
-			.dispatch('initIdentiStatus')
-			.then(data => {
-				if (data.code == 200) {
-					if (
-						(data.data && data.data.credentStatus) == 0 ||
-						(data.data && data.data.credentStatus) == 2
-					)
-						this.$store.dispatch('initNationList', '1');
-				} else {
-					this.$toast.fail('获取认证状态失败，请稍后重试。');
-				}
-			})
-			.catch(err => {
-				// this.$toast.fail('网络异常，稍后重试');
-			});
+		// this.$store
+		// 	.dispatch('initIdentiStatus')
+		// 	.then(data => {
+		// 		if (data.code == 200) {
+		// 			if (
+		// 				(data.data && data.data.credentStatus) == 0 ||
+		// 				(data.data && data.data.credentStatus) == 2
+		// 			)
+		this.$store.dispatch('initNationList', '1');
+		// 	} else {
+		// 		this.$toast.fail('获取认证状态失败，请稍后重试。');
+		// 	}
+		// })
+		// .catch(err => {
+		// 	// this.$toast.fail('网络异常，稍后重试');
+		// });
 	},
 	methods: {}
 };
@@ -38,6 +38,7 @@ export default {
 .app {
 	width: 100%;
 	height: 100%;
+	background-color: #f9f9f9;
 }
 .el-container {
 	display: -ms-flexbox;

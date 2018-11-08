@@ -1,21 +1,21 @@
 <template>
 	<div id="app">
-		<navigation-bar :backBtn="false"></navigation-bar>
+		<!-- <navigation-bar :backBtn="false"></navigation-bar> -->
 		<router-view></router-view>
-		<footer-bar></footer-bar>
+		<!-- <footer-bar></footer-bar> -->
 	</div>
 </template>
 
 <script>
-import navigationBar from '@/components/navigationBar';
-import footerBar from './components/footerBar';
+// import navigationBar from '@/components/navigationBar';
+// import footerBar from './components/footerBar';
 
 export default {
-	name: 'app',
-	components: {
-		navigationBar,
-		footerBar
-	}
+	name: 'app'
+	// components: {
+	// 	navigationBar,
+	// 	footerBar
+	// }
 };
 </script>
 

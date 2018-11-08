@@ -1,20 +1,26 @@
 <template>
 	<div class="app">
-		<!-- <left-nav :currentIndex="1"></left-nav> -->
+		<navigation-bar :backBtn="false"></navigation-bar>
 		<security-list></security-list>
+		<footer-bar></footer-bar>
 	</div>
 </template>
 <script>
-// import leftNav from '../../components/leftNav/index.cn';
+import navigationBar from '@/components/navigationBar';
+import footerBar from '../../components/footerBar';
 import securityList from '../../components/securityList';
 export default {
 	components: {
-		// leftNav,
-		securityList
+		securityList,
+		navigationBar,
+		footerBar
 	},
 	created() {
 		// 获取页面数据
 		this.$store.dispatch('getSecurityInfo');
+		// 获取用户认证状态
+		this.$store
+			.dispatch('initIdentiStatus');
 	},
 	methods: {}
 };

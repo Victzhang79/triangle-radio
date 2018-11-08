@@ -4,7 +4,7 @@ import {
 } from '../../api/identification';
 
 const state = {
-	identiStatus: '0',//身份认证状态：0：未认证，1：认证通过， 2：认证失败， 3：审核中
+	identiStatus: '0',//身份认证状态：0：未认证，1：认证通过， 2：认证失败， 3：审核中 (4:网络异常)
 	refuseReason: '',// 审核未通过原因
 	nationList: [
 		{
@@ -39,31 +39,33 @@ const mutations = {
 const actions = {
 	// 获取用户认证状态
 	initIdentiStatus({ commit }) {
-		return getCredentStatus().then(data => {
+		getCredentStatus().then(data => {
 			if (data.code === 200) {
 				// console.log('identistatus:', data);
 				// state.identiStatus = data.data;
 				commit('changeIdentiStatus', data.data && data.data.credentStatus)
-				if ((data.data && data.data.credentStatus) === "2") {
+				if ((data.data && data.data.credentStatus) === '2') {
 					commit('changeRefuseReason', data.data.reason);
 				}
-				return data;
+				// return data;
 			} else {
-				throw ('error');
+				// throw ('error');
+				commit('changeIdentiStatus', '4')
 			}
-
+		}).catch(() => {
+			commit('changeIdentiStatus', '4')
 		});
 	},
 	// 初始化国籍码表
 	initNationList({ commit }, langType) {
-		return qryNationList(langType).then(data => {
+		qryNationList(langType).then(data => {
 			if (data.code === 200) {
 				commit('changeNationList', data.data);
-				return data;
+				// return data;
 			} else {
 				throw ('error');
 			}
-		})
+		}).catch(() => { })
 	}
 }
 
