@@ -1,4 +1,7 @@
 @import '@/assets/style/public.scss';
+.footer-bar-wrap {
+	height: px2rem(98px);
+}
 .footer-bar {
   position: fixed;
   bottom: 0;
