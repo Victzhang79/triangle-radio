@@ -107,6 +107,7 @@ export default {
 							if (data.code === 200) {
 								this.$toast('密码设置成功！');
 								this.visible = false;
+								this.$store.dispatch('getSecurityInfo');
 							} else {
 								this.$toast.fail(data.msg);
 							}
