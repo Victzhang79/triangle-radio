@@ -21,9 +21,9 @@
 					</div>
 				</div>
 				<div v-show="showOprIndex === index" class="opr-list">
-					<span class="opr-btn">提现</span>
-					<span class="opr-btn">充值</span>
-					<span class="opr-btn">定存</span>
+					<span class="opr-btn" @click="withdraw(item)">提现</span>
+					<span class="opr-btn" @click="recharge(item)">充值</span>
+					<span class="opr-btn" @click="deposit(item)">定存</span>
 				</div>
 			</div>
 		</div>
@@ -54,33 +54,9 @@ export default {
 					imgPath: '//www.koobank.com/icon_ttf.jpeg'
 				}
 			},
-			coinList: [
-				{
-					coinCode: 1,
-					priceCny: 1000.23,
-					withDrawableNum: 29,
-					lockedNum: 1002
-				},
-				{
-					coinCode: 2,
-					priceCny: 1000.23,
-					withDrawableNum: 29,
-					lockedNum: 1002
-				},
-				{
-					coinCode: 3,
-					priceCny: 1000.23,
-					withDrawableNum: 29,
-					lockedNum: 1002
-				},
-				{
-					coinCode: 9,
-					priceCny: 1000.23,
-					withDrawableNum: 29,
-					lockedNum: 1002
-				}
-			],
-			showOprIndex: ''
+			coinList: [],
+			showOprIndex: '',
+			duration: 1500
 		};
 	},
 	created() {
@@ -99,6 +75,24 @@ export default {
 			} else {
 				this.showOprIndex = index;
 			}
+		},
+		withdraw(item) {
+			this.$toast({
+				message: '冲提功能即将开放，敬请期待',
+				duration: this.duration
+			});
+		},
+		recharge(item) {
+			this.$toast({
+				message: '冲提功能即将开放，敬请期待',
+				duration: this.duration
+			});
+		},
+		deposit(item) {
+			this.$toast({
+				message: '定存功能即将开放，敬请期待',
+				duration: this.duration
+			});
 		}
 	}
 };

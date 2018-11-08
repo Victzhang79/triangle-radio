@@ -18,6 +18,13 @@ export default {
 			activeIndex: 1
 		};
 	},
+	created() {
+		if (this.$route.name == 'Wallet') {
+			this.activeIndex = 1;
+		} else {
+			this.activeIndex = 2;
+		}
+	},
 	methods: {
 		showWallet() {
 			if (this.activeIndex != 1) {
