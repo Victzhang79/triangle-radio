@@ -1,14 +1,22 @@
 @import '../../../../assets/style/public.scss';
+.login-page .main {
+	margin-top: px2rem(-350px);
+}
+.logup-page .main {
+	margin-top: px2rem(-450px);
+}
 .login-page, .logup-page {
 	min-height: 100%;
-	// background: url(../../assets/imgs/bg.png);
-	background: #ccc;
-	background-size: 100%;
+	background: url(../../assets/imgs/bg.png);
+	background-size: 100% 100%;
 	.main {
+		position: absolute;
+		top: 50%;
+		// margin-top: -60%;
+		left: px2rem(105px);;
 		.tit {
 			font-size: px2rem(48px);
 			color: #fff;
-			margin-top: px2rem(100px);
 			text-align: center;
 		}
 		.entry-form {
