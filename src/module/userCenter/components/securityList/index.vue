@@ -34,10 +34,16 @@
 				</span>
 				<button @click="invite()" class="btn fr" plain>邀请</button>
 			</li>
+			<li class="item" @click="showDownload">
+				<span class="txt">下载APP
+				</span>
+				<button class="btn fr" plain>下载</button>
+			</li>
 		</ul>
 		<log-password-dialog></log-password-dialog>
 		<trans-password-dialog></trans-password-dialog>
 		<invite-code-dialog></invite-code-dialog>
+		<download-dialog v-model="showDownloadDialog"></download-dialog>
 	</div>
 </template>
 
@@ -47,6 +53,7 @@ import { mapGetters } from 'vuex';
 import logPasswordDialog from '../../dialogs/logPassword';
 import transPasswordDialog from '../../dialogs/transPassword';
 import inviteCodeDialog from '../../dialogs/inviteCode';
+import downloadDialog from '../../dialogs/download';
 import Cookie from 'js-cookie';
 export default {
 	computed: {
@@ -68,7 +75,8 @@ export default {
 				'认证失败',
 				'审核中',
 				'网络异常'
-			]
+			],
+			showDownloadDialog: false
 		};
 	},
 	// created() {
@@ -98,13 +106,17 @@ export default {
 				return false;
 			}
 			this.$router.push('/identification');
+		},
+		showDownload() {
+			this.showDownloadDialog = true;
 		}
 	},
 	components: {
 		// safeEmailDialog,
 		logPasswordDialog,
 		transPasswordDialog,
-		inviteCodeDialog
+		inviteCodeDialog,
+		downloadDialog
 	}
 };
 </script>
