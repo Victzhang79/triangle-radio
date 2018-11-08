@@ -51,7 +51,7 @@ export default {
 				},
 				'9': {
 					name: 'TRX',
-					imgPath: '//www.koobank.com/icon_ttf.jpeg'
+					imgPath: '//www.koobank.com/icon_trx.jpeg'
 				}
 			},
 			coinList: [],
