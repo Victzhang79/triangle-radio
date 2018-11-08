@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<navigation-bar></navigation-bar>
+		<navigation-bar :backBtn="false"></navigation-bar>
 		<router-view></router-view>
 		<footer-bar></footer-bar>
 	</div>
