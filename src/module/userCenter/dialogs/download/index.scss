@@ -5,11 +5,10 @@ div input {
 }
 .dialog {
   .dlg-title {
-    font-size: px2rem(32px);
+    font-size: px2rem(36px);
     color: #1d1d1d;
-    text-align: center;
+    text-align: left;
     width: 100%;
-    margin: px2rem(10px) 0 px2rem(25px);
   }
   label .labelTit {
     font-size: px2rem(24px);
@@ -22,5 +21,20 @@ div input {
     border-radius: px2rem(50px);
     width: px2rem(300px);
     height: px2rem(60px);
+  }
+  .download-title {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+  }
+  .qrcode {
+    text-align: center;
+  }
+  .download-link {
+    margin: px2rem(-20px) 0 px2rem(40px);
+    text-align: center;
+    text-decoration: underline;
+    color: #e60816;
+    cursor: pointer;
   }
 }
