@@ -4,7 +4,8 @@
 			<span class="coin-name">币种</span>
 			<span class="head-item">可用</span>
 			<span class="head-item">锁仓</span>
-			<span class="head-item">操作</span>
+			<span class="head-item">可释放</span>
+			<span class="head-item-opr">操作</span>
 		</div>
 		<div class="list-body">
 			<div v-for="(item, index) in coinList" :key="index">
@@ -16,6 +17,7 @@
 					</div>
 					<div class="red-font td-item">{{item.withDrawableNum}}</div>
 					<div class="gray-font td-item">{{item.lockedNum}}</div>
+					<div class="gray-font td-item">{{item.withDrawingNum}}</div>
 					<div class="opr td-item">
 						<span class="icon-more" :class="showOprIndex === index ? 'more-up' : 'more-down'"></span>
 					</div>
@@ -23,7 +25,7 @@
 				<div v-show="showOprIndex === index" class="opr-list">
 					<span class="opr-btn" @click="withdraw(item)">提现</span>
 					<span class="opr-btn" @click="recharge(item)">充值</span>
-					<span class="opr-btn" @click="deposit(item)">定存</span>
+					<span class="opr-btn" v-if="item.coinCode == 9" @click="deposit(item)">定存</span>
 				</div>
 			</div>
 		</div>

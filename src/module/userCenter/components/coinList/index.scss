@@ -13,15 +13,23 @@
       flex: 1;
       height: px2rem(80px);
       line-height: px2rem(80px);
-      padding: 0 px2rem(30px);
+      padding: 0 px2rem(10px);
+      display: inline-block;
+      text-align: center;
+    }
+    .head-item-opr {
+      width: px2rem(80px);
+      height: px2rem(80px);
+      line-height: px2rem(80px);
+      padding: 0 px2rem(16px) 0 0;
       display: inline-block;
       text-align: center;
     }
     .coin-name {
-      width: px2rem(306px);
+      width: px2rem(280px);
       height: px2rem(80px);
       line-height: px2rem(80px);
-      padding: 0 px2rem(30px);
+      padding: 0 px2rem(10px) 0 px2rem(30px);
       display: inline-block;
       text-align: left;
     }
@@ -41,7 +49,7 @@
       padding: px2rem(28px) 0;
     }
     .coin-info {
-      width: px2rem(174px);
+      width: px2rem(148px);
       display: inline-block;
       text-align: left;
       position: relative;
@@ -101,7 +109,7 @@
       vertical-align: middle;
       display: inline-block;
       line-height: px2rem(88px);
-      flex: 1;
+      width: px2rem(80px);
     }
     .icon-more {
       width: px2rem(32px);
