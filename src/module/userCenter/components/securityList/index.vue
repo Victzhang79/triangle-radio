@@ -22,13 +22,13 @@
 				</span>
 				<button @click="setTransPassword" class="btn fr" plain>{{securityInfo.transPassStatus!='1'?'设置':'修改'}}</button>
 			</li>
-			<li class="item inviteCode">
+			<li class="item">
 				<span class="txt">邀请返佣：
 					<em>邀请码{{securityInfo.inviteCode}}</em>
 				</span>
 				<button @click="invite()" class="btn fr" plain>邀请</button>
 			</li>
-			<li class="item inviteCode" @click="showDownload">
+			<li class="item" @click="showDownload">
 				<span class="txt">下载APP
 				</span>
 				<button class="btn fr" plain>下载</button>
