@@ -21,10 +21,13 @@ export default {
 
 <style lang="scss">
 html,
-body,
-#app {
+body {
 	height: 100%;
 	user-select: none;
+	background: #f7f7f7;
+}
+#app {
+	background: #f7f7f7;
 }
 @import '../../assets/style/public.scss';
 </style>
