@@ -1,0 +1,39 @@
+@import '@/assets/style/public.scss';
+.navigation-bar-wrap {
+	height: px2rem(88px);
+	.navigation-bar {
+		position: fixed;
+		z-index: 999;
+		top: 0;
+		.navigation {
+			display: flex;
+			width: 10rem;
+			height: px2rem(88px);
+			line-height: px2rem(88px);
+			box-shadow: inset 0 -1px 0 0 #E9E9E9;
+			background-color: #fefefe;
+			font-size: px2rem(36px);
+			color: #333;
+			.backBtn {
+				width: 20%;
+				.back-icon-wrap {
+					display: inline-block;
+					padding: 0 px2rem(20px);
+				}
+				.backIcon {
+					width: px2rem(36px);
+					transform: translateY(px2rem(4px));
+				}
+			}
+			.tit {
+				width: 60%;
+				text-align: center;
+			}
+			.extendBtn {
+				width: 20%;
+				text-align: right;
+			}	
+		}
+		
+	}
+}

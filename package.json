@@ -10,7 +10,7 @@
 	],
 	"private": true,
 	"scripts": {
-		"build-all": "npm run build -- home && npm run build -- userEntry && npm run build -- userCenter && npm run build -- coins && npm run build -- pawn && npm run build -- about",
+		"build-all": "npm run build -- userEntry && npm run build -- userCenter",
 		"dev": "node build/dev-server.js",
 		"dev:xunit": "node build/dev-server.js -- --reporter xunit",
 		"start:": "node build/dev-server.js",
