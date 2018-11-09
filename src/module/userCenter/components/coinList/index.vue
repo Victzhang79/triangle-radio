@@ -10,7 +10,10 @@
 		<div class="list-body">
 			<div v-for="(item, index) in coinList" :key="index">
 				<div class="list-item" @click="showOpr(index)">
-					<div class="coin-logo"><img class="icon" :src="coins[item.coinCode].imgPath"></div>
+					<div class="coin-logo">
+						<div class="icon" :class="coins[item.coinCode].className"></div>
+						<!-- <img class="icon" :src="coins[item.coinCode].imgPath"> -->
+					</div>
 					<div class="coin-info td-item">
 						<span class="coin-name">{{coins[item.coinCode].name}}</span>
 						<!-- <span class="coin-price">≈{{item.priceCny}} CNY</span> -->
@@ -41,19 +44,19 @@ export default {
 			coins: {
 				'1': {
 					name: 'USDT',
-					imgPath: '//www.koobank.com/icon_usdt.jpeg'
+					className: 'icon-usdt'
 				},
 				'2': {
 					name: 'BTC',
-					imgPath: '//www.koobank.com/icon_btc.jpeg'
+					className: 'icon-btc'
 				},
 				'3': {
 					name: 'ETH',
-					imgPath: '//www.koobank.com/icon_eth.jpeg'
+					className: 'icon-eth'
 				},
 				'9': {
 					name: 'TRX',
-					imgPath: '//www.koobank.com/icon_trx.jpeg'
+					className: 'icon-trx'
 				}
 			},
 			// 初始化列表
@@ -129,10 +132,6 @@ export default {
 			});
 		},
 		deposit(item) {
-			// this.$toast({
-			// 	message: '定存功能即将开放，敬请期待',
-			// 	duration: this.duration
-			// });
 			this.$router.push('/deposit');
 		}
 	}

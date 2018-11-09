@@ -47,6 +47,31 @@
     .coin-logo {
       width: px2rem(116px);
       padding-top: px2rem(30px);
+      .icon {
+        display: inline-block;
+        width: px2rem(72px);
+        height: px2rem(72px);
+        border-radius: px2rem(72px);
+        margin: 0 px2rem(20px) 0 px2rem(14px);
+        -webkit-transform: translate(6px);
+        transform: translate(6px);
+      }
+      .icon-usdt {
+        background: url(~@/assets/imgs/icon_usdt.jpeg) no-repeat;
+        background-size: contain;
+      }
+      .icon-btc {
+        background: url(~@/assets/imgs/icon_btc.jpeg) no-repeat;
+        background-size: contain;
+      }
+      .icon-eth {
+        background: url(~@/assets/imgs/icon_eth.jpeg) no-repeat;
+        background-size: contain;
+      }
+      .icon-trx {
+        background: url(~@/assets/imgs/icon_trx.jpeg) no-repeat;
+        background-size: contain;
+      }
     }
     .coin-info {
       width: px2rem(128px);
@@ -54,13 +79,7 @@
       text-align: left;
       position: relative;
     }
-    .icon {
-      width: px2rem(72px);
-      height: px2rem(72px);
-      border-radius: px2rem(72px);
-      transform: translate(6px);
-      margin: 0 px2rem(20px) 0 px2rem(14px);
-    }
+
     .coin-name {
       font-family: PingFangSC-Semibold;
       font-weight: bold;
@@ -151,24 +170,3 @@
     }
   }
 }
-
-// .fade-leave-active,
-// .fade-enter-active {
-//   //   transition: all 1s ease;
-//   opacity: 1;
-//   transform: scaleY(1);
-//   transition: all 1s ease;
-//   transform-origin: center top;
-// }
-// .fade-leave-active,
-// .fade-enter {
-//   height: 0px !important;
-//   //   display: none;
-//   opacity: 0;
-//   transform: scaleY(0);
-// }
-// .fade-leave,
-// .fade-enter-active {
-//   height: px2rem(40px);
-//   display: block;
-// }
