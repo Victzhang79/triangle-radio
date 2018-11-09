@@ -4,11 +4,11 @@
 		<h3 class="dlg-title">邀请好友</h3>
 		<div class="wrap">
 			<div class="qr-code">
-				<qrcode tag="img" :value="'http://www.trxwallet.net/m/userEntry#/logup/'+securityInfo.inviteCode"></qrcode>
+				<qrcode tag="img" :value="'http://www.trxwallet.net/userEntry#/logup/'+securityInfo.inviteCode"></qrcode>
 			</div>
-			<p class="grayText">http://www.trxwallet.net/m/userEntry/#/logup/{{securityInfo.inviteCode}}</p>
+			<p class="grayText">http://www.trxwallet.net/userEntry/#/logup/{{securityInfo.inviteCode}}</p>
 			<p class="btn-line">
-				<button v-clipboard:copy="'http://www.trxwallet.net/m/userEntry/#/logup/'+ securityInfo.inviteCode" v-clipboard:success="copyInviteLink" class="btn">复制链接</button>
+				<button v-clipboard:copy="'http://www.trxwallet.net/userEntry/#/logup/'+ securityInfo.inviteCode" v-clipboard:success="copyInviteLink" class="btn">复制链接</button>
 			</p>
 		</div>
 	</van-popup>
