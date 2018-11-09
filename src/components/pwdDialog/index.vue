@@ -88,8 +88,7 @@ export default {
 			this.$emit('input', false);
 		},
 		gotoSetPwd() {
-			window.location.href =
-				'//' + location.host + '/m/userCenter#/security/cn';
+			window.location.href = '//' + location.host + '/#/security';
 		},
 		async sendCheckcode() {
 			if (!this.hasSend) {
@@ -141,11 +140,6 @@ export default {
 							});
 						}
 					});
-				} else {
-					// this.$toast.fail({
-					// 	message: '请正确填写所有必填项',
-					// 	duration: this.duration
-					// });
 				}
 			});
 		}

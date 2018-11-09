@@ -41,7 +41,6 @@ export default {
 		onCopy() {
 			this.$toast({
 				message: '复制成功',
-				type: 'success',
 				duration: 1000
 			});
 		}

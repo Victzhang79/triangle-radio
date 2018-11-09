@@ -51,5 +51,11 @@ export default {
       Util.DOMAIN + 'withdraw?mock_apiId=5b7fc4b4b2a0fd193649ee75',
       params
     );
+  },
+  // 认证状态接口
+  getCredentStatus: () => {
+    return http.get(
+      Util.DOMAIN + 'getCredentStatus?mock_apiId=5b7fc2057a47d219303362ac'
+    );
   }
 };

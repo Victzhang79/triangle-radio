@@ -126,19 +126,6 @@ export default {
 			if (!this.isDisabled) {
 				this.$validator.validateAll().then(valid => {
 					if (valid) {
-						// 当提现AOK时，若提现数量不足1000限制提现
-						if (
-							this.item.coinCode == 8 &&
-							this.pageForm.withDrawNum < 1000
-						) {
-							this.$toast.fail({
-								message:
-									'一次提现最低不能低于1000个AOK，请确认',
-								duration: this.duration
-							});
-							return false;
-						}
-
 						this.isDisabled = true;
 						this.submitInfo();
 					} else {
