@@ -32,9 +32,18 @@
 				</div>
 			</div>
 		</div>
+		<recharge v-model="showRechargeBox" :item="checkItem"></recharge>
+		<withdraw-cash v-model="showWithdrawBox" :item="checkItem">
+		</withdraw-cash>
+		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定" @submit="submitWithdraw"></pwd-dialog>
+		<identity-auth v-model="showIdentityAuth" actionName="提现"></identity-auth>
 	</div>
 </template>
 <script>
+import pwdDialog from '@/components/pwdDialog';
+import withdrawCash from '../../dialogs/withdrawCash';
+import recharge from '@/components/recharge';
+import identityAuth from '@/components/identityAuth';
 import Util from '@/util';
 import Api from '../../api';
 export default {
@@ -98,9 +107,25 @@ export default {
 					walletAddr: ''
 				}
 			],
+			showRechargeBox: false,
+			showWithdrawBox: false,
+			showPwdDialog: false,
+			showIdentityAuth: false,
 			showOprIndex: '',
+			checkItem: {
+				coinCode: '',
+				withDrawableNum: '',
+				userMobile: '',
+				walletAddr: ''
+			},
 			duration: 1500
 		};
+	},
+	components: {
+		pwdDialog,
+		withdrawCash,
+		recharge,
+		identityAuth
 	},
 	created() {
 		Api.getWalletList().then(res => {
@@ -119,20 +144,45 @@ export default {
 				this.showOprIndex = index;
 			}
 		},
-		withdraw(item) {
-			this.$toast({
-				message: '冲提功能即将开放，敬请期待',
-				duration: this.duration
-			});
+		// 提现
+		async withdraw(item) {
+			if (item.coinCode == 9) {
+				this.$toast({
+					message: 'TRX冲提功能即将开放，敬请期待',
+					duration: this.duration
+				});
+				return false;
+			}
+			// 获取认证状态
+			let res = await Api.getCredentStatus();
+			if (res.code == 200) {
+				// 未认证通过
+				if (res.data.credentStatus != '1') {
+					this.showIdentityAuth = true;
+					return false;
+				}
+			}
+
+			this.checkItem = item;
+			this.showPwdDialog = true;
 		},
+		submitWithdraw() {
+			this.showWithdrawBox = true;
+		},
+		// 充值
 		recharge(item) {
-			this.$toast({
-				message: '冲提功能即将开放，敬请期待',
-				duration: this.duration
-			});
+			if (item.coinCode == 9) {
+				this.$toast({
+					message: 'TRX冲提功能即将开放，敬请期待',
+					duration: this.duration
+				});
+				return false;
+			}
+			this.checkItem = item;
+			this.showRechargeBox = true;
 		},
 		deposit(item) {
-			this.$router.push('/deposit');
+			this.$router.push(`/deposit/${item.withDrawableNum}`);
 		}
 	}
 };

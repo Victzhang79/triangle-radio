@@ -15,7 +15,7 @@ export default new Router({
       component: Wallet
     },
     {
-      path: '/deposit',
+      path: '/deposit/:trxNum',
       name: 'Deposit',
       component: Deposit
     },

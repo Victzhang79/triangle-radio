@@ -19,18 +19,6 @@ export default {
     );
   },
 
-  // 获取用户典当信息列表
-  getPawnedList: params => {
-    return http.get(
-      Util.DOMAIN +
-        'qryPawnedList?pageNo=' +
-        params.pageNo +
-        '&pageSize=' +
-        params.pageSize +
-        '&mock_apiId=5b7ff4a636ee535247192c6f'
-    );
-  },
-
   // 保存用户认购币生币基金信息
   savePurchaseFund: params => {
     return http.post(
@@ -50,11 +38,24 @@ export default {
   // 获取验证码接口
   getCheckcode: userMobile => {
     console.log(userMobile);
-    return http.post(
+    return http.get(
       Util.DOMAIN +
         'getVeriCode?userMobile=' +
         userMobile +
         '&mock_apiId=5b7e5cac7ad806420cbf2bd2'
+    );
+  },
+  // 定存接口
+  deposit: params => {
+    return http.post(
+      Util.DOMAIN + 'withdraw?mock_apiId=5b7fc4b4b2a0fd193649ee75',
+      params
+    );
+  },
+  // 认证状态接口
+  getCredentStatus: () => {
+    return http.get(
+      Util.DOMAIN + 'getCredentStatus?mock_apiId=5b7fc2057a47d219303362ac'
     );
   }
 };
