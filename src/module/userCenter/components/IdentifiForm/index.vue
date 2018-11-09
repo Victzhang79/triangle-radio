@@ -46,7 +46,7 @@
 			<div class="pic-upload">
 				<h3 class="tit">证件图片</h3>
 				<div class="uploader">
-					<van-uploader class="avatar-uploader" :before-read="beforeAvatarUpload" :after-read="handleAvatarSuccess" :disabled="identiStatus=='1'||identiStatus=='3'">
+					<van-uploader ref="uploader" class="avatar-uploader" :before-read="beforeAvatarUpload" :after-read="handleAvatarSuccess" :disabled="identiStatus=='1'||identiStatus=='3'">
 						<img v-if="imageUrl" :src="imageUrl" class="avatar">
 						<p v-else>
 							<i class="add-icon"></i>
@@ -77,7 +77,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { uploadPicPath } from '../../api/maps/identifiMap.js';
+// import { uploadPicPath } from '../../api/maps/identifiMap.js';
+import { uploadPic } from '../../api/identification.js';
 import { credent } from '../../api/identification.js';
 export default {
 	data() {
@@ -169,8 +170,8 @@ export default {
 					label: '其他'
 				}
 			],
-			imageUrl: '',
-			uploadPicPath: uploadPicPath
+			imageUrl: ''
+			// uploadPicPath: uploadPicPath
 		};
 	},
 	computed: {
@@ -178,8 +179,20 @@ export default {
 	},
 	methods: {
 		handleAvatarSuccess(file) {
-			this.IdentiForm.credentPic = file;
-			this.imageUrl = file.content;
+			// this.imageUrl = file.content;
+			uploadPic(this.$refs.uploader.$refs.input.files[0])
+				.then(data => {
+					// console.log('uploadPic:', data);
+					if (data.code === 200) {
+						this.imageUrl = file.content;
+						this.IdentiForm.credentPic = data.data;
+					} else {
+						this.$toast.fail(data.msg);
+					}
+				})
+				.catch(() => {
+					this.$toast.fail('网络异常');
+				});
 		},
 		beforeAvatarUpload(file) {
 			const isJPG = file.type === 'image/jpeg';
