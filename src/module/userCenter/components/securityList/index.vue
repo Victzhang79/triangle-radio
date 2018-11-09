@@ -28,7 +28,7 @@
 				</span>
 				<button @click="identify" class="btn fr" :class="{disabled: identiStatus==='1'||identiStatus==='3'||identiStatus==='4'}" plain>认证</button>
 			</li>
-			<li class="item inviteCode">
+			<li class="item carve">
 				<span class="txt">邀请返佣：
 					<em>邀请码{{securityInfo.inviteCode}}</em>
 				</span>
@@ -38,6 +38,9 @@
 				<span class="txt">下载APP
 				</span>
 				<button class="btn fr" plain>下载</button>
+			</li>
+			<li class="item carve" @click="logout">
+				<p class="fullTxt">退出</p>
 			</li>
 		</ul>
 		<log-password-dialog></log-password-dialog>
@@ -109,6 +112,14 @@ export default {
 		},
 		showDownload() {
 			this.showDownloadDialog = true;
+		},
+		logout() {
+			Cookie.remove('token');
+			window.location.href =
+				window.location.protocol +
+				'//' +
+				window.location.host +
+				'/userEntry';
 		}
 	},
 	components: {

@@ -65,10 +65,15 @@
 				border-color: #b3b3b3;
 			}
 		}
+		.fullTxt {
+			text-align: center;
+			line-height: px2rem(112px);
+			font-size: px2rem(28px);
+		}
 		.fr {
 			float: right;
 		}
-		&.inviteCode {
+		&.carve {
 			margin-top: px2rem(16px);
 		}
 	}
