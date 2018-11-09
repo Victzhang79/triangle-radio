@@ -132,7 +132,7 @@ export default {
 			});
 		},
 		deposit(item) {
-			this.$router.push('/deposit');
+			this.$router.push(`/deposit/${item.withDrawableNum}`);
 		}
 	}
 };
