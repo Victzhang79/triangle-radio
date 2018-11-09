@@ -144,7 +144,15 @@ export default {
 				this.showOprIndex = index;
 			}
 		},
+		// 提现
 		async withdraw(item) {
+			if (item.coinCode == 9) {
+				this.$toast({
+					message: 'TRX冲提功能即将开放，敬请期待',
+					duration: this.duration
+				});
+				return false;
+			}
 			// 获取认证状态
 			let res = await Api.getCredentStatus();
 			if (res.code == 200) {
@@ -161,8 +169,15 @@ export default {
 		submitWithdraw() {
 			this.showWithdrawBox = true;
 		},
+		// 充值
 		recharge(item) {
-			console.log(item);
+			if (item.coinCode == 9) {
+				this.$toast({
+					message: 'TRX冲提功能即将开放，敬请期待',
+					duration: this.duration
+				});
+				return false;
+			}
 			this.checkItem = item;
 			this.showRechargeBox = true;
 		},
