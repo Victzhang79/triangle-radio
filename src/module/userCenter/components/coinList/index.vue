@@ -56,7 +56,45 @@ export default {
 					imgPath: '//www.koobank.com/icon_trx.jpeg'
 				}
 			},
-			coinList: [],
+			// 初始化列表
+			coinList: [
+				{
+					userId: '',
+					coinCode: 1,
+					withDrawableNum: 0,
+					lockedNum: 0,
+					withDrawingNum: 0,
+					userMobile: '',
+					walletAddr: ''
+				},
+				{
+					userId: '',
+					coinCode: 2,
+					withDrawableNum: 0,
+					lockedNum: 0,
+					withDrawingNum: 0,
+					userMobile: '',
+					walletAddr: ''
+				},
+				{
+					userId: '',
+					coinCode: 3,
+					withDrawableNum: 0,
+					lockedNum: 0,
+					withDrawingNum: 0,
+					userMobile: '',
+					walletAddr: ''
+				},
+				{
+					userId: '',
+					coinCode: 9,
+					withDrawableNum: 0,
+					lockedNum: 0,
+					withDrawingNum: 0,
+					userMobile: '',
+					walletAddr: ''
+				}
+			],
 			showOprIndex: '',
 			duration: 1500
 		};
@@ -91,10 +129,11 @@ export default {
 			});
 		},
 		deposit(item) {
-			this.$toast({
-				message: '定存功能即将开放，敬请期待',
-				duration: this.duration
-			});
+			// this.$toast({
+			// 	message: '定存功能即将开放，敬请期待',
+			// 	duration: this.duration
+			// });
+			this.$router.push('/deposit');
 		}
 	}
 };

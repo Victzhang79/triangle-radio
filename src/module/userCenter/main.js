@@ -6,34 +6,43 @@ import router from './router';
 import store from './store';
 import VeeValidate from 'vee-validate';
 import VueClipboard from 'vue-clipboard2';
-import { Progress, Tab, Tabs, Popup, Uploader, Pagination, Toast } from 'vant';
+import {
+  Progress,
+  Tab,
+  Tabs,
+  Popup,
+  Uploader,
+  Pagination,
+  Toast,
+  Switch
+} from 'vant';
 import VueQrcode from '@chenfengyuan/vue-qrcode';
-
 
 Vue.config.productionTip = false;
 
 Vue.use(VeeValidate, {
-	events: 'blur' //blur失焦校验
+  events: 'blur' //blur失焦校验
 });
 Vue.use(VueClipboard);
 
 Vue.use(Progress)
-	.use(Tab)
-	.use(Tabs)
-	.use(Popup)
-	.use(Uploader)
-	.use(Pagination)
-	.use(Toast);
+  .use(Tab)
+  .use(Tabs)
+  .use(Popup)
+  .use(Uploader)
+  .use(Pagination)
+  .use(Toast)
+  .use(Switch);
 
-Vue.component(VueQrcode.name, VueQrcode)
+Vue.component(VueQrcode.name, VueQrcode);
 
 /* eslint-disable no-new */
 new Vue({
-	el: '#app',
-	router,
-	template: '<App/>',
-	components: {
-		App
-	},
-	store
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: {
+    App
+  },
+  store
 });

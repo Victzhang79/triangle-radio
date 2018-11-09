@@ -1,5 +1,4 @@
 import * as types from './mutation-types';
-import Vue from 'vue';
 
 export default {
   // 设置币钱包数据
@@ -15,5 +14,9 @@ export default {
   // 设置提现结果
   [types.SET_WITHDRAWRESULT](state, payload) {
     state.withdrawResult = payload;
+  },
+  // 设置提现结果
+  [types.SET_DIPOSIT](state, payload) {
+    state.depositType = payload;
   }
 };
