@@ -1,6 +1,6 @@
 <template>
 	<div class="top-menu">
-		<div @click="clickLogo" class="logo"><img src="../../assets/imgs/logo.png" alt=""></div>
+		<div class="logo"><img src="../../assets/imgs/logo.png" alt=""></div>
 		<div class="menu-list">
 			<slot></slot>
 		</div>
@@ -8,17 +8,7 @@
 </template>
 
 <script>
-export default {
-	methods: {
-		clickLogo() {
-			window.location.href =
-				window.location.protocol +
-				'//' +
-				window.location.host +
-				'/m/home';
-		}
-	}
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>

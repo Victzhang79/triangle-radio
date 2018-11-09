@@ -55,7 +55,7 @@ function _formatData(response) {
 	const responseData = response.json();
 	return responseData.then(data => {
 		if (data.code === 401) {
-			window.location.href = window.location.protocol + '//' + window.location.host + '/m/userEntry';
+			window.location.href = window.location.protocol + '//' + window.location.host + '/userEntry';
 		}
 		return data;
 	}).catch(err => {

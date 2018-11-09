@@ -127,7 +127,7 @@ export default {
 							window.location.protocol +
 							'//' +
 							window.location.host +
-							'/m/userCenter';
+							'/userCenter';
 					} else {
 						this.$toast.fail(data.msg);
 					}
