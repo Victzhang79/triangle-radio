@@ -1,8 +1,9 @@
+import 'whatwg-fetch';
 import http from '@/util/http';
 import {
 	getCredentStatusPath,
 	qryNationListPath,
-	// uploadPicPath,
+	uploadPicPath,
 	credentPath
 } from './maps/identifiMap';
 
@@ -24,9 +25,20 @@ function qryNationList(langType) {
 /** 
  * 上传图片接口
  */
-// function uploadPicPath() {
-// 	return http.post(uploadPicPath);
-// }
+function uploadPic(file) {
+	let formData = new FormData();
+	formData.append("file", file);
+	return fetch(uploadPicPath, {
+		// headers: {
+		// 	Accept: '*/*',
+		// 	'Content-Type': 'multipart/form-data;boundary=----WebKitFormBoundaryNODLTgyvuArHCETf'
+		// },
+		method: 'POST',
+		body: formData
+	}).then(data => {
+		return data.json();
+	});
+}
 
 /** 
  * 保存用户身份认证信息
@@ -45,5 +57,6 @@ function credent(data) {
 export {
 	getCredentStatus,
 	qryNationList,
+	uploadPic,
 	credent
 }
