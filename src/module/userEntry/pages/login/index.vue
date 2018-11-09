@@ -114,14 +114,16 @@ export default {
 						// 	type: 'success'
 						// });
 						// this.$route.phsh('/login/cn');
-						Cookie.set('token', data.data.token, {
-							expires: new Date(
-								new Date().getTime() + 2 * 60 * 60 * 1000
-							)
+						Cookie.set('token', data.data.token, { expires: 1 });
+						Cookie.set('lastLogIp', data.data.lastLogIp || '', {
+							expires: 1
 						});
-						Cookie.set('lastLogIp', data.data.lastLogIp || '');
-						Cookie.set('lastLogTime', data.data.lastLogTime || '');
-						Cookie.set('isHolder', data.data.isHolder || '');
+						Cookie.set('lastLogTime', data.data.lastLogTime || '', {
+							expires: 1
+						});
+						Cookie.set('isHolder', data.data.isHolder || '', {
+							expires: 1
+						});
 						this.$toast('登录成功，即将跳转。');
 						window.location.href =
 							window.location.protocol +
