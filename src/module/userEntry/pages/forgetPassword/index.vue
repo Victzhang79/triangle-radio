@@ -116,7 +116,7 @@ export default {
 				.then(data => {
 					if (data.code === 200) {
 						this.$toast('密码已重置，即将跳转登录页。');
-						this.$router.push('/login/cn');
+						this.$router.push('/');
 					} else {
 						this.$toast.fail(data.msg);
 					}

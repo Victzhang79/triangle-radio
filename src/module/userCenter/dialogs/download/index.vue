@@ -5,14 +5,14 @@
 		<div>
 			<p class="download-title">Android下载</p>
 			<div class="qrcode">
-				<qrcode tag="img" value="http://www.trxwallet.net/m/userCenter#/security"></qrcode>
+				<qrcode tag="img" value="http://www.trxwallet.net/TronWallet.apk"></qrcode>
 			</div>
-			<p class="download-link"><a href="http://www.trxwallet.net/m/userCenter">http://www.trxwallet.net/m/userCenter</a></p>
-			<p class="download-title">IOS下载</p>
+			<p class="download-link"><a href="http://www.trxwallet.net/TronWallet.apk">http://www.trxwallet.net/TronWallet.apk</a></p>
+			<!-- <p class="download-title">IOS下载</p>
 			<div class="qrcode">
-				<qrcode tag="img" value="http://www.trxwallet.net/m/userCenter#/security"></qrcode>
+				<qrcode tag="img" value="http://www.trxwallet.net/TronWallet.apk"></qrcode>
 			</div>
-			<p class="download-link"><a href="http://www.trxwallet.net/m/userCenter">http://www.trxwallet.net/m/userCenter</a></p>
+			<p class="download-link"><a href="http://www.trxwallet.net/TronWallet.apk">http://www.trxwallet.net/TronWallet.apk</a></p> -->
 		</div>
 	</van-popup>
 </template>
