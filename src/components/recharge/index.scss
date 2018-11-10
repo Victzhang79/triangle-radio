@@ -24,6 +24,8 @@ div input {
   }
   .address {
     color: #a9a9a9;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   .link-btn {
     color: #2ab3ce;
