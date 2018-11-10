@@ -108,10 +108,10 @@ export default {
 		// };
 		return {
 			IdentiForm: {
-				nationCode: '',
+				nationCode: '1',
 				familyName: '',
 				givenName: '',
-				credentType: '',
+				credentType: '1',
 				credentNo: '',
 				credentPic: ''
 			},

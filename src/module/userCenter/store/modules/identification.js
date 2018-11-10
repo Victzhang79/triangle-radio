@@ -8,7 +8,7 @@ const state = {
 	refuseReason: '',// 审核未通过原因
 	nationList: [
 		{
-			nationCode: '0',
+			nationCode: '1',
 			nationName: '中国'
 		}
 	]//国籍码表
