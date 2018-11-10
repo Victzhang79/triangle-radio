@@ -107,6 +107,7 @@ export default {
 					walletAddr: ''
 				}
 			],
+			credentStatus: undefined,
 			showRechargeBox: false,
 			showWithdrawBox: false,
 			showPwdDialog: false,
@@ -135,6 +136,11 @@ export default {
 				this.coinList = [];
 			}
 		});
+		Api.getCredentStatus().then(res => {
+			if (res.code == 200) {
+				this.credentStatus = res.data.credentStatus;
+			}
+		});
 	},
 	methods: {
 		showOpr(index) {
@@ -146,40 +152,37 @@ export default {
 		},
 		// 提现
 		async withdraw(item) {
-			if (item.coinCode == 9) {
-				this.$toast({
-					message: 'TRX冲提功能即将开放，敬请期待',
-					duration: this.duration
-				});
-				return false;
-			}
-			// 获取认证状态
-			let res = await Api.getCredentStatus();
-			if (res.code == 200) {
-				// 未认证通过
-				if (res.data.credentStatus != '1') {
-					this.showIdentityAuth = true;
-					return false;
-				}
-			}
+			// if (item.coinCode == 9) {
+			this.$toast({
+				message: '冲提功能即将开放，敬请期待',
+				duration: this.duration
+			});
+			// return false;
+			// }
 
-			this.checkItem = item;
-			this.showPwdDialog = true;
+			// // 未认证通过
+			// if (this.credentStatus != '1') {
+			// 	this.showIdentityAuth = true;
+			// 	return false;
+			// }
+
+			// this.checkItem = item;
+			// this.showPwdDialog = true;
 		},
 		submitWithdraw() {
 			this.showWithdrawBox = true;
 		},
 		// 充值
 		recharge(item) {
-			if (item.coinCode == 9) {
-				this.$toast({
-					message: 'TRX冲提功能即将开放，敬请期待',
-					duration: this.duration
-				});
-				return false;
-			}
-			this.checkItem = item;
-			this.showRechargeBox = true;
+			// if (item.coinCode == 9) {
+			this.$toast({
+				message: '冲提功能即将开放，敬请期待',
+				duration: this.duration
+			});
+			// return false;
+			// }
+			// this.checkItem = item;
+			// this.showRechargeBox = true;
 		},
 		deposit(item) {
 			this.$router.push(`/deposit/${item.withDrawableNum}`);
