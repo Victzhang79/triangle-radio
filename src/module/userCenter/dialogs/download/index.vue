@@ -8,11 +8,11 @@
 				<qrcode tag="img" value="http://www.trxwallet.net/TronWallet.apk"></qrcode>
 			</div>
 			<p class="download-link"><a href="http://www.trxwallet.net/TronWallet.apk">http://www.trxwallet.net/TronWallet.apk</a></p>
-			<!-- <p class="download-title">IOS下载</p>
+			<p class="download-title">IOS下载</p>
 			<div class="qrcode">
-				<qrcode tag="img" value="http://www.trxwallet.net/TronWallet.apk"></qrcode>
+				<qrcode tag="img" value="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/trxwallet/ios/master/manifest.plist"></qrcode>
 			</div>
-			<p class="download-link"><a href="http://www.trxwallet.net/TronWallet.apk">http://www.trxwallet.net/TronWallet.apk</a></p> -->
+			<p class="download-link"><a href="itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/trxwallet/ios/master/manifest.plist">itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/trxwallet/ios/master/manifest.plist</a></p>
 		</div>
 	</van-popup>
 </template>
