@@ -154,7 +154,7 @@ export default {
 		async withdraw(item) {
 			// if (item.coinCode == 9) {
 			this.$toast({
-				message: '冲提功能即将开放，敬请期待',
+				message: '充提功能即将开放，敬请期待',
 				duration: this.duration
 			});
 			// return false;
@@ -182,7 +182,7 @@ export default {
 		recharge(item) {
 			// if (item.coinCode == 9) {
 			this.$toast({
-				message: '冲提功能即将开放，敬请期待',
+				message: '充提功能即将开放，敬请期待',
 				duration: this.duration
 			});
 			// return false;
