@@ -121,6 +121,9 @@ input,
 select,
 textarea {
   font-size: 100%;
+  background-color:transparent;
+  border-color:transparent;
+  -webkit-appearance: none;
 }
 
 table {
