@@ -13,7 +13,7 @@
 					<label class="label" label="" prop="nationCode">
 						<span class="labelName">国籍：</span>
 						<select name="nationCode" v-validate="IdentiRules.nationCode.validation" class="input-item" v-model="IdentiForm.nationCode" placeholder="请选择" :disabled="identiStatus=='1'||identiStatus=='3'">
-							<option v-for="item in nationList" :key="item.nationCode" :label="item.nationName" :value="item.nationCode">
+							<option v-for="item in nationList" :key="item.nationCode" :label="item.nationName" :value="item.nationCode">{{item.nationName}}
 							</option>
 						</select>
 						<span v-show="errors.has('nationCode')" class="error-tip">{{IdentiRules.nationCode.text}}</span>
@@ -32,6 +32,7 @@
 						<p class="labelNameblock fixPos">证件类型：</p>
 						<select name="credentType" v-validate="IdentiRules.credentType.validation" class="input-item long" v-model="IdentiForm.credentType" placeholder="请选择" :disabled="identiStatus=='1'||identiStatus=='3'">
 							<option v-for="item in credentTypes" :key="item.value" :label="item.label" :value="item.value">
+								{{item.label}}
 							</option>
 						</select>
 						<span v-show="errors.has('credentType')" class="error-tip">{{IdentiRules.credentType.text}}</span>
