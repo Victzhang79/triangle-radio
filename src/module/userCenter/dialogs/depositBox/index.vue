@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="show">
+	<van-popup class="dialog" v-model="show" @click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h3 class="dlg-title">定存{{days}}天</h3>
 		<div class="demo-ruleForm wrap">

@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="show" click-overlay="closeBox">
+	<van-popup class="dialog" v-model="show" @click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="title">充值操作</h2>
 		<h3 class="dlg-title">您正在进行{{coinNameList[item.coinCode]}}充值操作</h3>

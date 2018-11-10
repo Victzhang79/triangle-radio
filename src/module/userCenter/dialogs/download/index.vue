@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="value">
+	<van-popup class="dialog" v-model="show" @click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h3 class="dlg-title">下载</h3>
 		<div>
@@ -22,7 +22,16 @@ export default {
 	props: {
 		value: Boolean
 	},
-
+	data() {
+		return {
+			show: this.value
+		};
+	},
+	watch: {
+		value(val) {
+			this.show = val;
+		}
+	},
 	methods: {
 		closeBox() {
 			this.$emit('input', false);
