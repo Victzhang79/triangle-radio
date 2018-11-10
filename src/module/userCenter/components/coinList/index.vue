@@ -161,7 +161,13 @@ export default {
 			// }
 
 			// // 未认证通过
-			// if (this.credentStatus != '1') {
+			// if (this.credentStatus == '3') {
+			// 	this.$toast({
+			// 		message: '身份认证审核中，请耐心等待',
+			// 		duration: this.duration
+			// 	});
+			// 	return false;
+			// } else if (this.credentStatus != '1') {
 			// 	this.showIdentityAuth = true;
 			// 	return false;
 			// }

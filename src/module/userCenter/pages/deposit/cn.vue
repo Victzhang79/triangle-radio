@@ -3,7 +3,7 @@
 		<navigation-bar></navigation-bar>
 		<div class="deposit-list">
 			<div v-for="(item, index) in list" :key="index" class="deposit-item">
-				<span class="deposit-mes">定存{{item.days}}，日利率{{item.rate}}%</span>
+				<span class="deposit-mes">定存{{item.days}}天，日利率{{item.rate}}%</span>
 				<van-switch v-model="item.checked" size="25px" active-color="#13CE66" inactive-color="#ddd" @input="onInput(index, item.checked)" />
 			</div>
 		</div>
