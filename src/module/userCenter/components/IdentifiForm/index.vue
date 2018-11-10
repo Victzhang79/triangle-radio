@@ -82,29 +82,29 @@ import { uploadPic } from '../../api/identification.js';
 import { credent } from '../../api/identification.js';
 export default {
 	data() {
-		let checkCredentNo = (rule, value, callback) => {
-			console.log(this.IdentiForm.credentType);
-			let regexNo;
-			switch (this.IdentiForm.credentType) {
-				case '1': //身份证
-					regexNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
-					break;
-				case '2': //护照
-					regexNo = /^1[45][0-9]{7}|([P|p|S|s]\d{7})|([S|s|G|g]\d{8})|([Gg|Tt|Ss|Ll|Qq|Dd|Aa|Ff]\d{8})|([H|h|M|m]\d{8，10})$/;
-					break;
-				case '3': //士官证
-					regexNo = /[\u4e00-\u9fa5](字第){1}(\d{4,8})(号?)$/;
-					break;
-				case '4': //港澳通行证
-					regexNo = /^[HMhm]{1}([0-9]{10}|[0-9]{8})$/;
-					break;
-			}
-			if (regexNo && !regexNo.test(value)) {
-				callback(new Error('证件格式不正确'));
-			} else {
-				callback();
-			}
-		};
+		// let checkCredentNo = (rule, value, callback) => {
+		// 	console.log(this.IdentiForm.credentType);
+		// 	let regexNo;
+		// 	switch (this.IdentiForm.credentType) {
+		// 		case '1': //身份证
+		// 			regexNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+		// 			break;
+		// 		case '2': //护照
+		// 			regexNo = /^1[45][0-9]{7}|([P|p|S|s]\d{7})|([S|s|G|g]\d{8})|([Gg|Tt|Ss|Ll|Qq|Dd|Aa|Ff]\d{8})|([H|h|M|m]\d{8，10})$/;
+		// 			break;
+		// 		case '3': //士官证
+		// 			regexNo = /[\u4e00-\u9fa5](字第){1}(\d{4,8})(号?)$/;
+		// 			break;
+		// 		case '4': //港澳通行证
+		// 			regexNo = /^[HMhm]{1}([0-9]{10}|[0-9]{8})$/;
+		// 			break;
+		// 	}
+		// 	if (regexNo && !regexNo.test(value)) {
+		// 		callback(new Error('证件格式不正确'));
+		// 	} else {
+		// 		callback();
+		// 	}
+		// };
 		return {
 			IdentiForm: {
 				nationCode: '',
@@ -141,8 +141,8 @@ export default {
 				},
 				credentNo: {
 					validation: {
-						required: true,
-						regex: checkCredentNo
+						required: true
+						// regex: checkCredentNo
 					},
 					text: '请填写正确的证件号码'
 				}
