@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<recharge v-model="showRechargeBox" :item="checkItem"></recharge>
-		<withdraw-cash v-model="showWithdrawBox" :item="checkItem">
+		<withdraw-cash v-model="showWithdrawBox" :item="checkItem" :withdrawSuccess="withdrawSuccess">
 		</withdraw-cash>
 		<pwd-dialog v-model="showPwdDialog" submitBtnText="确定" @submit="submitWithdraw"></pwd-dialog>
 		<identity-auth v-model="showIdentityAuth" actionName="提现"></identity-auth>
@@ -129,13 +129,7 @@ export default {
 		identityAuth
 	},
 	created() {
-		Api.getWalletList().then(res => {
-			if (res.code === 200) {
-				this.coinList = res.data;
-			} else {
-				this.coinList = [];
-			}
-		});
+		this.getWalletList();
 		Api.getCredentStatus().then(res => {
 			if (res.code == 200) {
 				this.credentStatus = res.data.credentStatus;
@@ -143,6 +137,15 @@ export default {
 		});
 	},
 	methods: {
+		getWalletList() {
+			Api.getWalletList().then(res => {
+				if (res.code === 200) {
+					this.coinList = res.data;
+				} else {
+					this.coinList = [];
+				}
+			});
+		},
 		showOpr(index) {
 			if (this.showOprIndex === index) {
 				this.showOprIndex = '';
@@ -170,13 +173,20 @@ export default {
 		submitWithdraw() {
 			this.showWithdrawBox = true;
 		},
+		withdrawSuccess() {
+			this.getWalletList();
+		},
 		// 充值
 		recharge(item) {
 			this.checkItem = item;
 			this.showRechargeBox = true;
 		},
 		deposit(item) {
-			this.$router.push(`/deposit/${item.withDrawableNum}`);
+			this.$toast({
+				message: '定存功能即将开放，请耐心等待',
+				duration: this.duration
+			});
+			// this.$router.push(`/deposit/${item.withDrawableNum}`);
 		}
 	}
 };

@@ -113,14 +113,13 @@ export default {
 		}
 	},
 	methods: {
-		closeBox(result) {
+		closeBox() {
 			this.pageForm = {
 				coinCode: 1,
 				withDrawNum: '', // 提现数量清空
 				toWalletAddr: '' //提现目的钱包地址清空
 			};
 			this.$emit('input', false);
-			this.$emit('closeBox', result);
 		},
 		confirm() {
 			if (!this.isDisabled) {
@@ -146,13 +145,14 @@ export default {
 			this.isDisabled = false;
 			if (withdrawCash) {
 				this.$toast.success({
-					message: '提现成功',
+					message: '提现申请成功',
 					duration: this.duration
 				});
-				this.closeBox(true); // 操作成功
+				this.$emit('withdrawSuccess');
+				this.closeBox(); // 操作成功
 			} else {
 				this.$toast.fail({
-					message: '提现失败请重试',
+					message: '提现申请失败请重试',
 					duration: this.duration
 				});
 			}
