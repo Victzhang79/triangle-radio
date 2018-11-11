@@ -152,43 +152,28 @@ export default {
 		},
 		// 提现
 		async withdraw(item) {
-			// if (item.coinCode == 9) {
-			this.$toast({
-				message: '充提功能即将开放，敬请期待',
-				duration: this.duration
-			});
-			// return false;
-			// }
+			// 未认证通过
+			if (this.credentStatus == '3') {
+				this.$toast({
+					message: '身份认证审核中，请耐心等待',
+					duration: this.duration
+				});
+				return false;
+			} else if (this.credentStatus != '1') {
+				this.showIdentityAuth = true;
+				return false;
+			}
 
-			// // 未认证通过
-			// if (this.credentStatus == '3') {
-			// 	this.$toast({
-			// 		message: '身份认证审核中，请耐心等待',
-			// 		duration: this.duration
-			// 	});
-			// 	return false;
-			// } else if (this.credentStatus != '1') {
-			// 	this.showIdentityAuth = true;
-			// 	return false;
-			// }
-
-			// this.checkItem = item;
-			// this.showPwdDialog = true;
+			this.checkItem = item;
+			this.showPwdDialog = true;
 		},
 		submitWithdraw() {
 			this.showWithdrawBox = true;
 		},
 		// 充值
 		recharge(item) {
-			// if (item.coinCode == 9) {
-			this.$toast({
-				message: '充提功能即将开放，敬请期待',
-				duration: this.duration
-			});
-			// return false;
-			// }
-			// this.checkItem = item;
-			// this.showRechargeBox = true;
+			this.checkItem = item;
+			this.showRechargeBox = true;
 		},
 		deposit(item) {
 			this.$router.push(`/deposit/${item.withDrawableNum}`);
