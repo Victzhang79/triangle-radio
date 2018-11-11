@@ -46,6 +46,7 @@ import recharge from '@/components/recharge';
 import identityAuth from '@/components/identityAuth';
 import Util from '@/util';
 import Api from '../../api';
+import { setTimeout } from 'timers';
 export default {
 	data() {
 		return {
@@ -173,8 +174,11 @@ export default {
 		submitWithdraw() {
 			this.showWithdrawBox = true;
 		},
+		// 提现成功
 		withdrawSuccess() {
-			this.getWalletList();
+			setTimeout(() => {
+				this.getWalletList();
+			}, 5000);
 		},
 		// 充值
 		recharge(item) {
