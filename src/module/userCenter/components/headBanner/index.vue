@@ -3,7 +3,7 @@
 		<div class="logo"></div>
 		<div class="banner">
 			<div class="logo-word"></div>
-			<div class="banner-title">安全的波场钱包</div>
+			<div class="banner-title">大家都在用的安全钱包</div>
 		</div>
 	</div>
 </template>

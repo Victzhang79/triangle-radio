@@ -35,7 +35,7 @@
 				<button @click="invite()" class="btn fr" plain>邀请</button>
 			</li>
 			<li class="item" @click="showAchievement">
-				<span class="txt">总业绩：
+				<span class="txt">总业绩
 				</span>
 				<button class="btn fr" plain>查看</button>
 			</li>
