@@ -34,6 +34,11 @@
 				</span>
 				<button @click="invite()" class="btn fr" plain>邀请</button>
 			</li>
+			<li class="item" @click="showAchievement">
+				<span class="txt">总业绩：
+				</span>
+				<button class="btn fr" plain>查看</button>
+			</li>
 			<li class="item" @click="showDownload">
 				<span class="txt">下载APP
 				</span>
@@ -47,6 +52,7 @@
 		<trans-password-dialog></trans-password-dialog>
 		<invite-code-dialog></invite-code-dialog>
 		<download-dialog v-model="showDownloadDialog"></download-dialog>
+		<achievement-dialog v-model="showAchievementDialog"></achievement-dialog>
 	</div>
 </template>
 
@@ -57,6 +63,7 @@ import logPasswordDialog from '../../dialogs/logPassword';
 import transPasswordDialog from '../../dialogs/transPassword';
 import inviteCodeDialog from '../../dialogs/inviteCode';
 import downloadDialog from '../../dialogs/download';
+import achievementDialog from '../../dialogs/achievementDialog';
 import Cookie from 'js-cookie';
 export default {
 	computed: {
@@ -79,7 +86,8 @@ export default {
 				'审核中',
 				'网络异常'
 			],
-			showDownloadDialog: false
+			showDownloadDialog: false,
+			showAchievementDialog: false
 		};
 	},
 	// created() {
@@ -113,6 +121,9 @@ export default {
 		showDownload() {
 			this.showDownloadDialog = true;
 		},
+		showAchievement() {
+			this.showAchievementDialog = true;
+		},
 		logout() {
 			Cookie.remove('token');
 			window.location.href =
@@ -127,7 +138,8 @@ export default {
 		logPasswordDialog,
 		transPasswordDialog,
 		inviteCodeDialog,
-		downloadDialog
+		downloadDialog,
+		achievementDialog
 	}
 };
 </script>
