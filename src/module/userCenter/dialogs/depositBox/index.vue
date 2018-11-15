@@ -46,9 +46,9 @@ export default {
 			this.show = false;
 		},
 		onSubmit() {
-			if (this.amount <= 0) {
+			if (this.amount < 1000) {
 				this.$toast({
-					message: '定存数量需大于0个',
+					message: '定存数量不能少于1000个',
 					duration: this.duration
 				});
 				return false;
@@ -62,7 +62,7 @@ export default {
 			}
 			Api.deposit({
 				depositType: this.checkedItem.type,
-				depositNum: this.amount
+				depositNum: Number(this.amount)
 			})
 				.then(res => {
 					if (res.code == 200) {
