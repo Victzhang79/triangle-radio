@@ -186,11 +186,11 @@ export default {
 			this.showRechargeBox = true;
 		},
 		deposit(item) {
-			this.$toast({
-				message: '定存功能即将开放，请耐心等待',
-				duration: this.duration
-			});
-			// this.$router.push(`/deposit/${item.withDrawableNum}`);
+			// this.$toast({
+			// 	message: '定存功能即将开放，请耐心等待',
+			// 	duration: this.duration
+			// });
+			this.$router.push(`/deposit/${item.withDrawableNum}`);
 		}
 	}
 };

@@ -17,6 +17,6 @@ export default {
   },
   // 设置提现结果
   [types.SET_DIPOSIT](state, payload) {
-    state.depositType = payload;
+    state.depositTypeIndex = payload;
   }
 };

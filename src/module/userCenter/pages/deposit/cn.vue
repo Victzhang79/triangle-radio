@@ -17,14 +17,13 @@
 				<p>2. 本金和利息同步发放</p>
 			</div>
 		</div>
-		<deposit-box v-model="showBox" :TRXRemain="TRXRemain" :days="checkedDays"></deposit-box>
+		<deposit-box v-model="showBox" :TRXRemain="TRXRemain" :checkedItem="checkedItem"></deposit-box>
 	</div>
 </template>
 <script>
 import navigationBar from '@/components/navigationBar';
 import depositBox from '../../dialogs/depositBox';
 import { mapGetters } from 'vuex';
-
 export default {
 	components: {
 		navigationBar,
@@ -33,35 +32,39 @@ export default {
 	data() {
 		return {
 			list: [
-				{ days: 5, rate: 0.2, checked: false },
-				{ days: 10, rate: 0.5, checked: false },
-				{ days: 30, rate: 2, checked: false },
-				{ days: 90, rate: 3, checked: false },
-				{ days: 180, rate: 4, checked: false },
-				{ days: 360, rate: 5, checked: false },
-				{ days: 1000, rate: 6, checked: false }
+				{ days: 5, rate: 0.2, checked: false, type: '1' },
+				{ days: 10, rate: 0.5, checked: false, type: '2' },
+				{ days: 30, rate: 2, checked: false, type: '3' },
+				{ days: 90, rate: 3, checked: false, type: '4' },
+				{ days: 180, rate: 4, checked: false, type: '5' },
+				{ days: 360, rate: 5, checked: false, type: '6' },
+				{ days: 1000, rate: 6, checked: false, type: '7' }
 			],
 			checkedIndex: '',
-			checkedDays: 0,
+			checkedItem: {},
 			TRXRemain: '',
 			showBox: false
 		};
 	},
 	computed: {
-		...mapGetters(['depositType'])
+		...mapGetters(['depositTypeIndex'])
 	},
 	watch: {
 		checkedIndex(val) {
 			if (typeof val != 'undefined' && val !== '') {
-				this.checkedDays = this.list[val].days;
+				this.checkedItem = this.list[val];
 			}
 		}
 	},
 	created() {
-		if (typeof this.depositType != 'undefined' && this.depositType !== '') {
-			this.list[this.depositType].checked = true;
+		console.log('depositTypeIndex:', this.depositTypeIndex);
+		if (
+			typeof this.depositTypeIndex != 'undefined' &&
+			this.depositTypeIndex !== ''
+		) {
+			this.list[this.depositTypeIndex].checked = true;
 		}
-		this.checkedIndex = this.depositType;
+		this.checkedIndex = this.depositTypeIndex;
 		this.TRXRemain = this.$route.params.trxNum;
 	},
 	methods: {

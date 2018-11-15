@@ -1,7 +1,7 @@
 <template>
 	<van-popup class="dialog" v-model="show" @click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
-		<h3 class="dlg-title">定存{{days}}天</h3>
+		<h3 class="dlg-title">定存{{checkedItem.days}}天</h3>
 		<div class="demo-ruleForm wrap">
 			<label>
 				<span class="labelTit">定存数量：</span>
@@ -22,13 +22,13 @@ import * as types from '../../store/mutation-types';
 export default {
 	props: {
 		value: Boolean,
-		days: Number,
+		checkedItem: Object,
 		TRXRemain: [Number, String]
 	},
 	data() {
 		return {
 			show: this.value,
-			amount: '',
+			amount: undefined,
 			placeholder: '请输入定存数量',
 			duration: 1500
 		};
@@ -53,14 +53,17 @@ export default {
 				});
 				return false;
 			}
-			if (this.amount > this.TRXRemain) {
+			if (Number(this.amount) > Number(this.TRXRemain)) {
 				this.$toast({
 					message: '最多可定存' + this.TRXRemain + '个',
 					duration: this.duration
 				});
 				return false;
 			}
-			Api.deposit({ amount: this.amount })
+			Api.deposit({
+				depositType: this.checkedItem.type,
+				depositNum: this.amount
+			})
 				.then(res => {
 					if (res.code == 200) {
 						this.$toast({
@@ -70,7 +73,7 @@ export default {
 						setTimeout(() => {
 							this.$store.commit(
 								types.SET_DIPOSIT,
-								this.checkedIndex
+								this.checkedItem.type - 1
 							);
 							this.closeBox();
 							this.$router.push('/');

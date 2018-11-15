@@ -14,7 +14,7 @@ const state = {
   walletList: [], // 币钱包列表
   withdrawResult: false, // 提现结果
   fundList: [], // 币生币基金列表
-  depositType: undefined // 定存类型
+  depositTypeIndex: undefined // 定存类型
 };
 
 export default new Vuex.Store({

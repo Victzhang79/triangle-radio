@@ -48,7 +48,7 @@ export default {
   // 定存接口
   deposit: params => {
     return http.post(
-      Util.DOMAIN + 'withdraw?mock_apiId=5b7fc4b4b2a0fd193649ee75',
+      Util.DOMAIN + 'deposit?mock_apiId=5beab4305c74cd0203113b0b',
       params
     );
   },
