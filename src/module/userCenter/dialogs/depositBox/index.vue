@@ -46,6 +46,13 @@ export default {
 			this.show = false;
 		},
 		onSubmit() {
+			if (typeof this.amount == 'undefined') {
+				this.$toast({
+					message: '请填写不少于1000的定存数量',
+					duration: this.duration
+				});
+				return false;
+			}
 			if (this.amount < 1000) {
 				this.$toast({
 					message: '定存数量不能少于1000个',
