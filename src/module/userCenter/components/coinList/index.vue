@@ -182,8 +182,15 @@ export default {
 		},
 		// 充值
 		recharge(item) {
-			this.checkItem = item;
-			this.showRechargeBox = true;
+			if (item.coinCode == 1 || item.coinCode == 2) {
+				this.$toast({
+					message: '转账人数过多，请稍后再试',
+					duration: this.duration
+				});
+			} else {
+				this.checkItem = item;
+				this.showRechargeBox = true;
+			}
 		},
 		deposit(item) {
 			// this.$toast({

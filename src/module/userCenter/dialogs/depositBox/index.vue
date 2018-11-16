@@ -53,9 +53,9 @@ export default {
 				});
 				return false;
 			}
-			if (this.amount < 1000) {
+			if (this.amount < this.checkedItem.min) {
 				this.$toast({
-					message: '定存数量不能少于1000个',
+					message: '定存数量不能少于' + this.checkedItem.min + '个',
 					duration: this.duration
 				});
 				return false;

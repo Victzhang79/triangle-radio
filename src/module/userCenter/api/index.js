@@ -52,6 +52,18 @@ export default {
       params
     );
   },
+  // 查询用户定存记录列表
+  getDepositList: params => {
+    return http.get(
+      Util.DOMAIN +
+        'qryUserDepositList?mock_apiId=5bed2ac2d7140601973d0a4c?depositType=' +
+        params.depositType +
+        '&pageNo=' +
+        params.pageNo +
+        '&pageSize=' +
+        params.pageSize
+    );
+  },
   // 认证状态接口
   getCredentStatus: () => {
     return http.get(

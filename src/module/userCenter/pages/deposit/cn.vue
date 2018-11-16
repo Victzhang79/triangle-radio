@@ -32,13 +32,13 @@ export default {
 	data() {
 		return {
 			list: [
-				{ days: 5, rate: 0.2, checked: false, type: '1' },
-				{ days: 10, rate: 0.5, checked: false, type: '2' },
-				{ days: 30, rate: 2, checked: false, type: '3' },
-				{ days: 90, rate: 3, checked: false, type: '4' },
-				{ days: 180, rate: 4, checked: false, type: '5' },
-				{ days: 360, rate: 5, checked: false, type: '6' },
-				{ days: 1000, rate: 6, checked: false, type: '7' }
+				{ days: 5, rate: 0.2, checked: false, type: '1', min: 1000 },
+				{ days: 10, rate: 0.5, checked: false, type: '2', min: 1000 },
+				{ days: 30, rate: 2, checked: false, type: '3', min: 20000 },
+				{ days: 90, rate: 3, checked: false, type: '4', min: 100000 },
+				{ days: 180, rate: 4, checked: false, type: '5', min: 300000 },
+				{ days: 360, rate: 5, checked: false, type: '6', min: 1000000 },
+				{ days: 1000, rate: 6, checked: false, type: '7', min: 1000000 }
 			],
 			checkedIndex: '',
 			checkedItem: {},
