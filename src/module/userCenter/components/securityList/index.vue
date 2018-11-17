@@ -53,6 +53,7 @@
 		<invite-code-dialog></invite-code-dialog>
 		<download-dialog v-model="showDownloadDialog"></download-dialog>
 		<achievement-dialog v-model="showAchievementDialog"></achievement-dialog>
+		<contact-us-dialog></contact-us-dialog>
 	</div>
 </template>
 
@@ -64,6 +65,7 @@ import transPasswordDialog from '../../dialogs/transPassword';
 import inviteCodeDialog from '../../dialogs/inviteCode';
 import downloadDialog from '../../dialogs/download';
 import achievementDialog from '../../dialogs/achievementDialog';
+import contactUsDialog from '../../dialogs/contactUs';
 import Cookie from 'js-cookie';
 export default {
 	computed: {
@@ -139,7 +141,8 @@ export default {
 		transPasswordDialog,
 		inviteCodeDialog,
 		downloadDialog,
-		achievementDialog
+		achievementDialog,
+		contactUsDialog
 	}
 };
 </script>

@@ -15,7 +15,8 @@ const state = {
 	// safeEmailDlgVisi: false,//显示安全邮箱设置弹窗
 	modifyLogPwdDlgVisi: false,// 显示更新密码弹窗
 	setTransPwdDlgVisi: false,// 显示设置资金密码弹窗
-	inviteDlgVisi: false//邀请二维码弹窗
+	inviteDlgVisi: false,//邀请二维码弹窗
+	contactDlgVisi: false//客服微信二维码弹窗
 }
 
 const getters = {
@@ -23,7 +24,8 @@ const getters = {
 	// safeEmailDlgVisi: state => state.safeEmailDlgVisi,
 	modifyLogPwdDlgVisi: state => state.modifyLogPwdDlgVisi,
 	setTransPwdDlgVisi: state => state.setTransPwdDlgVisi,
-	inviteDlgVisi: state => state.inviteDlgVisi
+	inviteDlgVisi: state => state.inviteDlgVisi,
+	contactDlgVisi: state => state.contactDlgVisi
 }
 
 const mutations = {
@@ -45,6 +47,10 @@ const mutations = {
 	// 邀请返佣弹窗
 	changeInviteDlgVisi(state, value) {
 		state.inviteDlgVisi = value;
+	},
+	// 联系客服
+	changeContactDlgVisi(state, value) {
+		state.contactDlgVisi = value;
 	}
 }
 
