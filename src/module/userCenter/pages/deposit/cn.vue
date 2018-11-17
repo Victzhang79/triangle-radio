@@ -8,6 +8,11 @@
 			</div>
 		</div>
 		<div class="deposit-submit">
+			<div class="terms">
+				<i class="check-box" :class="{'checked': agree}" @click="agreeClick"></i>
+				<span @click="agreeClick">我已阅读并同意 </span>
+				<span class="terms-link" @click="showAgreement">《波点钱包服务协议》</span>
+			</div>
 			<span class="deposit-submit-btn" @click="save">定存</span>
 		</div>
 		<div class="deposit-tip">
@@ -17,17 +22,20 @@
 				<p>2. 本金和利息同步发放</p>
 			</div>
 		</div>
+		<agree-dialog v-model="showAgreeDialog" @submit="agreeCheck"></agree-dialog>
 		<deposit-box v-model="showBox" :TRXRemain="TRXRemain" :checkedItem="checkedItem"></deposit-box>
 	</div>
 </template>
 <script>
 import navigationBar from '@/components/navigationBar';
 import depositBox from '../../dialogs/depositBox';
+import agreeDialog from '../../components/agreeDialog';
 import { mapGetters } from 'vuex';
 export default {
 	components: {
 		navigationBar,
-		depositBox
+		depositBox,
+		agreeDialog
 	},
 	data() {
 		return {
@@ -43,7 +51,10 @@ export default {
 			checkedIndex: '',
 			checkedItem: {},
 			TRXRemain: '',
-			showBox: false
+			agree: true,
+			showAgreeDialog: false,
+			showBox: false,
+			duration: 1500
 		};
 	},
 	computed: {
@@ -57,7 +68,6 @@ export default {
 		}
 	},
 	created() {
-		console.log('depositTypeIndex:', this.depositTypeIndex);
 		if (
 			typeof this.depositTypeIndex != 'undefined' &&
 			this.depositTypeIndex !== ''
@@ -80,6 +90,16 @@ export default {
 				this.checkedIndex = undefined;
 			}
 		},
+		agreeClick() {
+			this.agree = !this.agree;
+		},
+		showAgreement() {
+			this.showAgreeDialog = true;
+		},
+		agreeCheck() {
+			this.agree = true;
+			this.showAgreeDialog = false;
+		},
 		save() {
 			if (
 				this.checkedIndex === '' ||
@@ -87,6 +107,13 @@ export default {
 			) {
 				this.$toast({
 					message: '请选择定存类型',
+					duration: this.duration
+				});
+				return false;
+			}
+			if (!this.agree) {
+				this.$toast({
+					message: '请勾选同意协议',
 					duration: this.duration
 				});
 				return false;

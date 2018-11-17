@@ -35,6 +35,7 @@
     font-size: px2rem(36px);
     color: #ffffff;
     letter-spacing: 0;
+    cursor: pointer;
   }
 }
 .deposit-tip {
@@ -65,4 +66,34 @@
     height: px2rem(46px) !important;
     box-shadow: none;
   }
+}
+
+.terms {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  margin: px2rem(20px) auto;
+}
+
+.terms-link {
+  color: #2ab3ce;
+  cursor: pointer;
+}
+.check-box {
+  background-image: linear-gradient(0deg, #d9d9d9 0%, #ffffff 100%);
+  border: 1px solid #dadada;
+  border-radius: px2rem(8px);
+  display: inline-block;
+  width: px2rem(32px);
+  height: px2rem(32px);
+  vertical-align: bottom;
+  margin-bottom: px2rem(2px);
+  box-sizing: border-box;
+}
+
+.checked {
+  border: 0;
+  background: url('../../assets/imgs/checked.png');
+  background-size: contain;
 }
