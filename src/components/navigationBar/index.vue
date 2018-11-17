@@ -8,7 +8,7 @@
 					</span>
 				</p>
 				<p class="tit">波点钱包</p>
-				<p class="extendBtn"></p>
+				<p v-show="extendBtn" class="extendBtn" @click="extend">{{extendTxt}}</p>
 			</div>
 		</div>
 	</div>
@@ -22,11 +22,42 @@ export default {
 			default() {
 				return true;
 			}
+		},
+		backPath: {
+			type: String,
+			default() {
+				return '';
+			}
+		},
+		extendBtn: {
+			type: Boolean,
+			default() {
+				return false;
+			}
+		},
+		extendTxt: {
+			type: String,
+			default() {
+				return '扩展按钮';
+			}
+		},
+		extendPath: {
+			type: String,
+			default() {
+				return '';
+			}
 		}
 	},
 	methods: {
 		back() {
-			this.$router.go(-1);
+			if (this.backPath === '') {
+				this.$router.go(-1);
+			} else {
+				this.$router.push(this.backPath);
+			}
+		},
+		extend() {
+			this.$router.push(this.extendPath);
 		}
 	}
 };

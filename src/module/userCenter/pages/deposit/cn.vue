@@ -1,6 +1,6 @@
 <template>
 	<div class="deposit-app">
-		<navigation-bar></navigation-bar>
+		<navigation-bar :backPath="'/'" :extendBtn="true" :extendTxt="'定存记录'" :extendPath="'/history'"></navigation-bar>
 		<div class="deposit-list">
 			<div v-for="(item, index) in list" :key="index" class="deposit-item">
 				<span class="deposit-mes">定存{{item.days}}天，日利率{{item.rate}}%</span>
@@ -76,6 +76,7 @@ export default {
 		}
 		this.checkedIndex = this.depositTypeIndex;
 		this.TRXRemain = this.$route.params.trxNum;
+		this.$store.commit('changeHistoryBackPath', this.TRXRemain); // 保存历史记录页返回按钮参数
 	},
 	methods: {
 		onInput(index, checked) {
