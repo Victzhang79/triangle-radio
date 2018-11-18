@@ -48,7 +48,7 @@ export default {
 			title: '提现操作',
 			isDisabled: false,
 			pageForm: {
-				coinCode: 1,
+				coinCode: 9, // 默认trx
 				withDrawNum: '', // 提现数量
 				toWalletAddr: '' //提现目的钱包地址
 			},
@@ -116,7 +116,7 @@ export default {
 	methods: {
 		closeBox() {
 			this.pageForm = {
-				coinCode: 1,
+				coinCode: this.item.coinCode,
 				withDrawNum: '', // 提现数量清空
 				toWalletAddr: '' //提现目的钱包地址清空
 			};
