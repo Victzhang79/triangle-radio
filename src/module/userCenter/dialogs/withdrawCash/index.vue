@@ -22,6 +22,7 @@
 				<input class="authCode" v-validate='rules.toWalletAddr.validation' v-model="pageForm.toWalletAddr" placeholder="请输入钱包地址" name="toWalletAddr">
 				<span v-show="errors.has('toWalletAddr')" class="error-tip">{{ rules.toWalletAddr.text}}</span>
 			</label>
+			<p class="tip">注：提现时平台将收取3‰作为手续费</p>
 			<p class="btn-line">
 				<button @click="confirm" class="btn" type="primary">确认提现</button>
 			</p>

@@ -46,7 +46,7 @@ export default {
 			this.show = false;
 		},
 		onSubmit() {
-			if (typeof this.amount == 'undefined') {
+			if (typeof this.amount == 'undefined' || this.amount == '') {
 				this.$toast({
 					message: '请输入定存数量',
 					duration: this.duration

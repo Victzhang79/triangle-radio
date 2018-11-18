@@ -4,6 +4,7 @@ div input {
   box-sizing: border-box;
 }
 .dialog {
+  padding-bottom: px2rem(40px);
   .dlg-title {
     font-size: px2rem(36px);
     color: #1d1d1d;
@@ -14,5 +15,10 @@ div input {
     padding: px2rem(40px) px2rem(40px) 0;
     font-size: px2rem(28px);
     line-height: px2rem(50px);
+  }
+  .tip {
+    color: #666;
+    font-size: 13px;
+    margin-top: px2rem(40px);
   }
 }

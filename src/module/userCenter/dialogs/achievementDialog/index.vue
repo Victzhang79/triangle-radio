@@ -4,26 +4,29 @@
 		<h3 class="dlg-title">总业绩</h3>
 		<div class="content">
 			<div class="line">
-				<span class="item-title">一级下级总人数：</span>
-				<span>{{firstNumber}} 人</span>
+				<span class="item-title">一级下级人数：</span>
+				<span>{{subOne}} 人</span>
 			</div>
 			<div class="line">
-				<span class="item-title">下级总人数：</span>
-				<span>{{totalNumber}} 人</span>
+				<span class="item-title">总下级人数：</span>
+				<span>{{subTotal}} 人</span>
 			</div>
 			<div class="line">
 				<span class="item-title">一级总业绩：</span>
-				<span>{{firstAchievement}} TRX</span>
+				<span>{{archiveOne}} TRX</span>
 			</div>
 			<div class="line">
-				<span class="item-title">下级总业绩：</span>
-				<span>{{totalAchievement}} TRX</span>
+				<span class="item-title">总业绩：</span>
+				<span>{{archiveTotal}} TRX</span>
 			</div>
+			<div class="tip">注：每晚3点更新数据</div>
 		</div>
 	</van-popup>
 </template>
 
 <script>
+import Api from '../../api';
+
 export default {
 	props: {
 		value: Boolean
@@ -31,11 +34,21 @@ export default {
 	data() {
 		return {
 			show: this.value,
-			firstNumber: 0,
-			totalNumber: 0,
-			firstAchievement: 0,
-			totalAchievement: 0
+			subOne: 0,
+			subTotal: 0,
+			archiveOne: 0,
+			archiveTotal: 0
 		};
+	},
+	created() {
+		Api.getUserTotalArchive().then(res => {
+			if (res.code == 200) {
+				this.subOne = res.data.subOne;
+				this.subTotal = res.data.subTotal;
+				this.archiveOne = res.data.archiveOne;
+				this.archiveTotal = res.data.archiveTotal;
+			}
+		});
 	},
 	watch: {
 		value(val) {
