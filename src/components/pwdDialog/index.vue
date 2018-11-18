@@ -66,20 +66,10 @@ export default {
 		value(val) {
 			this.show = val;
 			if (val) {
-				Api.getVeriStatus().then(res => {
-					if (res.code == 200) {
-						let veriStatus = res.data;
-						if (veriStatus == '1') {
-							this.closeBox();
-							this.$emit('submit');
-							return false;
-						}
-					}
-					this.pageForm = {
-						transPass: '',
-						veriCode: ''
-					};
-				});
+				this.pageForm = {
+					transPass: '',
+					veriCode: ''
+				};
 			}
 		}
 	},

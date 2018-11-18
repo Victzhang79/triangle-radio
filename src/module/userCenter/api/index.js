@@ -45,6 +45,12 @@ export default {
         '&mock_apiId=5b7e5cac7ad806420cbf2bd2'
     );
   },
+  // 获取用户交易密码和短信验证码校验状态
+  getVeriStatus: () => {
+    return http.get(
+      Util.DOMAIN + 'getVeriStatus?mock_apiId=5ba0ae4c7985ad7958a993bb'
+    );
+  },
   // 定存接口
   deposit: params => {
     return http.post(

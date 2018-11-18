@@ -167,9 +167,25 @@ export default {
 				this.showIdentityAuth = true;
 				return false;
 			}
-
 			this.checkItem = item;
-			this.showPwdDialog = true;
+			// 判断密码校验接口
+			Api.getVeriStatus()
+				.then(res => {
+					if (res.code == 200) {
+						let veriStatus = res.data;
+						// 密码已校验，直接展示提现框
+						if (veriStatus == '1') {
+							this.showWithdrawBox = true;
+						} else {
+							this.showPwdDialog = true;
+						}
+					} else {
+						this.showPwdDialog = true;
+					}
+				})
+				.catch(e => {
+					this.showPwdDialog = true;
+				});
 		},
 		submitWithdraw() {
 			this.showWithdrawBox = true;
