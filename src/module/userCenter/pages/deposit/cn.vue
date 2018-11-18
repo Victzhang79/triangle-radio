@@ -19,7 +19,7 @@
 			<p class="deposit-tip-title">说明</p>
 			<div class="deposit-tip-mes">
 				<p>1. 利息为（T+1）,到期日晚上24:00发至钱包地址，可随时提取</p>
-				<p>2. 本金和利息同步发放</p>
+				<p>2. 本金在到期后一次性返还</p>
 			</div>
 		</div>
 		<agree-dialog v-model="showAgreeDialog" @submit="agreeCheck"></agree-dialog>

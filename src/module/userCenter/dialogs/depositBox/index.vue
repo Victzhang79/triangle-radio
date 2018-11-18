@@ -48,12 +48,12 @@ export default {
 		onSubmit() {
 			if (typeof this.amount == 'undefined') {
 				this.$toast({
-					message: '请填写不少于1000的定存数量',
+					message: '请输入定存数量',
 					duration: this.duration
 				});
 				return false;
 			}
-			if (this.amount < this.checkedItem.min) {
+			if (Number(this.amount) < Number(this.checkedItem.min)) {
 				this.$toast({
 					message: '定存数量不能少于' + this.checkedItem.min + '个',
 					duration: this.duration
@@ -62,7 +62,7 @@ export default {
 			}
 			if (Number(this.amount) > Number(this.TRXRemain)) {
 				this.$toast({
-					message: '最多可定存' + this.TRXRemain + '个',
+					message: '您的余额不足，最多可定存' + this.TRXRemain + '个',
 					duration: this.duration
 				});
 				return false;

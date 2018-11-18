@@ -11,6 +11,8 @@
   margin: 0 auto;
   overflow: auto;
   border-radius: 0;
+  padding-left: px2rem(40px);
+  padding-right: px2rem(40px);
 }
 .dialog-footer {
   background: #2ab3ce;
@@ -39,4 +41,14 @@
     width: px2rem(36px);
     transform: translateY(px2rem(4px));
   }
+}
+
+.term-title {
+  font-size: px2rem(48px);
+  color: #1d1d1d;
+  text-align: center;
+}
+.term-name {
+  font-weight: bold;
+  text-align: right;
 }
