@@ -34,15 +34,17 @@
 				</span>
 				<button @click="invite()" class="btn fr" plain>邀请</button>
 			</li>
-			<li class="item" @click="showAchievement">
-				<span class="txt">总业绩
-				</span>
-				<button class="btn fr" plain>查看</button>
+			<li class="item">
+				<span class="txt">总业绩</span>
+				<button @click="showAchievement" class="btn fr" plain>查看</button>
 			</li>
-			<li class="item" @click="showDownload">
-				<span class="txt">下载APP
-				</span>
-				<button class="btn fr" plain>下载</button>
+			<li class="item">
+				<span class="txt">下载APP</span>
+				<button @click="showDownload" class="btn fr" plain>下载</button>
+			</li>
+			<li class="item">
+				<span class="txt">客服微信</span>
+				<button @click="showCustomServer" class="btn fr" plain>查看</button>
 			</li>
 			<li class="item carve" @click="logout">
 				<p class="fullTxt">退出</p>
@@ -107,7 +109,7 @@ export default {
 			this.$store.commit('changeSetTransPwdDlgVisi', true);
 		},
 		invite() {
-			console.log('邀请码：', this.securityInfo.inviteCode);
+			// console.log('邀请码：', this.securityInfo.inviteCode);
 			this.$store.commit('changeInviteDlgVisi', true);
 		},
 		identify() {
@@ -133,6 +135,9 @@ export default {
 				'//' +
 				window.location.host +
 				'/userEntry';
+		},
+		showCustomServer() {
+			this.$store.commit('changeContactDlgVisi', true);
 		}
 	},
 	components: {

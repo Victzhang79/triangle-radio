@@ -5,11 +5,11 @@
 		<div class="wrap">
 			<div class="qr-code">
 				<!-- <qrcode tag="img" :value="'http://www.trxwallet.net/userEntry#/logup/'+securityInfo.inviteCode"></qrcode> -->
-				<img src="" alt="">
+				<img src="../../assets/imgs/customServer.jpeg" alt="客服微信">
 			</div>
-			<p class="grayText"></p>
+			<p class="grayText">微信号：lililili5066</p>
 			<p class="btn-line">
-				<button v-clipboard:copy="" v-clipboard:success="copyInviteLink" class="btn">复制微信号</button>
+				<button v-clipboard:copy="'lililili5066'" v-clipboard:success="copyInviteLink" class="btn">复制微信号</button>
 			</p>
 		</div>
 	</van-popup>
@@ -50,5 +50,8 @@ export default {
 		border: 1px solid #979797;
 		border-radius: 8px;
 	}
+}
+.grayText {
+	text-align: center;
 }
 </style>
