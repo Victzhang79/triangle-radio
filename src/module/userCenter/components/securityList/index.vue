@@ -42,10 +42,10 @@
 				<span class="txt">下载APP</span>
 				<button @click="showDownload" class="btn fr" plain>下载</button>
 			</li>
-			<li class="item">
+			<!-- <li class="item">
 				<span class="txt">客服微信</span>
 				<button @click="showCustomServer" class="btn fr" plain>查看</button>
-			</li>
+			</li> -->
 			<li class="item carve" @click="logout">
 				<p class="fullTxt">退出</p>
 			</li>
