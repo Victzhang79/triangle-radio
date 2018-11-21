@@ -1,15 +1,15 @@
 <template>
 	<van-popup class="dialog" v-model="visible">
 		<div @click="visible=false" class="close"></div>
-		<h3 class="dlg-title">客服微信</h3>
+		<h3 class="dlg-title">客服QQ</h3>
 		<div class="wrap">
 			<div class="qr-code">
 				<!-- <qrcode tag="img" :value="'http://www.trxwallet.net/userEntry#/logup/'+securityInfo.inviteCode"></qrcode> -->
-				<img src="../../assets/imgs/customServer.jpeg" alt="客服微信">
+				<img src="http://www.trxwallet.net/img/cs_qq.png" alt="客服微信">
 			</div>
-			<p class="grayText">微信号：lililili5066</p>
+			<p class="grayText">QQ号：2679058425</p>
 			<p class="btn-line">
-				<button v-clipboard:copy="'lililili5066'" v-clipboard:success="copyInviteLink" class="btn">复制微信号</button>
+				<button v-clipboard:copy="'2679058425'" v-clipboard:success="copyInviteLink" class="btn">复制QQ号</button>
 			</p>
 		</div>
 	</van-popup>
