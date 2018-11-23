@@ -4,7 +4,8 @@ import SecuritySetting from '../pages/SecuritySetting/cn';
 import Identification from '../pages/identification/cn';
 import Wallet from '../pages/wallet/cn';
 import Deposit from '../pages/deposit/cn';
-import DepositHistory from '../pages/history'
+import DepositHistory from '../pages/history';
+// import Property from '../pages/property';
 
 Vue.use(Router);
 
@@ -35,5 +36,10 @@ export default new Router({
 			name: 'DepositHistory',
 			component: DepositHistory
 		}
+		// {
+		// 	path: '/property',
+		// 	name: 'Property',
+		// 	component: Property
+		// }
 	]
 });
