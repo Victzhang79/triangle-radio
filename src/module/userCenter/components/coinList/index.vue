@@ -73,16 +73,7 @@ export default {
 			coinList: [
 				{
 					userId: '',
-					coinCode: 1,
-					withDrawableNum: 0,
-					lockedNum: 0,
-					withDrawingNum: 0,
-					userMobile: '',
-					walletAddr: ''
-				},
-				{
-					userId: '',
-					coinCode: 2,
+					coinCode: 9,
 					withDrawableNum: 0,
 					lockedNum: 0,
 					withDrawingNum: 0,
@@ -100,7 +91,16 @@ export default {
 				},
 				{
 					userId: '',
-					coinCode: 9,
+					coinCode: 2,
+					withDrawableNum: 0,
+					lockedNum: 0,
+					withDrawingNum: 0,
+					userMobile: '',
+					walletAddr: ''
+				},
+				{
+					userId: '',
+					coinCode: 1,
 					withDrawableNum: 0,
 					lockedNum: 0,
 					withDrawingNum: 0,
