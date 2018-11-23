@@ -18,9 +18,9 @@
 						<span class="coin-name">{{coins[item.coinCode].name}}</span>
 						<!-- <span class="coin-price">≈{{item.priceCny}} CNY</span> -->
 					</div>
-					<div class="red-font td-item">{{item.coinCode == 9 ? Math.floor(item.withDrawableNum) : item.withDrawableNum}}</div>
-					<div class="gray-font td-item">{{item.coinCode == 9 ? Math.floor(item.lockedNum) : item.lockedNum}}</div>
-					<div class="gray-font td-item">{{item.coinCode == 9 ? Math.floor(item.withDrawingNum) : item.withDrawingNum}}</div>
+					<div class="red-font td-item">{{item.coinCode == 9 ? trxNumberShow(item.withDrawableNum) : item.withDrawableNum}}</div>
+					<div class="gray-font td-item">{{item.coinCode == 9 ? trxNumberShow(item.lockedNum) : item.lockedNum}}</div>
+					<div class="gray-font td-item">{{item.coinCode == 9 ? trxNumberShow(item.withDrawingNum) : item.withDrawingNum}}</div>
 					<div class="opr td-item">
 						<span class="icon-more" :class="showOprIndex === index ? 'more-up' : 'more-down'"></span>
 					</div>
@@ -138,6 +138,9 @@ export default {
 		});
 	},
 	methods: {
+		trxNumberShow(num) {
+			return num % 1 === 0 ? num : num.toFixed(1);
+		},
 		getWalletList() {
 			Api.getWalletList().then(res => {
 				if (res.code === 200) {
