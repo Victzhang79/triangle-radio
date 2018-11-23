@@ -1,0 +1,23 @@
+@import '~@/assets/style/public.scss';
+
+.pager-wrap {
+	display: flex;
+	height: px2rem(80px);
+	background-color: #fff;
+	.previous, .next {
+		width: 50%;
+		text-align: center;
+		color: #666;
+		&.active {
+			color: #E60816;
+		}
+		.txt {
+			height: px2rem(33px);
+			line-height: px2rem(33px);
+			transform: translateY(px2rem(24px));
+		}
+	}
+	.previous .txt {
+		border-right: px2rem(1.5px) solid #eee;
+	}
+}

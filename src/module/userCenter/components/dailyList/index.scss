@@ -1,0 +1,27 @@
+@import '~@/assets/style/public.scss';
+
+.daily-list {
+	background-color: #fff;
+	.item {
+		display: flex;
+		height: px2rem(96px);
+		border-bottom: 1px solid #eeeeee;
+		padding: 0 px2rem(32px);
+		line-height: px2rem(96px);
+		.left {
+			width: 50%;
+		}
+		.right {
+			width: 50%;
+			text-align: right;
+		}
+		.num {
+			font-size: px2rem(28px);
+			color: #E60816 ;
+		}
+		.time {
+			color: #333;
+			font-size: px2rem(28px);
+		}
+	}
+}

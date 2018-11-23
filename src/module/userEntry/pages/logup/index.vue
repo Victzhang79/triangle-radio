@@ -173,6 +173,10 @@ export default {
 				this.emptyError = '确认密码';
 				return false;
 			}
+			if (!this.invitationCode) {
+				this.emptyError = '邀请码';
+				return false;
+			}
 			return true;
 		},
 		// 发送短信验证码
