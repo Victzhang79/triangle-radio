@@ -16,7 +16,7 @@
 		<bill-list v-show="tabChose===0"></bill-list>
 		<daily-list v-show="tabChose===1"></daily-list>
 
-		<pager class="pager"></pager>
+		<pager :pageNo="pageNo" :pageSize="pageSize" :totalNum="totalNum" @change="pageChange" class="pager"></pager>
 	</div>
 </template>
 
@@ -41,6 +41,12 @@ export default {
 				return;
 			}
 			this.tabChose = index;
+		}
+	},
+	methods: {
+		pageChange(page) {
+			console.log('pageNum:', page);
+			this.pageNo = page;
 		}
 	},
 	components: {

@@ -1,9 +1,9 @@
 <template>
 	<div class="pager-wrap">
-		<div class="previous" :class="{active: previousEnalbe}">
+		<div @click="previous" class="previous" :class="{active: previousEnalbe}">
 			<p class="txt">上一页</p>
 		</div>
-		<div class="next" :class="{active: nextEnable}">
+		<div @click="next" class="next" :class="{active: nextEnable}">
 			<p class="txt">下一页</p>
 		</div>
 	</div>
@@ -14,14 +14,31 @@ export default {
 	props: {
 		pageNo: Number,
 		pageSize: Number,
-		TotalNum: Number
+		totalNum: Number
 	},
 	computed: {
+		pageTotal() {
+			return Math.ceil(this.totalNum / this.pageSize);
+		},
 		previousEnalbe() {
 			return this.pageNo > 1;
 		},
 		nextEnable() {
-			return this.pageNo < Math.ceil(this.TotalNum / this.pageSize);
+			return this.pageNo < this.pageTotal;
+		}
+	},
+	methods: {
+		previous() {
+			if (this.pageNo <= 1) {
+				return;
+			}
+			this.$emit('change', this.pageNo - 1);
+		},
+		next() {
+			if (this.pageNo >= this.pageTotal) {
+				return;
+			}
+			this.$emit('change', this.pageNo + 1);
 		}
 	}
 };
