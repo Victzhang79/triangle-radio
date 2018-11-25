@@ -91,6 +91,16 @@ export default {
 			}
 		}
 	},
+	created() {
+		let userMobile = Cookie.get('userMobile');
+		if (
+			/^((13[0-9])|(14[5-9])|(15[0-3,5-9])|(16[5,6])|(17[0-8])|(18[0-9])|(19[8,9]))\d{8}$/.test(
+				userMobile
+			)
+		) {
+			this.phone = userMobile;
+		}
+	},
 	methods: {
 		signIn() {
 			const validateErrorNum = this.errors.items.length; // 表单验证错误数
@@ -124,6 +134,7 @@ export default {
 						Cookie.set('isHolder', data.data.isHolder || '', {
 							expires: 1
 						});
+						Cookie.set('userMobile', this.phone, { expires: 365 });
 						this.$toast('登录成功，即将跳转。');
 						window.location.href =
 							window.location.protocol +

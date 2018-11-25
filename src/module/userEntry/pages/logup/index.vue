@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie';
 import logMenu from '../../components/logMenu';
 // import { mapGetters } from 'vuex';
 import { getVeriCode, registeUser } from '../../apis/index'; //apis
@@ -134,6 +135,7 @@ export default {
 				.then(data => {
 					if (data.code === 200) {
 						this.$toast('注册成功，即将跳转登录页');
+						Cookie.set('userMobile', this.phone, { expires: 365 });
 						this.$router.push('/');
 					} else {
 						this.$toast.fail(data.msg);

@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import Cookie from 'js-cookie';
 import logMenu from '../../components/logMenu';
 import { getVeriCode, resetUserLogPass } from '../../apis/index'; //apis
 import encryptPassword from '../../../../util/rsaEncrypt'; //密码rsa加密
@@ -93,6 +94,16 @@ export default {
 			}
 		}
 	},
+	created() {
+		let userMobile = Cookie.get('userMobile');
+		if (
+			/^((13[0-9])|(14[5-9])|(15[0-3,5-9])|(16[5,6])|(17[0-8])|(18[0-9])|(19[8,9]))\d{8}$/.test(
+				userMobile
+			)
+		) {
+			this.phone = userMobile;
+		}
+	},
 	methods: {
 		resetPassword() {
 			const validateErrorNum = this.errors.items.length; // 表单验证错误数
@@ -116,6 +127,7 @@ export default {
 				.then(data => {
 					if (data.code === 200) {
 						this.$toast('密码已重置，即将跳转登录页。');
+						Cookie.set('userMobile', this.phone, { expires: 365 });
 						this.$router.push('/');
 					} else {
 						this.$toast.fail(data.msg);
