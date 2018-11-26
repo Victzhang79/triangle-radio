@@ -25,20 +25,31 @@ div input {
   .download-title {
     width: 100%;
     text-align: center;
-    font-size: 15px;
+    font-size: px2rem(30px);
+    margin-bottom: px2rem(10px);
+    margin-top: px2rem(40px);
   }
   .qrcode {
     text-align: center;
     img {
       width: px2rem(296px);
       height: px2rem(296px);
+      border: 1px solid #cccccc;
+      border-radius: 8px;
     }
   }
   .download-link {
-    margin: px2rem(-20px) 0 px2rem(40px);
     text-align: center;
     text-decoration: underline;
     color: #0000ff;
+    cursor: pointer;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+  .download-tip {
+    text-align: center;
+    margin-top: px2rem(5px);
+    color: #999999;
     cursor: pointer;
     overflow-wrap: break-word;
     word-wrap: break-word;
