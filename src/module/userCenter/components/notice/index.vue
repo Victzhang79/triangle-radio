@@ -14,7 +14,7 @@ export default {
 		return {
 			noticeList: [
 				'今日开始发放可释放币，每天中午12点释放',
-				'发放释放币需要5个有效一级用户'
+				'释放锁仓币的用户需要直推5名有效用户'
 			],
 			showIndex: 0,
 			length: 1,
