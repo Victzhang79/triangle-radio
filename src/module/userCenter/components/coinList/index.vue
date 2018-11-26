@@ -16,11 +16,18 @@
 					</div>
 					<div class="coin-info td-item">
 						<span class="coin-name">{{coins[item.coinCode].name}}</span>
-						<!-- <span class="coin-price">≈{{item.priceCny}} CNY</span> -->
+						<span v-if="[3, 9].indexOf(item.coinCode)" class="coin-price">¥{{trxNumberShow(item.priceCny)}}</span>
 					</div>
-					<div class="red-font td-item">{{item.coinCode == 9 ? trxNumberShow(item.withDrawableNum) : item.withDrawableNum}}</div>
-					<div class="gray-font td-item">{{item.coinCode == 9 ? trxNumberShow(item.lockedNum) : item.lockedNum}}</div>
-					<div class="gray-font td-item">{{item.coinCode == 9 ? trxNumberShow(item.withDrawingNum) : item.withDrawingNum}}</div>
+					<div class="red-font td-item">
+						<span>{{item.coinCode == 9 ? trxNumberShow(item.withDrawableNum) : item.withDrawableNum}}</span>
+						<p v-if="[3, 9].indexOf(item.coinCode)" class="coin-price  coin-money">¥{{trxNumberShow(item.priceCny * item.withDrawableNum)}}</p>
+					</div>
+					<div class="gray-font td-item"><span>{{item.coinCode == 9 ? trxNumberShow(item.lockedNum) : item.lockedNum}}</span>
+						<p v-if="[3, 9].indexOf(item.coinCode)" class="coin-price coin-money">¥{{trxNumberShow(item.priceCny * item.lockedNum)}}</p>
+					</div>
+					<div class="gray-font td-item"><span>{{item.coinCode == 9 ? trxNumberShow(item.withDrawingNum) : item.withDrawingNum}}</span>
+						<p v-if="[3, 9].indexOf(item.coinCode)" class="coin-price coin-money">¥{{trxNumberShow(item.priceCny * item.lockedNum)}}</p>
+					</div>
 					<div class="opr td-item">
 						<span class="icon-more" :class="showOprIndex === index ? 'more-up' : 'more-down'"></span>
 					</div>

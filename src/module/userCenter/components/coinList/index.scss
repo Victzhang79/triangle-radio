@@ -36,13 +36,14 @@
   }
   .list-body {
     .list-item {
-      height: px2rem(128px);
+      height: px2rem(140px);
       display: flex;
       box-sizing: border-box;
     }
     .td-item {
       padding: px2rem(28px) 0;
       border-bottom: 1px solid #e9e9e9;
+      position: relative;
     }
     .coin-logo {
       width: px2rem(96px);
@@ -100,7 +101,11 @@
       letter-spacing: 0;
       line-height: px2rem(24px);
       position: absolute;
-      top: px2rem(72px);
+      top: px2rem(95px);
+    }
+    .coin-money {
+      width: 100%;
+      text-align: center;
     }
     .red-font {
       font-family: PingFangSC-Medium;
@@ -115,7 +120,7 @@
     .gray-font {
       font-family: PingFangSC-Medium;
       font-size: px2rem(32px);
-      color: #999999;
+      color: #666666;
       letter-spacing: 0;
       text-align: center;
       line-height: px2rem(72px);
