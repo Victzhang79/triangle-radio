@@ -146,10 +146,9 @@ export default {
 	},
 	methods: {
 		trxNumberShow(num, fixNum) {
-			if (num % 1 === 0) {
-				return num;
+			if (num !== '' && typeof num !== 'undefined') {
+				return num % 1 === 0 ? num : num.toFixed(fixNum);
 			}
-			return num.toFixed(fixNum);
 		},
 		getWalletList() {
 			Api.getWalletList().then(res => {
