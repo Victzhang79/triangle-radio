@@ -36,13 +36,8 @@ Vue.use(Progress)
 
 Vue.component(VueQrcode.name, VueQrcode);
 
-/* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
-  template: '<App/>',
-  components: {
-    App
-  },
-  store
-});
+  store,
+  render: h => h(App)
+}).$mount('#app');

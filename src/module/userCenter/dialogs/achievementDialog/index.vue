@@ -19,7 +19,7 @@
 				<span class="item-title">总业绩：</span>
 				<span>{{archiveTotal}} TRX</span>
 			</div>
-			<div class="tip">注：每晚3点更新数据</div>
+			<div class="tip">注：每天中午12点更新数据</div>
 		</div>
 	</van-popup>
 </template>
