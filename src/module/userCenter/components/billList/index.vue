@@ -1,16 +1,20 @@
 <template>
-	<ul class="bill-list">
-		<li v-for="(item, index) in list" :key="index" class="item">
-			<div class="left">
-				<p class="type">{{opTypes[item.type]}}</p>
-				<p class="time">{{item.createDate}}</p>
-			</div>
-			<div class="right">
-				<p class="num">{{item.coinNum}}</p>
-				<p class="note">{{notes[item.type]}}</p>
-			</div>
-		</li>
-	</ul>
+	<div>
+		<ul v-if="list.length>0" class="bill-list">
+			<li v-for="(item, index) in list" :key="index" class="item">
+				<div class="left">
+					<p class="type">{{opTypes[item.changeType]}}</p>
+					<p class="time">{{item.createTime}}</p>
+				</div>
+				<div class="right">
+					<p :class="{active: sign[item.changeType]==='+'}" class="num">{{sign[item.changeType]}}{{item.changeNum}}</p>
+					<p class="note">{{notes[item.changeType]}}</p>
+				</div>
+			</li>
+		</ul>
+		<div v-else class="no-data">目前没有账单明细数据~</div>
+	</div>
+
 </template>
 
 <script>
@@ -20,18 +24,18 @@ export default {
 			type: Array,
 			default() {
 				return [
-					{
-						type: '1', //钱包明细变动类型：1.充值、2.提现、3.定存冻结、4.定存解冻、5.定存利息、6.业绩释放、7.发放锁仓、8.锁定可用余额、9.解锁锁仓
-						coinCode: 'Cynthia', //取值范围：1：USDT、2：BTC、3：ETH、9：TRX
-						coinNum: 330,
-						createDate: '2018-11-22 21:15'
-					},
-					{
-						type: '1',
-						coinCode: 'Cynthia',
-						coinNum: 330,
-						createDate: '2018-11-22 21:15'
-					}
+					// {
+					// 	changeType: '1', //钱包明细变动类型：1.充值、2.提现、3.定存冻结、4.定存解冻、5.定存利息、6.业绩释放、7.发放锁仓、8.锁定可用余额、9.解锁锁仓
+					// 	coinCode: 'Cynthia', //取值范围：1：USDT、2：BTC、3：ETH、9：TRX
+					// 	changeNum: 330,
+					// 	createTime: '2018-11-22 21:15'
+					// },
+					// {
+					// 	changeType: '1',
+					// 	coinCode: 'Cynthia',
+					// 	changeNum: 330,
+					// 	createTime: '2018-11-22 21:15'
+					// }
 				];
 			}
 		}
@@ -61,7 +65,8 @@ export default {
 				'发放锁仓',
 				'余额锁定',
 				'解锁'
-			]
+			],
+			sign: ['', '+', '-', '-', '+', '+', '+', '+', '-', '+']
 		};
 	}
 };

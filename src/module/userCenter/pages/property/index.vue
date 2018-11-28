@@ -16,7 +16,7 @@
 		<bill-list :list="billList"></bill-list>
 		<!-- <daily-list v-show="tabChose===1"></daily-list> -->
 
-		<pager :pageNo="pageNo" :pageSize="pageSize" :totalNum="totalNum" @change="pageChange" class="pager"></pager>
+		<pager v-show="totalNum>pageSize" :pageNo="pageNo" :pageSize="pageSize" :totalNum="totalNum" @change="pageChange" class="pager"></pager>
 	</div>
 </template>
 
@@ -34,12 +34,13 @@ export default {
 			totalPropertyInCny: '0',
 			billList: [],
 			pageNo: 1,
-			totalNum: 100,
+			totalNum: 0,
 			pageSize: 10
 		};
 	},
 	created() {
 		this.updateBillList();
+		this.getTotalProperty();
 	},
 	methods: {
 		// changeTab(index) {
@@ -56,7 +57,7 @@ export default {
 							data.data.totalAssetTrx
 						).toFixed(1);
 						this.totalPropertyInCny = Number(
-							data.data.totalPropertyInCny
+							data.data.totalAssetCny
 						).toFixed(1);
 					} else {
 						this.$toast.fail(data.msg);

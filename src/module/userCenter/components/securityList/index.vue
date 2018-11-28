@@ -15,6 +15,10 @@
 				<button @click="showProperty" class="btn fr" plain>查看</button>
 			</li>
 			<li class="item">
+				<span class="txt">总业绩</span>
+				<button @click="showAchievement" class="btn fr" plain>查看</button>
+			</li>
+			<li class="item">
 				<span class="txt">登录密码：
 					<em>{{securityInfo.logPassStatus=='1'?'已设置':'未设置'}}</em>
 				</span>
@@ -37,10 +41,6 @@
 					<em>邀请码{{securityInfo.inviteCode}}</em>
 				</span>
 				<button @click="invite()" class="btn fr" plain>邀请</button>
-			</li>
-			<li class="item">
-				<span class="txt">总业绩</span>
-				<button @click="showAchievement" class="btn fr" plain>查看</button>
 			</li>
 			<li class="item">
 				<span class="txt">下载APP</span>
