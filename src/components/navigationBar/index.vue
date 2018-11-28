@@ -7,7 +7,7 @@
 						<img class="backIcon" src="../../assets/imgs/back.png" alt="back">
 					</span>
 				</p>
-				<p class="tit">波点钱包</p>
+				<p class="tit">{{title}}</p>
 				<p v-show="extendBtn" class="extendBtn" @click="extend">{{extendTxt}}</p>
 			</div>
 		</div>
@@ -17,6 +17,12 @@
 <script>
 export default {
 	props: {
+		title: {
+			type: String,
+			default() {
+				return '波点钱包';
+			}
+		},
 		backBtn: {
 			type: Boolean,
 			default() {

@@ -7,7 +7,7 @@
 			</div>
 			<div class="right">
 				<p class="num">{{item.coinNum}}</p>
-				<p class="note">{{'备注'}}</p>
+				<p class="note">{{notes[item.type]}}</p>
 			</div>
 		</li>
 	</ul>
@@ -49,6 +49,18 @@ export default {
 				'发放锁仓',
 				'锁定可用余额',
 				'解锁锁仓'
+			],
+			notes: [
+				'',
+				'已完成',
+				'已完成',
+				'已完成',
+				'已完成',
+				'定存利息',
+				'每日释放',
+				'发放锁仓',
+				'余额锁定',
+				'解锁'
 			]
 		};
 	}

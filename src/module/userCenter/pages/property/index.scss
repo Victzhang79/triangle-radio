@@ -10,9 +10,10 @@
 		}
 	}
 	.banner {
-		height: px2rem(393px);
+		// height: px2rem(393px);
+		height: px2rem(305px);
 		background: url(../../assets/imgs/banner.png) 0 0 no-repeat;
-		background-size: 100%;
+		background-size: 100% auto;
 		text-align: center;
 		color: #fff;
 		font-size: px2rem(24px);

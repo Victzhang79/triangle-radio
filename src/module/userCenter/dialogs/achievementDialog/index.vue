@@ -19,6 +19,10 @@
 				<span class="item-title">总业绩：</span>
 				<span>{{archiveTotal}} TRX</span>
 			</div>
+			<div class="line">
+				<span class="item-title">定存提成：</span>
+				<span>{{depositArchive}} TRX</span>
+			</div>
 			<div class="tip">注：每天中午12点更新数据</div>
 		</div>
 	</van-popup>
@@ -37,7 +41,8 @@ export default {
 			subOne: 0,
 			subTotal: 0,
 			archiveOne: 0,
-			archiveTotal: 0
+			archiveTotal: 0,
+			depositArchive: 0
 		};
 	},
 	created() {
@@ -47,6 +52,7 @@ export default {
 				this.subTotal = res.data.subTotal;
 				this.archiveOne = res.data.archiveOne;
 				this.archiveTotal = res.data.archiveTotal;
+				this.depositArchive = res.data.depositArchive;
 			}
 		});
 	},

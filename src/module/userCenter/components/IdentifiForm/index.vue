@@ -61,7 +61,11 @@
 				<div class="example">
 					<p class="ex-txt">示例</p>
 					<div class="img">
-						<img src="../../assets/imgs/identiExp.png" alt="示例">
+						<!-- <img src="../../assets/imgs/identiExp.png" alt="示例"> -->
+						<img src="../../assets/imgs/shili_x.jpg" alt="示例">
+					</div>
+					<div class="img">
+						<img src="../../assets/imgs/shili.jpg" alt="示例">
 					</div>
 				</div>
 				<dl class="notice">

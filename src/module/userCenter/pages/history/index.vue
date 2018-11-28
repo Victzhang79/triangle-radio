@@ -1,6 +1,6 @@
 <template>
 	<div class="history-page-wrap">
-		<navigation-bar :backPath="'/deposit/'+historyBackPath"></navigation-bar>
+		<navigation-bar :backPath="'/deposit/'+historyBackPath" :title="'定存记录'"></navigation-bar>
 		<div class="history-page">
 			<div v-if="historyList.length==0" class="no-records">
 				<p class="tit">{{noRecordTitle}}</p>

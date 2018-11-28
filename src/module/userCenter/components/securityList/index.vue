@@ -11,6 +11,10 @@
 				</span>
 			</li>
 			<li class="item">
+				<span class="txt">资金明细</span>
+				<button @click="showProperty" class="btn fr" plain>查看</button>
+			</li>
+			<li class="item">
 				<span class="txt">登录密码：
 					<em>{{securityInfo.logPassStatus=='1'?'已设置':'未设置'}}</em>
 				</span>
@@ -138,6 +142,9 @@ export default {
 		},
 		showCustomServer() {
 			this.$store.commit('changeContactDlgVisi', true);
+		},
+		showProperty() {
+			this.$router.push('/property');
 		}
 	},
 	components: {

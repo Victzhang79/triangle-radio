@@ -148,7 +148,7 @@
 			clear: both;
 		}
 		.example {
-			float: left;
+			// floast: left;
 			padding-left: px2rem(50px);
 			.ex-txt {
 				text-align: left;
@@ -156,18 +156,24 @@
 				color: #e60816;
 			}
 			.img {
-				margin-top: px2rem(20px);
+				margin: 0 auto;
+				overflow: hidden;
 				img {
-					width: px2rem(240px);
+					margin-top: px2rem(20px);
+					width: px2rem(400px);
+					border: 1px solid #e7e7e7;
+					border-radius: px2rem(4px);
+					box-shadow: 0 2px 4px 0 rgba(189,189,189,0.50);
 				}
 			}
 		}
 		.notice {
-			float: left;
-			width: px2rem(334px);
+			// float: left;
+			// width: px2rem(550px);
 			text-align: left;
 			padding-top: px2rem(36px);
-			margin-left: px2rem(20px);
+			margin-left: px2rem(80px);
+			// margin: 0 auto;
 			dt {
 				font-size: px2rem(24px);
 				color: #1d1d1d;
