@@ -28,7 +28,7 @@
             <span
               v-if="[3, 9].indexOf(item.coinCode) > -1 && item.priceCny !== ''"
               class="coin-price"
-            >{{trxNumberShow(item.priceCny, 3)}}</span>
+            >¥{{trxNumberShow(item.priceCny, 3)}}</span>
           </div>
           <div class="red-font td-item">
             <span>{{item.coinCode == 9 ? trxNumberShow(item.withDrawableNum, 1) : item.withDrawableNum}}</span>
