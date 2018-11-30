@@ -1,9 +1,9 @@
 @import '../../assets/css/public.scss';
-$mainColor: #2ab3ce;
-div input {
-  box-sizing: border-box;
-}
-.dialog {
+// $mainColor: #2ab3ce;
+// div input {
+//   box-sizing: border-box;
+// }
+.dialog.download-dialog {
   .dlg-title {
     font-size: px2rem(36px);
     color: #1d1d1d;

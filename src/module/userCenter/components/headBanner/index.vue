@@ -1,5 +1,5 @@
 <template>
-	<div class="head-banner">
+	<div class="wallet-page-head-banner">
 		<div class="logo"></div>
 		<div class="banner">
 			<div class="logo-word"></div>
@@ -7,6 +7,6 @@
 		</div>
 	</div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 @import './index.scss';
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="show" @click-overlay="closeBox">
+	<van-popup class="dialog out-pwd-dialog" v-model="show" @click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="title">交易密码</h2>
 		<div class="demo-ruleForm wrap">
@@ -136,6 +136,6 @@ export default {
 	}
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import './index.scss';
 </style>

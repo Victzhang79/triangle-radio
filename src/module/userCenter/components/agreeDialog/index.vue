@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="value" position="right" :overlay="false">
+	<van-popup class="dialog agree-dialog-wrap" v-model="value" position="right" :overlay="false">
 		<p class="backBtn">
 			<span class="back-icon-wrap" @click="closeBox()">
 				<img class="backIcon" src="~@/assets/imgs/back.png" alt="back">
@@ -305,6 +305,6 @@ export default {
 	}
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import './index.scss';
 </style>

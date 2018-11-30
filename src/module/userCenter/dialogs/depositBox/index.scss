@@ -1,9 +1,8 @@
 @import '../../assets/css/public.scss';
-$mainColor: #2ab3ce;
-div input {
-  box-sizing: border-box;
-}
-.dialog {
+// div input {
+//   box-sizing: border-box;
+// }
+.dialog.deposit-dialog {
   .dlg-title {
     font-size: px2rem(36px);
     color: #1d1d1d;
@@ -23,11 +22,11 @@ div input {
     width: px2rem(310px);
     height: px2rem(64px);
   }
+  .tip {
+	color: #666;
+	margin: px2rem(20px) px2rem(30px) 0 0;
+	font-size: px2rem(24px);
+	text-align: left;
+  }
 }
 
-.tip {
-  color: #666;
-  margin: px2rem(20px) px2rem(30px) 0 0;
-  font-size: px2rem(24px);
-  text-align: left;
-}

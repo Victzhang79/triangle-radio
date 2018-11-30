@@ -45,19 +45,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../../../assets/style/dialog.scss';
-.qr-code {
-	width: px2rem(300px);
-	overflow: hidden;
-	margin: px2rem(20px) auto 0;
-	// border: 1px solid #979797;
-	img {
-		width: 100%;
-		border: 1px solid #979797;
-		border-radius: 8px;
-	}
-}
 .invite-link {
 	user-select: text;
 }

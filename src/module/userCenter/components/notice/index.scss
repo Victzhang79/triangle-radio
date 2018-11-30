@@ -38,8 +38,7 @@
     height: 100%;
     position: absolute;
   }
-}
-.slide-enter-active,
+  .slide-enter-active,
 .slide-leave-active {
   transition: all 0.5s linear;
 }
@@ -50,4 +49,5 @@
 .slide-enter {
   //   transform: translate3d(0, 25px, 0);
   transform: translateY(100%);
+}
 }

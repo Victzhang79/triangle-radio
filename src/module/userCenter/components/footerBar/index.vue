@@ -1,6 +1,6 @@
 <template>
-	<div class="footer-bar-wrap">
-		<div class="footer-bar">
+	<div class="public-footer-bar-wrap">
+		<div class="public-footer-bar">
 			<div class="footer-item" @click="showWallet()">
 				<span class="footer-icon-wallet icon" :class="{'icon-wallet-active': activeIndex == 1}"></span>
 				<span class="footer-word" :class="{active: activeIndex == 1}">我的钱包</span>
@@ -44,6 +44,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import './index.scss';
 </style>

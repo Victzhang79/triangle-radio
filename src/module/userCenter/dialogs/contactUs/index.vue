@@ -7,7 +7,7 @@
 				<!-- <qrcode tag="img" :value="'http://www.trxwallet.net/userEntry#/logup/'+securityInfo.inviteCode"></qrcode> -->
 				<img src="http://www.trxwallet.net/img/cs_qq.png" alt="客服微信">
 			</div>
-			<p class="grayText">QQ号：2679058425</p>
+			<p class="qq-number-color">QQ号：2679058425</p>
 			<p class="btn-line">
 				<button v-clipboard:copy="'2679058425'" v-clipboard:success="copyInviteLink" class="btn">复制QQ号</button>
 			</p>
@@ -38,20 +38,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../../../assets/style/dialog.scss';
-.qr-code {
-	width: px2rem(300px);
-	overflow: hidden;
-	margin: px2rem(20px) auto 0;
-	// border: 1px solid #979797;
-	img {
-		width: 100%;
-		border: 1px solid #979797;
-		border-radius: 8px;
-	}
-}
-.grayText {
+
+.qq-number-color {
 	text-align: center;
 }
 </style>

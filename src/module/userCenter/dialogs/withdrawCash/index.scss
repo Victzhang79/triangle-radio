@@ -1,10 +1,9 @@
 @import '../../../../assets/style/dialog.scss';
 @import '../../../../assets/style/public.scss';
-$mainColor: #2ab3ce;
 div input {
   box-sizing: border-box;
 }
-.dialog {
+.width-draw-cash-dialog {
   width: 9rem;
   .title {
     font-size: px2rem(40px);
@@ -48,7 +47,7 @@ div input {
     padding: 0 px2rem(12px);
     margin: px2rem(20px) px2rem(5px) 0 0;
     span {
-      color: $mainColor;
+      color: #2ab3ce;
     }
   }
   .isDisabled {
@@ -79,7 +78,7 @@ div input {
     display: inline-block;
     position: absolute;
     font-size: px2rem(24px);
-    color: $mainColor;
+    color: #2ab3ce;
     top: px2rem(64px);
     right: px2rem(10px);
     padding: 0 px2rem(6px);

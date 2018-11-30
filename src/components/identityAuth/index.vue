@@ -1,5 +1,5 @@
 <template>
-	<van-popup class="dialog" v-model="show" @click-overlay="closeBox">
+	<van-popup class="dialog identity-auth-wrap" v-model="show" @click-overlay="closeBox">
 		<div @click="closeBox" class="close"></div>
 		<h2 class="dialog-title">身份认证</h2>
 		<div class="dialog-body">
@@ -38,6 +38,6 @@ export default {
 	}
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import './index.scss';
 </style>
