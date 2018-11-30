@@ -30,8 +30,8 @@ export default {
 	data() {
 		return {
 			// tabChose: 0,
-			totalProperty: '0',
-			totalPropertyInCny: '0',
+			totalProperty: '--',
+			totalPropertyInCny: ' ',
 			billList: [],
 			pageNo: 1,
 			totalNum: 0,
