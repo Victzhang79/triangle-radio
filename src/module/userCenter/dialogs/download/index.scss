@@ -45,6 +45,7 @@ div input {
     cursor: pointer;
     overflow-wrap: break-word;
     word-wrap: break-word;
+	user-select: text;
   }
   .download-tip {
     text-align: center;
@@ -53,6 +54,5 @@ div input {
     cursor: pointer;
     overflow-wrap: break-word;
 	word-wrap: break-word;
-	user-select: text;
   }
 }
