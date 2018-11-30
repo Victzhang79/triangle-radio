@@ -52,6 +52,7 @@ div input {
     color: #999999;
     cursor: pointer;
     overflow-wrap: break-word;
-    word-wrap: break-word;
+	word-wrap: break-word;
+	user-select: text;
   }
 }

@@ -6,9 +6,9 @@
 			<div class="qr-code">
 				<qrcode tag="img" :value="'http://www.trxwallet.net/userEntry#/logup/'+securityInfo.inviteCode"></qrcode>
 			</div>
-			<p class="grayText">http://www.trxwallet.net/userEntry/#/logup/{{securityInfo.inviteCode}}</p>
+			<p class="grayText invite-link">http://www.trxwallet.net/userEntry/#/logup/{{securityInfo.inviteCode}}</p>
 			<p class="btn-line">
-				<button v-clipboard:copy="'http://www.trxwallet.net/userEntry/#/logup/'+ securityInfo.inviteCode" v-clipboard:success="copyInviteLink" class="btn">复制链接</button>
+				<button v-clipboard:copy="'http://www.trxwallet.net/userEntry/#/logup/'+ securityInfo.inviteCode" v-clipboard:success="copyInviteLink" v-clipboard:error="copyError" class="btn">复制链接</button>
 			</p>
 		</div>
 	</van-popup>
@@ -34,6 +34,12 @@ export default {
 		copyInviteLink() {
 			this.$toast.success('复制成功！');
 			this.visible = false;
+		},
+		copyError() {
+			this.$toast({
+				message: '复制失败，请手动复制',
+				duration: 1000
+			});
 		}
 	}
 };
@@ -51,5 +57,8 @@ export default {
 		border: 1px solid #979797;
 		border-radius: 8px;
 	}
+}
+.invite-link {
+	user-select: text;
 }
 </style>

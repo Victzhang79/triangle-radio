@@ -6,7 +6,7 @@
 		<div class="demo-ruleForm wrap">
 			<p class="item-title">{{coinNameList[item.coinCode]}}钱包地址：</p>
 			<p class="address" v-clipboard:copy="item.walletAddr" v-clipboard:success="onCopy">{{item.walletAddr}}</p>
-			<p><span class="link-btn" v-clipboard:copy="item.walletAddr" v-clipboard:success="onCopy">复制</span></p>
+			<p><span class="link-btn" v-clipboard:copy="item.walletAddr" v-clipboard:success="onCopy" v-clipboard:error="copyError">复制</span></p>
 			<p class="btn-line">
 				<button @click="closeBox" class="btn">确定</button>
 			</p>
@@ -41,6 +41,12 @@ export default {
 		onCopy() {
 			this.$toast({
 				message: '复制成功',
+				duration: 1000
+			});
+		},
+		copyError() {
+			this.$toast({
+				message: '复制失败，请手动复制',
 				duration: 1000
 			});
 		}
