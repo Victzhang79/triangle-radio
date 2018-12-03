@@ -6,7 +6,7 @@ import Wallet from '../pages/wallet/cn';
 import Deposit from '../pages/deposit/cn';
 import DepositHistory from '../pages/history';
 import Property from '../pages/property';
-// import Find from '../pages/find';
+import Find from '../pages/find';
 
 Vue.use(Router);
 
@@ -41,11 +41,11 @@ export default new Router({
 			path: '/property',
 			name: 'Property',
 			component: Property
+		},
+		{
+			path: '/find',
+			name: 'Find',
+			component: Find
 		}
-		// {
-		// 	path: '/find',
-		// 	name: 'Find',
-		// 	component: Find
-		// }
 	]
 });

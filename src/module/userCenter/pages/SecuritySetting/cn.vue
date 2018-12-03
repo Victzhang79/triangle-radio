@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navigation-bar :backBtn="false"></navigation-bar>
+    <navigation-bar :backBtn="false" :title="'个人中心'"></navigation-bar>
     <security-list></security-list>
     <footer-bar></footer-bar>
   </div>

@@ -14,7 +14,7 @@
     <div class="find-list">
       <div class="find-list-tit">超级热门</div>
       <ul class="games">
-        <li class="game">
+        <li class="game" @click="goPlay">
           <div class="game-icon">
             <img
               class="icon"
@@ -23,21 +23,29 @@
             >
           </div>
           <div class="game-content">
-            <p class="game-tit">Fomo3D</p>
-            <p class="game-txt">一场获取亿万财富的斗争</p>
+            <p class="game-tit">比特大富翁</p>
+            <p class="game-txt">买key中大奖，百万大奖等你拿</p>
           </div>
         </li>
       </ul>
     </div>
+    <p class="more">更多应用陆续接入中，敬请期待...</p>
+    <footer-bar></footer-bar>
   </div>
 </template>
 <script>
 import navigationBar from "@/components/navigationBar";
+import footerBar from "../../components/footerBar";
 export default {
   components: {
-    navigationBar
+    navigationBar,
+    footerBar
   },
-  methods: {}
+  methods: {
+	  goPlay() {
+		  this.$toast('即将上线，敬请期待');
+	  }
+  }
 };
 </script>
 <style lang="scss">
