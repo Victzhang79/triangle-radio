@@ -224,36 +224,40 @@ export default {
     },
     // 提现
     async withdraw(item) {
+      this.$toast({
+        message: "波场主网升级，暂停充提",
+        duration: this.duration
+      });
       // 未认证通过
-      if (this.credentStatus == "3") {
-        this.$toast({
-          message: "身份认证审核中，请耐心等待",
-          duration: this.duration
-        });
-        return false;
-      } else if (this.credentStatus != "1") {
-        this.showIdentityAuth = true;
-        return false;
-      }
-      this.checkItem = item;
-      // 判断密码校验接口
-      Api.getVeriStatus()
-        .then(res => {
-          if (res.code == 200) {
-            let veriStatus = res.data;
-            // 密码已校验，直接展示提现框
-            if (veriStatus == "1") {
-              this.showWithdrawBox = true;
-            } else {
-              this.showPwdDialog = true;
-            }
-          } else {
-            this.showPwdDialog = true;
-          }
-        })
-        .catch(e => {
-          this.showPwdDialog = true;
-        });
+      //   if (this.credentStatus == "3") {
+      //     this.$toast({
+      //       message: "身份认证审核中，请耐心等待",
+      //       duration: this.duration
+      //     });
+      //     return false;
+      //   } else if (this.credentStatus != "1") {
+      //     this.showIdentityAuth = true;
+      //     return false;
+      //   }
+      //   this.checkItem = item;
+      //   // 判断密码校验接口
+      //   Api.getVeriStatus()
+      //     .then(res => {
+      //       if (res.code == 200) {
+      //         let veriStatus = res.data;
+      //         // 密码已校验，直接展示提现框
+      //         if (veriStatus == "1") {
+      //           this.showWithdrawBox = true;
+      //         } else {
+      //           this.showPwdDialog = true;
+      //         }
+      //       } else {
+      //         this.showPwdDialog = true;
+      //       }
+      //     })
+      //     .catch(e => {
+      //       this.showPwdDialog = true;
+      //     });
     },
     submitWithdraw() {
       this.showWithdrawBox = true;
@@ -266,15 +270,19 @@ export default {
     },
     // 充值
     recharge(item) {
-      if (item.coinCode == 1 || item.coinCode == 2) {
-        this.$toast({
-          message: "转账人数过多，请稍后再试",
-          duration: this.duration
-        });
-      } else {
-        this.checkItem = item;
-        this.showRechargeBox = true;
-      }
+      this.$toast({
+        message: "波场主网升级，暂停充提",
+        duration: this.duration
+      });
+      //   if (item.coinCode == 1 || item.coinCode == 2) {
+      //     this.$toast({
+      //       message: "转账人数过多，请稍后再试",
+      //       duration: this.duration
+      //     });
+      //   } else {
+      //     this.checkItem = item;
+      //     this.showRechargeBox = true;
+      //   }
     },
     deposit(item) {
       // this.$toast({
