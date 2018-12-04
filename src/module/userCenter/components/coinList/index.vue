@@ -191,11 +191,11 @@ export default {
   },
   created() {
     this.getWalletList();
-    Api.getCredentStatus().then(res => {
-      if (res.code == 200) {
-        this.credentStatus = res.data.credentStatus;
-      }
-    });
+    // Api.getCredentStatus().then(res => {
+    //   if (res.code == 200) {
+    //     this.credentStatus = res.data.credentStatus;
+    //   }
+    // });
   },
   methods: {
     trxNumberShow(num, fixNum) {
@@ -225,16 +225,16 @@ export default {
     // 提现
     async withdraw(item) {
       // 未认证通过
-      if (this.credentStatus == "3") {
-        this.$toast({
-          message: "身份认证审核中，请耐心等待",
-          duration: this.duration
-        });
-        return false;
-      } else if (this.credentStatus != "1") {
-        this.showIdentityAuth = true;
-        return false;
-      }
+      //   if (this.credentStatus == "3") {
+      //     this.$toast({
+      //       message: "身份认证审核中，请耐心等待",
+      //       duration: this.duration
+      //     });
+      //     return false;
+      //   } else if (this.credentStatus != "1") {
+      //     this.showIdentityAuth = true;
+      //     return false;
+      //   }
       this.checkItem = item;
       // 判断密码校验接口
       Api.getVeriStatus()
