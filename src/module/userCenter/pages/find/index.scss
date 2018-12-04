@@ -1,28 +1,40 @@
 @import '~@/assets/style/public.scss';
 
 .find-page {
+	.userInfo-wrap {
+		background: #fff;
+		// padding: px2rem(22px) px2rem(32px);
+		padding: px2rem(30px) px2rem(30px) px2rem(16px);
+		.logo {
+			width: px2rem(125px);
+			height: px2rem(38px);
+		}
+	}
 	.top-banner {
 		text-align: center;
 		background-color: #fff;
 		.find-banner-img {
 			width: px2rem(686px);
 			border-radius: px2rem(13px);
-			padding-top: px2rem(25px);
 			padding-bottom: px2rem(25px);
 		}
 	}
 	.find-list {
 		margin-top: px2rem(10px);
 		background-color: #fff;
-		padding: px2rem(40px) 0 0 px2rem(32px);
+		padding-top: px2rem(25px);
 		.find-list-tit {
 			font-size: px2rem(32px);
 			color: #333;
 			border-left: px2rem(8px) solid #E60816;
 			line-height: px2rem(32px);
 			padding-left: px2rem(12px);
+			margin-left: px2rem(32px);
+			margin-bottom: px2rem(20px);
 		}
 		.games {
+			padding-left: px2rem(32px);
+			border-top: 0.5px solid #efefef;
 			.game {
 				display: flex;
 				height: px2rem(176px);

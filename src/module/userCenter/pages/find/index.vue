@@ -4,6 +4,13 @@
       :backBtn="false"
       :title="'发现'"
     ></navigation-bar>
+    <div class="userInfo-wrap">
+      <img
+        class="logo"
+        src="~@/assets/imgs/logo.png"
+        alt="波点钱包"
+      >
+    </div>
     <div class="top-banner">
       <img
         class="find-banner-img"
@@ -14,7 +21,10 @@
     <div class="find-list">
       <div class="find-list-tit">超级热门</div>
       <ul class="games">
-        <li class="game" @click="goPlay">
+        <li
+          class="game"
+          @click="goPlay"
+        >
           <div class="game-icon">
             <img
               class="icon"
@@ -42,9 +52,9 @@ export default {
     footerBar
   },
   methods: {
-	  goPlay() {
-		  this.$toast('即将上线，敬请期待');
-	  }
+    goPlay() {
+      this.$toast("即将上线，敬请期待");
+    }
   }
 };
 </script>

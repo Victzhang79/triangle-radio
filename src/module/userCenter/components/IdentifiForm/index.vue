@@ -72,7 +72,7 @@
 					<dt>提示</dt>
 					<dd>1.请手持相关证件，照片需要免冠，需本人手持证件；</dd>
 					<dd>2.必须看清晰证件号且证件号不能被遮挡；</dd>
-					<dd>3.照片大小限制在2M以内；</dd>
+					<dd>3.照片大小限制在4M以内；</dd>
 				</dl>
 			</div>
 			<a class="admit-btn" href="javascript:void(0);" @click="credentCommit('IdentificationForm')" :class="{disabled: identiStatus=='1'||identiStatus=='3'}">提交</a>
@@ -202,14 +202,14 @@ export default {
 		beforeAvatarUpload(file) {
 			const isJPG = file.type === 'image/jpeg';
 			const isPng = file.type === 'image/png';
-			const isLt2M = file.size / 1024 / 1024 < 2;
+			const isLt2M = file.size / 1024 / 1024 < 4;
 
 			if (!(isJPG || isPng)) {
 				this.$toast.fail('上传图片只能是 JPG或PNG 格式!');
 				return false;
 			}
 			if (!isLt2M) {
-				this.$toast.fail('上传图片大小不能超过 2MB!');
+				this.$toast.fail('上传图片大小不能超过 4MB!');
 				return false;
 			}
 			return isLt2M && (isJPG || isPng);
