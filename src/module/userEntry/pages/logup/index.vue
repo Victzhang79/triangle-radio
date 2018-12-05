@@ -27,7 +27,7 @@
 				</p>
 				<p class="form-item">
 					<span class="name">邀请码： </span>
-					<input v-model="invitationCode" type="text" class="input" placeholder="选填">
+					<input v-model="invitationCode" type="text" class="input" placeholder="必填">
 					<span v-show="emptyError" class="error-tip">{{emptyError}}不能为空</span>
 				</p>
 				<p class="form-btn" @click="signUp">立即注册</p>
