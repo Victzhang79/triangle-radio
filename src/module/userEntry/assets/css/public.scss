@@ -89,6 +89,15 @@
 				margin: 0 auto;
 				margin-top: px2rem(90px);
 			}
+			.no-count {
+				color: #999;
+				font-size: px2rem(26px);
+				text-align: center;
+				margin-top: px2rem(15px);
+				.signup-link {
+					color: #3f3fe4;
+				}
+			}
 		}
 	}
 }

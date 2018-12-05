@@ -26,6 +26,7 @@
 					<a href="javascript:void(0)" @click="goForgetPwd" class="forget-link">忘记密码</a>
 				</p>
 				<p class="form-btn" @click="signIn">登录</p>
+				<p class="no-count">没有账号？<span @click="goSignUp" class="signup-link">立即注册</span></p>
 			</div>
 		</div>
 	</div>
