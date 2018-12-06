@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navigation-bar></navigation-bar>
+    <navigation-bar :title="'身份认证'" :backPath="'/security'"></navigation-bar>
     <identifi-form></identifi-form>
   </div>
 </template>
