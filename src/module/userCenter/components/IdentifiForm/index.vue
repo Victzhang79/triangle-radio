@@ -230,9 +230,14 @@ export default {
 				}
 				credent(this.IdentiForm)
 					.then(data => {
-						this.$toast('身份信息已提交，请耐心等待认证结果。');
-						// 改变认证状态
-						this.$store.commit('changeIdentiStatus', 3);
+						if(data.code == 200) {
+							this.$toast('身份信息已提交，请耐心等待认证结果。');
+							// 改变认证状态
+							this.$store.commit('changeIdentiStatus', 3);
+						} else {
+							this.$toast(data.msg);
+						}
+						
 					})
 					.catch(err => {
 						this.$toast.fail('提交失败，请稍后重试。');
