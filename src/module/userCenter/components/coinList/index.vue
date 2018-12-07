@@ -224,11 +224,6 @@ export default {
     },
     // 提现
     async withdraw(item) {
-      this.$toast({
-        message: "波场主网升级，暂停充提",
-        duration: this.duration
-      });
-      return false;
       // 未认证通过
       //   if (this.credentStatus == "3") {
       //     this.$toast({
