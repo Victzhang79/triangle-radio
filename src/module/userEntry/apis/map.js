@@ -4,7 +4,7 @@ import Util from '@/util';
 const HOST = Util.DOMAIN;
 
 const getVeriCodePath = HOST + 'getVeriCode' + '?mock_apiId=5b7e5cac7ad806420cbf2bd2'; //获取短信验证码接口
-const registeUserPath = HOST + 'registeUser' + '?mock_apiId=5b7fa31ab2a0fd193649ee6a'; //注册用户接口
+const registeUserPath = 'http://47.244.98.207:8080/' + 'registeUser' + '?mock_apiId=5b7fa31ab2a0fd193649ee6a'; //注册用户接口
 const chkUserLogPassPath = HOST + 'chkUserLogPass' + '?mock_apiId=5b7faffe56f92a191e1a8c91'; //验证用户登录密码接口
 const resetUserLogPassPath = HOST + 'resetUserLogPass' + '?mock_apiId=5b7fa9a32fec1119249c3945'; //重置登录密码接口
 const modifyUserLogPassPath = HOST + 'modifyUserLogPass' + '?mock_apiId=5b7faaaab2a0fd193649ee6d'; //修改登录密码接口
