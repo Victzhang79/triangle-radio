@@ -10,7 +10,7 @@
 				<p class="name">{{leaderName}}</p>
 			</div>
 			<div class="right">
-				<a :href="'tel:'+leaderPhone" class="phone">{{leaderPhone}}</a>
+				<p class="phone">{{leaderPhone}}</p>
 			</div>			
 		</div>
 		<div v-else class="leader">
@@ -65,8 +65,6 @@ export default {
 					if (data.code === 200) {
 						this.leaderPhone = data.data&&data.data.userMobile;
 						this.leaderName = data.data&&data.data.userName;
-					} else {
-						this.$toast.fail(data.msg);
 					}
 					this.requested = true;
 				})
@@ -80,8 +78,6 @@ export default {
 					if (data.code === 200) {
 						this.totalNum = data.totalNum;
 						this.relationList = data.data;
-					} else {
-						this.$toast.fail(data.msg);
 					}
 				})
 				.catch(() => {

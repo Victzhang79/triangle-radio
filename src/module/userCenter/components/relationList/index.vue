@@ -5,7 +5,7 @@
 				<p class="time">{{item.userName}}</p>
 			</div>
 			<div class="middle">
-				<a :href="'tel:'+item.userMobile" class="phone">{{item.userMobile}}</a>
+				<p class="phone">{{item.userMobile}}</p>
 			</div>
 			<div class="right">
 				<p class="num">{{item.depositNum}}TRX</p>
