@@ -1,0 +1,103 @@
+@import '../../../../assets/style/public.scss';
+.property-page {
+	.userInfo-wrap {
+		background: #fff;
+		// padding: px2rem(22px) px2rem(32px);
+		padding: px2rem(30px) px2rem(30px) px2rem(16px);
+		.logo {
+			width: px2rem(125px);
+			height: px2rem(38px);
+		}
+	}
+	.banner {
+		// height: px2rem(393px);
+		height: px2rem(305px);
+		background: url(../../assets/imgs/banner.png) 0 0 no-repeat;
+		background-size: 100% auto;
+		text-align: center;
+		color: #fff;
+		font-size: px2rem(24px);
+		padding-top: px2rem(68px);
+		position: relative;
+		.num {
+			font-size: px2rem(72px);
+			line-height: px2rem(120px);
+		}
+		.tabs {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			white-space: nowrap;
+			line-height: px2rem(88px);
+			height: px2rem(88px);
+			overflow: hidden;
+			background-color: rgba(243,114,123, 0.4);
+			font-size: 0;
+			.tab {
+				display: inline-block;
+				height: px2rem(88px);
+				width: 50%;
+				font-size: px2rem(32px);
+				img {
+					width: px2rem(32px);
+					margin-right: px2rem(10px);
+					transform: translateY(px2rem(3px));
+				}
+				&.active {
+					background-color: rgb(243,114,123);
+					text-align: center;
+					position: relative;
+					&::after {
+						display: inline-block;
+						content: '';
+						width: 0;
+						height: 0;
+						border-bottom: px2rem(16px) solid #fff;
+						border-left: px2rem(17px) solid transparent;
+						border-right: px2rem(17px) solid transparent;
+						position: absolute;
+						bottom: 0px;
+						left: 46%;
+					}
+				}
+			}
+		}
+	}
+	.pager {
+		margin-top: px2rem(50px);
+	}
+	.relation-tit {
+		line-height: px2rem(80px);
+		color: #777;
+		padding-left: px2rem(32px);
+		font-size: px2rem(28px);
+	}
+	.leader {
+		display: flex;
+		height: px2rem(96px);
+		font-size: px2rem(28px);
+		padding: 0 px2rem(32px);
+		line-height: px2rem(96px);
+		background-color: #fff;
+		.left {
+			width: 50%;
+		}
+		.right {
+			width: 50%;
+			text-align: right;
+		}
+		.name {
+			color: #333;
+		}
+		.phone {
+			color: #999;
+			text-decoration: underline;
+		}
+	}
+	.no-info {
+		color: #666;
+		padding-top: 50%;
+		font-size: px2rem(30px);
+		text-align: center;
+	}
+}

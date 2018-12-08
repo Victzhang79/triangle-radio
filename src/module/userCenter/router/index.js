@@ -7,6 +7,7 @@ import Deposit from '../pages/deposit/cn';
 import DepositHistory from '../pages/history';
 import Property from '../pages/property';
 import Find from '../pages/find';
+import Relationship from '../pages/relationship';
 
 Vue.use(Router);
 
@@ -46,6 +47,11 @@ export default new Router({
 			path: '/find',
 			name: 'Find',
 			component: Find
+		},
+		{
+			path: '/relationship',
+			name: 'Relationship',
+			component: Relationship
 		}
 	]
 });

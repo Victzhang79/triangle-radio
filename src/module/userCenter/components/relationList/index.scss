@@ -1,0 +1,36 @@
+@import '~@/assets/style/public.scss';
+
+.relation-list {
+	background-color: #fff;
+	.item {
+		display: flex;
+		height: px2rem(96px);
+		border-bottom: 1px solid #eeeeee;
+		padding: 0 px2rem(32px);
+		line-height: px2rem(96px);
+		.left {
+			width: 20%;
+		}
+		.middle {
+			width: 40%;
+			text-align: center;
+			color: #666;
+		}
+		.right {
+			width: 40%;
+			text-align: right;
+		}
+		.num {
+			font-size: px2rem(28px);
+			color: #E60816 ;
+		}
+		.time {
+			color: #333;
+			font-size: px2rem(28px);
+		}
+		.phone {
+			color: #999;
+			text-decoration: underline;
+		}
+	}
+}

@@ -19,6 +19,10 @@
 				<button @click="showAchievement" class="btn fr" plain>查看</button>
 			</li>
 			<li class="item">
+				<span class="txt">推荐关系</span>
+				<button @click="showRelationship" class="btn fr" plain>查看</button>
+			</li>
+			<li class="item">
 				<span class="txt">登录密码：
 					<em>{{securityInfo.logPassStatus=='1'?'已设置':'未设置'}}</em>
 				</span>
@@ -145,6 +149,9 @@ export default {
 		},
 		showProperty() {
 			this.$router.push('/property');
+		},
+		showRelationship() {
+			this.$router.push('/relationship')
 		}
 	},
 	components: {
