@@ -30,7 +30,15 @@
 		}
 		.phone {
 			color: #999;
-			text-decoration: underline;
+			// text-decoration: underline;
+			font-size: px2rem(28px);
+		}
+		&.subTit {
+			// background-color: #f7f7f7;
+			.tit {
+				color: #999;
+				font-size: px2rem(28px);
+			}
 		}
 	}
 }

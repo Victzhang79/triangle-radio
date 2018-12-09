@@ -1,5 +1,16 @@
 <template>
 	<ul class="relation-list">
+		<li class="item subTit">
+			<div class="left">
+				<p class="tit">认证姓名</p>
+			</div>
+			<div class="middle">
+				<p class="tit">手机号</p>
+			</div>
+			<div class="right">
+				<p class="tit">定存数</p>
+			</div>
+		</li>
 		<li v-for="(item, index) in list" :key="index" class="item">
 			<div class="left">
 				<p class="time">{{item.userName}}</p>
