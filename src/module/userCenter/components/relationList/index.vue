@@ -4,6 +4,9 @@
 			<div class="left">
 				<p class="tit">认证姓名</p>
 			</div>
+			<div class="second">
+				<p class="tit">有效用户</p>
+			</div>
 			<div class="middle">
 				<p class="tit">手机号</p>
 			</div>
@@ -15,11 +18,14 @@
 			<div class="left">
 				<p class="time">{{item.userName}}</p>
 			</div>
+			<div class="second">
+				<p class="isHolder">{{item.isHolder==='1'?'是':'否'}}</p>
+			</div>
 			<div class="middle">
 				<p class="phone">{{item.userMobile}}</p>
 			</div>
 			<div class="right">
-				<p class="num">{{item.depositNum}}TRX</p>
+				<p class="num">{{Number(item.depositNum).toFixed(0)}}TRX</p>
 			</div>
 		</li>
 	</ul>
