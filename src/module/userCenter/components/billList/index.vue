@@ -3,12 +3,12 @@
 		<ul v-if="list.length>0" class="bill-list">
 			<li v-for="(item, index) in list" :key="index" class="item">
 				<div class="left">
-					<p class="type">{{opTypes[item.changeType]}}</p>
+					<p class="type">{{item.changeType==7&&item.changeNum<0?'锁仓收回':opTypes[item.changeType]}}</p>
 					<p class="time">{{item.createTime}}</p>
 				</div>
 				<div class="right">
-					<p :class="{active: sign[item.changeType]==='+'}" class="num">{{sign[item.changeType]}}{{item.changeNum}}</p>
-					<p class="note">{{notes[item.changeType]}}</p>
+					<p :class="{active: sign[item.changeType]==='+'}" class="num">{{item.changeType==7&&item.changeNum<0?'':sign[item.changeType]}}{{item.changeNum}}</p>
+					<p class="note">{{item.changeType==7&&item.changeNum<0?'锁仓收回':notes[item.changeType]}}</p>
 				</div>
 			</li>
 		</ul>
