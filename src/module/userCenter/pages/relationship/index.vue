@@ -4,8 +4,8 @@
 		<div class="userInfo-wrap">
 			<img class="logo" src="~@/assets/imgs/logo.png" alt="波点钱包">
 		</div>
-		<p class="relation-tit">我的上级：</p>
-		<div v-if="leaderName" class="leader">
+		<!-- <p class="relation-tit">我的上级：</p> -->
+		<!-- <div v-if="leaderName" class="leader">
 			<div class="left">
 				<p class="name">{{leaderName}}</p>
 			</div>
@@ -15,9 +15,9 @@
 		</div>
 		<div v-else class="leader">
 			<p class="name">无上级</p>
-		</div>
+		</div> -->
 
-		<p class="relation-tit">我的一级下级：</p>
+		<!-- <p class="relation-tit">我的一级下级：</p> -->
 		<relation-list  v-if="relationList.length >0" :list="relationList"></relation-list>
 		<div v-else class="leader">
 			<p class="name">无下级</p>

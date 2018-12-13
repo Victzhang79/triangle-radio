@@ -9,20 +9,22 @@
 		padding: 0 px2rem(32px);
 		line-height: px2rem(96px);
 		font-size: px2rem(28px);
-		.left {
-			width: 20%;
-		}
+		// .left {
+		// 	width: 20%;
+		// }
 		.second {
 			width: 20%;
 			text-align: center;
+			color: #333;
 		}
 		.middle {
-			width: 30%;
+			width: 40%;
 			text-align: center;
-			color: #666;
+			color: #333;
+			text-align: left;
 		}
 		.right {
-			width: 30%;
+			width: 40%;
 			text-align: right;
 		}
 		.num {
@@ -34,7 +36,8 @@
 			// font-size: px2rem(28px);
 		}
 		.phone {
-			color: #999;
+			user-select: text;
+			// color: #999;
 			// text-decoration: underline;
 			// font-size: px2rem(28px);
 		}
