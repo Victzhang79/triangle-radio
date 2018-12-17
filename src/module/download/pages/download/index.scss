@@ -1,0 +1,83 @@
+.download-page {
+	.guider {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0,0,0, 0.75);
+		color: #fff;
+		font-size: px2rem(30px);
+		font-weight: bold;
+		.arrow {
+			width: px2rem(80px);
+			position: absolute;
+			right: px2rem(60px);
+		}
+		dl {
+			width: px2rem(520px);
+			padding: px2rem(20px) px2rem(80px);
+			position: absolute;
+			right: px2rem(80px);
+			top: px2rem(100px);
+			border: 2px solid #fff;
+			border-radius: px2rem(400px);
+			img {
+				width: px2rem(50px);
+				height: px2rem(40px);
+				border-radius: px2rem(8px);
+				background: #aaa;
+				transform: translate(px2rem(10px), px2rem(10px))
+			}
+		}
+	}
+	.banner {
+		height: px2rem(540px);
+		background: #e22934;
+		background: linear-gradient(to top,#ff4444,#c70404);
+		color: #fff;
+		text-align: center;
+		padding-top: px2rem(160px);
+		.logo {
+			background: #fff;
+			width: px2rem(160px);
+			height: px2rem(160px);
+			border-radius: px2rem(20px);
+			margin: 0 auto;
+			img {
+				width: px2rem(140px);
+				margin-top: px2rem(65px);
+			}
+		}
+		.banner-title {
+			font-size: px2rem(36px);
+			margin-top: px2rem(20px);
+			font-weight: 500;
+			letter-spacing: 1px;
+		}
+		.banner-text {
+			margin-top: px2rem(10px);
+			font-size: px2rem(30px);
+		}
+	}
+	.intro {
+		font-size: px2rem(30px);
+		margin-top: px2rem(30px);
+		text-align: center;
+		color: #333;
+	}
+	.down-btn {
+		display: block;
+		user-select: none;
+		background: #E60816;
+		color: #fff;
+		width: px2rem(300px);
+		text-align: center;
+		margin: 0 auto;
+		margin-top: px2rem(100px);
+		height: px2rem(80px);
+		line-height: px2rem(80px);
+		border-radius: px2rem(40px);
+		font-size: px2rem(30px);
+	}
+}
